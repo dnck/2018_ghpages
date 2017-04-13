@@ -1,10 +1,9 @@
 ---
 layout: post
-title: "what does syn-haptein mean?"
+title: "What does syn-haptein mean?"
 date: 2014-04-30
 ---
 
-## A symptomatic neologism?
 Syn-haptein is just a weird way to spell the familiar word 'synapse'. Most of us already have a vague idea of what a synapse is. It's the connection between two cells in the brain, right? Sure. That's it. (If you're satisfied with that description, click <a href="http://courses.media.mit.edu/2004spring/mas966/Peirce%201878%20Make%20Ideas%20Clear.pdf"> here </a>.) 
 				
 Anyway, the purpose of spelling 'synapse' in this way isn't to be weird. I wanted to segment the linguistic root of synapse from its affix. Why should I do that? Maybe it's because I can thereby fully contemplate the historical derivation and origin of our current "form of life". Maybe. 
