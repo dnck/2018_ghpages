@@ -4,7 +4,7 @@ title: "what does syn-haptein mean?"
 date: 2014-04-30
 ---
 
-# A symptomatic neologism?
+## A symptomatic neologism?
 Syn-haptein is just a weird way to spell the familiar word 'synapse'. Most of us already have a vague idea of what a synapse is. It's the connection between two cells in the brain, right? Sure. That's it. (If you're satisfied with that description, click <a href="http://courses.media.mit.edu/2004spring/mas966/Peirce%201878%20Make%20Ideas%20Clear.pdf"> here </a>.) 
 				
 Anyway, the purpose of spelling 'synapse' in this way isn't to be weird. I wanted to segment the linguistic root of synapse from its affix. Why should I do that? Maybe it's because I can thereby fully contemplate the historical derivation and origin of our current "form of life". Maybe. 
@@ -31,7 +31,7 @@ Here's the abstract sense I have personally derived from our philological excurs
 
 Don't agree? Tell me how wrong I am by email. I'm still figuring out how to implement commments and ping backs on Jekyll.
 
-## Pure Archs  
+### Pure Archs  
 
 By some estimates, Pure Archs appeared in the historical record at the transition from the middle to the late Bronze age (2000-1000 BCE). A mere 4000 years ago. This was about the same time that syllabic writing systems emerged in the historical record. What a syllabic writing system does is demonstrate the cognitive ability to pair an acoustic signal with an arbitrary visuospatial pattern. For the development of a syllabic writing system to make practical sense, a minimum of three "points" are required: 1) a visuspatial pattern, 2) a sound pattern, and 3) a referential bond between the former two points. You would be blind to miss the analogy between the abstract meaning that I've dervied for 'apse' and 'apsis' and syllabic writing systems. 
 
