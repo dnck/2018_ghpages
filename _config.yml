@@ -1,2 +1,3 @@
 name: dnck
 markdown: kramdown
+permalink: /blog/:year/:month/:day/:title
