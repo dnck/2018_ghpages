@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "What does syn-haptein mean?"
+title: What does syn-haptein mean?
 date: 2014-04-30
 ---
 
