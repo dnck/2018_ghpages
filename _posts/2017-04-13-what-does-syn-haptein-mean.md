@@ -40,7 +40,7 @@ I won't pretend to be an expert on Arch building, but here's the basics.
 
 Pure Archs (as they are called) work by eliminating pull (also known as tensile stress) and supporting themselves based on the push of their columns (compressive stress). The way a Pure Arch does is is by pushing into a reference point called as a keystone. 
 
-![no test](/images/keystone.jpg height="256" width="405" "no text")
+![no test]({{ site.url }}/images/keystone.jpg)
 
 As you can see, the keystone is the center reference point at the top of the Arch. To build an Arch, bricks are laid simultaneously from both bottom ends until each curved pillar meets at a center keystone. In this way, the blocks forming the pillars of the Arch push together on the keystone and they thereby stablize themselves with compressive stress. 	
 
