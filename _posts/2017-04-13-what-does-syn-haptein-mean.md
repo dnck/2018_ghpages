@@ -12,13 +12,13 @@ Anyway, the purpose of spelling 'synapse' in this way isn't to be weird. I wante
 
 Anyway consider the root of the word synapse: 'apse'. The word 'apse' refers to the semicircular region at the back of a Catholic cathedral. Look at an apse:
 
-![alt text]("/images/cathedr_floorplan_new.jpg" "cathderal floor plan")
+![alt text]([[ site.url }} /images/cathedr_floorplan_new.jpg)
 
 There's another linguistic form closely related to 'apse': the Ionic cognate word 'apsis' or what's the same, the Greeek 'haptein'. An apsis is an astronomical term that we currently use to refer to either one of the extreme values on an orbit around a fixed point.
 
 Notice any commonalities beteween these two lingusitic forms? How about this. Both apse and apsis have in common three spatial points. In the case of a Roman Catholic church, the three points for are 1) the faithful lay-members of the church, 2) the clergy presiding over the mass and 3) the blessed sacrament held in the tabernacle behind the clergy.  In the case of an eliptical orbit around a center of mass, the three points are 1) the max distance from the center of mass, 2) the min distance, and  3) the center of mass itself. 
 
-![alt text]({{ site.url }}/images/apogee.png +256X405)
+![alt text]({{ site.url }}/images/apogee.png)
 
 Can you see why Martin Luther might have wanted to post his notes on the church door? Excuse me. I digress. 
 
@@ -40,7 +40,7 @@ I won't pretend to be an expert on Arch building, but here's the basics.
 
 Pure Archs (as they are called) work by eliminating pull (also known as tensile stress) and supporting themselves based on the push of their columns (compressive stress). The way a Pure Arch does is is by pushing into a reference point called as a keystone. 
 
-![keystone]({{ site-url }}/images/keystone.jpg =256x405)
+![keystone]({{ site-url }}/images/keystone.jpg)
 
 As you can see, the keystone is the center reference point at the top of the Arch. To build an Arch, bricks are laid simultaneously from both bottom ends until each curved pillar meets at a center keystone. In this way, the blocks forming the pillars of the Arch push together on the keystone and they thereby stablize themselves with compressive stress. 	
 
