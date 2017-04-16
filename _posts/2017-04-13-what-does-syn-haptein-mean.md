@@ -12,7 +12,7 @@ Anyway, the purpose of spelling 'synapse' in this way isn't to be weird. I wante
 
 Anyway consider the root of the word synapse: 'apse'. The word 'apse' refers to the semicircular region at the back of a Catholic cathedral. Look at an apse:
 
-![cathedr_floor]({{ site.url }}/images/cathedr_floorplan_new.jpg){:height="256px" width="256"}.
+![cathedr_floor]({{ site.url }}/images/cathedr_floorplan_new.jpg){:height="512px" width="512px"}.
 
 There's another linguistic form closely related to 'apse': the Ionic cognate word 'apsis' or what's the same, the Greeek 'haptein'. An apsis is an astronomical term that we currently use to refer to either one of the extreme values on an orbit around a fixed point.
 
