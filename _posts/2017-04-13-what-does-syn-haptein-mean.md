@@ -3,6 +3,7 @@ layout: post
 title: What does syn-haptein mean?
 date: 2014-04-30
 ---
+<link rel="stylesheet" href="css/retro.css">
 
 Syn-haptein is just a weird way to spell the familiar word 'synapse'. But the purpose of spelling 'synapse' like that wasn't to be weird. I wanted to segment the linguistic root of synapse from its affix. 
 
