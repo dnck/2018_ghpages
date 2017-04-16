@@ -4,13 +4,18 @@ title: What does syn-haptein mean?
 date: 2014-04-30
 ---
 
-Syn-haptein is just a weird way to spell the familiar word 'synapse'. Most of us already have a vague idea of what a synapse is. It's the connection between two cells in the brain, right? Sure. That's it. (If you're satisfied with that description, click <a href="http://courses.media.mit.edu/2004spring/mas966/Peirce%201878%20Make%20Ideas%20Clear.pdf"> here </a>.) 
-				
-Anyway, the purpose of spelling 'synapse' in this way isn't to be weird. I wanted to segment the linguistic root of synapse from its affix. Why should I do that? Maybe it's because I can thereby fully contemplate the historical derivation and origin of our current "form of life". Maybe. 
+Syn-haptein is just a weird way to spell the familiar word 'synapse'. But the purpose of spelling 'synapse' like that wasn't to be weird. I wanted to segment the linguistic root of synapse from its affix. 
 
-*Or maybe I'm just really bored and I wanted to learn how to code a Jekyll site. You feel me?*
+Why should I want to do such a thing? 
 
-Anyway consider the root of the word synapse: 'apse'. The word 'apse' refers to the semicircular region at the back of a Catholic cathedral. Look at an apse:
+*maybe I'm just really bored and I wanted to learn how to code a Jekyll site.*
+
+or
+
+Maybe it's because [C.S. Peirce persauded me that I would benefit from making my ideas clear]({{ site.url }}/pdfs/PeirceHowToMakeIdeasClear.pdf)
+
+
+Does it matter? Consider the root of the word synapse: 'apse'. The word 'apse' refers to the semicircular region at the back of a Catholic cathedral. Look at an apse:
 
 ![cathedr_floor]({{ site.url }}/images/cathedr_floorplan_new.jpg){:height="350px" width="600px"}.
 
