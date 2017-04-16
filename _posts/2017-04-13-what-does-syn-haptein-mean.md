@@ -50,7 +50,8 @@ Well, as you may have guessed, I chose the domain-name with the above *metaphors
 
 Obviously, the above story is grossly oversimplified. But, it is not like we're in a current hsitorical period where the entire story is available. There's still mystery surrounding the function and make-up of the extracellular fluid in the synaptic cleft. 
 
-<p><img src="http://www.syn-haptein.com/images/apogee.png"), height="10" width="10"></p>
+
+<a href="url"><img src="http://www.syn-haptein.com/images/apogee.png" align="left" height="48" width="48" ></a>
 
 Nonetheless, just like the keystone in an Arch, or the clergy members presiding over mass in a Catholic cathedral, or the center of mass around which planets orbit, the synaptic cleft component of the synapase is a crucial component to understand if you want to get clear about what exactly a synpase is. And the domain name www.syn-haptein.com, refers to my theoretical interests: languages and brains.  
 				
