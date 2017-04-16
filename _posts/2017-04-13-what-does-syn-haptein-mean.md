@@ -42,6 +42,8 @@ Pure Archs (as they are called) work by eliminating pull (also known as tensile 
 
 <a href="url"><img src="http//www.syn-haptein.com/images/keystone.jpg" align="left" height="256" width="405" ></a>
 
+![smiley]({{ site.url }}/images/keystone.jpg){:height="36px" width="36px"}.
+
 As you can see, the keystone is the center reference point at the top of the Arch. To build an Arch, bricks are laid simultaneously from both bottom ends until each curved pillar meets at a center keystone. In this way, the blocks forming the pillars of the Arch push together on the keystone and they thereby stablize themselves with compressive stress. 	
 
 What does any of this have to do with meaning of the domain-name www.syn-haptein.com?  
