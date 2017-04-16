@@ -12,13 +12,13 @@ Anyway, the purpose of spelling 'synapse' in this way isn't to be weird. I wante
 
 Anyway consider the root of the word synapse: 'apse'. The word 'apse' refers to the semicircular region at the back of a Catholic cathedral. Look at an apse:
 
-![alt text]([[ site.url }}/images/cathedr_floorplan_new.jpg)
+<a href="url"><img src="http://www.syn-haptein.com/images/cathedr_floorplan_new.jpg" align="left" height="256" width="405" ></a>
 
 There's another linguistic form closely related to 'apse': the Ionic cognate word 'apsis' or what's the same, the Greeek 'haptein'. An apsis is an astronomical term that we currently use to refer to either one of the extreme values on an orbit around a fixed point.
 
 Notice any commonalities beteween these two lingusitic forms? How about this. Both apse and apsis have in common three spatial points. In the case of a Roman Catholic church, the three points for are 1) the faithful lay-members of the church, 2) the clergy presiding over the mass and 3) the blessed sacrament held in the tabernacle behind the clergy.  In the case of an eliptical orbit around a center of mass, the three points are 1) the max distance from the center of mass, 2) the min distance, and  3) the center of mass itself. 
 
-![alt text]({{ site.url }}/images/apogee.png)
+<a href="url"><img src="http://www.syn-haptein.com/images/apogee.png" align="left" height="256" width="405" ></a>
 
 Can you see why Martin Luther might have wanted to post his notes on the church door? Excuse me. I digress. 
 
@@ -40,7 +40,7 @@ I won't pretend to be an expert on Arch building, but here's the basics.
 
 Pure Archs (as they are called) work by eliminating pull (also known as tensile stress) and supporting themselves based on the push of their columns (compressive stress). The way a Pure Arch does is is by pushing into a reference point called as a keystone. 
 
-![keystone]({{ site-url }}/images/keystone.jpg)
+<a href="url"><img src="http:www.syn-haptein.com/images/keystone.jpg" "align="left" height="256" width="405" ></a>
 
 As you can see, the keystone is the center reference point at the top of the Arch. To build an Arch, bricks are laid simultaneously from both bottom ends until each curved pillar meets at a center keystone. In this way, the blocks forming the pillars of the Arch push together on the keystone and they thereby stablize themselves with compressive stress. 	
 
@@ -49,9 +49,6 @@ What does any of this have to do with meaning of the domain-name www.syn-haptein
 Well, as you may have guessed, I chose the domain-name with the above *metaphors* in mind. Since I'm interested in neuroscience, the name seemed fitting. For example, in neuroscience, chemical synapses are the most abundant type of synapse in the brain. A chemical synapse consist of two pillars: 1) a signaling neuron and 2) a target neuron. Information transfer in the brain occurs via the release of chemicals from the signaling neuron into what's called a synaptic cleft. When the signal is propogated, chemical neurotransmitters flood into the synaptic cleft. The molecules (proteins and what not) in the cleft modulate the uptake of the neurotransmitters by the target neuron. For its part, the target neuron modulates and propogates the signalling neurons "message". 
 
 Obviously, the above story is grossly oversimplified. But, it is not like we're in a current hsitorical period where the entire story is available. There's still mystery surrounding the function and make-up of the extracellular fluid in the synaptic cleft. 
-
-
-<a href="url"><img src="http://www.syn-haptein.com/images/apogee.png" align="left" height="48" width="48" ></a>
 
 Nonetheless, just like the keystone in an Arch, or the clergy members presiding over mass in a Catholic cathedral, or the center of mass around which planets orbit, the synaptic cleft component of the synapase is a crucial component to understand if you want to get clear about what exactly a synpase is. And the domain name www.syn-haptein.com, refers to my theoretical interests: languages and brains.  
 				
