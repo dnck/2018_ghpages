@@ -75,8 +75,10 @@ Look at a keystone. It is labeled below:
 As you can see, the keystone is the center reference point at the top of the Arch. To build an Arch, bricks are laid simultaneously from both bottom ends until each curved pillar meets at the center keystone. In this way, the bricks forming the pillars of the Arch push together on the keystone and they thereby stablize themselves with compressive stress or push.
 
 If you wanna push, then I'm, ready to push, but if you pull it while I push it, then why'd you ask me to push?  - Aesop Rock.
-<div class="spotify"></div>
 
+<iframe src="https://open.spotify.com/embed?uri=spotify:track:5lBjKm0YbgCQdKRcvDzPAJ"
+        frameborder="0" allowtransparency="true"></iframe>
+        
 Ok, now to the main thing. What does this have to do with the meaning of the domain-name www.syn-haptein.com?  
 
 I chose the domain-name with the above metaphors in mind. So because I'm interested in neuroscience, the name seemed to fit. 
