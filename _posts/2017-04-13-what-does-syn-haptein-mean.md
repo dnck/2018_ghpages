@@ -76,16 +76,29 @@ Look at a keystone. It is labeled below:
 
 As you can see, the keystone is the center reference point at the top of the Arch. To build an Arch, bricks are laid simultaneously from both bottom ends until each curved pillar meets at the center keystone. In this way, the bricks forming the pillars of the Arch push together on the keystone and they thereby stablize themselves with compressive stress or push.
 
-If you pull while I push they why'd you tell me to push? 	
+If you wanna push, then I'm, ready to push, but if you pull it while I push it, then why'd you ask me to push?  - Aesop Rock.
 
 <iframe src="https://open.spotify.com/embed?uri=spotify:track:5lBjKm0YbgCQdKRcvDzPAJ"
         frameborder="0" allowtransparency="true"></iframe>
 
-What does any of this have to do with meaning of the domain-name www.syn-haptein.com?  
+Ok, now to the main thing. What does this have to do with the meaning of the domain-name www.syn-haptein.com?  
 
-Well, as you may have guessed, I chose the domain-name with the above *metaphors* in mind. Since I'm interested in neuroscience, the name seemed fitting. For example, in neuroscience, chemical synapses are the most abundant type of synapse in the brain. A chemical synapse consist of two pillars: 1) a signaling neuron and 2) a target neuron. Information transfer in the brain occurs via the release of chemicals from the signaling neuron into what's called a synaptic cleft. When the signal is propogated, chemical neurotransmitters flood into the synaptic cleft. The molecules (proteins and what not) in the cleft modulate the uptake of the neurotransmitters by the target neuron. For its part, the target neuron modulates and propogates the signalling neurons "message". 
+I chose the domain-name with the above metaphors in mind. So because I'm interested in neuroscience, the name seemed to fit. 
 
-Obviously, the above story is grossly oversimplified. But, it is not like we're in a current hsitorical period where the entire story is available. There's still mystery surrounding the function and make-up of the extracellular fluid in the synaptic cleft. 
+In neuroscience, for example, chemical synapses are the most abundant type of synapse in the brain. 
 
-Nonetheless, just like the keystone in an Arch, or the clergy members presiding over mass in a Catholic cathedral, or the center of mass around which planets orbit, the synaptic cleft component of the synapase is a crucial component to understand if you want to get clear about what exactly a synpase is. And the domain name www.syn-haptein.com, refers to my theoretical interests: languages and brains.  
-				
+A chemical synapse consist of two pillars: 
+
+1) a signaling neuron and 
+2) a target neuron. 
+
+So, what's the third element?
+
+Here's the gist. Information transfer in the brain occurs mainly via the release of chemicals from a signaling neuron. The chemicals flood a zone called the synaptic cleft. The molecules in the synpatic cleft modulate the uptake of the neurotransmitters by the receiving neuron. Depending on the modulation, the target neuron does its own modulation and (possibly), it propogates the signalling neurons "message" to the next neuron in the chain. If you're into python - call the neuron.next() function. 
+
+Anwyway, the above story, even though grossly oversimplified, helps to complete my analogy based on philological resereach. 
+
+Archs have keystones. Churches have clergy members. Solar systems have centers of mass. Neural networks have their synaptic clefts. 
+
+So, the domain name www.syn-haptein.com refers to that third thing, sometimes known, sometimes unknown, that connects everything in its own  relationship of dominance and subordination. Currently, I'm dominated by my desire to sleep. 
+
