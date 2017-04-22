@@ -5,41 +5,22 @@ date: 2014-04-30
 spotify: track:5lBjKm0YbgCQdKRcvDzPAJ
 ---
 
-What sense can we derive from the historical origin of the word 'synapse'? 
+In this post, I demonstrate what I mean by segmenting the linguistic root of a word from its affix and inspecting the origins of the parts. If you're interested in the motivation, you can read the next paragraph. Else, just skip to third paragraph.
 
-Why bother asking such a question? 
+Is it possible to derive the current sense of a word from its historical origins? My intuition says, "yes" - if we just inspect the sense of the root of a word and any of its affixes, and we trace the historical trajectory of the the parts, then we could derive the current sense. The biggest problem facing this method is time. First of all, it would take a very long time to trace the sense of a single part of a word. If we were to rely only on dictionaries, we'd still be looking at around 4000 years of evidence (oldest surviving dictionary ~ 2300 BCE). But, if we decided that we should include ancient logographic writing systems and the variations to which these writing systems were put to use (including dictionaries, story telling, acounting, etc.) in our stock pile of evidence, we'd be looking at massive amounts of data from all sorts of sources. We'd run out of time and die before we even derived the sense of a single word. Second of all, there's gaps in the record. So time has probably already beat us here, and destroyed parts of the records we would need to draw a convincingly conclusion (but I guess that depends on how much convincing you need). Nonetheless, I think it would be a worthwhile project to trace the origins of ["http://nws.merriam-webster.com/opendictionary/newword_display_recent.php"](some words). 
 
-Because [C.S. Peirce persauded me that I would benefit from making my ideas clear]({{ pdf.url }}/pdfs/PeirceHowToMakeIdeasClear.pdf)
-
-So, step one and two. Segment the linguistic root of synapse from its affix and inspect their origins. 
-
-The root of the word synapse is 'apse'. The word 'apse' refers to the semicircular region at the back of a Catholic cathedral. Here's an image of an apse:
+The root of the word synapse is 'apse'. The word 'apse' refers to a semicircular region at the back of a cathedral. Here's an apse:
 
 ![cathedr_floor]({{ thisImg.url }}/images/cathedr_floorplan_new.jpg){:height="350px" width="600px"}.
 
-The Ionic word 'apsis' and the Greek word, 'haptein', are cognate linguistic forms closely related to 'apse'. Let's focus only on apsis. 
-
-An apsis is an astronomical term used to refer to either one of the extreme values on an orbit around a fixed point. Here's an image:
+The Ionic word 'apsis' and the Greek word, 'haptein', are cognate linguistic forms closely related to 'apse'. Let's focus only on apsis. An apsis is an astronomical term used to refer to either one of the extreme values on an orbit around a fixed point. Again, here it is:
 
 ![apogee]({{ thisImg.url }}/images/apogee.png){:height="256px" width="400px"}.
 
-Both apse and apsis have in common a reference to three spatial points. 
+Both apse and apsis have in common a reference to three spatial points. In the case of an apse, the three points are: 
+1) the faithful lay-members of the church, 2) the clergy presiding over the mass and 3) the blessed sacrament held in the tabernacle behind the clergy.  In the case of an eliptical orbit around a center of a mass, the three points are 
+1) the max distance from the center of mass, 2) the min distance, and 3) the center of mass itself. So, let's stop there for the root. The affix for the word 'synapase' is 'syn'. Note that an affix isn't supposed to carry much meaning apart from its root, so I won't make much ado about syn. Nonetheless, the word 'syn' comes from the Greek word meaning, 'together' or 'with'. Now let's proceed to a synthesis of the sense for the root and the affix.
 
-In the case of an apse, the three points are: 
+Synapse (def.) refers to two dependent points and a single reference points, which taken together function as a unit.
 
-1) the faithful lay-members of the church, 
-2) the clergy presiding over the mass and 
-3) the blessed sacrament held in the tabernacle behind the clergy.  
-
-In the case of an eliptical orbit around a center of a mass, the three points are 
-1) the max distance from the center of mass, 
-2) the min distance, and  
-3) the center of mass itself. 
-
-What about the affix 'syn'? First of all, that an affix isn't supposed to carry much meaning apart from the root  its attached to, so I won't make much ado about syn. Just note, syn comes from the Greek word meaning, 'together' or 'with'. 
-
-Step three. Synthesize the original sense for the root and the affix. 
-
-1) a 'synapse' refers to "two dependent parts with a single reference point - all of which function together as a unit". 
-
-That sounds so wrong - even to the person that wrote it - me! File this in the failed projects bin. However, I did successfully learn how to code a Jekyll site - and make posts in markdown with pictures - that's something, right?
+["https://en.wikipedia.org/wiki/Chemical_synapse#Structure"](That) ["http://www.cell.com/biophysj/abstract/S0006-3495(81)84899-0"](sounds about) ["http://www.cell.com/trends/neurosciences/abstract/S0166-2236(09)00101-5?_returnURL=http%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0166223609001015%3Fshowall%3Dtrue"](right).
