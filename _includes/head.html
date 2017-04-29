@@ -4,22 +4,6 @@
 	<meta name="description" content="{{ page.description }}">
 	<meta name="author" content="dnck">
 	<title>{{ page.title }} dnck</title>		
-	<!-- styles -->
 	<link href="/css/main.css" type="text/css" rel="stylesheet">
-	<!-- google analytics - i will not share this data with google -->
 	{% include analytics.html %}
-	{% if page.custom_css %}
-  		{% for stylesheet in page.custom_css %}
-  			<link rel="stylesheet" href="/css/{{ stylesheet }}.css" media="screen" type="text/css">
-  		{% endfor %}
-	{% endif %}
-	{% if page.custom_js %}
-  		{% for js_file in page.custom_js %}
-  			<script src='/javascripts/{{ js_file }}.js' type="text/javascript"></script>
-  		{% endfor %}
-	{% endif %}
-	{% if page.includeMap %}
-		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-		<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-	{% endif %}
 </head>

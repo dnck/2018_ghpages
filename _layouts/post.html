@@ -4,9 +4,5 @@ layout: default
 <h1>{{ page.title }}</h1>
 	<p class="meta">{{ page.date | date_to_string }}</p>
 		<div class="post">
-		{{ content }}
-		{% if post.spotifyTrack %}
-			<iframe width="256" height="128" frameborder="0" allowtransparency="true"
-			src="https://embed.spotify.com/?uri={{ post.spotifyTrack }}"></iframe>
-		{% endif %}
+			{{ content }}
 		</div>
