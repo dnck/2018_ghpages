@@ -3,23 +3,21 @@ layout: feed
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-
-	<title>dnck synapse blog</title>
+	<title>dnck</title>
 	<link href="http://wwww.danjcook.com/blog/atom.xml" rel="self"/>
 	<link href="http://wwww.danjcook.com/blog"/>
 	<updated>{{ site.time | date_to_xmlschema }}</updated>
-	<id>http://wwww.syn-haptein.com/blog</id>
+	<id>http://wwww.danjcook.com/blog</id>
 	<author>
 		<name>dcnk synapse</name>
 		<email>cookdj0128@gmail.com</email>
 	</author>
-
 	{% for post in site.posts %}
 		<entry>
 			<title>{{ post.title }}</title>
 			<link href="http://wwww.danjcook.com{{ post.url }}"/>
 			<updated>{{ post.date | date_to_xmlschema }}</updated>
-			<id>http://wwww.syn-haptein.com/blog{{ post.id }}</id>
+			<id>http://wwww.danjcook.com/blog{{ post.id }}</id>
 			<content type="html">{{ post.content | xml_escape }}</content>
 		</entry>
 	{% endfor %}
