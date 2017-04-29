@@ -1,7 +1,7 @@
 ---
 layout: post
 title: semantic derivations
-date: 2017-04-30
+date: 2017-04-27
 spotify: track:5lBjKm0YbgCQdKRcvDzPAJ
 ---
 

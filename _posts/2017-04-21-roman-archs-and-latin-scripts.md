@@ -1,7 +1,7 @@
 ---
 layout: post
 title: pure archs 
-date: 2017-04-21
+date: 2017-04-22
 ---
 
 I recently visited Rome and it got me wondering about two things. How do archs work, and what's the story behind the Latin alphabet?
