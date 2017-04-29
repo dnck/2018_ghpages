@@ -1,0 +1,13 @@
+<button id='markup-copy'>Copy Button</button>
+
+<script>
+    document.getElementById('markup-copy').addEventListener('click', function() {
+        clipboard.copy({
+            'text/plain': 'Markup text. Paste me into a rich text editor.',
+            'text/html': '<i>here</i> is some <b>rich text</b>'
+        }).then(
+            function(){console.log('success'); },
+            function(err){console.log('failure', err);
+        });
+    });
+</script>
