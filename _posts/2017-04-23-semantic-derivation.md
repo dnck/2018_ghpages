@@ -23,10 +23,4 @@ Both apse and apsis have in common a reference to three spatial points. In the c
 
 Synapse (def.) refers to two dependent points and a single reference points, which taken together function as a unit.
 
-[That]("https://en.wikipedia.org/wiki/Chemical_synapse#Structure") [sounds about]("http://www.cell.com/biophysj/abstract/S0006-3495(81)84899-0") [right]("http://www.cell.com/trends/neurosciences/abstract/S0166-2236(09)00101-5?_returnURL=http%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0166223609001015%3Fshowall%3Dtrue"
-.
-
-[1]: 
-[2]: 
-[3]: 
-[4]: 
+[That]("https://en.wikipedia.org/wiki/Chemical_synapse#Structure") [sounds about]("http://www.cell.com/biophysj/abstract/S0006-3495(81)84899-0") [right]("goo.gl/itqdXN")
