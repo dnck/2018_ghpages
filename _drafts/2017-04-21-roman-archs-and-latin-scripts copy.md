@@ -19,6 +19,8 @@ Take a look at a keystone. I think it's helpful to see a picture. The keystone i
 
 As you can see, a keystone is a center reference point at the top of an arch. To build an arch, bricks are laid until each curved column meets at the center keystone. In this way, the columns of the arch push together on the keystone and stablize themselves with compressive stress or push. It's as if archs elimnate the pull of gravity by pushing into themselves.  
 
+
+
 *Latin Alphabet*
 
 Interestingly, at about the same time that we first find evidence of arch building in the historical record, we also start to find evidence for syllabic writing systems. Disclaimer: the Latin Alphabet is not a syllabic writing system, so I've kinda mislead anyone that read this far. But, if you made it down here, don't stop. The topic of writing systems is supremely fascinating! 

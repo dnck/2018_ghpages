@@ -4,4 +4,4 @@ title: "dnck launch Jekyll project"
 date: 2017-04-18
 ---
 
-I have wanted to get rid of my dependence on wordpress for some time. Who really needs SQL databases and all the other complicated crap for a simple blog? This website is hosted on github powered by [Jekyll](http://jekyllrb.com). Best of all, I can use Markdown to author my posts. I will share some code, and other stuff as I finish projects. 
+I've wanted to migrate my blogging away from wordpress for awhile. Honestly, wordpress is confusing. Who needs SQL databases and all that other fancy stuff for a simple blog? This website is hosted on github and its powered by [Jekyll](http://jekyllrb.com). I use Markdown to write my posts and git to update my blog. I'll share some thoughts, code, and projects as they develop.
