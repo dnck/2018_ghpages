@@ -68,3 +68,15 @@ ul.posts {
 ul.posts li {
     list-style: none;
 }
+
+.hover_image:hover {text-decoration: none} /* Optional (avoid undesired underscore if a is used as wrapper) */
+.hide {display:none}
+/* Do the shift: */
+.hover_image:hover img:first-child{display:none}
+.hover_image:hover img:last-child{display:inline-block}
+
+.center-justified {
+  text-align: justify;
+  margin: 0 auto;
+  width: 30em;
+}
