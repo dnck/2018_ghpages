@@ -11,9 +11,9 @@ First, I want to learn how the framework underlying the blog works. Second, I wa
 I plan to share two blog posts today. I also have a list of blog posts planned out. You can comment on the list once I do the third post.
 
 Future Blog Posts
-* ~~ Launch the blog. Why? ~~ Done!
-* ~~ Linguists are like aliens! ~~ Done!
-* ~~ What's the sense in looking at historical records? ~~ Done!
+* ~~Launch the blog. Why?~~  Done!
+* ~~Linguists are like aliens!~~ Done!
+* ~~What's the sense in looking at historical records?~~ Done!
 * How can I comment on your blog posts?
 * Writing systems. What do they say about human cognition and its evolution?
 * What is a combinatorial tool? Are they special? Do they reveal anything important about human as opposed to merely animal cognition?
