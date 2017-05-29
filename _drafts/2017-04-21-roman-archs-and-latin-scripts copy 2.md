@@ -1,7 +1,7 @@
 ---
 layout: post
 title: pure archs 
-date: 2017-04-22
+date: 2017-04-21
 ---
 
 I recently visited Rome and it got me wondering about two things. How do archs work, and what's the story behind the Latin alphabet?
@@ -18,8 +18,6 @@ Take a look at a keystone. I think it's helpful to see a picture. The keystone i
 ![keystone]({{ thisImg.url }}/images/keystone.jpg){:height="256px" width="256px"}.
 
 As you can see, a keystone is a center reference point at the top of an arch. To build an arch, bricks are laid until each curved column meets at the center keystone. In this way, the columns of the arch push together on the keystone and stablize themselves with compressive stress or push. It's as if archs elimnate the pull of gravity by pushing into themselves.  
-
-
 
 *Latin Alphabet*
 
