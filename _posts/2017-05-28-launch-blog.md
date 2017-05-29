@@ -1,7 +1,7 @@
 ---
 layout: post
-title: dnck launch Jekyll project
-date: 2017-05-29
+title: launch blog
+date: 2017-05-28
 ---
 
 I'm launching my new personal blog/website today for three reasons. 
