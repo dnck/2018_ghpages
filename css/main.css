@@ -2,7 +2,6 @@
 Just my new theme. 
 License - free for all.
 */
-
 html {
   position: relative;
 }
@@ -10,6 +9,7 @@ body {
   /* Margin bottom by footer height */
   margin-top: 40px;
   margin-bottom: 40px;
+  $link-color: #ffffff;
 }
 
 /* Sticky footer styles
