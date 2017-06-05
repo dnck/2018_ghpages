@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Spinning fractals!
+title: spinning fractals!
 date: 2017-06-04
 ---
 
