@@ -42,6 +42,9 @@ License - free for all.
     background-color: #ffffff;
 }
 
+.spinning-fractal{
+    padding-top: 10%;
+}
 
 .hover_image:hover {text-decoration: none} /* Optional (avoid undesired underscore if a is used as wrapper) */
 .hide {display:none}
