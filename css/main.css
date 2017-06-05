@@ -1,11 +1,6 @@
 /*
-
-
 Just my new theme. 
 License - free for all.
-
-
-
 */
 
 /*
@@ -14,18 +9,18 @@ License - free for all.
  */
 
 .navbar-custom {
-    background-color: #4B1657;
+    background-color: #ffffff;
 }
 
 /* change the brand and text color */
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-text {
-    color: rgba(255,255,255,.8);
+    color: #000000;
 }
 
 /* change the link color */
 .navbar-custom .navbar-nav .nav-link {
-    color: rgba(255,255,255,.5);
+    color: #000000;
 }
 
 /* change the color of active or hovered links */
@@ -36,15 +31,15 @@ License - free for all.
 
 /* for dropdown only - change the color of droodown */
 .navbar-custom .dropdown-menu {
-    background-color: #4B1657;
+    background-color: #ffffff;
 }
 .navbar-custom .dropdown-item {
-    color: #ffffff;
+    color: #000000;
 }
 .navbar-custom .dropdown-item:hover,
 .navbar-custom .dropdown-item:focus {
-    color: #333333;
-    background-color: rgba(255,255,255,.5);
+    color: #000000;
+    background-color: #ffffff;
 }
 
 
