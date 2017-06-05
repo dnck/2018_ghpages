@@ -1,3 +1,9 @@
+---
+layout: post
+title: Author citations predicted by reads 
+date: 2017-06-05
+---
+
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 	<div class="row">
     	<div class="row-md-4" style="background-color:white;">
