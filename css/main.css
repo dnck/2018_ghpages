@@ -3,6 +3,26 @@ Just my new theme.
 License - free for all.
 */
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
 /*
  * Color for navigation bar
  * --------------------------------------------------
@@ -39,7 +59,7 @@ License - free for all.
 .navbar-custom .dropdown-item:hover,
 .navbar-custom .dropdown-item:focus {
     color: #000000;
-    background-color: #ffffff;
+    background-color: #000000;
 }
 
 .spinning-fractal{
