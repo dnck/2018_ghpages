@@ -14,7 +14,7 @@ Future Blog Posts
 * ~~Launch the blog. Why?~~  Done!
 * ~~Linguists are like aliens!~~ Done!
 * ~~What's the sense in looking at historical records?~~ Done!
-* How can I comment on your blog posts?
+* How to make comments on Jekyll blog posts?
 * Writing systems. What do they say about human cognition and its evolution?
 * What is a combinatorial tool? Are they special? Do they reveal anything important about human as opposed to merely animal cognition?
 * What is the root and affix for the word synapse? 

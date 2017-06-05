@@ -46,7 +46,7 @@ body {
 /* change the color of active or hovered links */
 .navbar-custom .nav-item.active .nav-link,
 .navbar-custom .nav-item:hover .nav-link {
-    color: #848482;
+    color: #0057e7;
 }
 
 /* for dropdown only - change the color of droodown */
@@ -58,8 +58,8 @@ body {
 }
 .navbar-custom .dropdown-item:hover,
 .navbar-custom .dropdown-item:focus {
-    color: #848482;
-    background-color: #ffffff;
+    color: #0057e7;
+    background-color: #c0c5ce;
 }
 
 
