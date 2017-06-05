@@ -14,7 +14,7 @@ License - free for all.
  */
 
 .navbar-custom {
-    background-color: #ffffff;
+    background-color: #4B1657;
 }
 
 /* change the brand and text color */
@@ -36,7 +36,7 @@ License - free for all.
 
 /* for dropdown only - change the color of droodown */
 .navbar-custom .dropdown-menu {
-    background-color: #ffffff;
+    background-color: #4B1657;
 }
 .navbar-custom .dropdown-item {
     color: #ffffff;
