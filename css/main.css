@@ -46,7 +46,7 @@ body {
 /* change the color of active or hovered links */
 .navbar-custom .nav-item.active .nav-link,
 .navbar-custom .nav-item:hover .nav-link {
-    color: #000000;
+    color: #848482;
 }
 
 /* for dropdown only - change the color of droodown */
@@ -58,13 +58,10 @@ body {
 }
 .navbar-custom .dropdown-item:hover,
 .navbar-custom .dropdown-item:focus {
-    color: #000000;
+    color: #848482;
     background-color: #ffffff;
 }
 
-.spinning-fractal{
-    padding-top: 20%;
-}
 
 .hover_image:hover {text-decoration: none} /* Optional (avoid undesired underscore if a is used as wrapper) */
 .hide {display:none}
