@@ -2,33 +2,44 @@
 Just my new theme. 
 License - free for all.
 */
-html {
-  position: relative;
+html,
+body {
+  height: 100%;
+  background-color:   #5a656e;
 }
 body {
-  /* Margin bottom by footer height */
-  margin-top: 40px;
-  margin-bottom: 40px;
+  color: #fffeb3;
+  text-align: center;
+  text-shadow: 0 3px 3px rgba(0,0,0,.5);
+}
+
+
+a,
+a:focus
+a:hover {
+  color: #1fbbff;
 }
 
 /* Sticky footer styles
--------------------------------------------------- */
+
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
+  /* Set the fixed height of the footer here 
   height: 30px;
   background-color: #000000;
 }
-
+*/
 /*
  * Color for navigation bar
  * --------------------------------------------------
  */
 
+
+
 .navbar-custom {
-    background-color: #ffffff;
+    background-color: #000000;
 }
 
 /* change the brand and text color */
@@ -63,9 +74,12 @@ body {
 }
 
 .the_top{
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
+#postTitle{
+  font-size: 110%;
+}
 
 .hover_image:hover {text-decoration: none} /* Optional (avoid undesired underscore if a is used as wrapper) */
 .hide {display:none}
