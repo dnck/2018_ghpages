@@ -1,0 +1,50 @@
+/*
+Just my new theme. 
+License - free for all.
+*/
+html,
+body {
+  background-color: #5a656e;
+}
+
+body {
+  color: #000000;
+  text-align: left;
+}
+
+
+
+h1, h2, h3, h4, h4, h5, h6 {
+    color: #000000;
+   text-shadow: 0 2px 2px rgba(0,0,0,.5);
+}
+
+
+.highlight
+{
+  background-color:  #000000 ;
+}
+
+.language-python{
+  color: #1fbbff;
+}
+/*color: #aad3ff;*/
+
+a,
+a:focus
+a:hover {
+  color: #1fbbff;
+}
+
+
+.hover_image:hover {text-decoration: none} /* Optional (avoid undesired underscore if a is used as wrapper) */
+.hide {display:none}
+/* Do the shift: */
+.hover_image:hover img:first-child{display:none}
+.hover_image:hover img:last-child{display:inline-block}
+
+.center-justified {
+  text-align: justify;
+  margin: 0 auto;
+  width: 30em;
+}
