@@ -5,20 +5,27 @@ scripts: _includes/ploty_scienceopen.html
 date: 2017-06-05
 ---
 <h0 class="plotlyPlot"></h0>
+<br>
 <h2>About the plot</h2>
 <p>The position and size for each data point is controlled by a single paper's read count and its position along the y-axis is controlled by how many times the paper was cited by other papers in the ScienceOpen.com database. If you hover your mouse above a point, it will show you the exact stats and the title for the data point, e.g. it gives the coded citation for the paper. You can download the imaginary data that I used for the plot <a href ='https://raw.githubusercontent.com/dnck/learn_to_code/master/test.csv'>here</a>. Javscript is pretty impressive!</p>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script> 
 (function() {
 var d3 = Plotly.d3;
+
 var WIDTH_IN_PERCENT_OF_PARENT = 80,
     HEIGHT_IN_PERCENT_OF_PARENT = 60;
+
 var gd3 = d3.select('h0').append('div').style({
+        
         width: WIDTH_IN_PERCENT_OF_PARENT + '%',
-        'margin-left': (100 - WIDTH_IN_PERCENT_OF_PARENT) / 2 + '%',
+        'margin-left': (75 - WIDTH_IN_PERCENT_OF_PARENT) / 2 + '%',
         height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh',
-        'margin-top': (100 - HEIGHT_IN_PERCENT_OF_PARENT) / 5.25 + '%'});
-var gd = gd3.node();  
+        'margin-top': (100 - HEIGHT_IN_PERCENT_OF_PARENT) / 8 + 'vh'});
+
+var gd = gd3.node();
+
+  
 		Plotly.d3.csv('https://raw.githubusercontent.com/dnck/learn_to_code/master/test.csv', 
 			function(err, rows){
 				var YEAR = 2016;
@@ -44,18 +51,26 @@ var gd = gd3.node();
 						};
 			});
 			var layout = {
-				title: 'Cited-by Count ~ Read Count',
-				xaxis: {title: 'Read Count'},
-				yaxis: {title: 'Cited by Count Total'},
+				font: {color: '#000000', size: 12, family: 'Open Sans, sans-serif'},
+				title: 'Cited-by Count ~ Read Count', titlefont: {
+      				color: '#000000'},
+				xaxis: {title: 'Read Count', zerolinecolor:'#000000' , linecolor: '#000000', gridcolor: '#000000', titlefont: {
+      				color: '#000000'}},
+				yaxis: {title: 'Cited by Count', zerolinecolor:'#000000', linecolor: '#000000', gridcolor: '#000000', titlefont: {
+      				color: '#000000'}},
 				margin: {t: 50},
 				autosize: true,
 				hovermode: 'closest',
+        		paper_bgcolor:'rgb(90,101,110)',
+        		plot_bgcolor:'rgb(90,101,110)'
 			};
 			Plotly.plot(gd, data, layout, {showLink: false});
 		});
+  
 window.onresize = function() {
     Plotly.Plots.resize(gd);
 };
+
 })();
 </script>
 <p class="muted"><b>Made with plotly.js<a href="https://plot.ly/javascript/open-source-announcement/">MIT License</a> </b> </p>
@@ -70,16 +85,21 @@ window.onresize = function() {
 
 
 {% highlight python %}
-python
-import numpy as np
-read_count = [int(np.random.lognormal(mean=4)) for i in range(140)]
-citation_count = [int(np.random.lognormal(mean=4)) for i in range(140)]
+cookdj0128$  python
+Python 2.7.12 |Anaconda custom (x86_64)| (default, Jul  2 2016, 17:43:17) 
+[GCC 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+Anaconda is brought to you by Continuum Analytics.
+Please check out: http://continuum.io/thanks and https://anaconda.org
+cookdj0128$  import numpy as np
+cookdj0128$  read_count = [int(np.random.lognormal(mean=4)) for i in range(140)]
+cookdj0128$  citation_count = [int(np.random.lognormal(mean=4)) for i in range(140)]
 {% endhighlight %}
 
 
 
 <p>From there, you can pretty much copy and paste the variable read_count and citation_count into an excel sheet, which I did <a href ='https://raw.githubusercontent.com/dnck/learn_to_code/master/test.csv'>here</a>. 
-<h2>Why did I use a lognormal distribution?</h2>
+<h2>Why use a lognormal distribution?</h2>
 <p> <b>The short version is that when I analyzed similar summary stats maintained by Google Scholar for researchers, the distributions for these stats appeared to come from a log-normal distribtion.</b><br>
 <p>So log normal distributions are called "log normal" because they can be mathematically transformed into a gaussian distribution e.g. normally bell curved distribution, by iteratively applying a log function to each data point in the distribution. One property of a lognormal distribution (when it's not transformed into a gaussian) is that a lot of the numbers bunch up toward one tail of the distribution, which is what I needed to simulate a situation in which many of an author's papers were read just a few times, but a few were read and cited very often.<br></p>
 <p>To thet this data, I used numpy. The numpy function np.random.lognormal() takes three parameters: 1) the underlying mean of a normal distribution, 2) the standard deviation of the underlying normal distribution, and 3) the array shape. Unless you want to do some some multivariate stuff, you can ignore the shape parameter. For now, you just need to know that I used a mean of 4. I selected the mean empirically, looking at the resulting mean of the log distribution until I got something that roughly resemebled a known author on ScienceOpen. So that's the long explanation for my use of a log-normal distribution. It's not totally accurate, but it allowed me to simulate the data that I wanted to model. Personally, I think more companies should open up there data and allow othes to ask inerestng quuestions. This is just a small effort to make that point. In the future, I will be addressing the entire school about best practices for sharing data. </p>

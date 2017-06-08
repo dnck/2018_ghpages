@@ -5,12 +5,10 @@ License - free for all.
 html,
 body {
   background-color: #5a656e;
+  color: #000000;
 }
 
-body {
-  color: #000000;
-  text-align: left;
-}
+
 
 
 
@@ -26,7 +24,7 @@ h1, h2, h3, h4, h4, h5, h6 {
 }
 
 .language-python{
-  color: #1fbbff;
+  color: #5a656e;
 }
 /*color: #aad3ff;*/
 
