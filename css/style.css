@@ -6,43 +6,42 @@ html,
 body {
   background-color: #5a656e;
   color: #000000;
+  font-family: PT SERIF;
 }
-
-
 h1, h2, h3, h4, h4, h5, h6 {
-    color: #000000;
-   text-shadow: 0 2px 2px rgba(0,0,0,.5);
+  color: #000000;
+  text-shadow: 0 2px 2px rgba(0,0,0,.5);
 }
-
-
 .highlight
 {
   background-color:  #000000 ;
 }
-
 .language-python{
   color: #5a656e;
 }
 /*color: #aad3ff;*/
-
 a,
 a:focus
 a:hover {
   color: #1fbbff;
 }
-
 .cv {
   font-weight: bold;
 }
-
 .hover_image:hover {text-decoration: none} /* Optional (avoid undesired underscore if a is used as wrapper) */
 .hide {display:none}
 /* Do the shift: */
 .hover_image:hover img:first-child{display:none}
 .hover_image:hover img:last-child{display:inline-block}
-
 .center-justified {
   text-align: justify;
   margin: 0 auto;
   width: 30em;
+}
+.blog-item{
+  text-shadow: 0 2px 2px rgba(0,0,0,.5);
+  font-size: 24px;
+}
+.home-text{
+  font-size: 20px;
 }
