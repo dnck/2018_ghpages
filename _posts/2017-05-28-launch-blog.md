@@ -21,14 +21,14 @@ Future Blog Posts
 * What are archs? How are they built? What are their parts?
 * Definition of polynomials with plotting examples
 * Argument for open access publishing 
-* Can we derive any important insights from article level metrics? What would a plot look like in plot.ly javascript? What can we do with the impactstory JSON data?
+* ~~Can we derive any important insights from article level metrics? What would a plot look like in plot.ly javascript? What can we do with the impactstory JSON data?~~ I mean, I kinda finished this, but I didn't really share the code yet. But, if you wanna parse the impactstory JSON, get at me. I can share some JS scripts I wrote. 
 * How did I configure my server for git? Why did I do it? 
 * What is a Markov process? Why should you care?
 * What is the difference between serial and parallel processing in cognitive science?
 * What happened to my EEG project with the BSMB post-docs? Where is the code? Is it just junk code?
 * What is the result of my online behavioral experiment? What was the purpose of the experiment?
 * Where is my python tweet loop code? Is it just junk?
-* Where is my cv? Where will I be after the master's program?
+* ~~Where is my cv? Where will I be after the master's program?~~ I dunno where I'll be after the MSc, but I got something like a C.V. online now. 
 * Where is my public PGP key in case you want to send me an encrypted message?
 * What is the script for pixelating my picture? Why do it? 
 
