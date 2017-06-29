@@ -1,19 +1,12 @@
 ---
 layout: default
-title: blog 
+title: blog
 ---
-<div class="container">
-	<div class="vertical-center-row">
-		<div align="center">
-			<h1>{{ page.title }}</h1>
-			<hr></hr>
-				<dl>
-				{% for post in site.posts %}
-				<dt><a href="{{ post.url }}" title="{{ post.title }}" class="blog-item">{{ post.title }}</a></dt>
-				<dd>{{ post.date | date_to_string }}</dd>		
-		  		{% endfor %}
-				</dl>
-		</div>
-	</div>
-</div>
-
+<h1>{{ page.title }}</h1>
+<hr class="faded">
+<dl>
+{% for post in site.posts %}
+<dt><a href="{{ post.url }}" title="{{ post.title }}" class="blog-item">{{ post.title }}</a></dt>
+<dd>{{ post.date | date_to_string }}</dd>
+{% endfor %}
+</dl>
