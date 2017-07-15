@@ -6,7 +6,7 @@ date: 2017-05-29
 
 Is it possible to derive the current sense of a word from its historical origins?
 
-My intuition says, "yes". If we inspected the sense of the root of a word and any of its affixes, and we followed the word's parts back in time, then we'd eventually derive the current sense of the word from its history.
+My intuition says, "yes". If you inspected the sense of the root of a word and any of its affixes, and you followed the word's parts back in time, then you'd eventually derive the current sense of the word from its history.
 
 If you share this intuition, then you might want to consider two problems.
 
