@@ -4,34 +4,12 @@ title: launch blog
 date: 2017-05-28
 ---
 
-I'm launching my new personal blog/website today for three reasons. 
+I'm launching my new personal blog/website today for three reasons.
 
-First, I want to learn how the framework underlying the blog works. Second, I want to write regularly in a creative way again. Third, I want to share my experiencce and writing with as many people as possible. I'm not trying to market myself, I just think that most ideas need to be structured by alternative perspectives before they're good and ready to put into practice. 
+First, I want to learn how the web framework underlying the blog works. Second, I want to write regularly on things that inspire me. Third, I think that most ideas need to be structured by alternative perspectives before they're ready for public consumption. With the blog, I'm hoping to solicit feedback on some of my private ideas.
 
-I plan to share two blog posts today. I also have a list of blog posts planned out. You can comment on the list once I do the third post.
+I plan to share two blog posts today. I also have a list of future blog posts planned out. As things might change, there are three themes that unite my blog. Those themes are a) cognitive science and language, 2) computer science and math, and 3) personal stuff with some code thrown in.
 
-Future Blog Posts
-* ~~Launch the blog. Why?~~  Done!
-* ~~Linguists are like aliens!~~ Done!
-* ~~What's the sense in looking at historical records?~~ Done!
-* How to make comments on Jekyll blog posts?
-* Writing systems. What do they say about human cognition and its evolution?
-* What is a combinatorial tool? Are they special? Do they reveal anything important about human as opposed to merely animal cognition?
-* What is the root and affix for the word synapse? 
-* What are archs? How are they built? What are their parts?
-* Definition of polynomials with plotting examples
-* Argument for open access publishing 
-* ~~Can we derive any important insights from article level metrics? What would a plot look like in plot.ly javascript? What can we do with the impactstory JSON data?~~ I mean, I kinda finished this, but I didn't really share the code yet. But, if you wanna parse the impactstory JSON, get at me. I can share some JS scripts I wrote. 
-* How did I configure my server for git? Why did I do it? 
-* What is a Markov process? Why should you care?
-* What is the difference between serial and parallel processing in cognitive science?
-* What happened to my EEG project with the BSMB post-docs? Where is the code? Is it just junk code?
-* What is the result of my online behavioral experiment? What was the purpose of the experiment?
-* Where is my python tweet loop code? Is it just junk?
-* ~~Where is my cv? Where will I be after the master's program?~~ I dunno where I'll be after the MSc, but I got something like a C.V. online now. 
-* Where is my public PGP key in case you want to send me an encrypted message?
-* What is the script for pixelating my picture? Why do it? 
+Thanks for reading.
 
-So it's a bit of a jumble, but there's three themes: a) cognitive science and language, 2) computer science and math, 3) personal stuff with some code thrown in.
-
-I will return to this blog post and cross things out as I complete the list. The goal is to finish by the new year. 
+Dan
