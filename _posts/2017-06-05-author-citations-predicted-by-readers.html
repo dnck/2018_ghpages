@@ -86,7 +86,7 @@ cookdj0128$  import numpy as np
 cookdj0128$  read_count = [int(np.random.lognormal(mean=4)) for i in range(140)]
 cookdj0128$  citation_count = [int(np.random.lognormal(mean=4)) for i in range(140)]
 {% endhighlight %}
-<p>From there, you can pretty much copy and paste the variable read_count and citation_count into an excel sheet, which I did <a href ='https://raw.githubusercontent.com/dnck/learn_to_code/master/test.csv'>here</a>.
+<p>From there, you can pretty much copy and paste the variable read_count and citation_count into an excel sheet, which I did <a href ='http://www.danjcook.com/assets/test.csv'>here</a>.
 <h2>Why use a lognormal distribution?</h2>
 <p> <b>The short version is that when I analyzed similar summary stats maintained by Google Scholar for researchers, the distributions for these stats appeared to come from a log-normal distribtion.</b><br>
 <p>So log normal distributions are called "log normal" because they can be mathematically transformed into a gaussian distribution e.g. normally bell curved distribution, by iteratively applying a log function to each data point in the distribution. One property of a lognormal distribution (when it's not transformed into a gaussian) is that a lot of the numbers bunch up toward one tail of the distribution, which is what I needed to simulate a situation in which many of an author's papers were read just a few times, but a few were read and cited very often.<br></p>
