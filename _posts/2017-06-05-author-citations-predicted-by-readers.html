@@ -7,7 +7,7 @@ date: 2017-06-05
 <h0 class="plotlyPlot"></h0>
 <br>
 <h2>About the plot</h2>
-<p>The position and size for each data point is controlled by a single paper's read count and its position along the y-axis is controlled by how many times the paper was cited by other papers in the ScienceOpen.com database. If you hover your mouse above a point, it will show you the exact stats and the title for the data point, e.g. it gives the coded citation for the paper. You can download the imaginary data that I used for the plot <a href ='http://www.danjcook.com/assets/test.csv">here</a>. Javscript is pretty impressive!</p>
+<p>The position and size for each data point is controlled by a single paper's read count and its position along the y-axis is controlled by how many times the paper was cited by other papers in the ScienceOpen.com database. If you hover your mouse above a point, it will show you the exact stats and the title for the data point, e.g. it gives the coded citation for the paper. You can download the imaginary data that I used for the plot <a href ='http://www.danjcook.com/data/test.csv">here</a>. Javscript is pretty impressive!</p>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script>
 (function() {
@@ -21,7 +21,7 @@ var gd3 = d3.select('h0').append('div').style({
         height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh',
         'margin-top': (100 - HEIGHT_IN_PERCENT_OF_PARENT) / 8 + 'vh'});
 var gd = gd3.node();
-		Plotly.d3.csv('http://www.danjcook.com/assets/test.csv',
+		Plotly.d3.csv('http://www.danjcook.com/data/test.csv',
 			function(err, rows){
 				var YEAR = 2016;
 				var discipline = ['Discipline A', 'Discipline B', 'Discipline C', 'Discipline D', 'Discipline E'];
@@ -86,7 +86,7 @@ cookdj0128$  import numpy as np
 cookdj0128$  read_count = [int(np.random.lognormal(mean=4)) for i in range(140)]
 cookdj0128$  citation_count = [int(np.random.lognormal(mean=4)) for i in range(140)]
 {% endhighlight %}
-<p>From there, you can pretty much copy and paste the variable read_count and citation_count into an excel sheet, which I did <a href ='http://www.danjcook.com/assets/test.csv'>here</a>.
+<p>From there, you can pretty much copy and paste the variable read_count and citation_count into an excel sheet, which I did <a href ='http://www.danjcook.com/data/test.csv'>here</a>.
 <h2>Why use a lognormal distribution?</h2>
 <p> <b>The short version is that when I analyzed similar summary stats maintained by Google Scholar for researchers, the distributions for these stats appeared to come from a log-normal distribtion.</b><br>
 <p>So log normal distributions are called "log normal" because they can be mathematically transformed into a gaussian distribution e.g. normally bell curved distribution, by iteratively applying a log function to each data point in the distribution. One property of a lognormal distribution (when it's not transformed into a gaussian) is that a lot of the numbers bunch up toward one tail of the distribution, which is what I needed to simulate a situation in which many of an author's papers were read just a few times, but a few were read and cited very often.<br></p>
