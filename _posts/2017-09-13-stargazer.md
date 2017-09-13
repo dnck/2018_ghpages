@@ -46,7 +46,7 @@ date: 2017-09-13
 </table>
 
 
-<strong>GLMM RT ~ cond*exp</strong>
+<strong>GLMM Accuracy ~ cond*exp</strong>
 <p> Reference levels for the factors were "reg" and "vrt"</p>
 <table style="text-align:center">
 <tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td><em>Dependent variable:</em></td></tr>
