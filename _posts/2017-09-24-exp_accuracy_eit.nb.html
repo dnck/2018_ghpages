@@ -1,3 +1,9 @@
+---
+layout: post
+title: EXP Accuracy models (eit as reference)
+date: 2017-09-25
+---
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -7,7 +13,6 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
-
 
 
 
@@ -195,7 +200,7 @@ rt$foil = as.factor(rt$foil)</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBPcmRlciBjb25zdHJhc3RzIFxuY29udHJhc3RzKHJ0JG9yZGVyKTwtY29udHIucG9seSg0KVxuY29sbmFtZXMoYXR0cihydCRvcmRlciwgXCJjb250cmFzdHNcIikpID0gYyhcIkxpbmVhclwiLFwiUXVhZHJhdFwiLFwiQ3ViaWNcIilcbnByaW50KCdPcmRlciBDb250cmFzdCBNYXRyaXgnKVxuYGBgIn0= -->
-<pre class="r"><code># Order constrasts 
+<pre class="r"><code># Order constrasts
 contrasts(rt$order)&lt;-contr.poly(4)
 colnames(attr(rt$order, &quot;contrasts&quot;)) = c(&quot;Linear&quot;,&quot;Quadrat&quot;,&quot;Cubic&quot;)
 print('Order Contrast Matrix')</code></pre>
@@ -223,7 +228,7 @@ print('Order Contrast Matrix')</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBSZWd1bGFyIGFuZCBFSVQgYXMgcmVmZXJlbmNlIFxuY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMilcbmNvbG5hbWVzKGF0dHIocnQkY29uZCwgXCJjb250cmFzdHNcIikpID0gYyhcIi5NYXRoLVJlZ1wiLFwiLlNlbS1SZWdcIiwgXCIuVmlzLVJlZ1wiKVxucHJpbnQoJ011bHRpdGFzayBDb25kaXRpb24gQ29udHJhc3QgTWF0cml4JylcbmBgYCJ9 -->
-<pre class="r"><code># Regular and EIT as reference 
+<pre class="r"><code># Regular and EIT as reference
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 2)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Math-Reg&quot;,&quot;.Sem-Reg&quot;, &quot;.Vis-Reg&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -311,20 +316,20 @@ exp_reg_repeat_eit_ACC5 = glmer(response ~ exp*cond + exp*foil + (1|subj_idx), d
 <pre class="r"><code>vif.lme(exp_reg_repeat_eit_ACC5)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiICAgICAgICAgICAgICAgIGV4cC5WUlQtRUlUICAgICAgICAgICAgICAgY29uZC5NYXRoLVJlZyAgICAgICAgICAgICAgICBjb25kLlNlbS1SZWcgXG4gICAgICAgICAgICAgICAgICAgICAgMi41NzQgICAgICAgICAgICAgICAgICAgICAgIDMuNTg4ICAgICAgICAgICAgICAgICAgICAgICAzLjY1OCBcbiAgICAgICAgICAgICAgIGNvbmQuVmlzLVJlZyAgICAgICAgICAgICBmb2lsLkNvbmZpZy1SZXAgICAgICAgICAgICAgICAgZm9pbC5PZGQtUmVwIFxuICAgICAgICAgICAgICAgICAgICAgIDMuMzAzICAgICAgICAgICAgICAgICAgICAgICAyLjYxOSAgICAgICAgICAgICAgICAgICAgICAgMi42NjQgXG4gIGV4cC5WUlQtRUlUOmNvbmQuTWF0aC1SZWcgICAgZXhwLlZSVC1FSVQ6Y29uZC5TZW0tUmVnICAgIGV4cC5WUlQtRUlUOmNvbmQuVmlzLVJlZyBcbiAgICAgICAgICAgICAgICAgICAgICAzLjM1NyAgICAgICAgICAgICAgICAgICAgICAgMy40NzYgICAgICAgICAgICAgICAgICAgICAgIDMuMTEzIFxuZXhwLlZSVC1FSVQ6Zm9pbC5Db25maWctUmVwICAgIGV4cC5WUlQtRUlUOmZvaWwuT2RkLVJlcCBcbiAgICAgICAgICAgICAgICAgICAgICAzLjA0MSAgICAgICAgICAgICAgICAgICAgICAgMy4xMzAgXG4ifQ== -->
-<pre><code>                exp.VRT-EIT               cond.Math-Reg                cond.Sem-Reg 
-                      2.574                       3.588                       3.658 
-               cond.Vis-Reg             foil.Config-Rep                foil.Odd-Rep 
-                      3.303                       2.619                       2.664 
-  exp.VRT-EIT:cond.Math-Reg    exp.VRT-EIT:cond.Sem-Reg    exp.VRT-EIT:cond.Vis-Reg 
-                      3.357                       3.476                       3.113 
-exp.VRT-EIT:foil.Config-Rep    exp.VRT-EIT:foil.Odd-Rep 
+<pre><code>                exp.VRT-EIT               cond.Math-Reg                cond.Sem-Reg
+                      2.574                       3.588                       3.658
+               cond.Vis-Reg             foil.Config-Rep                foil.Odd-Rep
+                      3.303                       2.619                       2.664
+  exp.VRT-EIT:cond.Math-Reg    exp.VRT-EIT:cond.Sem-Reg    exp.VRT-EIT:cond.Vis-Reg
+                      3.357                       3.476                       3.113
+exp.VRT-EIT:foil.Config-Rep    exp.VRT-EIT:foil.Odd-Rep
                       3.041                       3.130 </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxub3ZlcmRpc3AoZXhwX3JlZ19yZXBlYXRfZWl0X0FDQzUpXG5gYGAifQ== -->
 <pre class="r"><code>overdisp(exp_reg_repeat_eit_ACC5)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiZGYucmVzaWQgXG4gIDAuOTMzOCBcbiJ9 -->
-<pre><code>df.resid 
+<pre><code>df.resid
   0.9338 </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -346,59 +351,59 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid 
-    4447     4531    -2211     4421     4595 
+     AIC      BIC   logLik deviance df.resid
+    4447     4531    -2211     4421     4595
 
-Scaled residuals: 
-   Min     1Q Median     3Q    Max 
--5.595  0.255  0.388  0.524  1.716 
+Scaled residuals:
+   Min     1Q Median     3Q    Max
+-5.595  0.255  0.388  0.524  1.716
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677   
+ subj_idx (Intercept) 0.458    0.677
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)    
+                            Estimate Std. Error z value Pr(&gt;|z|)
 (Intercept)                    2.161      0.179   12.07  &lt; 2e-16 ***
-exp.VRT-EIT                    0.158      0.255    0.62  0.53521    
+exp.VRT-EIT                    0.158      0.255    0.62  0.53521
 cond.Math-Reg                 -1.163      0.158   -7.37  1.8e-13 ***
 cond.Sem-Reg                  -1.128      0.158   -7.13  1.0e-12 ***
-cond.Vis-Reg                  -0.348      0.170   -2.05  0.04064 *  
-foil.Config-Rep               -0.159      0.129   -1.23  0.21746    
-foil.Odd-Rep                  -0.167      0.129   -1.30  0.19468    
+cond.Vis-Reg                  -0.348      0.170   -2.05  0.04064 *
+foil.Config-Rep               -0.159      0.129   -1.23  0.21746
+foil.Odd-Rep                  -0.167      0.129   -1.30  0.19468
 exp.VRT-EIT:cond.Math-Reg      0.819      0.222    3.69  0.00022 ***
-exp.VRT-EIT:cond.Sem-Reg       0.610      0.221    2.76  0.00570 ** 
-exp.VRT-EIT:cond.Vis-Reg       0.577      0.239    2.41  0.01588 *  
-exp.VRT-EIT:foil.Config-Rep   -0.551      0.194   -2.84  0.00450 ** 
+exp.VRT-EIT:cond.Sem-Reg       0.610      0.221    2.76  0.00570 **
+exp.VRT-EIT:cond.Vis-Reg       0.577      0.239    2.41  0.01588 *
+exp.VRT-EIT:foil.Config-Rep   -0.551      0.194   -2.84  0.00450 **
 exp.VRT-EIT:foil.Odd-Rep      -0.772      0.192   -4.02  5.9e-05 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
              (Intr) ex.VRT-EIT cn.M-R cn.S-R cn.V-R fl.C-R fl.O-R e.VRT-EIT:.M e.VRT-EIT:.S
-exp.VRT-EIT  -0.697                                                                        
-cond.Mth-Rg  -0.581  0.405                                                                 
-cond.Sem-Rg  -0.579  0.404      0.649                                                      
-cond.Vis-Rg  -0.531  0.372      0.600  0.599                                               
-fol.Cnfg-Rp  -0.378  0.265      0.008  0.008  0.002                                        
-foil.Odd-Rp  -0.379  0.265      0.008  0.008  0.002  0.519                                 
-e.VRT-EIT:.M  0.412 -0.526     -0.711 -0.461 -0.427 -0.006 -0.006                          
-e.VRT-EIT:.S  0.414 -0.532     -0.465 -0.717 -0.430 -0.005 -0.006  0.601                   
-e.VRT-EIT:.V  0.378 -0.478     -0.427 -0.426 -0.711 -0.001 -0.001  0.552        0.556      
-e.VRT-EIT:.C  0.249 -0.436     -0.005 -0.004 -0.001 -0.663 -0.344  0.009        0.012      
-e.VRT-EIT:.O  0.251 -0.443     -0.005 -0.004 -0.001 -0.347 -0.669  0.011        0.015      
+exp.VRT-EIT  -0.697
+cond.Mth-Rg  -0.581  0.405
+cond.Sem-Rg  -0.579  0.404      0.649
+cond.Vis-Rg  -0.531  0.372      0.600  0.599
+fol.Cnfg-Rp  -0.378  0.265      0.008  0.008  0.002
+foil.Odd-Rp  -0.379  0.265      0.008  0.008  0.002  0.519
+e.VRT-EIT:.M  0.412 -0.526     -0.711 -0.461 -0.427 -0.006 -0.006
+e.VRT-EIT:.S  0.414 -0.532     -0.465 -0.717 -0.430 -0.005 -0.006  0.601
+e.VRT-EIT:.V  0.378 -0.478     -0.427 -0.426 -0.711 -0.001 -0.001  0.552        0.556
+e.VRT-EIT:.C  0.249 -0.436     -0.005 -0.004 -0.001 -0.663 -0.344  0.009        0.012
+e.VRT-EIT:.O  0.251 -0.443     -0.005 -0.004 -0.001 -0.347 -0.669  0.011        0.015
              e.VRT-EIT:.V e.VRT-EIT:.C
-exp.VRT-EIT                           
-cond.Mth-Rg                           
-cond.Sem-Rg                           
-cond.Vis-Rg                           
-fol.Cnfg-Rp                           
-foil.Odd-Rp                           
-e.VRT-EIT:.M                          
-e.VRT-EIT:.S                          
-e.VRT-EIT:.V                          
-e.VRT-EIT:.C -0.002                   
+exp.VRT-EIT
+cond.Mth-Rg
+cond.Sem-Rg
+cond.Vis-Rg
+fol.Cnfg-Rp
+foil.Odd-Rp
+e.VRT-EIT:.M
+e.VRT-EIT:.S
+e.VRT-EIT:.V
+e.VRT-EIT:.C -0.002
 e.VRT-EIT:.O -0.003        0.570      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -409,7 +414,7 @@ e.VRT-EIT:.O -0.003        0.570      </code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBSZWd1bGFyIGFuZCBFSVQgYXMgcmVmZXJlbmNlIFxuY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMilcbmNvbG5hbWVzKGF0dHIocnQkY29uZCwgXCJjb250cmFzdHNcIikpID0gYyhcIi5NYXRoLVJlZ1wiLFwiLlNlbS1SZWdcIiwgXCIuVmlzLVJlZ1wiKVxucHJpbnQoJ011bHRpdGFzayBDb25kaXRpb24gQ29udHJhc3QgTWF0cml4JylcbmBgYCJ9 -->
-<pre class="r"><code># Regular and EIT as reference 
+<pre class="r"><code># Regular and EIT as reference
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 2)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Math-Reg&quot;,&quot;.Sem-Reg&quot;, &quot;.Vis-Reg&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -456,59 +461,59 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid 
-    4447     4531    -2211     4421     4595 
+     AIC      BIC   logLik deviance df.resid
+    4447     4531    -2211     4421     4595
 
-Scaled residuals: 
-   Min     1Q Median     3Q    Max 
--5.595  0.255  0.388  0.524  1.716 
+Scaled residuals:
+   Min     1Q Median     3Q    Max
+-5.595  0.255  0.388  0.524  1.716
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677   
+ subj_idx (Intercept) 0.458    0.677
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)    
+                            Estimate Std. Error z value Pr(&gt;|z|)
 (Intercept)                  2.00257    0.17662   11.34  &lt; 2e-16 ***
-exp.VRT-EIT                 -0.39306    0.24433   -1.61  0.10767    
+exp.VRT-EIT                 -0.39306    0.24433   -1.61  0.10767
 cond.Math-Reg               -1.16314    0.15789   -7.37  1.7e-13 ***
 cond.Sem-Reg                -1.12777    0.15821   -7.13  1.0e-12 ***
-cond.Vis-Reg                -0.34843    0.17020   -2.05  0.04065 *  
-foil.Odd-Config             -0.00804    0.12611   -0.06  0.94919    
-foil.Rep-Config              0.15866    0.12866    1.23  0.21751    
+cond.Vis-Reg                -0.34843    0.17020   -2.05  0.04065 *
+foil.Odd-Config             -0.00804    0.12611   -0.06  0.94919
+foil.Rep-Config              0.15866    0.12866    1.23  0.21751
 exp.VRT-EIT:cond.Math-Reg    0.81948    0.22209    3.69  0.00022 ***
-exp.VRT-EIT:cond.Sem-Reg     0.60983    0.22060    2.76  0.00570 ** 
-exp.VRT-EIT:cond.Vis-Reg     0.57701    0.23928    2.41  0.01589 *  
-exp.VRT-EIT:foil.Odd-Config -0.22022    0.17905   -1.23  0.21873    
-exp.VRT-EIT:foil.Rep-Config  0.55146    0.19414    2.84  0.00450 ** 
+exp.VRT-EIT:cond.Sem-Reg     0.60983    0.22060    2.76  0.00570 **
+exp.VRT-EIT:cond.Vis-Reg     0.57701    0.23928    2.41  0.01589 *
+exp.VRT-EIT:foil.Odd-Config -0.22022    0.17905   -1.23  0.21873
+exp.VRT-EIT:foil.Rep-Config  0.55146    0.19414    2.84  0.00450 **
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
              (Intr) ex.VRT-EIT cn.M-R cn.S-R cn.V-R fl.O-C fl.R-C e.VRT-EIT:.M e.VRT-EIT:.S
-exp.VRT-EIT  -0.720                                                                        
-cond.Mth-Rg  -0.583  0.420                                                                 
-cond.Sem-Rg  -0.581  0.419      0.649                                                      
-cond.Vis-Rg  -0.537  0.388      0.600  0.599                                               
-fl.Odd-Cnfg  -0.358  0.259      0.000  0.000  0.000                                        
-fol.Rp-Cnfg  -0.345  0.250     -0.008 -0.008 -0.002  0.491                                 
-e.VRT-EIT:.M  0.414 -0.543     -0.711 -0.461 -0.427  0.000  0.006                          
-e.VRT-EIT:.S  0.416 -0.547     -0.465 -0.717 -0.430  0.000  0.005  0.601                   
-e.VRT-EIT:.V  0.382 -0.501     -0.427 -0.426 -0.711  0.000  0.001  0.552        0.556      
-e.VRT-EIT:.O  0.252 -0.378      0.000  0.000  0.000 -0.704 -0.346  0.002        0.003      
-e.VRT-EIT:.R  0.230 -0.338      0.005  0.004  0.001 -0.325 -0.663 -0.009       -0.012      
+exp.VRT-EIT  -0.720
+cond.Mth-Rg  -0.583  0.420
+cond.Sem-Rg  -0.581  0.419      0.649
+cond.Vis-Rg  -0.537  0.388      0.600  0.599
+fl.Odd-Cnfg  -0.358  0.259      0.000  0.000  0.000
+fol.Rp-Cnfg  -0.345  0.250     -0.008 -0.008 -0.002  0.491
+e.VRT-EIT:.M  0.414 -0.543     -0.711 -0.461 -0.427  0.000  0.006
+e.VRT-EIT:.S  0.416 -0.547     -0.465 -0.717 -0.430  0.000  0.005  0.601
+e.VRT-EIT:.V  0.382 -0.501     -0.427 -0.426 -0.711  0.000  0.001  0.552        0.556
+e.VRT-EIT:.O  0.252 -0.378      0.000  0.000  0.000 -0.704 -0.346  0.002        0.003
+e.VRT-EIT:.R  0.230 -0.338      0.005  0.004  0.001 -0.325 -0.663 -0.009       -0.012
              e.VRT-EIT:.V e.VRT-EIT:.O
-exp.VRT-EIT                           
-cond.Mth-Rg                           
-cond.Sem-Rg                           
-cond.Vis-Rg                           
-fl.Odd-Cnfg                           
-fol.Rp-Cnfg                           
-e.VRT-EIT:.M                          
-e.VRT-EIT:.S                          
-e.VRT-EIT:.V                          
-e.VRT-EIT:.O -0.001                   
+exp.VRT-EIT
+cond.Mth-Rg
+cond.Sem-Rg
+cond.Vis-Rg
+fl.Odd-Cnfg
+fol.Rp-Cnfg
+e.VRT-EIT:.M
+e.VRT-EIT:.S
+e.VRT-EIT:.V
+e.VRT-EIT:.O -0.001
 e.VRT-EIT:.R  0.002        0.472      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -519,7 +524,7 @@ e.VRT-EIT:.R  0.002        0.472      </code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBSZWd1bGFyIGFuZCBFSVQgYXMgcmVmZXJlbmNlIFxuY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMilcbmNvbG5hbWVzKGF0dHIocnQkY29uZCwgXCJjb250cmFzdHNcIikpID0gYyhcIi5NYXRoLVJlZ1wiLFwiLlNlbS1SZWdcIiwgXCIuVmlzLVJlZ1wiKVxucHJpbnQoJ011bHRpdGFzayBDb25kaXRpb24gQ29udHJhc3QgTWF0cml4JylcbmBgYCJ9 -->
-<pre class="r"><code># Regular and EIT as reference 
+<pre class="r"><code># Regular and EIT as reference
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 2)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Math-Reg&quot;,&quot;.Sem-Reg&quot;, &quot;.Vis-Reg&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -583,59 +588,59 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid 
-    4447     4531    -2211     4421     4595 
+     AIC      BIC   logLik deviance df.resid
+    4447     4531    -2211     4421     4595
 
-Scaled residuals: 
-   Min     1Q Median     3Q    Max 
--5.595  0.255  0.388  0.524  1.716 
+Scaled residuals:
+   Min     1Q Median     3Q    Max
+-5.595  0.255  0.388  0.524  1.716
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677   
+ subj_idx (Intercept) 0.458    0.677
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)    
+                            Estimate Std. Error z value Pr(&gt;|z|)
 (Intercept)                  1.99453    0.17653   11.30  &lt; 2e-16 ***
-exp.VRT-EIT                 -0.61329    0.24224   -2.53  0.01135 *  
+exp.VRT-EIT                 -0.61329    0.24224   -2.53  0.01135 *
 cond.Math-Reg               -1.16314    0.15790   -7.37  1.8e-13 ***
 cond.Sem-Reg                -1.12777    0.15822   -7.13  1.0e-12 ***
-cond.Vis-Reg                -0.34843    0.17021   -2.05  0.04065 *  
-foil.Config-Odd              0.00803    0.12611    0.06  0.94921    
-foilRep-Odd                  0.16669    0.12855    1.30  0.19473    
+cond.Vis-Reg                -0.34843    0.17021   -2.05  0.04065 *
+foil.Config-Odd              0.00803    0.12611    0.06  0.94921
+foilRep-Odd                  0.16669    0.12855    1.30  0.19473
 exp.VRT-EIT:cond.Math-Reg    0.81949    0.22210    3.69  0.00022 ***
-exp.VRT-EIT:cond.Sem-Reg     0.60984    0.22060    2.76  0.00570 ** 
-exp.VRT-EIT:cond.Vis-Reg     0.57701    0.23927    2.41  0.01589 *  
-exp.VRT-EIT:foil.Config-Odd  0.22022    0.17905    1.23  0.21872    
+exp.VRT-EIT:cond.Sem-Reg     0.60984    0.22060    2.76  0.00570 **
+exp.VRT-EIT:cond.Vis-Reg     0.57701    0.23927    2.41  0.01589 *
+exp.VRT-EIT:foil.Config-Odd  0.22022    0.17905    1.23  0.21872
 exp.VRT-EIT:foilRep-Odd      0.77168    0.19221    4.01  6.0e-05 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
              (Intr) ex.VRT-EIT cn.M-R cn.S-R cn.V-R fl.C-O flRp-O e.VRT-EIT:.M e.VRT-EIT:.S
-exp.VRT-EIT  -0.726                                                                        
-cond.Mth-Rg  -0.583  0.423                                                                 
-cond.Sem-Rg  -0.581  0.422      0.649                                                      
-cond.Vis-Rg  -0.537  0.391      0.600  0.599                                               
-fl.Cnfg-Odd  -0.356  0.260      0.000  0.000  0.000                                        
-foilRep-Odd  -0.344  0.251     -0.008 -0.008 -0.002  0.490                                 
-e.VRT-EIT:.M  0.414 -0.546     -0.711 -0.461 -0.427  0.000  0.006                          
-e.VRT-EIT:.S  0.416 -0.550     -0.465 -0.717 -0.430  0.000  0.006  0.601                   
-e.VRT-EIT:.V  0.382 -0.507     -0.427 -0.426 -0.711  0.000  0.001  0.552        0.556      
-e.VRT-EIT:.C  0.251 -0.358      0.000  0.000  0.000 -0.704 -0.345 -0.002       -0.003      
-e.VRT-EIT:R   0.232 -0.326      0.005  0.004  0.001 -0.327 -0.669 -0.011       -0.015      
+exp.VRT-EIT  -0.726
+cond.Mth-Rg  -0.583  0.423
+cond.Sem-Rg  -0.581  0.422      0.649
+cond.Vis-Rg  -0.537  0.391      0.600  0.599
+fl.Cnfg-Odd  -0.356  0.260      0.000  0.000  0.000
+foilRep-Odd  -0.344  0.251     -0.008 -0.008 -0.002  0.490
+e.VRT-EIT:.M  0.414 -0.546     -0.711 -0.461 -0.427  0.000  0.006
+e.VRT-EIT:.S  0.416 -0.550     -0.465 -0.717 -0.430  0.000  0.006  0.601
+e.VRT-EIT:.V  0.382 -0.507     -0.427 -0.426 -0.711  0.000  0.001  0.552        0.556
+e.VRT-EIT:.C  0.251 -0.358      0.000  0.000  0.000 -0.704 -0.345 -0.002       -0.003
+e.VRT-EIT:R   0.232 -0.326      0.005  0.004  0.001 -0.327 -0.669 -0.011       -0.015
              e.VRT-EIT:.V e.VRT-EIT:.C
-exp.VRT-EIT                           
-cond.Mth-Rg                           
-cond.Sem-Rg                           
-cond.Vis-Rg                           
-fl.Cnfg-Odd                           
-foilRep-Odd                           
-e.VRT-EIT:.M                          
-e.VRT-EIT:.S                          
-e.VRT-EIT:.V                          
-e.VRT-EIT:.C  0.001                   
+exp.VRT-EIT
+cond.Mth-Rg
+cond.Sem-Rg
+cond.Vis-Rg
+fl.Cnfg-Odd
+foilRep-Odd
+e.VRT-EIT:.M
+e.VRT-EIT:.S
+e.VRT-EIT:.V
+e.VRT-EIT:.C  0.001
 e.VRT-EIT:R   0.003        0.455      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -646,7 +651,7 @@ e.VRT-EIT:R   0.003        0.455      </code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBWaXN1YWwgYW5kIEVJVCBhcyByZWZlcmVuY2UgXG5jb250cmFzdHMocnQkY29uZCk8LWNvbnRyLnRyZWF0bWVudCg0LGJhc2UgPSA0KVxuY29sbmFtZXMoYXR0cihydCRjb25kLCBcImNvbnRyYXN0c1wiKSkgPSBjKFwiLk1hdGgtVmlzXCIsXCIuUmVnLVZpc1wiLCBcIi5TZW0tVmlzXCIpXG5wcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKVxuYGBgIn0= -->
-<pre class="r"><code># Visual and EIT as reference 
+<pre class="r"><code># Visual and EIT as reference
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 4)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Math-Vis&quot;,&quot;.Reg-Vis&quot;, &quot;.Sem-Vis&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -710,59 +715,59 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid 
-    4447     4531    -2211     4421     4595 
+     AIC      BIC   logLik deviance df.resid
+    4447     4531    -2211     4421     4595
 
-Scaled residuals: 
-   Min     1Q Median     3Q    Max 
--5.595  0.255  0.388  0.524  1.716 
+Scaled residuals:
+   Min     1Q Median     3Q    Max
+-5.595  0.255  0.388  0.524  1.716
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677   
+ subj_idx (Intercept) 0.458    0.677
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)    
+                            Estimate Std. Error z value Pr(&gt;|z|)
 (Intercept)                   1.8128     0.1693   10.71  &lt; 2e-16 ***
-exp.VRT-EIT                   0.7354     0.2532    2.90   0.0037 ** 
+exp.VRT-EIT                   0.7354     0.2532    2.90   0.0037 **
 cond.Math-Vis                -0.8147     0.1471   -5.54  3.0e-08 ***
-cond.Reg-Vis                  0.3484     0.1702    2.05   0.0407 *  
+cond.Reg-Vis                  0.3484     0.1702    2.05   0.0407 *
 cond.Sem-Vis                 -0.7793     0.1474   -5.29  1.2e-07 ***
-foil.Config-Rep              -0.1587     0.1287   -1.23   0.2175    
-foil.Odd-Rep                 -0.1667     0.1285   -1.30   0.1947    
-exp.VRT-EIT:cond.Math-Vis     0.2425     0.2188    1.11   0.2678    
-exp.VRT-EIT:cond.Reg-Vis     -0.5770     0.2393   -2.41   0.0159 *  
-exp.VRT-EIT:cond.Sem-Vis      0.0328     0.2174    0.15   0.8799    
-exp.VRT-EIT:foil.Config-Rep  -0.5514     0.1941   -2.84   0.0045 ** 
+foil.Config-Rep              -0.1587     0.1287   -1.23   0.2175
+foil.Odd-Rep                 -0.1667     0.1285   -1.30   0.1947
+exp.VRT-EIT:cond.Math-Vis     0.2425     0.2188    1.11   0.2678
+exp.VRT-EIT:cond.Reg-Vis     -0.5770     0.2393   -2.41   0.0159 *
+exp.VRT-EIT:cond.Sem-Vis      0.0328     0.2174    0.15   0.8799
+exp.VRT-EIT:foil.Config-Rep  -0.5514     0.1941   -2.84   0.0045 **
 exp.VRT-EIT:foil.Odd-Rep     -0.7717     0.1922   -4.01  6.0e-05 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
              (Intr) ex.VRT-EIT cn.M-V cn.R-V cn.S-V fl.C-R fl.O-R e.VRT-EIT:.M e.VRT-EIT:.R
-exp.VRT-EIT  -0.665                                                                        
-cond.Mth-Vs  -0.525  0.349                                                                 
-cond.Reg-Vs  -0.444  0.297      0.513                                                      
-cond.Sem-Vs  -0.523  0.348      0.596  0.511                                               
-fol.Cnfg-Rp  -0.398  0.266      0.006 -0.002  0.006                                        
-foil.Odd-Rp  -0.398  0.266      0.007 -0.002  0.006  0.519                                 
-e.VRT-EIT:.M  0.352 -0.515     -0.672 -0.345 -0.400 -0.004 -0.005                          
-e.VRT-EIT:.R  0.315 -0.463     -0.365 -0.711 -0.364  0.001  0.001  0.533                   
-e.VRT-EIT:.S  0.353 -0.522     -0.403 -0.347 -0.678 -0.004 -0.004  0.589        0.537      
-e.VRT-EIT:.C  0.262 -0.442     -0.004  0.001 -0.004 -0.663 -0.344  0.011        0.002      
-e.VRT-EIT:.O  0.265 -0.450     -0.004  0.001 -0.004 -0.347 -0.669  0.015        0.003      
+exp.VRT-EIT  -0.665
+cond.Mth-Vs  -0.525  0.349
+cond.Reg-Vs  -0.444  0.297      0.513
+cond.Sem-Vs  -0.523  0.348      0.596  0.511
+fol.Cnfg-Rp  -0.398  0.266      0.006 -0.002  0.006
+foil.Odd-Rp  -0.398  0.266      0.007 -0.002  0.006  0.519
+e.VRT-EIT:.M  0.352 -0.515     -0.672 -0.345 -0.400 -0.004 -0.005
+e.VRT-EIT:.R  0.315 -0.463     -0.365 -0.711 -0.364  0.001  0.001  0.533
+e.VRT-EIT:.S  0.353 -0.522     -0.403 -0.347 -0.678 -0.004 -0.004  0.589        0.537
+e.VRT-EIT:.C  0.262 -0.442     -0.004  0.001 -0.004 -0.663 -0.344  0.011        0.002
+e.VRT-EIT:.O  0.265 -0.450     -0.004  0.001 -0.004 -0.347 -0.669  0.015        0.003
              e.VRT-EIT:.S e.VRT-EIT:.C
-exp.VRT-EIT                           
-cond.Mth-Vs                           
-cond.Reg-Vs                           
-cond.Sem-Vs                           
-fol.Cnfg-Rp                           
-foil.Odd-Rp                           
-e.VRT-EIT:.M                          
-e.VRT-EIT:.R                          
-e.VRT-EIT:.S                          
-e.VRT-EIT:.C  0.014                   
+exp.VRT-EIT
+cond.Mth-Vs
+cond.Reg-Vs
+cond.Sem-Vs
+fol.Cnfg-Rp
+foil.Odd-Rp
+e.VRT-EIT:.M
+e.VRT-EIT:.R
+e.VRT-EIT:.S
+e.VRT-EIT:.C  0.014
 e.VRT-EIT:.O  0.019        0.570      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -773,7 +778,7 @@ e.VRT-EIT:.O  0.019        0.570      </code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBWaXN1YWwgYW5kIEVJVCBhcyByZWZlcmVuY2UgXG5jb250cmFzdHMocnQkY29uZCk8LWNvbnRyLnRyZWF0bWVudCg0LGJhc2UgPSA0KVxuY29sbmFtZXMoYXR0cihydCRjb25kLCBcImNvbnRyYXN0c1wiKSkgPSBjKFwiLk1hdGgtVmlzXCIsXCIuUmVnLVZpc1wiLCBcIi5TZW0tVmlzXCIpXG5wcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKVxuYGBgIn0= -->
-<pre class="r"><code># Visual and EIT as reference 
+<pre class="r"><code># Visual and EIT as reference
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 4)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Math-Vis&quot;,&quot;.Reg-Vis&quot;, &quot;.Sem-Vis&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -837,59 +842,59 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid 
-    4447     4531    -2211     4421     4595 
+     AIC      BIC   logLik deviance df.resid
+    4447     4531    -2211     4421     4595
 
-Scaled residuals: 
-   Min     1Q Median     3Q    Max 
--5.595  0.255  0.388  0.524  1.716 
+Scaled residuals:
+   Min     1Q Median     3Q    Max
+-5.595  0.255  0.388  0.524  1.716
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677   
+ subj_idx (Intercept) 0.458    0.677
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)    
+                            Estimate Std. Error z value Pr(&gt;|z|)
 (Intercept)                  1.65414    0.16701    9.90  &lt; 2e-16 ***
-exp.VRT-EIT                  0.18394    0.24155    0.76   0.4464    
+exp.VRT-EIT                  0.18394    0.24155    0.76   0.4464
 cond.Math-Vis               -0.81472    0.14709   -5.54  3.0e-08 ***
-cond.Reg-Vis                 0.34842    0.17023    2.05   0.0407 *  
+cond.Reg-Vis                 0.34842    0.17023    2.05   0.0407 *
 cond.Sem-Vis                -0.77935    0.14743   -5.29  1.2e-07 ***
-foil.Odd-Config             -0.00804    0.12612   -0.06   0.9492    
-foil.Rep-Config              0.15866    0.12866    1.23   0.2175    
-exp.VRT-EIT:cond.Math-Vis    0.24248    0.21884    1.11   0.2679    
-exp.VRT-EIT:cond.Reg-Vis    -0.57700    0.23929   -2.41   0.0159 *  
-exp.VRT-EIT:cond.Sem-Vis     0.03283    0.21737    0.15   0.8799    
-exp.VRT-EIT:foil.Odd-Config -0.22022    0.17906   -1.23   0.2187    
-exp.VRT-EIT:foil.Rep-Config  0.55146    0.19414    2.84   0.0045 ** 
+foil.Odd-Config             -0.00804    0.12612   -0.06   0.9492
+foil.Rep-Config              0.15866    0.12866    1.23   0.2175
+exp.VRT-EIT:cond.Math-Vis    0.24248    0.21884    1.11   0.2679
+exp.VRT-EIT:cond.Reg-Vis    -0.57700    0.23929   -2.41   0.0159 *
+exp.VRT-EIT:cond.Sem-Vis     0.03283    0.21737    0.15   0.8799
+exp.VRT-EIT:foil.Odd-Config -0.22022    0.17906   -1.23   0.2187
+exp.VRT-EIT:foil.Rep-Config  0.55146    0.19414    2.84   0.0045 **
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
                (Intr) ex.VRT-EIT cn.M-V cn.R-V cn.S-V fl.O-C fl.R-C e.VRT-EIT:.M e.VRT-EIT:.R-V
-exp.VRT-EIT    -0.688                                                                          
-cond.Mth-Vs    -0.527  0.363                                                                   
-cond.Reg-Vs    -0.451  0.313      0.513                                                        
-cond.Sem-Vs    -0.526  0.362      0.596  0.512                                                 
-fl.Odd-Cnfg    -0.379  0.262      0.000  0.000  0.000                                          
-fol.Rp-Cnfg    -0.367  0.254     -0.006  0.002 -0.006  0.491                                   
-e.VRT-EIT:.M    0.353 -0.531     -0.672 -0.345 -0.400  0.000  0.004                            
-e.VRT-EIT:.R-V  0.321 -0.484     -0.365 -0.711 -0.364  0.000 -0.001  0.533                     
-e.VRT-EIT:.S    0.355 -0.536     -0.404 -0.347 -0.678  0.000  0.004  0.589        0.537        
-e.VRT-EIT:.O    0.266 -0.384      0.000  0.000  0.000 -0.704 -0.346  0.004        0.001        
-e.VRT-EIT:.R-C  0.244 -0.340      0.004 -0.001  0.003 -0.325 -0.663 -0.011       -0.002        
+exp.VRT-EIT    -0.688
+cond.Mth-Vs    -0.527  0.363
+cond.Reg-Vs    -0.451  0.313      0.513
+cond.Sem-Vs    -0.526  0.362      0.596  0.512
+fl.Odd-Cnfg    -0.379  0.262      0.000  0.000  0.000
+fol.Rp-Cnfg    -0.367  0.254     -0.006  0.002 -0.006  0.491
+e.VRT-EIT:.M    0.353 -0.531     -0.672 -0.345 -0.400  0.000  0.004
+e.VRT-EIT:.R-V  0.321 -0.484     -0.365 -0.711 -0.364  0.000 -0.001  0.533
+e.VRT-EIT:.S    0.355 -0.536     -0.404 -0.347 -0.678  0.000  0.004  0.589        0.537
+e.VRT-EIT:.O    0.266 -0.384      0.000  0.000  0.000 -0.704 -0.346  0.004        0.001
+e.VRT-EIT:.R-C  0.244 -0.340      0.004 -0.001  0.003 -0.325 -0.663 -0.011       -0.002
                e.VRT-EIT:.S e.VRT-EIT:.O
-exp.VRT-EIT                             
-cond.Mth-Vs                             
-cond.Reg-Vs                             
-cond.Sem-Vs                             
-fl.Odd-Cnfg                             
-fol.Rp-Cnfg                             
-e.VRT-EIT:.M                            
-e.VRT-EIT:.R-V                          
-e.VRT-EIT:.S                            
-e.VRT-EIT:.O    0.005                   
+exp.VRT-EIT
+cond.Mth-Vs
+cond.Reg-Vs
+cond.Sem-Vs
+fl.Odd-Cnfg
+fol.Rp-Cnfg
+e.VRT-EIT:.M
+e.VRT-EIT:.R-V
+e.VRT-EIT:.S
+e.VRT-EIT:.O    0.005
 e.VRT-EIT:.R-C -0.014        0.472      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -900,7 +905,7 @@ e.VRT-EIT:.R-C -0.014        0.472      </code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBWaXN1YWwgYW5kIEVJVCBhcyByZWZlcmVuY2UgXG5jb250cmFzdHMocnQkY29uZCk8LWNvbnRyLnRyZWF0bWVudCg0LGJhc2UgPSA0KVxuY29sbmFtZXMoYXR0cihydCRjb25kLCBcImNvbnRyYXN0c1wiKSkgPSBjKFwiLk1hdGgtVmlzXCIsXCIuUmVnLVZpc1wiLCBcIi5TZW0tVmlzXCIpXG5wcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKVxuYGBgIn0= -->
-<pre class="r"><code># Visual and EIT as reference 
+<pre class="r"><code># Visual and EIT as reference
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 4)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Math-Vis&quot;,&quot;.Reg-Vis&quot;, &quot;.Sem-Vis&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -964,59 +969,59 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid 
-    4447     4531    -2211     4421     4595 
+     AIC      BIC   logLik deviance df.resid
+    4447     4531    -2211     4421     4595
 
-Scaled residuals: 
-   Min     1Q Median     3Q    Max 
--5.595  0.255  0.388  0.524  1.716 
+Scaled residuals:
+   Min     1Q Median     3Q    Max
+-5.595  0.255  0.388  0.524  1.716
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677   
+ subj_idx (Intercept) 0.458    0.677
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)    
+                            Estimate Std. Error z value Pr(&gt;|z|)
 (Intercept)                  1.64610    0.16686    9.86  &lt; 2e-16 ***
-exp.VRT-EIT                 -0.03627    0.23914   -0.15    0.879    
+exp.VRT-EIT                 -0.03627    0.23914   -0.15    0.879
 cond.Math-Vis               -0.81471    0.14707   -5.54  3.0e-08 ***
-cond.Reg-Vis                 0.34843    0.17020    2.05    0.041 *  
+cond.Reg-Vis                 0.34843    0.17020    2.05    0.041 *
 cond.Sem-Vis                -0.77934    0.14741   -5.29  1.2e-07 ***
-foil.Config-Odd              0.00803    0.12611    0.06    0.949    
-foilRep-Odd                  0.16669    0.12854    1.30    0.195    
-exp.VRT-EIT:cond.Math-Vis    0.24247    0.21881    1.11    0.268    
-exp.VRT-EIT:cond.Reg-Vis    -0.57701    0.23923   -2.41    0.016 *  
-exp.VRT-EIT:cond.Sem-Vis     0.03282    0.21733    0.15    0.880    
-exp.VRT-EIT:foil.Config-Odd  0.22022    0.17903    1.23    0.219    
+foil.Config-Odd              0.00803    0.12611    0.06    0.949
+foilRep-Odd                  0.16669    0.12854    1.30    0.195
+exp.VRT-EIT:cond.Math-Vis    0.24247    0.21881    1.11    0.268
+exp.VRT-EIT:cond.Reg-Vis    -0.57701    0.23923   -2.41    0.016 *
+exp.VRT-EIT:cond.Sem-Vis     0.03282    0.21733    0.15    0.880
+exp.VRT-EIT:foil.Config-Odd  0.22022    0.17903    1.23    0.219
 exp.VRT-EIT:foilRep-Odd      0.77168    0.19219    4.02  5.9e-05 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
              (Intr) ex.VRT-EIT cn.M-V cn.R-V cn.S-V fl.C-O flRp-O e.VRT-EIT:.M e.VRT-EIT:.R
-exp.VRT-EIT  -0.695                                                                        
-cond.Mth-Vs  -0.527  0.366                                                                 
-cond.Reg-Vs  -0.452  0.315      0.513                                                      
-cond.Sem-Vs  -0.526  0.365      0.596  0.511                                               
-fl.Cnfg-Odd  -0.377  0.263      0.000  0.000  0.000                                        
-foilRep-Odd  -0.366  0.256     -0.007  0.002 -0.007  0.490                                 
-e.VRT-EIT:.M  0.353 -0.534     -0.672 -0.345 -0.400  0.000  0.005                          
-e.VRT-EIT:.R  0.321 -0.487     -0.364 -0.711 -0.364  0.000 -0.001  0.533                   
-e.VRT-EIT:.S  0.355 -0.537     -0.403 -0.347 -0.678  0.000  0.004  0.589        0.537      
-e.VRT-EIT:.C  0.266 -0.361      0.000  0.000  0.000 -0.704 -0.345 -0.004       -0.001      
-e.VRT-EIT:R   0.246 -0.327      0.004 -0.001  0.004 -0.327 -0.669 -0.015       -0.003      
+exp.VRT-EIT  -0.695
+cond.Mth-Vs  -0.527  0.366
+cond.Reg-Vs  -0.452  0.315      0.513
+cond.Sem-Vs  -0.526  0.365      0.596  0.511
+fl.Cnfg-Odd  -0.377  0.263      0.000  0.000  0.000
+foilRep-Odd  -0.366  0.256     -0.007  0.002 -0.007  0.490
+e.VRT-EIT:.M  0.353 -0.534     -0.672 -0.345 -0.400  0.000  0.005
+e.VRT-EIT:.R  0.321 -0.487     -0.364 -0.711 -0.364  0.000 -0.001  0.533
+e.VRT-EIT:.S  0.355 -0.537     -0.403 -0.347 -0.678  0.000  0.004  0.589        0.537
+e.VRT-EIT:.C  0.266 -0.361      0.000  0.000  0.000 -0.704 -0.345 -0.004       -0.001
+e.VRT-EIT:R   0.246 -0.327      0.004 -0.001  0.004 -0.327 -0.669 -0.015       -0.003
              e.VRT-EIT:.S e.VRT-EIT:.C
-exp.VRT-EIT                           
-cond.Mth-Vs                           
-cond.Reg-Vs                           
-cond.Sem-Vs                           
-fl.Cnfg-Odd                           
-foilRep-Odd                           
-e.VRT-EIT:.M                          
-e.VRT-EIT:.R                          
-e.VRT-EIT:.S                          
-e.VRT-EIT:.C -0.005                   
+exp.VRT-EIT
+cond.Mth-Vs
+cond.Reg-Vs
+cond.Sem-Vs
+fl.Cnfg-Odd
+foilRep-Odd
+e.VRT-EIT:.M
+e.VRT-EIT:.R
+e.VRT-EIT:.S
+e.VRT-EIT:.C -0.005
 e.VRT-EIT:R  -0.019        0.455      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -1027,8 +1032,8 @@ e.VRT-EIT:R  -0.019        0.455      </code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDb25kaXRpb24gQ29udHJhc3RzIFxuIyBNYXRoIGFuZCBFSVQgYXMgcmVmZXJlbmNlIFxuY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMSlcbmNvbG5hbWVzKGF0dHIocnQkY29uZCwgXCJjb250cmFzdHNcIikpID0gYyhcIi5SZWctTWF0aFwiLFwiLlNlbS1NYXRoXCIsIFwiLlZpcy1NYXRoXCIpXG5wcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKVxuYGBgIn0= -->
-<pre class="r"><code># Condition Contrasts 
-# Math and EIT as reference 
+<pre class="r"><code># Condition Contrasts
+# Math and EIT as reference
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 1)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Reg-Math&quot;,&quot;.Sem-Math&quot;, &quot;.Vis-Math&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -1092,59 +1097,59 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid 
-    4447     4531    -2211     4421     4595 
+     AIC      BIC   logLik deviance df.resid
+    4447     4531    -2211     4421     4595
 
-Scaled residuals: 
-   Min     1Q Median     3Q    Max 
--5.595  0.255  0.388  0.524  1.716 
+Scaled residuals:
+   Min     1Q Median     3Q    Max
+-5.595  0.255  0.388  0.524  1.716
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677   
+ subj_idx (Intercept) 0.458    0.677
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)    
+                            Estimate Std. Error z value Pr(&gt;|z|)
 (Intercept)                   0.9981     0.1555    6.42  1.4e-10 ***
 exp.VRT-EIT                   0.9779     0.2343    4.17  3.0e-05 ***
 cond.Reg-Math                 1.1631     0.1579    7.37  1.8e-13 ***
-cond.Sem-Math                 0.0354     0.1324    0.27  0.78935    
+cond.Sem-Math                 0.0354     0.1324    0.27  0.78935
 cond.Vis-Math                 0.8147     0.1471    5.54  3.0e-08 ***
-foil.Config-Rep              -0.1587     0.1287   -1.23  0.21749    
-foil.Odd-Rep                 -0.1667     0.1285   -1.30  0.19471    
+foil.Config-Rep              -0.1587     0.1287   -1.23  0.21749
+foil.Odd-Rep                 -0.1667     0.1285   -1.30  0.19471
 exp.VRT-EIT:cond.Reg-Math    -0.8195     0.2221   -3.69  0.00022 ***
-exp.VRT-EIT:cond.Sem-Math    -0.2096     0.1977   -1.06  0.28894    
-exp.VRT-EIT:cond.Vis-Math    -0.2425     0.2188   -1.11  0.26783    
-exp.VRT-EIT:foil.Config-Rep  -0.5515     0.1941   -2.84  0.00450 ** 
+exp.VRT-EIT:cond.Sem-Math    -0.2096     0.1977   -1.06  0.28894
+exp.VRT-EIT:cond.Vis-Math    -0.2425     0.2188   -1.11  0.26783
+exp.VRT-EIT:foil.Config-Rep  -0.5515     0.1941   -2.84  0.00450 **
 exp.VRT-EIT:foil.Odd-Rep     -0.7717     0.1922   -4.01  5.9e-05 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
              (Intr) ex.VRT-EIT cn.R-M cn.S-M cn.V-M fl.C-R fl.O-R e.VRT-EIT:.R e.VRT-EIT:.S
-exp.VRT-EIT  -0.661                                                                        
-cond.Rg-Mth  -0.347  0.232                                                                 
-cond.Sm-Mth  -0.423  0.281      0.417                                                      
-cond.Vs-Mth  -0.375  0.250      0.379  0.447                                               
-fol.Cnfg-Rp  -0.427  0.283     -0.008  0.000 -0.006                                        
-foil.Odd-Rp  -0.428  0.283     -0.008  0.000 -0.007  0.519                                 
-e.VRT-EIT:.R  0.247 -0.374     -0.711 -0.296 -0.269  0.006  0.006                          
-e.VRT-EIT:.S  0.283 -0.432     -0.279 -0.670 -0.300  0.000  0.000  0.453                   
-e.VRT-EIT:.V  0.252 -0.377     -0.254 -0.301 -0.672  0.004  0.004  0.411        0.459      
-e.VRT-EIT:.C  0.282 -0.467      0.005  0.000  0.004 -0.663 -0.344 -0.009        0.003      
-e.VRT-EIT:.O  0.285 -0.473      0.005  0.000  0.004 -0.347 -0.669 -0.011        0.004      
+exp.VRT-EIT  -0.661
+cond.Rg-Mth  -0.347  0.232
+cond.Sm-Mth  -0.423  0.281      0.417
+cond.Vs-Mth  -0.375  0.250      0.379  0.447
+fol.Cnfg-Rp  -0.427  0.283     -0.008  0.000 -0.006
+foil.Odd-Rp  -0.428  0.283     -0.008  0.000 -0.007  0.519
+e.VRT-EIT:.R  0.247 -0.374     -0.711 -0.296 -0.269  0.006  0.006
+e.VRT-EIT:.S  0.283 -0.432     -0.279 -0.670 -0.300  0.000  0.000  0.453
+e.VRT-EIT:.V  0.252 -0.377     -0.254 -0.301 -0.672  0.004  0.004  0.411        0.459
+e.VRT-EIT:.C  0.282 -0.467      0.005  0.000  0.004 -0.663 -0.344 -0.009        0.003
+e.VRT-EIT:.O  0.285 -0.473      0.005  0.000  0.004 -0.347 -0.669 -0.011        0.004
              e.VRT-EIT:.V e.VRT-EIT:.C
-exp.VRT-EIT                           
-cond.Rg-Mth                           
-cond.Sm-Mth                           
-cond.Vs-Mth                           
-fol.Cnfg-Rp                           
-foil.Odd-Rp                           
-e.VRT-EIT:.R                          
-e.VRT-EIT:.S                          
-e.VRT-EIT:.V                          
-e.VRT-EIT:.C -0.011                   
+exp.VRT-EIT
+cond.Rg-Mth
+cond.Sm-Mth
+cond.Vs-Mth
+fol.Cnfg-Rp
+foil.Odd-Rp
+e.VRT-EIT:.R
+e.VRT-EIT:.S
+e.VRT-EIT:.V
+e.VRT-EIT:.C -0.011
 e.VRT-EIT:.O -0.015        0.570      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -1155,8 +1160,8 @@ e.VRT-EIT:.O -0.015        0.570      </code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDb25kaXRpb24gQ29udHJhc3RzIFxuIyBNYXRoIGFuZCBFSVQgYXMgcmVmZXJlbmNlIFxuY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMSlcbmNvbG5hbWVzKGF0dHIocnQkY29uZCwgXCJjb250cmFzdHNcIikpID0gYyhcIi5SZWctTWF0aFwiLFwiLlNlbS1NYXRoXCIsIFwiLlZpcy1NYXRoXCIpXG5wcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKVxuYGBgIn0= -->
-<pre class="r"><code># Condition Contrasts 
-# Math and EIT as reference 
+<pre class="r"><code># Condition Contrasts
+# Math and EIT as reference
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 1)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Reg-Math&quot;,&quot;.Sem-Math&quot;, &quot;.Vis-Math&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -1220,59 +1225,59 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid 
-    4447     4531    -2211     4421     4595 
+     AIC      BIC   logLik deviance df.resid
+    4447     4531    -2211     4421     4595
 
-Scaled residuals: 
-   Min     1Q Median     3Q    Max 
--5.595  0.255  0.388  0.524  1.716 
+Scaled residuals:
+   Min     1Q Median     3Q    Max
+-5.595  0.255  0.388  0.524  1.716
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677   
+ subj_idx (Intercept) 0.458    0.677
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)    
+                            Estimate Std. Error z value Pr(&gt;|z|)
 (Intercept)                  0.83942    0.15371    5.46  4.7e-08 ***
-exp.VRT-EIT                  0.42642    0.22376    1.91  0.05669 .  
+exp.VRT-EIT                  0.42642    0.22376    1.91  0.05669 .
 cond.Reg-Math                1.16314    0.15790    7.37  1.8e-13 ***
-cond.Sem-Math                0.03537    0.13240    0.27  0.78935    
+cond.Sem-Math                0.03537    0.13240    0.27  0.78935
 cond.Vis-Math                0.81471    0.14708    5.54  3.0e-08 ***
-foil.Odd-Config             -0.00803    0.12611   -0.06  0.94921    
-foil.Rep-Config              0.15866    0.12865    1.23  0.21749    
+foil.Odd-Config             -0.00803    0.12611   -0.06  0.94921
+foil.Rep-Config              0.15866    0.12865    1.23  0.21749
 exp.VRT-EIT:cond.Reg-Math   -0.81948    0.22209   -3.69  0.00022 ***
-exp.VRT-EIT:cond.Sem-Math   -0.20964    0.19768   -1.06  0.28892    
-exp.VRT-EIT:cond.Vis-Math   -0.24247    0.21883   -1.11  0.26784    
-exp.VRT-EIT:foil.Odd-Config -0.22022    0.17904   -1.23  0.21870    
-exp.VRT-EIT:foil.Rep-Config  0.55145    0.19412    2.84  0.00450 ** 
+exp.VRT-EIT:cond.Sem-Math   -0.20964    0.19768   -1.06  0.28892
+exp.VRT-EIT:cond.Vis-Math   -0.24247    0.21883   -1.11  0.26784
+exp.VRT-EIT:foil.Odd-Config -0.22022    0.17904   -1.23  0.21870
+exp.VRT-EIT:foil.Rep-Config  0.55145    0.19412    2.84  0.00450 **
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
                (Intr) ex.VRT-EIT cn.R-M cn.S-M cn.V-M fl.O-C fl.R-C e.VRT-EIT:.R-M e.VRT-EIT:.S
-exp.VRT-EIT    -0.685                                                                          
-cond.Rg-Mth    -0.358  0.247                                                                   
-cond.Sm-Mth    -0.428  0.294      0.417                                                        
-cond.Vs-Mth    -0.384  0.265      0.379  0.447                                                 
-fl.Odd-Cnfg    -0.411  0.282      0.000  0.000  0.000                                          
-fol.Rp-Cnfg    -0.405  0.278      0.008  0.000  0.006  0.491                                   
-e.VRT-EIT:.R-M  0.255 -0.399     -0.711 -0.296 -0.269  0.000 -0.006                            
-e.VRT-EIT:.S    0.286 -0.450     -0.279 -0.670 -0.300  0.000  0.000  0.453                     
-e.VRT-EIT:.V    0.259 -0.405     -0.254 -0.301 -0.672  0.000 -0.004  0.411          0.459      
-e.VRT-EIT:.O    0.289 -0.411      0.000  0.000  0.000 -0.704 -0.346 -0.002          0.001      
-e.VRT-EIT:.R-C  0.269 -0.378     -0.005  0.000 -0.004 -0.325 -0.663  0.009         -0.003      
+exp.VRT-EIT    -0.685
+cond.Rg-Mth    -0.358  0.247
+cond.Sm-Mth    -0.428  0.294      0.417
+cond.Vs-Mth    -0.384  0.265      0.379  0.447
+fl.Odd-Cnfg    -0.411  0.282      0.000  0.000  0.000
+fol.Rp-Cnfg    -0.405  0.278      0.008  0.000  0.006  0.491
+e.VRT-EIT:.R-M  0.255 -0.399     -0.711 -0.296 -0.269  0.000 -0.006
+e.VRT-EIT:.S    0.286 -0.450     -0.279 -0.670 -0.300  0.000  0.000  0.453
+e.VRT-EIT:.V    0.259 -0.405     -0.254 -0.301 -0.672  0.000 -0.004  0.411          0.459
+e.VRT-EIT:.O    0.289 -0.411      0.000  0.000  0.000 -0.704 -0.346 -0.002          0.001
+e.VRT-EIT:.R-C  0.269 -0.378     -0.005  0.000 -0.004 -0.325 -0.663  0.009         -0.003
                e.VRT-EIT:.V e.VRT-EIT:.O
-exp.VRT-EIT                             
-cond.Rg-Mth                             
-cond.Sm-Mth                             
-cond.Vs-Mth                             
-fl.Odd-Cnfg                             
-fol.Rp-Cnfg                             
-e.VRT-EIT:.R-M                          
-e.VRT-EIT:.S                            
-e.VRT-EIT:.V                            
-e.VRT-EIT:.O   -0.004                   
+exp.VRT-EIT
+cond.Rg-Mth
+cond.Sm-Mth
+cond.Vs-Mth
+fl.Odd-Cnfg
+fol.Rp-Cnfg
+e.VRT-EIT:.R-M
+e.VRT-EIT:.S
+e.VRT-EIT:.V
+e.VRT-EIT:.O   -0.004
 e.VRT-EIT:.R-C  0.011        0.472      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -1283,8 +1288,8 @@ e.VRT-EIT:.R-C  0.011        0.472      </code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDb25kaXRpb24gQ29udHJhc3RzIFxuIyBNYXRoIGFuZCBFSVQgYXMgcmVmZXJlbmNlIFxuY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMSlcbmNvbG5hbWVzKGF0dHIocnQkY29uZCwgXCJjb250cmFzdHNcIikpID0gYyhcIi5SZWctTWF0aFwiLFwiLlNlbS1NYXRoXCIsIFwiLlZpcy1NYXRoXCIpXG5wcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKVxuYGBgIn0= -->
-<pre class="r"><code># Condition Contrasts 
-# Math and EIT as reference 
+<pre class="r"><code># Condition Contrasts
+# Math and EIT as reference
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 1)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Reg-Math&quot;,&quot;.Sem-Math&quot;, &quot;.Vis-Math&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -1348,59 +1353,59 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid 
-    4447     4531    -2211     4421     4595 
+     AIC      BIC   logLik deviance df.resid
+    4447     4531    -2211     4421     4595
 
-Scaled residuals: 
-   Min     1Q Median     3Q    Max 
--5.595  0.255  0.388  0.524  1.716 
+Scaled residuals:
+   Min     1Q Median     3Q    Max
+-5.595  0.255  0.388  0.524  1.716
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677   
+ subj_idx (Intercept) 0.458    0.677
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)    
+                            Estimate Std. Error z value Pr(&gt;|z|)
 (Intercept)                  0.83138    0.15363    5.41  6.3e-08 ***
-exp.VRT-EIT                  0.20621    0.22186    0.93  0.35266    
+exp.VRT-EIT                  0.20621    0.22186    0.93  0.35266
 cond.Reg-Math                1.16315    0.15790    7.37  1.8e-13 ***
-cond.Sem-Math                0.03538    0.13240    0.27  0.78932    
+cond.Sem-Math                0.03538    0.13240    0.27  0.78932
 cond.Vis-Math                0.81472    0.14707    5.54  3.0e-08 ***
-foil.Config-Odd              0.00804    0.12611    0.06  0.94920    
-foilRep-Odd                  0.16669    0.12854    1.30  0.19470    
+foil.Config-Odd              0.00804    0.12611    0.06  0.94920
+foilRep-Odd                  0.16669    0.12854    1.30  0.19470
 exp.VRT-EIT:cond.Reg-Math   -0.81949    0.22209   -3.69  0.00022 ***
-exp.VRT-EIT:cond.Sem-Math   -0.20966    0.19769   -1.06  0.28891    
-exp.VRT-EIT:cond.Vis-Math   -0.24248    0.21882   -1.11  0.26780    
-exp.VRT-EIT:foil.Config-Odd  0.22022    0.17904    1.23  0.21870    
+exp.VRT-EIT:cond.Sem-Math   -0.20966    0.19769   -1.06  0.28891
+exp.VRT-EIT:cond.Vis-Math   -0.24248    0.21882   -1.11  0.26780
+exp.VRT-EIT:foil.Config-Odd  0.22022    0.17904    1.23  0.21870
 exp.VRT-EIT:foilRep-Odd      0.77168    0.19220    4.01  5.9e-05 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
              (Intr) ex.VRT-EIT cn.R-M cn.S-M cn.V-M fl.C-O flRp-O e.VRT-EIT:.R e.VRT-EIT:.S
-exp.VRT-EIT  -0.691                                                                        
-cond.Rg-Mth  -0.358  0.249                                                                 
-cond.Sm-Mth  -0.428  0.297      0.417                                                      
-cond.Vs-Mth  -0.385  0.267      0.379  0.447                                               
-fl.Cnfg-Odd  -0.410  0.284      0.000  0.000  0.000                                        
-foilRep-Odd  -0.404  0.280      0.008  0.000  0.007  0.490                                 
-e.VRT-EIT:.R  0.255 -0.405     -0.711 -0.296 -0.269  0.000 -0.006                          
-e.VRT-EIT:.S  0.287 -0.453     -0.279 -0.670 -0.300  0.000  0.000  0.453                   
-e.VRT-EIT:.V  0.259 -0.411     -0.254 -0.301 -0.672  0.000 -0.004  0.411        0.459      
-e.VRT-EIT:.C  0.289 -0.393      0.000  0.000  0.000 -0.704 -0.345  0.002       -0.001      
-e.VRT-EIT:R   0.271 -0.367     -0.005  0.000 -0.004 -0.327 -0.669  0.011       -0.004      
+exp.VRT-EIT  -0.691
+cond.Rg-Mth  -0.358  0.249
+cond.Sm-Mth  -0.428  0.297      0.417
+cond.Vs-Mth  -0.385  0.267      0.379  0.447
+fl.Cnfg-Odd  -0.410  0.284      0.000  0.000  0.000
+foilRep-Odd  -0.404  0.280      0.008  0.000  0.007  0.490
+e.VRT-EIT:.R  0.255 -0.405     -0.711 -0.296 -0.269  0.000 -0.006
+e.VRT-EIT:.S  0.287 -0.453     -0.279 -0.670 -0.300  0.000  0.000  0.453
+e.VRT-EIT:.V  0.259 -0.411     -0.254 -0.301 -0.672  0.000 -0.004  0.411        0.459
+e.VRT-EIT:.C  0.289 -0.393      0.000  0.000  0.000 -0.704 -0.345  0.002       -0.001
+e.VRT-EIT:R   0.271 -0.367     -0.005  0.000 -0.004 -0.327 -0.669  0.011       -0.004
              e.VRT-EIT:.V e.VRT-EIT:.C
-exp.VRT-EIT                           
-cond.Rg-Mth                           
-cond.Sm-Mth                           
-cond.Vs-Mth                           
-fl.Cnfg-Odd                           
-foilRep-Odd                           
-e.VRT-EIT:.R                          
-e.VRT-EIT:.S                          
-e.VRT-EIT:.V                          
-e.VRT-EIT:.C  0.004                   
+exp.VRT-EIT
+cond.Rg-Mth
+cond.Sm-Mth
+cond.Vs-Mth
+fl.Cnfg-Odd
+foilRep-Odd
+e.VRT-EIT:.R
+e.VRT-EIT:.S
+e.VRT-EIT:.V
+e.VRT-EIT:.C  0.004
 e.VRT-EIT:R   0.015        0.455      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -1411,7 +1416,7 @@ e.VRT-EIT:R   0.015        0.455      </code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTZW1hbnRpYyBhbmQgRUlUIGFzIHJlZmVyZW5jZSBcbmNvbnRyYXN0cyhydCRjb25kKTwtY29udHIudHJlYXRtZW50KDQsYmFzZSA9IDMpXG5jb2xuYW1lcyhhdHRyKHJ0JGNvbmQsIFwiY29udHJhc3RzXCIpKSA9IGMoXCIuTWF0aC1TZW1cIixcIi5SZWctU2VtXCIsIFwiLlZpcy1TZW1cIilcbnByaW50KCdNdWx0aXRhc2sgQ29uZGl0aW9uIENvbnRyYXN0IE1hdHJpeCcpXG5gYGAifQ== -->
-<pre class="r"><code># Semantic and EIT as reference 
+<pre class="r"><code># Semantic and EIT as reference
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 3)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Math-Sem&quot;,&quot;.Reg-Sem&quot;, &quot;.Vis-Sem&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -1475,59 +1480,59 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid 
-    4447     4531    -2211     4421     4595 
+     AIC      BIC   logLik deviance df.resid
+    4447     4531    -2211     4421     4595
 
-Scaled residuals: 
-   Min     1Q Median     3Q    Max 
--5.595  0.255  0.388  0.524  1.716 
+Scaled residuals:
+   Min     1Q Median     3Q    Max
+-5.595  0.255  0.388  0.524  1.716
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677   
+ subj_idx (Intercept) 0.458    0.677
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)    
+                            Estimate Std. Error z value Pr(&gt;|z|)
 (Intercept)                   1.0335     0.1559    6.63  3.4e-11 ***
 exp.VRT-EIT                   0.7682     0.2322    3.31  0.00094 ***
-cond.Math-Sem                -0.0354     0.1324   -0.27  0.78934    
+cond.Math-Sem                -0.0354     0.1324   -0.27  0.78934
 cond.Reg-Sem                  1.1278     0.1582    7.13  1.0e-12 ***
 cond.Vis-Sem                  0.7793     0.1474    5.29  1.2e-07 ***
-foil.Config-Rep              -0.1587     0.1287   -1.23  0.21752    
-foil.Odd-Rep                 -0.1667     0.1286   -1.30  0.19475    
-exp.VRT-EIT:cond.Math-Sem     0.2097     0.1977    1.06  0.28896    
-exp.VRT-EIT:cond.Reg-Sem     -0.6098     0.2206   -2.76  0.00571 ** 
-exp.VRT-EIT:cond.Vis-Sem     -0.0328     0.2174   -0.15  0.87996    
-exp.VRT-EIT:foil.Config-Rep  -0.5515     0.1941   -2.84  0.00450 ** 
+foil.Config-Rep              -0.1587     0.1287   -1.23  0.21752
+foil.Odd-Rep                 -0.1667     0.1286   -1.30  0.19475
+exp.VRT-EIT:cond.Math-Sem     0.2097     0.1977    1.06  0.28896
+exp.VRT-EIT:cond.Reg-Sem     -0.6098     0.2206   -2.76  0.00571 **
+exp.VRT-EIT:cond.Vis-Sem     -0.0328     0.2174   -0.15  0.87996
+exp.VRT-EIT:foil.Config-Rep  -0.5515     0.1941   -2.84  0.00450 **
 exp.VRT-EIT:foil.Odd-Rep     -0.7717     0.1922   -4.01  6.0e-05 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
              (Intr) ex.VRT-EIT cn.M-S cn.R-S cn.V-S fl.C-R fl.O-R e.VRT-EIT:.M e.VRT-EIT:.R
-exp.VRT-EIT  -0.669                                                                        
-cond.Mth-Sm  -0.428  0.287                                                                 
-cond.Reg-Sm  -0.350  0.237      0.421                                                      
-cond.Vis-Sm  -0.378  0.255      0.452  0.381                                               
-fol.Cnfg-Rp  -0.427  0.286      0.000 -0.008 -0.006                                        
-foil.Odd-Rp  -0.427  0.286      0.000 -0.008 -0.006  0.519                                 
-e.VRT-EIT:.M  0.287 -0.415     -0.670 -0.282 -0.302  0.000  0.000                          
-e.VRT-EIT:.R  0.252 -0.364     -0.302 -0.717 -0.273  0.005  0.006  0.440                   
-e.VRT-EIT:.V  0.257 -0.367     -0.306 -0.258 -0.678  0.004  0.004  0.447        0.403      
-e.VRT-EIT:.C  0.282 -0.469      0.000  0.004  0.003 -0.663 -0.344 -0.003       -0.012      
-e.VRT-EIT:.O  0.284 -0.474      0.000  0.004  0.004 -0.347 -0.669 -0.004       -0.015      
+exp.VRT-EIT  -0.669
+cond.Mth-Sm  -0.428  0.287
+cond.Reg-Sm  -0.350  0.237      0.421
+cond.Vis-Sm  -0.378  0.255      0.452  0.381
+fol.Cnfg-Rp  -0.427  0.286      0.000 -0.008 -0.006
+foil.Odd-Rp  -0.427  0.286      0.000 -0.008 -0.006  0.519
+e.VRT-EIT:.M  0.287 -0.415     -0.670 -0.282 -0.302  0.000  0.000
+e.VRT-EIT:.R  0.252 -0.364     -0.302 -0.717 -0.273  0.005  0.006  0.440
+e.VRT-EIT:.V  0.257 -0.367     -0.306 -0.258 -0.678  0.004  0.004  0.447        0.403
+e.VRT-EIT:.C  0.282 -0.469      0.000  0.004  0.003 -0.663 -0.344 -0.003       -0.012
+e.VRT-EIT:.O  0.284 -0.474      0.000  0.004  0.004 -0.347 -0.669 -0.004       -0.015
              e.VRT-EIT:.V e.VRT-EIT:.C
-exp.VRT-EIT                           
-cond.Mth-Sm                           
-cond.Reg-Sm                           
-cond.Vis-Sm                           
-fol.Cnfg-Rp                           
-foil.Odd-Rp                           
-e.VRT-EIT:.M                          
-e.VRT-EIT:.R                          
-e.VRT-EIT:.V                          
-e.VRT-EIT:.C -0.014                   
+exp.VRT-EIT
+cond.Mth-Sm
+cond.Reg-Sm
+cond.Vis-Sm
+fol.Cnfg-Rp
+foil.Odd-Rp
+e.VRT-EIT:.M
+e.VRT-EIT:.R
+e.VRT-EIT:.V
+e.VRT-EIT:.C -0.014
 e.VRT-EIT:.O -0.019        0.570      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -1538,7 +1543,7 @@ e.VRT-EIT:.O -0.019        0.570      </code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTZW1hbnRpYyBhbmQgRUlUIGFzIHJlZmVyZW5jZSBcbmNvbnRyYXN0cyhydCRjb25kKTwtY29udHIudHJlYXRtZW50KDQsYmFzZSA9IDMpXG5jb2xuYW1lcyhhdHRyKHJ0JGNvbmQsIFwiY29udHJhc3RzXCIpKSA9IGMoXCIuTWF0aC1TZW1cIixcIi5SZWctU2VtXCIsIFwiLlZpcy1TZW1cIilcbnByaW50KCdNdWx0aXRhc2sgQ29uZGl0aW9uIENvbnRyYXN0IE1hdHJpeCcpXG5gYGAifQ== -->
-<pre class="r"><code># Semantic and EIT as reference 
+<pre class="r"><code># Semantic and EIT as reference
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 3)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Math-Sem&quot;,&quot;.Reg-Sem&quot;, &quot;.Vis-Sem&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -1602,59 +1607,59 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid 
-    4447     4531    -2211     4421     4595 
+     AIC      BIC   logLik deviance df.resid
+    4447     4531    -2211     4421     4595
 
-Scaled residuals: 
-   Min     1Q Median     3Q    Max 
--5.595  0.255  0.388  0.524  1.716 
+Scaled residuals:
+   Min     1Q Median     3Q    Max
+-5.595  0.255  0.388  0.524  1.716
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677   
+ subj_idx (Intercept) 0.458    0.677
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)    
+                            Estimate Std. Error z value Pr(&gt;|z|)
 (Intercept)                  0.87480    0.15406    5.68  1.4e-08 ***
-exp.VRT-EIT                  0.21677    0.22212    0.98   0.3291    
-cond.Math-Sem               -0.03538    0.13241   -0.27   0.7893    
+exp.VRT-EIT                  0.21677    0.22212    0.98   0.3291
+cond.Math-Sem               -0.03538    0.13241   -0.27   0.7893
 cond.Reg-Sem                 1.12776    0.15822    7.13  1.0e-12 ***
 cond.Vis-Sem                 0.77934    0.14742    5.29  1.2e-07 ***
-foil.Odd-Config             -0.00804    0.12611   -0.06   0.9492    
-foil.Rep-Config              0.15865    0.12865    1.23   0.2175    
-exp.VRT-EIT:cond.Math-Sem    0.20965    0.19770    1.06   0.2889    
-exp.VRT-EIT:cond.Reg-Sem    -0.60983    0.22059   -2.76   0.0057 ** 
-exp.VRT-EIT:cond.Vis-Sem    -0.03282    0.21736   -0.15   0.8800    
-exp.VRT-EIT:foil.Odd-Config -0.22022    0.17905   -1.23   0.2187    
-exp.VRT-EIT:foil.Rep-Config  0.55146    0.19412    2.84   0.0045 ** 
+foil.Odd-Config             -0.00804    0.12611   -0.06   0.9492
+foil.Rep-Config              0.15865    0.12865    1.23   0.2175
+exp.VRT-EIT:cond.Math-Sem    0.20965    0.19770    1.06   0.2889
+exp.VRT-EIT:cond.Reg-Sem    -0.60983    0.22059   -2.76   0.0057 **
+exp.VRT-EIT:cond.Vis-Sem    -0.03282    0.21736   -0.15   0.8800
+exp.VRT-EIT:foil.Odd-Config -0.22022    0.17905   -1.23   0.2187
+exp.VRT-EIT:foil.Rep-Config  0.55146    0.19412    2.84   0.0045 **
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
                (Intr) ex.VRT-EIT cn.M-S cn.R-S cn.V-S fl.O-C fl.R-C e.VRT-EIT:.M e.VRT-EIT:.R-S
-exp.VRT-EIT    -0.692                                                                          
-cond.Mth-Sm    -0.432  0.300                                                                   
-cond.Reg-Sm    -0.360  0.251      0.421                                                        
-cond.Vis-Sm    -0.387  0.269      0.452  0.381                                                 
-fl.Odd-Cnfg    -0.410  0.284      0.000  0.000  0.000                                          
-fol.Rp-Cnfg    -0.404  0.280      0.000  0.008  0.006  0.491                                   
-e.VRT-EIT:.M    0.290 -0.437     -0.670 -0.282 -0.302  0.000  0.000                            
-e.VRT-EIT:.R-S  0.259 -0.391     -0.302 -0.717 -0.273  0.000 -0.005  0.440                     
-e.VRT-EIT:.V    0.263 -0.396     -0.306 -0.258 -0.678  0.000 -0.004  0.447        0.403        
-e.VRT-EIT:.O    0.288 -0.412      0.000  0.000  0.000 -0.704 -0.346 -0.001       -0.003        
-e.VRT-EIT:.R-C  0.268 -0.384      0.000 -0.004 -0.003 -0.325 -0.663  0.003        0.012        
+exp.VRT-EIT    -0.692
+cond.Mth-Sm    -0.432  0.300
+cond.Reg-Sm    -0.360  0.251      0.421
+cond.Vis-Sm    -0.387  0.269      0.452  0.381
+fl.Odd-Cnfg    -0.410  0.284      0.000  0.000  0.000
+fol.Rp-Cnfg    -0.404  0.280      0.000  0.008  0.006  0.491
+e.VRT-EIT:.M    0.290 -0.437     -0.670 -0.282 -0.302  0.000  0.000
+e.VRT-EIT:.R-S  0.259 -0.391     -0.302 -0.717 -0.273  0.000 -0.005  0.440
+e.VRT-EIT:.V    0.263 -0.396     -0.306 -0.258 -0.678  0.000 -0.004  0.447        0.403
+e.VRT-EIT:.O    0.288 -0.412      0.000  0.000  0.000 -0.704 -0.346 -0.001       -0.003
+e.VRT-EIT:.R-C  0.268 -0.384      0.000 -0.004 -0.003 -0.325 -0.663  0.003        0.012
                e.VRT-EIT:.V e.VRT-EIT:.O
-exp.VRT-EIT                             
-cond.Mth-Sm                             
-cond.Reg-Sm                             
-cond.Vis-Sm                             
-fl.Odd-Cnfg                             
-fol.Rp-Cnfg                             
-e.VRT-EIT:.M                            
-e.VRT-EIT:.R-S                          
-e.VRT-EIT:.V                            
-e.VRT-EIT:.O   -0.005                   
+exp.VRT-EIT
+cond.Mth-Sm
+cond.Reg-Sm
+cond.Vis-Sm
+fl.Odd-Cnfg
+fol.Rp-Cnfg
+e.VRT-EIT:.M
+e.VRT-EIT:.R-S
+e.VRT-EIT:.V
+e.VRT-EIT:.O   -0.005
 e.VRT-EIT:.R-C  0.014        0.472      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -1665,7 +1670,7 @@ e.VRT-EIT:.R-C  0.014        0.472      </code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTZW1hbnRpYyBhbmQgRUlUIGFzIHJlZmVyZW5jZSBcbmNvbnRyYXN0cyhydCRjb25kKTwtY29udHIudHJlYXRtZW50KDQsYmFzZSA9IDMpXG5jb2xuYW1lcyhhdHRyKHJ0JGNvbmQsIFwiY29udHJhc3RzXCIpKSA9IGMoXCIuTWF0aC1TZW1cIixcIi5SZWctU2VtXCIsIFwiLlZpcy1TZW1cIilcbnByaW50KCdNdWx0aXRhc2sgQ29uZGl0aW9uIENvbnRyYXN0IE1hdHJpeCcpXG5gYGAifQ== -->
-<pre class="r"><code># Semantic and EIT as reference 
+<pre class="r"><code># Semantic and EIT as reference
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 3)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Math-Sem&quot;,&quot;.Reg-Sem&quot;, &quot;.Vis-Sem&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -1729,59 +1734,59 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid 
-    4447     4531    -2211     4421     4595 
+     AIC      BIC   logLik deviance df.resid
+    4447     4531    -2211     4421     4595
 
-Scaled residuals: 
-   Min     1Q Median     3Q    Max 
--5.595  0.255  0.388  0.524  1.716 
+Scaled residuals:
+   Min     1Q Median     3Q    Max
+-5.595  0.255  0.388  0.524  1.716
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677   
+ subj_idx (Intercept) 0.458    0.677
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)    
+                            Estimate Std. Error z value Pr(&gt;|z|)
 (Intercept)                  0.86676    0.15397    5.63  1.8e-08 ***
-exp.VRT-EIT                 -0.00345    0.22038   -0.02   0.9875    
-cond.Math-Sem               -0.03538    0.13239   -0.27   0.7893    
+exp.VRT-EIT                 -0.00345    0.22038   -0.02   0.9875
+cond.Math-Sem               -0.03538    0.13239   -0.27   0.7893
 cond.Reg-Sem                 1.12776    0.15820    7.13  1.0e-12 ***
 cond.Vis-Sem                 0.77934    0.14740    5.29  1.2e-07 ***
-foil.Config-Odd              0.00803    0.12610    0.06   0.9492    
-foil.Config-Odd              0.16669    0.12853    1.30   0.1947    
-exp.VRT-EIT:cond.Math-Sem    0.20965    0.19767    1.06   0.2889    
-exp.VRT-EIT:cond.Reg-Sem    -0.60983    0.22056   -2.76   0.0057 ** 
-exp.VRT-EIT:cond.Vis-Sem    -0.03283    0.21732   -0.15   0.8799    
-exp.VRT-EIT:foil.Config-Odd  0.22022    0.17903    1.23   0.2187    
+foil.Config-Odd              0.00803    0.12610    0.06   0.9492
+foil.Config-Odd              0.16669    0.12853    1.30   0.1947
+exp.VRT-EIT:cond.Math-Sem    0.20965    0.19767    1.06   0.2889
+exp.VRT-EIT:cond.Reg-Sem    -0.60983    0.22056   -2.76   0.0057 **
+exp.VRT-EIT:cond.Vis-Sem    -0.03283    0.21732   -0.15   0.8799
+exp.VRT-EIT:foil.Config-Odd  0.22022    0.17903    1.23   0.2187
 exp.VRT-EIT:foil.Config-Odd  0.77168    0.19218    4.02  5.9e-05 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
              (Intr) ex.VRT-EIT cn.M-S cn.R-S cn.V-S fl.C-O fl.C-O e.VRT-EIT:.M e.VRT-EIT:.R
-exp.VRT-EIT  -0.697                                                                        
-cond.Mth-Sm  -0.433  0.302                                                                 
-cond.Reg-Sm  -0.361  0.253      0.421                                                      
-cond.Vis-Sm  -0.387  0.271      0.452  0.381                                               
-fl.Cnfg-Odd  -0.409  0.286      0.000  0.000  0.000                                        
-fl.Cnfg-Odd  -0.403  0.282      0.000  0.008  0.006  0.490                                 
-e.VRT-EIT:.M  0.290 -0.441     -0.670 -0.281 -0.302  0.000  0.000                          
-e.VRT-EIT:.R  0.259 -0.396     -0.302 -0.717 -0.273  0.000 -0.006  0.440                   
-e.VRT-EIT:.V  0.263 -0.403     -0.306 -0.258 -0.678  0.000 -0.004  0.447        0.403      
-e.VRT-EIT:.C  0.288 -0.396      0.000  0.000  0.000 -0.704 -0.345  0.001        0.003      
-e.VRT-EIT:.C  0.270 -0.373      0.000 -0.004 -0.004 -0.327 -0.669  0.004        0.015      
+exp.VRT-EIT  -0.697
+cond.Mth-Sm  -0.433  0.302
+cond.Reg-Sm  -0.361  0.253      0.421
+cond.Vis-Sm  -0.387  0.271      0.452  0.381
+fl.Cnfg-Odd  -0.409  0.286      0.000  0.000  0.000
+fl.Cnfg-Odd  -0.403  0.282      0.000  0.008  0.006  0.490
+e.VRT-EIT:.M  0.290 -0.441     -0.670 -0.281 -0.302  0.000  0.000
+e.VRT-EIT:.R  0.259 -0.396     -0.302 -0.717 -0.273  0.000 -0.006  0.440
+e.VRT-EIT:.V  0.263 -0.403     -0.306 -0.258 -0.678  0.000 -0.004  0.447        0.403
+e.VRT-EIT:.C  0.288 -0.396      0.000  0.000  0.000 -0.704 -0.345  0.001        0.003
+e.VRT-EIT:.C  0.270 -0.373      0.000 -0.004 -0.004 -0.327 -0.669  0.004        0.015
              e.VRT-EIT:.V e.VRT-EIT:.C
-exp.VRT-EIT                           
-cond.Mth-Sm                           
-cond.Reg-Sm                           
-cond.Vis-Sm                           
-fl.Cnfg-Odd                           
-fl.Cnfg-Odd                           
-e.VRT-EIT:.M                          
-e.VRT-EIT:.R                          
-e.VRT-EIT:.V                          
-e.VRT-EIT:.C  0.005                   
+exp.VRT-EIT
+cond.Mth-Sm
+cond.Reg-Sm
+cond.Vis-Sm
+fl.Cnfg-Odd
+fl.Cnfg-Odd
+e.VRT-EIT:.M
+e.VRT-EIT:.R
+e.VRT-EIT:.V
+e.VRT-EIT:.C  0.005
 e.VRT-EIT:.C  0.019        0.455      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
