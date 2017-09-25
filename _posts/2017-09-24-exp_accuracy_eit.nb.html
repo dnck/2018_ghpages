@@ -1,9 +1,3 @@
----
-layout: post
-title: EXP Accuracy models (eit as reference)
-date: 2017-09-25
----
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -148,7 +142,7 @@ $(document).ready(function () {
 </style>
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("exp_accuracy.Rmd");
+  window.initializeSourceEmbed("exp_accuracy_eit.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>
@@ -180,7 +174,7 @@ $(document).ready(function () {
 <!-- rnb-text-begin -->
 <div id="load-exp-data" class="section level1">
 <h1>Load EXP Data</h1>
-<p>We’re including the non-responders into the analysis.</p>
+<p>We’re including the non-responders into the analysis. And we’re running the models with EIT as the reference level.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2V0d2QoXCIvVXNlcnMvY29va2RqMDEyOC9jb29rX01zY1Byb2plY3QvYW5hbHlzaXMvYmVoYXZpb3IvXCIpXG4jcnQgPSByZWFkLmNzdihcInJ0RnJhbWVfbm9OQS5jc3ZcIilcbnJ0PSByZWFkLmNzdignL1VzZXJzL2Nvb2tkajAxMjgvY29va19Nc2NQcm9qZWN0L3N0aW11bGkvcnRGcmFtZV93aXRoRW50cm9weS5jc3YnKSN3aXRoIG5vbi1yZXNwb25kZXJzXG5ydCRleHAgPSBmYWN0b3IocnQkZXhwKVxucnQkb3JkZXIgPSBhcy5mYWN0b3IocnQkb3JkZXIpXG5ydCRjb25kID0gYXMuZmFjdG9yKHJ0JGNvbmQpXG5ydCRleHAgPSBhcy5mYWN0b3IocnQkZXhwKVxucnQkZm9pbCA9IGFzLmZhY3RvcihydCRmb2lsKVxuYGBgIn0= -->
@@ -201,7 +195,7 @@ rt$foil = as.factor(rt$foil)</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBPcmRlciBjb25zdHJhc3RzIFxuY29udHJhc3RzKHJ0JG9yZGVyKTwtY29udHIucG9seSg0KVxuY29sbmFtZXMoYXR0cihydCRvcmRlciwgXCJjb250cmFzdHNcIikpID0gYyhcIkxpbmVhclwiLFwiUXVhZHJhdFwiLFwiQ3ViaWNcIilcbnByaW50KCdPcmRlciBDb250cmFzdCBNYXRyaXgnKVxuYGBgIn0= -->
-<pre class="r"><code># Order constrasts
+<pre class="r"><code># Order constrasts 
 contrasts(rt$order)&lt;-contr.poly(4)
 colnames(attr(rt$order, &quot;contrasts&quot;)) = c(&quot;Linear&quot;,&quot;Quadrat&quot;,&quot;Cubic&quot;)
 print('Order Contrast Matrix')</code></pre>
@@ -228,8 +222,8 @@ print('Order Contrast Matrix')</code></pre>
 <h2>Model with Regular, Repeat, VRT as reference</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBSZWd1bGFyIGFuZCBWUlQgYXMgcmVmZXJlbmNlIFxuY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMilcbmNvbG5hbWVzKGF0dHIocnQkY29uZCwgXCJjb250cmFzdHNcIikpID0gYyhcIi5NYXRoLVJlZ1wiLFwiLlNlbS1SZWdcIiwgXCIuVmlzLVJlZ1wiKVxucHJpbnQoJ011bHRpdGFzayBDb25kaXRpb24gQ29udHJhc3QgTWF0cml4JylcbmBgYCJ9 -->
-<pre class="r"><code># Regular and VRT as reference
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBSZWd1bGFyIGFuZCBFSVQgYXMgcmVmZXJlbmNlIFxuY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMilcbmNvbG5hbWVzKGF0dHIocnQkY29uZCwgXCJjb250cmFzdHNcIikpID0gYyhcIi5NYXRoLVJlZ1wiLFwiLlNlbS1SZWdcIiwgXCIuVmlzLVJlZ1wiKVxucHJpbnQoJ011bHRpdGFzayBDb25kaXRpb24gQ29udHJhc3QgTWF0cml4JylcbmBgYCJ9 -->
+<pre class="r"><code># Regular and EIT as reference 
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 2)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Math-Reg&quot;,&quot;.Sem-Reg&quot;, &quot;.Vis-Reg&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -282,55 +276,55 @@ print('Foil Contrast Matrix')</code></pre>
 eit        0
 vrt        1</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2V4cF9yZWdfcmVwZWF0X3ZydF9BQ0MwID0gZ2xtZXIocmVzcG9uc2UgfiAxICsgKDF8c3Vial9pZHgpLCBkYXRhPXJ0LCBuYS5hY3Rpb249bmEub21pdCwgI2ZhbWlseT1iaW5vbWlhbChsaW5rID0gXCJsb2dpdFwiKSwgY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPVwiYm9ieXFhXCIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSlcbiNleHBfcmVnX3JlcGVhdF92cnRfQUNDMSA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwICArICgxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsICNmYW1pbHk9Ymlub21pYWwobGluayA9IFwibG9naXRcIiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj1cImJvYnlxYVwiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpXG4jZXhwX3JlZ19yZXBlYXRfdnJ0X0FDQzIgPSBnbG1lcihyZXNwb25zZSB+IGV4cCArIGNvbmQgKyAoMXxzdWJqX2lkeCksIGRhdGE9cnQsIG5hLmFjdGlvbj1uYS5vbWl0LCAjZmFtaWx5PWJpbm9taWFsKGxpbmsgPSBcImxvZ2l0XCIpLCBjb250cm9sPWdsbWVyQ29udHJvbChvcHRpbWl6ZXI9XCJib2J5cWFcIixvcHRDdHJsPWxpc3QobWF4ZnVuPTEwMDAwMCkpKVxuI2V4cF9yZWdfcmVwZWF0X3ZydF9BQ0MzID0gZ2xtZXIocmVzcG9uc2UgfiBleHAqY29uZCArICgxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsICNmYW1pbHk9Ymlub21pYWwobGluayA9IFwibG9naXRcIiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj1cImJvYnlxYVwiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpXG4jZXhwX3JlZ19yZXBlYXRfdnJ0X0FDQzQgPSBnbG1lcihyZXNwb25zZSB+IGV4cCpjb25kICsgZm9pbCArICgxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsICNmYW1pbHk9Ymlub21pYWwobGluayA9IFwibG9naXRcIiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj1cImJvYnlxYVwiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpXG5leHBfcmVnX3JlcGVhdF92cnRfQUNDNSA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwKmNvbmQgKyBleHAqZm9pbCArICgxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsIGZhbWlseT1iaW5vbWlhbChsaW5rID0gXCJsb2dpdFwiKSwgY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPVwiYm9ieXFhXCIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSlcbiNleHBfcmVnX3JlcGVhdF92cnRfQUNDNiA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwKmNvbmQqZm9pbCArICgxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsICNmYW1pbHk9Ymlub21pYWwobGluayA9IFwibG9naXRcIiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj1cImJvYnlxYVwiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpXG4jZXhwX3JlZ19yZXBlYXRfdnJ0X0FDQzcgPSBnbG1lcihyZXNwb25zZSB+IGV4cCpjb25kKmZvaWwgKyBleHAqb3JkZXIgKyAoMXxzdWJqX2lkeCksIGRhdGE9cnQsICNuYS5hY3Rpb249bmEub21pdCwgZmFtaWx5PWJpbm9taWFsKGxpbmsgPSBcImxvZ2l0XCIpLCAjY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPVwiYm9ieXFhXCIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSlcbiNleHBfcmVnX3JlcGVhdF92cnRfQUNDOCA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwKmNvbmQqZm9pbCArIGV4cCpjb25kKm9yZGVyICsgKDF8c3Vial9pZHgpLCBkYXRhPXJ0LCAjbmEuYWN0aW9uPW5hLm9taXQsIGZhbWlseT1iaW5vbWlhbChsaW5rID0gXCJsb2dpdFwiKSwgI2NvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj1cImJvYnlxYVwiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpXG4jYW5vdmEoZXhwX3JlZ19yZXBlYXRfdnJ0X0FDQzAsXG4jICAgICAgZXhwX3JlZ19yZXBlYXRfdnJ0X0FDQzEsXG4jICAgICAgZXhwX3JlZ19yZXBlYXRfdnJ0X0FDQzIsXG4jICAgICAgZXhwX3JlZ19yZXBlYXRfdnJ0X0FDQzMsXG4jICAgICAgZXhwX3JlZ19yZXBlYXRfdnJ0X0FDQzQsXG4jICAgICAgZXhwX3JlZ19yZXBlYXRfdnJ0X0FDQzUsXG4jICAgICAgZXhwX3JlZ19yZXBlYXRfdnJ0X0FDQzYsXG4jICAgICAgZXhwX3JlZ19yZXBlYXRfdnJ0X0FDQzcsXG4jICAgICAgZXhwX3JlZ19yZXBlYXRfdnJ0X0FDQzgpXG5gYGAifQ== -->
-<pre class="r"><code>#exp_reg_repeat_vrt_ACC0 = glmer(response ~ 1 + (1|subj_idx), data=rt, na.action=na.omit, #family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
-#exp_reg_repeat_vrt_ACC1 = glmer(response ~ exp  + (1|subj_idx), data=rt, na.action=na.omit, #family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
-#exp_reg_repeat_vrt_ACC2 = glmer(response ~ exp + cond + (1|subj_idx), data=rt, na.action=na.omit, #family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
-#exp_reg_repeat_vrt_ACC3 = glmer(response ~ exp*cond + (1|subj_idx), data=rt, na.action=na.omit, #family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
-#exp_reg_repeat_vrt_ACC4 = glmer(response ~ exp*cond + foil + (1|subj_idx), data=rt, na.action=na.omit, #family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
-exp_reg_repeat_vrt_ACC5 = glmer(response ~ exp*cond + exp*foil + (1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
-#exp_reg_repeat_vrt_ACC6 = glmer(response ~ exp*cond*foil + (1|subj_idx), data=rt, na.action=na.omit, #family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
-#exp_reg_repeat_vrt_ACC7 = glmer(response ~ exp*cond*foil + exp*order + (1|subj_idx), data=rt, #na.action=na.omit, family=binomial(link = &quot;logit&quot;), #control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
-#exp_reg_repeat_vrt_ACC8 = glmer(response ~ exp*cond*foil + exp*cond*order + (1|subj_idx), data=rt, #na.action=na.omit, family=binomial(link = &quot;logit&quot;), #control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
-#anova(exp_reg_repeat_vrt_ACC0,
-#      exp_reg_repeat_vrt_ACC1,
-#      exp_reg_repeat_vrt_ACC2,
-#      exp_reg_repeat_vrt_ACC3,
-#      exp_reg_repeat_vrt_ACC4,
-#      exp_reg_repeat_vrt_ACC5,
-#      exp_reg_repeat_vrt_ACC6,
-#      exp_reg_repeat_vrt_ACC7,
-#      exp_reg_repeat_vrt_ACC8)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2V4cF9yZWdfcmVwZWF0X2VpdF9BQ0MwID0gZ2xtZXIocmVzcG9uc2UgfiAxICsgKDF8c3Vial9pZHgpLCBkYXRhPXJ0LCBuYS5hY3Rpb249bmEub21pdCwgI2ZhbWlseT1iaW5vbWlhbChsaW5rID0gXCJsb2dpdFwiKSwgY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPVwiYm9ieXFhXCIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSlcbiNleHBfcmVnX3JlcGVhdF9laXRfQUNDMSA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwICArICgxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsICNmYW1pbHk9Ymlub21pYWwobGluayA9IFwibG9naXRcIiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj1cImJvYnlxYVwiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpXG4jZXhwX3JlZ19yZXBlYXRfZWl0X0FDQzIgPSBnbG1lcihyZXNwb25zZSB+IGV4cCArIGNvbmQgKyAoMXxzdWJqX2lkeCksIGRhdGE9cnQsIG5hLmFjdGlvbj1uYS5vbWl0LCAjZmFtaWx5PWJpbm9taWFsKGxpbmsgPSBcImxvZ2l0XCIpLCBjb250cm9sPWdsbWVyQ29udHJvbChvcHRpbWl6ZXI9XCJib2J5cWFcIixvcHRDdHJsPWxpc3QobWF4ZnVuPTEwMDAwMCkpKVxuI2V4cF9yZWdfcmVwZWF0X2VpdF9BQ0MzID0gZ2xtZXIocmVzcG9uc2UgfiBleHAqY29uZCArICgxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsICNmYW1pbHk9Ymlub21pYWwobGluayA9IFwibG9naXRcIiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj1cImJvYnlxYVwiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpXG4jZXhwX3JlZ19yZXBlYXRfZWl0X0FDQzQgPSBnbG1lcihyZXNwb25zZSB+IGV4cCpjb25kICsgZm9pbCArICgxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsICNmYW1pbHk9Ymlub21pYWwobGluayA9IFwibG9naXRcIiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj1cImJvYnlxYVwiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpXG5leHBfcmVnX3JlcGVhdF9laXRfQUNDNSA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwKmNvbmQgKyBleHAqZm9pbCArICgxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsIGZhbWlseT1iaW5vbWlhbChsaW5rID0gXCJsb2dpdFwiKSwgY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPVwiYm9ieXFhXCIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSlcbiNleHBfcmVnX3JlcGVhdF9laXRfQUNDNiA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwKmNvbmQqZm9pbCArICgxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsICNmYW1pbHk9Ymlub21pYWwobGluayA9IFwibG9naXRcIiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj1cImJvYnlxYVwiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpXG4jZXhwX3JlZ19yZXBlYXRfZWl0X0FDQzcgPSBnbG1lcihyZXNwb25zZSB+IGV4cCpjb25kKmZvaWwgKyBleHAqb3JkZXIgKyAoMXxzdWJqX2lkeCksIGRhdGE9cnQsICNuYS5hY3Rpb249bmEub21pdCwgZmFtaWx5PWJpbm9taWFsKGxpbmsgPSBcImxvZ2l0XCIpLCAjY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPVwiYm9ieXFhXCIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSlcbiNleHBfcmVnX3JlcGVhdF9laXRfQUNDOCA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwKmNvbmQqZm9pbCArIGV4cCpjb25kKm9yZGVyICsgKDF8c3Vial9pZHgpLCBkYXRhPXJ0LCAjbmEuYWN0aW9uPW5hLm9taXQsIGZhbWlseT1iaW5vbWlhbChsaW5rID0gXCJsb2dpdFwiKSwgI2NvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj1cImJvYnlxYVwiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpXG4jYW5vdmEoZXhwX3JlZ19yZXBlYXRfZWl0X0FDQzAsXG4jICAgICAgZXhwX3JlZ19yZXBlYXRfZWl0X0FDQzEsXG4jICAgICAgZXhwX3JlZ19yZXBlYXRfZWl0X0FDQzIsXG4jICAgICAgZXhwX3JlZ19yZXBlYXRfZWl0X0FDQzMsXG4jICAgICAgZXhwX3JlZ19yZXBlYXRfZWl0X0FDQzQsXG4jICAgICAgZXhwX3JlZ19yZXBlYXRfZWl0X0FDQzUsXG4jICAgICAgZXhwX3JlZ19yZXBlYXRfZWl0X0FDQzYsXG4jICAgICAgZXhwX3JlZ19yZXBlYXRfZWl0X0FDQzcsXG4jICAgICAgZXhwX3JlZ19yZXBlYXRfZWl0X0FDQzgpXG5gYGAifQ== -->
+<pre class="r"><code>#exp_reg_repeat_eit_ACC0 = glmer(response ~ 1 + (1|subj_idx), data=rt, na.action=na.omit, #family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
+#exp_reg_repeat_eit_ACC1 = glmer(response ~ exp  + (1|subj_idx), data=rt, na.action=na.omit, #family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
+#exp_reg_repeat_eit_ACC2 = glmer(response ~ exp + cond + (1|subj_idx), data=rt, na.action=na.omit, #family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
+#exp_reg_repeat_eit_ACC3 = glmer(response ~ exp*cond + (1|subj_idx), data=rt, na.action=na.omit, #family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
+#exp_reg_repeat_eit_ACC4 = glmer(response ~ exp*cond + foil + (1|subj_idx), data=rt, na.action=na.omit, #family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
+exp_reg_repeat_eit_ACC5 = glmer(response ~ exp*cond + exp*foil + (1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
+#exp_reg_repeat_eit_ACC6 = glmer(response ~ exp*cond*foil + (1|subj_idx), data=rt, na.action=na.omit, #family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
+#exp_reg_repeat_eit_ACC7 = glmer(response ~ exp*cond*foil + exp*order + (1|subj_idx), data=rt, #na.action=na.omit, family=binomial(link = &quot;logit&quot;), #control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
+#exp_reg_repeat_eit_ACC8 = glmer(response ~ exp*cond*foil + exp*cond*order + (1|subj_idx), data=rt, #na.action=na.omit, family=binomial(link = &quot;logit&quot;), #control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
+#anova(exp_reg_repeat_eit_ACC0,
+#      exp_reg_repeat_eit_ACC1,
+#      exp_reg_repeat_eit_ACC2,
+#      exp_reg_repeat_eit_ACC3,
+#      exp_reg_repeat_eit_ACC4,
+#      exp_reg_repeat_eit_ACC5,
+#      exp_reg_repeat_eit_ACC6,
+#      exp_reg_repeat_eit_ACC7,
+#      exp_reg_repeat_eit_ACC8)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI3ZpZi5sbWUoZXhwX3JlZ19yZXBlYXRfdnJ0X0FDQzYpXG5gYGAifQ== -->
-<pre class="r"><code>#vif.lme(exp_reg_repeat_vrt_ACC6)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI3ZpZi5sbWUoZXhwX3JlZ19yZXBlYXRfZWl0X0FDQzYpXG5gYGAifQ== -->
+<pre class="r"><code>#vif.lme(exp_reg_repeat_eit_ACC6)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmlmLmxtZShleHBfcmVnX3JlcGVhdF92cnRfQUNDNSlcbmBgYCJ9 -->
-<pre class="r"><code>vif.lme(exp_reg_repeat_vrt_ACC5)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmlmLmxtZShleHBfcmVnX3JlcGVhdF9laXRfQUNDNSlcbmBgYCJ9 -->
+<pre class="r"><code>vif.lme(exp_reg_repeat_eit_ACC5)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiICAgICAgICAgICAgICAgIGV4cC5WUlQtRUlUICAgICAgICAgICAgICAgY29uZC5NYXRoLVJlZyAgICAgICAgICAgICAgICBjb25kLlNlbS1SZWcgXG4gICAgICAgICAgICAgICAgICAgICAgMi41NzQgICAgICAgICAgICAgICAgICAgICAgIDMuNTg4ICAgICAgICAgICAgICAgICAgICAgICAzLjY1OCBcbiAgICAgICAgICAgICAgIGNvbmQuVmlzLVJlZyAgICAgICAgICAgICBmb2lsLkNvbmZpZy1SZXAgICAgICAgICAgICAgICAgZm9pbC5PZGQtUmVwIFxuICAgICAgICAgICAgICAgICAgICAgIDMuMzAzICAgICAgICAgICAgICAgICAgICAgICAyLjYxOSAgICAgICAgICAgICAgICAgICAgICAgMi42NjQgXG4gIGV4cC5WUlQtRUlUOmNvbmQuTWF0aC1SZWcgICAgZXhwLlZSVC1FSVQ6Y29uZC5TZW0tUmVnICAgIGV4cC5WUlQtRUlUOmNvbmQuVmlzLVJlZyBcbiAgICAgICAgICAgICAgICAgICAgICAzLjM1NyAgICAgICAgICAgICAgICAgICAgICAgMy40NzYgICAgICAgICAgICAgICAgICAgICAgIDMuMTEzIFxuZXhwLlZSVC1FSVQ6Zm9pbC5Db25maWctUmVwICAgIGV4cC5WUlQtRUlUOmZvaWwuT2RkLVJlcCBcbiAgICAgICAgICAgICAgICAgICAgICAzLjA0MSAgICAgICAgICAgICAgICAgICAgICAgMy4xMzAgXG4ifQ== -->
-<pre><code>                exp.VRT-EIT               cond.Math-Reg                cond.Sem-Reg
-                      2.574                       3.588                       3.658
-               cond.Vis-Reg             foil.Config-Rep                foil.Odd-Rep
-                      3.303                       2.619                       2.664
-  exp.VRT-EIT:cond.Math-Reg    exp.VRT-EIT:cond.Sem-Reg    exp.VRT-EIT:cond.Vis-Reg
-                      3.357                       3.476                       3.113
-exp.VRT-EIT:foil.Config-Rep    exp.VRT-EIT:foil.Odd-Rep
+<pre><code>                exp.VRT-EIT               cond.Math-Reg                cond.Sem-Reg 
+                      2.574                       3.588                       3.658 
+               cond.Vis-Reg             foil.Config-Rep                foil.Odd-Rep 
+                      3.303                       2.619                       2.664 
+  exp.VRT-EIT:cond.Math-Reg    exp.VRT-EIT:cond.Sem-Reg    exp.VRT-EIT:cond.Vis-Reg 
+                      3.357                       3.476                       3.113 
+exp.VRT-EIT:foil.Config-Rep    exp.VRT-EIT:foil.Odd-Rep 
                       3.041                       3.130 </code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxub3ZlcmRpc3AoZXhwX3JlZ19yZXBlYXRfdnJ0X0FDQzUpXG5gYGAifQ== -->
-<pre class="r"><code>overdisp(exp_reg_repeat_vrt_ACC5)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxub3ZlcmRpc3AoZXhwX3JlZ19yZXBlYXRfZWl0X0FDQzUpXG5gYGAifQ== -->
+<pre class="r"><code>overdisp(exp_reg_repeat_eit_ACC5)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiZGYucmVzaWQgXG4gIDAuOTMzOCBcbiJ9 -->
-<pre><code>df.resid
+<pre><code>df.resid 
   0.9338 </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -342,8 +336,8 @@ exp.VRT-EIT:foil.Config-Rep    exp.VRT-EIT:foil.Odd-Rep
 <p>I plan to use only exp_reg_repeat_5 since the Variance Inflation factors for higher order models were &gt; 4. Although, note, VIF &gt; 4 has been called a bad heuristic. Nonetheless, I’ll use it for now anyways.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShleHBfcmVnX3JlcGVhdF92cnRfQUNDNSlcbmBgYCJ9 -->
-<pre class="r"><code>summary(exp_reg_repeat_vrt_ACC5)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShleHBfcmVnX3JlcGVhdF9laXRfQUNDNSlcbmBgYCJ9 -->
+<pre class="r"><code>summary(exp_reg_repeat_eit_ACC5)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBiaW5vbWlhbCAgKCBsb2dpdCApXG5Gb3JtdWxhOiByZXNwb25zZSB+IGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsgKDEgfCBzdWJqX2lkeClcbiAgIERhdGE6IHJ0XG5Db250cm9sOiBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXCJib2J5cWFcIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMWUrMDUpKVxuXG4gICAgIEFJQyAgICAgIEJJQyAgIGxvZ0xpayBkZXZpYW5jZSBkZi5yZXNpZCBcbiAgICA0NDQ3ICAgICA0NTMxICAgIC0yMjExICAgICA0NDIxICAgICA0NTk1IFxuXG5TY2FsZWQgcmVzaWR1YWxzOiBcbiAgIE1pbiAgICAgMVEgTWVkaWFuICAgICAzUSAgICBNYXggXG4tNS41OTUgIDAuMjU1ICAwLjM4OCAgMC41MjQgIDEuNzE2IFxuXG5SYW5kb20gZWZmZWN0czpcbiBHcm91cHMgICBOYW1lICAgICAgICBWYXJpYW5jZSBTdGQuRGV2LlxuIHN1YmpfaWR4IChJbnRlcmNlcHQpIDAuNDU4ICAgIDAuNjc3ICAgXG5OdW1iZXIgb2Ygb2JzOiA0NjA4LCBncm91cHM6ICBzdWJqX2lkeCwgOTZcblxuRml4ZWQgZWZmZWN0czpcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHogdmFsdWUgUHIoPnx6fCkgICAgXG4oSW50ZXJjZXB0KSAgICAgICAgICAgICAgICAgICAgMi4xNjEgICAgICAwLjE3OSAgIDEyLjA3ICA8IDJlLTE2ICoqKlxuZXhwLlZSVC1FSVQgICAgICAgICAgICAgICAgICAgIDAuMTU4ICAgICAgMC4yNTUgICAgMC42MiAgMC41MzUyMSAgICBcbmNvbmQuTWF0aC1SZWcgICAgICAgICAgICAgICAgIC0xLjE2MyAgICAgIDAuMTU4ICAgLTcuMzcgIDEuOGUtMTMgKioqXG5jb25kLlNlbS1SZWcgICAgICAgICAgICAgICAgICAtMS4xMjggICAgICAwLjE1OCAgIC03LjEzICAxLjBlLTEyICoqKlxuY29uZC5WaXMtUmVnICAgICAgICAgICAgICAgICAgLTAuMzQ4ICAgICAgMC4xNzAgICAtMi4wNSAgMC4wNDA2NCAqICBcbmZvaWwuQ29uZmlnLVJlcCAgICAgICAgICAgICAgIC0wLjE1OSAgICAgIDAuMTI5ICAgLTEuMjMgIDAuMjE3NDYgICAgXG5mb2lsLk9kZC1SZXAgICAgICAgICAgICAgICAgICAtMC4xNjcgICAgICAwLjEyOSAgIC0xLjMwICAwLjE5NDY4ICAgIFxuZXhwLlZSVC1FSVQ6Y29uZC5NYXRoLVJlZyAgICAgIDAuODE5ICAgICAgMC4yMjIgICAgMy42OSAgMC4wMDAyMiAqKipcbmV4cC5WUlQtRUlUOmNvbmQuU2VtLVJlZyAgICAgICAwLjYxMCAgICAgIDAuMjIxICAgIDIuNzYgIDAuMDA1NzAgKiogXG5leHAuVlJULUVJVDpjb25kLlZpcy1SZWcgICAgICAgMC41NzcgICAgICAwLjIzOSAgICAyLjQxICAwLjAxNTg4ICogIFxuZXhwLlZSVC1FSVQ6Zm9pbC5Db25maWctUmVwICAgLTAuNTUxICAgICAgMC4xOTQgICAtMi44NCAgMC4wMDQ1MCAqKiBcbmV4cC5WUlQtRUlUOmZvaWwuT2RkLVJlcCAgICAgIC0wLjc3MiAgICAgIDAuMTkyICAgLTQuMDIgIDUuOWUtMDUgKioqXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuQ29ycmVsYXRpb24gb2YgRml4ZWQgRWZmZWN0czpcbiAgICAgICAgICAgICAoSW50cikgZXguVlJULUVJVCBjbi5NLVIgY24uUy1SIGNuLlYtUiBmbC5DLVIgZmwuTy1SIGUuVlJULUVJVDouTSBlLlZSVC1FSVQ6LlNcbmV4cC5WUlQtRUlUICAtMC42OTcgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuTXRoLVJnICAtMC41ODEgIDAuNDA1ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuU2VtLVJnICAtMC41NzkgIDAuNDA0ICAgICAgMC42NDkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuVmlzLVJnICAtMC41MzEgIDAuMzcyICAgICAgMC42MDAgIDAuNTk5ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvbC5DbmZnLVJwICAtMC4zNzggIDAuMjY1ICAgICAgMC4wMDggIDAuMDA4ICAwLjAwMiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvaWwuT2RkLVJwICAtMC4zNzkgIDAuMjY1ICAgICAgMC4wMDggIDAuMDA4ICAwLjAwMiAgMC41MTkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouTSAgMC40MTIgLTAuNTI2ICAgICAtMC43MTEgLTAuNDYxIC0wLjQyNyAtMC4wMDYgLTAuMDA2ICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUyAgMC40MTQgLTAuNTMyICAgICAtMC40NjUgLTAuNzE3IC0wLjQzMCAtMC4wMDUgLTAuMDA2ICAwLjYwMSAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouViAgMC4zNzggLTAuNDc4ICAgICAtMC40MjcgLTAuNDI2IC0wLjcxMSAtMC4wMDEgLTAuMDAxICAwLjU1MiAgICAgICAgMC41NTYgICAgICBcbmUuVlJULUVJVDouQyAgMC4yNDkgLTAuNDM2ICAgICAtMC4wMDUgLTAuMDA0IC0wLjAwMSAtMC42NjMgLTAuMzQ0ICAwLjAwOSAgICAgICAgMC4wMTIgICAgICBcbmUuVlJULUVJVDouTyAgMC4yNTEgLTAuNDQzICAgICAtMC4wMDUgLTAuMDA0IC0wLjAwMSAtMC4zNDcgLTAuNjY5ICAwLjAxMSAgICAgICAgMC4wMTUgICAgICBcbiAgICAgICAgICAgICBlLlZSVC1FSVQ6LlYgZS5WUlQtRUlUOi5DXG5leHAuVlJULUVJVCAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuY29uZC5NdGgtUmcgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuU2VtLVJnICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5jb25kLlZpcy1SZyAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuZm9sLkNuZmctUnAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvaWwuT2RkLVJwICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5lLlZSVC1FSVQ6Lk0gICAgICAgICAgICAgICAgICAgICAgICAgIFxuZS5WUlQtRUlUOi5TICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouViAgICAgICAgICAgICAgICAgICAgICAgICAgXG5lLlZSVC1FSVQ6LkMgLTAuMDAyICAgICAgICAgICAgICAgICAgIFxuZS5WUlQtRUlUOi5PIC0wLjAwMyAgICAgICAgMC41NzAgICAgICBcbiJ9 -->
 <pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
@@ -352,59 +346,59 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid
-    4447     4531    -2211     4421     4595
+     AIC      BIC   logLik deviance df.resid 
+    4447     4531    -2211     4421     4595 
 
-Scaled residuals:
-   Min     1Q Median     3Q    Max
--5.595  0.255  0.388  0.524  1.716
+Scaled residuals: 
+   Min     1Q Median     3Q    Max 
+-5.595  0.255  0.388  0.524  1.716 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677
+ subj_idx (Intercept) 0.458    0.677   
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)
+                            Estimate Std. Error z value Pr(&gt;|z|)    
 (Intercept)                    2.161      0.179   12.07  &lt; 2e-16 ***
-exp.VRT-EIT                    0.158      0.255    0.62  0.53521
+exp.VRT-EIT                    0.158      0.255    0.62  0.53521    
 cond.Math-Reg                 -1.163      0.158   -7.37  1.8e-13 ***
 cond.Sem-Reg                  -1.128      0.158   -7.13  1.0e-12 ***
-cond.Vis-Reg                  -0.348      0.170   -2.05  0.04064 *
-foil.Config-Rep               -0.159      0.129   -1.23  0.21746
-foil.Odd-Rep                  -0.167      0.129   -1.30  0.19468
+cond.Vis-Reg                  -0.348      0.170   -2.05  0.04064 *  
+foil.Config-Rep               -0.159      0.129   -1.23  0.21746    
+foil.Odd-Rep                  -0.167      0.129   -1.30  0.19468    
 exp.VRT-EIT:cond.Math-Reg      0.819      0.222    3.69  0.00022 ***
-exp.VRT-EIT:cond.Sem-Reg       0.610      0.221    2.76  0.00570 **
-exp.VRT-EIT:cond.Vis-Reg       0.577      0.239    2.41  0.01588 *
-exp.VRT-EIT:foil.Config-Rep   -0.551      0.194   -2.84  0.00450 **
+exp.VRT-EIT:cond.Sem-Reg       0.610      0.221    2.76  0.00570 ** 
+exp.VRT-EIT:cond.Vis-Reg       0.577      0.239    2.41  0.01588 *  
+exp.VRT-EIT:foil.Config-Rep   -0.551      0.194   -2.84  0.00450 ** 
 exp.VRT-EIT:foil.Odd-Rep      -0.772      0.192   -4.02  5.9e-05 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
              (Intr) ex.VRT-EIT cn.M-R cn.S-R cn.V-R fl.C-R fl.O-R e.VRT-EIT:.M e.VRT-EIT:.S
-exp.VRT-EIT  -0.697
-cond.Mth-Rg  -0.581  0.405
-cond.Sem-Rg  -0.579  0.404      0.649
-cond.Vis-Rg  -0.531  0.372      0.600  0.599
-fol.Cnfg-Rp  -0.378  0.265      0.008  0.008  0.002
-foil.Odd-Rp  -0.379  0.265      0.008  0.008  0.002  0.519
-e.VRT-EIT:.M  0.412 -0.526     -0.711 -0.461 -0.427 -0.006 -0.006
-e.VRT-EIT:.S  0.414 -0.532     -0.465 -0.717 -0.430 -0.005 -0.006  0.601
-e.VRT-EIT:.V  0.378 -0.478     -0.427 -0.426 -0.711 -0.001 -0.001  0.552        0.556
-e.VRT-EIT:.C  0.249 -0.436     -0.005 -0.004 -0.001 -0.663 -0.344  0.009        0.012
-e.VRT-EIT:.O  0.251 -0.443     -0.005 -0.004 -0.001 -0.347 -0.669  0.011        0.015
+exp.VRT-EIT  -0.697                                                                        
+cond.Mth-Rg  -0.581  0.405                                                                 
+cond.Sem-Rg  -0.579  0.404      0.649                                                      
+cond.Vis-Rg  -0.531  0.372      0.600  0.599                                               
+fol.Cnfg-Rp  -0.378  0.265      0.008  0.008  0.002                                        
+foil.Odd-Rp  -0.379  0.265      0.008  0.008  0.002  0.519                                 
+e.VRT-EIT:.M  0.412 -0.526     -0.711 -0.461 -0.427 -0.006 -0.006                          
+e.VRT-EIT:.S  0.414 -0.532     -0.465 -0.717 -0.430 -0.005 -0.006  0.601                   
+e.VRT-EIT:.V  0.378 -0.478     -0.427 -0.426 -0.711 -0.001 -0.001  0.552        0.556      
+e.VRT-EIT:.C  0.249 -0.436     -0.005 -0.004 -0.001 -0.663 -0.344  0.009        0.012      
+e.VRT-EIT:.O  0.251 -0.443     -0.005 -0.004 -0.001 -0.347 -0.669  0.011        0.015      
              e.VRT-EIT:.V e.VRT-EIT:.C
-exp.VRT-EIT
-cond.Mth-Rg
-cond.Sem-Rg
-cond.Vis-Rg
-fol.Cnfg-Rp
-foil.Odd-Rp
-e.VRT-EIT:.M
-e.VRT-EIT:.S
-e.VRT-EIT:.V
-e.VRT-EIT:.C -0.002
+exp.VRT-EIT                           
+cond.Mth-Rg                           
+cond.Sem-Rg                           
+cond.Vis-Rg                           
+fol.Cnfg-Rp                           
+foil.Odd-Rp                           
+e.VRT-EIT:.M                          
+e.VRT-EIT:.S                          
+e.VRT-EIT:.V                          
+e.VRT-EIT:.C -0.002                   
 e.VRT-EIT:.O -0.003        0.570      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -414,8 +408,8 @@ e.VRT-EIT:.O -0.003        0.570      </code></pre>
 <h1>Model with Regular and config and VRT as reference</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBSZWd1bGFyIGFuZCBWUlQgYXMgcmVmZXJlbmNlIFxuY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMilcbmNvbG5hbWVzKGF0dHIocnQkY29uZCwgXCJjb250cmFzdHNcIikpID0gYyhcIi5NYXRoLVJlZ1wiLFwiLlNlbS1SZWdcIiwgXCIuVmlzLVJlZ1wiKVxucHJpbnQoJ011bHRpdGFzayBDb25kaXRpb24gQ29udHJhc3QgTWF0cml4JylcbmBgYCJ9 -->
-<pre class="r"><code># Regular and VRT as reference
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBSZWd1bGFyIGFuZCBFSVQgYXMgcmVmZXJlbmNlIFxuY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMilcbmNvbG5hbWVzKGF0dHIocnQkY29uZCwgXCJjb250cmFzdHNcIikpID0gYyhcIi5NYXRoLVJlZ1wiLFwiLlNlbS1SZWdcIiwgXCIuVmlzLVJlZ1wiKVxucHJpbnQoJ011bHRpdGFzayBDb25kaXRpb24gQ29udHJhc3QgTWF0cml4JylcbmBgYCJ9 -->
+<pre class="r"><code># Regular and EIT as reference 
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 2)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Math-Reg&quot;,&quot;.Sem-Reg&quot;, &quot;.Vis-Reg&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -451,9 +445,9 @@ con           0           0
 odd           1           0
 rep           0           1</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwX3JlZ19jb25maWdfdnJ0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwICogY29uZCArIGV4cCAqIGZvaWwgKygxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsIGZhbWlseT1iaW5vbWlhbChsaW5rID0gXCJsb2dpdFwiKSwgY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPVwiYm9ieXFhXCIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSlcbnN1bW1hcnkoZXhwX3JlZ19jb25maWdfdnJ0X0FDQylcbmBgYCJ9 -->
-<pre class="r"><code>exp_reg_config_vrt_ACC = glmer(response ~ exp * cond + exp * foil +(1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
-summary(exp_reg_config_vrt_ACC)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwX3JlZ19jb25maWdfZWl0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwICogY29uZCArIGV4cCAqIGZvaWwgKygxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsIGZhbWlseT1iaW5vbWlhbChsaW5rID0gXCJsb2dpdFwiKSwgY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPVwiYm9ieXFhXCIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSlcbnN1bW1hcnkoZXhwX3JlZ19jb25maWdfZWl0X0FDQylcbmBgYCJ9 -->
+<pre class="r"><code>exp_reg_config_eit_ACC = glmer(response ~ exp * cond + exp * foil +(1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
+summary(exp_reg_config_eit_ACC)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBiaW5vbWlhbCAgKCBsb2dpdCApXG5Gb3JtdWxhOiByZXNwb25zZSB+IGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsgKDEgfCBzdWJqX2lkeClcbiAgIERhdGE6IHJ0XG5Db250cm9sOiBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXCJib2J5cWFcIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMWUrMDUpKVxuXG4gICAgIEFJQyAgICAgIEJJQyAgIGxvZ0xpayBkZXZpYW5jZSBkZi5yZXNpZCBcbiAgICA0NDQ3ICAgICA0NTMxICAgIC0yMjExICAgICA0NDIxICAgICA0NTk1IFxuXG5TY2FsZWQgcmVzaWR1YWxzOiBcbiAgIE1pbiAgICAgMVEgTWVkaWFuICAgICAzUSAgICBNYXggXG4tNS41OTUgIDAuMjU1ICAwLjM4OCAgMC41MjQgIDEuNzE2IFxuXG5SYW5kb20gZWZmZWN0czpcbiBHcm91cHMgICBOYW1lICAgICAgICBWYXJpYW5jZSBTdGQuRGV2LlxuIHN1YmpfaWR4IChJbnRlcmNlcHQpIDAuNDU4ICAgIDAuNjc3ICAgXG5OdW1iZXIgb2Ygb2JzOiA0NjA4LCBncm91cHM6ICBzdWJqX2lkeCwgOTZcblxuRml4ZWQgZWZmZWN0czpcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHogdmFsdWUgUHIoPnx6fCkgICAgXG4oSW50ZXJjZXB0KSAgICAgICAgICAgICAgICAgIDIuMDAyNTcgICAgMC4xNzY2MiAgIDExLjM0ICA8IDJlLTE2ICoqKlxuZXhwLlZSVC1FSVQgICAgICAgICAgICAgICAgIC0wLjM5MzA2ICAgIDAuMjQ0MzMgICAtMS42MSAgMC4xMDc2NyAgICBcbmNvbmQuTWF0aC1SZWcgICAgICAgICAgICAgICAtMS4xNjMxNCAgICAwLjE1Nzg5ICAgLTcuMzcgIDEuN2UtMTMgKioqXG5jb25kLlNlbS1SZWcgICAgICAgICAgICAgICAgLTEuMTI3NzcgICAgMC4xNTgyMSAgIC03LjEzICAxLjBlLTEyICoqKlxuY29uZC5WaXMtUmVnICAgICAgICAgICAgICAgIC0wLjM0ODQzICAgIDAuMTcwMjAgICAtMi4wNSAgMC4wNDA2NSAqICBcbmZvaWwuT2RkLUNvbmZpZyAgICAgICAgICAgICAtMC4wMDgwNCAgICAwLjEyNjExICAgLTAuMDYgIDAuOTQ5MTkgICAgXG5mb2lsLlJlcC1Db25maWcgICAgICAgICAgICAgIDAuMTU4NjYgICAgMC4xMjg2NiAgICAxLjIzICAwLjIxNzUxICAgIFxuZXhwLlZSVC1FSVQ6Y29uZC5NYXRoLVJlZyAgICAwLjgxOTQ4ICAgIDAuMjIyMDkgICAgMy42OSAgMC4wMDAyMiAqKipcbmV4cC5WUlQtRUlUOmNvbmQuU2VtLVJlZyAgICAgMC42MDk4MyAgICAwLjIyMDYwICAgIDIuNzYgIDAuMDA1NzAgKiogXG5leHAuVlJULUVJVDpjb25kLlZpcy1SZWcgICAgIDAuNTc3MDEgICAgMC4yMzkyOCAgICAyLjQxICAwLjAxNTg5ICogIFxuZXhwLlZSVC1FSVQ6Zm9pbC5PZGQtQ29uZmlnIC0wLjIyMDIyICAgIDAuMTc5MDUgICAtMS4yMyAgMC4yMTg3MyAgICBcbmV4cC5WUlQtRUlUOmZvaWwuUmVwLUNvbmZpZyAgMC41NTE0NiAgICAwLjE5NDE0ICAgIDIuODQgIDAuMDA0NTAgKiogXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuQ29ycmVsYXRpb24gb2YgRml4ZWQgRWZmZWN0czpcbiAgICAgICAgICAgICAoSW50cikgZXguVlJULUVJVCBjbi5NLVIgY24uUy1SIGNuLlYtUiBmbC5PLUMgZmwuUi1DIGUuVlJULUVJVDouTSBlLlZSVC1FSVQ6LlNcbmV4cC5WUlQtRUlUICAtMC43MjAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuTXRoLVJnICAtMC41ODMgIDAuNDIwICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuU2VtLVJnICAtMC41ODEgIDAuNDE5ICAgICAgMC42NDkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuVmlzLVJnICAtMC41MzcgIDAuMzg4ICAgICAgMC42MDAgIDAuNTk5ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZsLk9kZC1DbmZnICAtMC4zNTggIDAuMjU5ICAgICAgMC4wMDAgIDAuMDAwICAwLjAwMCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvbC5ScC1DbmZnICAtMC4zNDUgIDAuMjUwICAgICAtMC4wMDggLTAuMDA4IC0wLjAwMiAgMC40OTEgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouTSAgMC40MTQgLTAuNTQzICAgICAtMC43MTEgLTAuNDYxIC0wLjQyNyAgMC4wMDAgIDAuMDA2ICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUyAgMC40MTYgLTAuNTQ3ICAgICAtMC40NjUgLTAuNzE3IC0wLjQzMCAgMC4wMDAgIDAuMDA1ICAwLjYwMSAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouViAgMC4zODIgLTAuNTAxICAgICAtMC40MjcgLTAuNDI2IC0wLjcxMSAgMC4wMDAgIDAuMDAxICAwLjU1MiAgICAgICAgMC41NTYgICAgICBcbmUuVlJULUVJVDouTyAgMC4yNTIgLTAuMzc4ICAgICAgMC4wMDAgIDAuMDAwICAwLjAwMCAtMC43MDQgLTAuMzQ2ICAwLjAwMiAgICAgICAgMC4wMDMgICAgICBcbmUuVlJULUVJVDouUiAgMC4yMzAgLTAuMzM4ICAgICAgMC4wMDUgIDAuMDA0ICAwLjAwMSAtMC4zMjUgLTAuNjYzIC0wLjAwOSAgICAgICAtMC4wMTIgICAgICBcbiAgICAgICAgICAgICBlLlZSVC1FSVQ6LlYgZS5WUlQtRUlUOi5PXG5leHAuVlJULUVJVCAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuY29uZC5NdGgtUmcgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuU2VtLVJnICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5jb25kLlZpcy1SZyAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuZmwuT2RkLUNuZmcgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvbC5ScC1DbmZnICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5lLlZSVC1FSVQ6Lk0gICAgICAgICAgICAgICAgICAgICAgICAgIFxuZS5WUlQtRUlUOi5TICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouViAgICAgICAgICAgICAgICAgICAgICAgICAgXG5lLlZSVC1FSVQ6Lk8gLTAuMDAxICAgICAgICAgICAgICAgICAgIFxuZS5WUlQtRUlUOi5SICAwLjAwMiAgICAgICAgMC40NzIgICAgICBcbiJ9 -->
 <pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
@@ -462,59 +456,59 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid
-    4447     4531    -2211     4421     4595
+     AIC      BIC   logLik deviance df.resid 
+    4447     4531    -2211     4421     4595 
 
-Scaled residuals:
-   Min     1Q Median     3Q    Max
--5.595  0.255  0.388  0.524  1.716
+Scaled residuals: 
+   Min     1Q Median     3Q    Max 
+-5.595  0.255  0.388  0.524  1.716 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677
+ subj_idx (Intercept) 0.458    0.677   
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)
+                            Estimate Std. Error z value Pr(&gt;|z|)    
 (Intercept)                  2.00257    0.17662   11.34  &lt; 2e-16 ***
-exp.VRT-EIT                 -0.39306    0.24433   -1.61  0.10767
+exp.VRT-EIT                 -0.39306    0.24433   -1.61  0.10767    
 cond.Math-Reg               -1.16314    0.15789   -7.37  1.7e-13 ***
 cond.Sem-Reg                -1.12777    0.15821   -7.13  1.0e-12 ***
-cond.Vis-Reg                -0.34843    0.17020   -2.05  0.04065 *
-foil.Odd-Config             -0.00804    0.12611   -0.06  0.94919
-foil.Rep-Config              0.15866    0.12866    1.23  0.21751
+cond.Vis-Reg                -0.34843    0.17020   -2.05  0.04065 *  
+foil.Odd-Config             -0.00804    0.12611   -0.06  0.94919    
+foil.Rep-Config              0.15866    0.12866    1.23  0.21751    
 exp.VRT-EIT:cond.Math-Reg    0.81948    0.22209    3.69  0.00022 ***
-exp.VRT-EIT:cond.Sem-Reg     0.60983    0.22060    2.76  0.00570 **
-exp.VRT-EIT:cond.Vis-Reg     0.57701    0.23928    2.41  0.01589 *
-exp.VRT-EIT:foil.Odd-Config -0.22022    0.17905   -1.23  0.21873
-exp.VRT-EIT:foil.Rep-Config  0.55146    0.19414    2.84  0.00450 **
+exp.VRT-EIT:cond.Sem-Reg     0.60983    0.22060    2.76  0.00570 ** 
+exp.VRT-EIT:cond.Vis-Reg     0.57701    0.23928    2.41  0.01589 *  
+exp.VRT-EIT:foil.Odd-Config -0.22022    0.17905   -1.23  0.21873    
+exp.VRT-EIT:foil.Rep-Config  0.55146    0.19414    2.84  0.00450 ** 
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
              (Intr) ex.VRT-EIT cn.M-R cn.S-R cn.V-R fl.O-C fl.R-C e.VRT-EIT:.M e.VRT-EIT:.S
-exp.VRT-EIT  -0.720
-cond.Mth-Rg  -0.583  0.420
-cond.Sem-Rg  -0.581  0.419      0.649
-cond.Vis-Rg  -0.537  0.388      0.600  0.599
-fl.Odd-Cnfg  -0.358  0.259      0.000  0.000  0.000
-fol.Rp-Cnfg  -0.345  0.250     -0.008 -0.008 -0.002  0.491
-e.VRT-EIT:.M  0.414 -0.543     -0.711 -0.461 -0.427  0.000  0.006
-e.VRT-EIT:.S  0.416 -0.547     -0.465 -0.717 -0.430  0.000  0.005  0.601
-e.VRT-EIT:.V  0.382 -0.501     -0.427 -0.426 -0.711  0.000  0.001  0.552        0.556
-e.VRT-EIT:.O  0.252 -0.378      0.000  0.000  0.000 -0.704 -0.346  0.002        0.003
-e.VRT-EIT:.R  0.230 -0.338      0.005  0.004  0.001 -0.325 -0.663 -0.009       -0.012
+exp.VRT-EIT  -0.720                                                                        
+cond.Mth-Rg  -0.583  0.420                                                                 
+cond.Sem-Rg  -0.581  0.419      0.649                                                      
+cond.Vis-Rg  -0.537  0.388      0.600  0.599                                               
+fl.Odd-Cnfg  -0.358  0.259      0.000  0.000  0.000                                        
+fol.Rp-Cnfg  -0.345  0.250     -0.008 -0.008 -0.002  0.491                                 
+e.VRT-EIT:.M  0.414 -0.543     -0.711 -0.461 -0.427  0.000  0.006                          
+e.VRT-EIT:.S  0.416 -0.547     -0.465 -0.717 -0.430  0.000  0.005  0.601                   
+e.VRT-EIT:.V  0.382 -0.501     -0.427 -0.426 -0.711  0.000  0.001  0.552        0.556      
+e.VRT-EIT:.O  0.252 -0.378      0.000  0.000  0.000 -0.704 -0.346  0.002        0.003      
+e.VRT-EIT:.R  0.230 -0.338      0.005  0.004  0.001 -0.325 -0.663 -0.009       -0.012      
              e.VRT-EIT:.V e.VRT-EIT:.O
-exp.VRT-EIT
-cond.Mth-Rg
-cond.Sem-Rg
-cond.Vis-Rg
-fl.Odd-Cnfg
-fol.Rp-Cnfg
-e.VRT-EIT:.M
-e.VRT-EIT:.S
-e.VRT-EIT:.V
-e.VRT-EIT:.O -0.001
+exp.VRT-EIT                           
+cond.Mth-Rg                           
+cond.Sem-Rg                           
+cond.Vis-Rg                           
+fl.Odd-Cnfg                           
+fol.Rp-Cnfg                           
+e.VRT-EIT:.M                          
+e.VRT-EIT:.S                          
+e.VRT-EIT:.V                          
+e.VRT-EIT:.O -0.001                   
 e.VRT-EIT:.R  0.002        0.472      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -524,8 +518,8 @@ e.VRT-EIT:.R  0.002        0.472      </code></pre>
 <h1>Model with Regular and odd and VRT as reference</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBSZWd1bGFyIGFuZCBWUlQgYXMgcmVmZXJlbmNlIFxuY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMilcbmNvbG5hbWVzKGF0dHIocnQkY29uZCwgXCJjb250cmFzdHNcIikpID0gYyhcIi5NYXRoLVJlZ1wiLFwiLlNlbS1SZWdcIiwgXCIuVmlzLVJlZ1wiKVxucHJpbnQoJ011bHRpdGFzayBDb25kaXRpb24gQ29udHJhc3QgTWF0cml4JylcbmBgYCJ9 -->
-<pre class="r"><code># Regular and VRT as reference
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBSZWd1bGFyIGFuZCBFSVQgYXMgcmVmZXJlbmNlIFxuY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMilcbmNvbG5hbWVzKGF0dHIocnQkY29uZCwgXCJjb250cmFzdHNcIikpID0gYyhcIi5NYXRoLVJlZ1wiLFwiLlNlbS1SZWdcIiwgXCIuVmlzLVJlZ1wiKVxucHJpbnQoJ011bHRpdGFzayBDb25kaXRpb24gQ29udHJhc3QgTWF0cml4JylcbmBgYCJ9 -->
+<pre class="r"><code># Regular and EIT as reference 
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 2)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Math-Reg&quot;,&quot;.Sem-Reg&quot;, &quot;.Vis-Reg&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -578,9 +572,9 @@ print('Foil Contrast Matrix')</code></pre>
 eit        0
 vrt        1</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwX3JlZ19vZGRfdnJ0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwICogY29uZCArIGV4cCAqIGZvaWwgKyAoMXxzdWJqX2lkeCksIGRhdGE9cnQsIG5hLmFjdGlvbj1uYS5vbWl0LCBmYW1pbHk9Ymlub21pYWwobGluayA9IFwibG9naXRcIiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj1cImJvYnlxYVwiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpXG5zdW1tYXJ5KGV4cF9yZWdfb2RkX3ZydF9BQ0MpXG5gYGAifQ== -->
-<pre class="r"><code>exp_reg_odd_vrt_ACC = glmer(response ~ exp * cond + exp * foil + (1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
-summary(exp_reg_odd_vrt_ACC)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwX3JlZ19vZGRfZWl0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwICogY29uZCArIGV4cCAqIGZvaWwgKyAoMXxzdWJqX2lkeCksIGRhdGE9cnQsIG5hLmFjdGlvbj1uYS5vbWl0LCBmYW1pbHk9Ymlub21pYWwobGluayA9IFwibG9naXRcIiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj1cImJvYnlxYVwiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpXG5zdW1tYXJ5KGV4cF9yZWdfb2RkX2VpdF9BQ0MpXG5gYGAifQ== -->
+<pre class="r"><code>exp_reg_odd_eit_ACC = glmer(response ~ exp * cond + exp * foil + (1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
+summary(exp_reg_odd_eit_ACC)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBiaW5vbWlhbCAgKCBsb2dpdCApXG5Gb3JtdWxhOiByZXNwb25zZSB+IGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsgKDEgfCBzdWJqX2lkeClcbiAgIERhdGE6IHJ0XG5Db250cm9sOiBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXCJib2J5cWFcIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMWUrMDUpKVxuXG4gICAgIEFJQyAgICAgIEJJQyAgIGxvZ0xpayBkZXZpYW5jZSBkZi5yZXNpZCBcbiAgICA0NDQ3ICAgICA0NTMxICAgIC0yMjExICAgICA0NDIxICAgICA0NTk1IFxuXG5TY2FsZWQgcmVzaWR1YWxzOiBcbiAgIE1pbiAgICAgMVEgTWVkaWFuICAgICAzUSAgICBNYXggXG4tNS41OTUgIDAuMjU1ICAwLjM4OCAgMC41MjQgIDEuNzE2IFxuXG5SYW5kb20gZWZmZWN0czpcbiBHcm91cHMgICBOYW1lICAgICAgICBWYXJpYW5jZSBTdGQuRGV2LlxuIHN1YmpfaWR4IChJbnRlcmNlcHQpIDAuNDU4ICAgIDAuNjc3ICAgXG5OdW1iZXIgb2Ygb2JzOiA0NjA4LCBncm91cHM6ICBzdWJqX2lkeCwgOTZcblxuRml4ZWQgZWZmZWN0czpcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHogdmFsdWUgUHIoPnx6fCkgICAgXG4oSW50ZXJjZXB0KSAgICAgICAgICAgICAgICAgIDEuOTk0NTMgICAgMC4xNzY1MyAgIDExLjMwICA8IDJlLTE2ICoqKlxuZXhwLlZSVC1FSVQgICAgICAgICAgICAgICAgIC0wLjYxMzI5ICAgIDAuMjQyMjQgICAtMi41MyAgMC4wMTEzNSAqICBcbmNvbmQuTWF0aC1SZWcgICAgICAgICAgICAgICAtMS4xNjMxNCAgICAwLjE1NzkwICAgLTcuMzcgIDEuOGUtMTMgKioqXG5jb25kLlNlbS1SZWcgICAgICAgICAgICAgICAgLTEuMTI3NzcgICAgMC4xNTgyMiAgIC03LjEzICAxLjBlLTEyICoqKlxuY29uZC5WaXMtUmVnICAgICAgICAgICAgICAgIC0wLjM0ODQzICAgIDAuMTcwMjEgICAtMi4wNSAgMC4wNDA2NSAqICBcbmZvaWwuQ29uZmlnLU9kZCAgICAgICAgICAgICAgMC4wMDgwMyAgICAwLjEyNjExICAgIDAuMDYgIDAuOTQ5MjEgICAgXG5mb2lsUmVwLU9kZCAgICAgICAgICAgICAgICAgIDAuMTY2NjkgICAgMC4xMjg1NSAgICAxLjMwICAwLjE5NDczICAgIFxuZXhwLlZSVC1FSVQ6Y29uZC5NYXRoLVJlZyAgICAwLjgxOTQ5ICAgIDAuMjIyMTAgICAgMy42OSAgMC4wMDAyMiAqKipcbmV4cC5WUlQtRUlUOmNvbmQuU2VtLVJlZyAgICAgMC42MDk4NCAgICAwLjIyMDYwICAgIDIuNzYgIDAuMDA1NzAgKiogXG5leHAuVlJULUVJVDpjb25kLlZpcy1SZWcgICAgIDAuNTc3MDEgICAgMC4yMzkyNyAgICAyLjQxICAwLjAxNTg5ICogIFxuZXhwLlZSVC1FSVQ6Zm9pbC5Db25maWctT2RkICAwLjIyMDIyICAgIDAuMTc5MDUgICAgMS4yMyAgMC4yMTg3MiAgICBcbmV4cC5WUlQtRUlUOmZvaWxSZXAtT2RkICAgICAgMC43NzE2OCAgICAwLjE5MjIxICAgIDQuMDEgIDYuMGUtMDUgKioqXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuQ29ycmVsYXRpb24gb2YgRml4ZWQgRWZmZWN0czpcbiAgICAgICAgICAgICAoSW50cikgZXguVlJULUVJVCBjbi5NLVIgY24uUy1SIGNuLlYtUiBmbC5DLU8gZmxScC1PIGUuVlJULUVJVDouTSBlLlZSVC1FSVQ6LlNcbmV4cC5WUlQtRUlUICAtMC43MjYgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuTXRoLVJnICAtMC41ODMgIDAuNDIzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuU2VtLVJnICAtMC41ODEgIDAuNDIyICAgICAgMC42NDkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuVmlzLVJnICAtMC41MzcgIDAuMzkxICAgICAgMC42MDAgIDAuNTk5ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZsLkNuZmctT2RkICAtMC4zNTYgIDAuMjYwICAgICAgMC4wMDAgIDAuMDAwICAwLjAwMCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvaWxSZXAtT2RkICAtMC4zNDQgIDAuMjUxICAgICAtMC4wMDggLTAuMDA4IC0wLjAwMiAgMC40OTAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouTSAgMC40MTQgLTAuNTQ2ICAgICAtMC43MTEgLTAuNDYxIC0wLjQyNyAgMC4wMDAgIDAuMDA2ICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUyAgMC40MTYgLTAuNTUwICAgICAtMC40NjUgLTAuNzE3IC0wLjQzMCAgMC4wMDAgIDAuMDA2ICAwLjYwMSAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouViAgMC4zODIgLTAuNTA3ICAgICAtMC40MjcgLTAuNDI2IC0wLjcxMSAgMC4wMDAgIDAuMDAxICAwLjU1MiAgICAgICAgMC41NTYgICAgICBcbmUuVlJULUVJVDouQyAgMC4yNTEgLTAuMzU4ICAgICAgMC4wMDAgIDAuMDAwICAwLjAwMCAtMC43MDQgLTAuMzQ1IC0wLjAwMiAgICAgICAtMC4wMDMgICAgICBcbmUuVlJULUVJVDpSICAgMC4yMzIgLTAuMzI2ICAgICAgMC4wMDUgIDAuMDA0ICAwLjAwMSAtMC4zMjcgLTAuNjY5IC0wLjAxMSAgICAgICAtMC4wMTUgICAgICBcbiAgICAgICAgICAgICBlLlZSVC1FSVQ6LlYgZS5WUlQtRUlUOi5DXG5leHAuVlJULUVJVCAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuY29uZC5NdGgtUmcgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuU2VtLVJnICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5jb25kLlZpcy1SZyAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuZmwuQ25mZy1PZGQgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvaWxSZXAtT2RkICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5lLlZSVC1FSVQ6Lk0gICAgICAgICAgICAgICAgICAgICAgICAgIFxuZS5WUlQtRUlUOi5TICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouViAgICAgICAgICAgICAgICAgICAgICAgICAgXG5lLlZSVC1FSVQ6LkMgIDAuMDAxICAgICAgICAgICAgICAgICAgIFxuZS5WUlQtRUlUOlIgICAwLjAwMyAgICAgICAgMC40NTUgICAgICBcbiJ9 -->
 <pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
@@ -589,59 +583,59 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid
-    4447     4531    -2211     4421     4595
+     AIC      BIC   logLik deviance df.resid 
+    4447     4531    -2211     4421     4595 
 
-Scaled residuals:
-   Min     1Q Median     3Q    Max
--5.595  0.255  0.388  0.524  1.716
+Scaled residuals: 
+   Min     1Q Median     3Q    Max 
+-5.595  0.255  0.388  0.524  1.716 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677
+ subj_idx (Intercept) 0.458    0.677   
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)
+                            Estimate Std. Error z value Pr(&gt;|z|)    
 (Intercept)                  1.99453    0.17653   11.30  &lt; 2e-16 ***
-exp.VRT-EIT                 -0.61329    0.24224   -2.53  0.01135 *
+exp.VRT-EIT                 -0.61329    0.24224   -2.53  0.01135 *  
 cond.Math-Reg               -1.16314    0.15790   -7.37  1.8e-13 ***
 cond.Sem-Reg                -1.12777    0.15822   -7.13  1.0e-12 ***
-cond.Vis-Reg                -0.34843    0.17021   -2.05  0.04065 *
-foil.Config-Odd              0.00803    0.12611    0.06  0.94921
-foilRep-Odd                  0.16669    0.12855    1.30  0.19473
+cond.Vis-Reg                -0.34843    0.17021   -2.05  0.04065 *  
+foil.Config-Odd              0.00803    0.12611    0.06  0.94921    
+foilRep-Odd                  0.16669    0.12855    1.30  0.19473    
 exp.VRT-EIT:cond.Math-Reg    0.81949    0.22210    3.69  0.00022 ***
-exp.VRT-EIT:cond.Sem-Reg     0.60984    0.22060    2.76  0.00570 **
-exp.VRT-EIT:cond.Vis-Reg     0.57701    0.23927    2.41  0.01589 *
-exp.VRT-EIT:foil.Config-Odd  0.22022    0.17905    1.23  0.21872
+exp.VRT-EIT:cond.Sem-Reg     0.60984    0.22060    2.76  0.00570 ** 
+exp.VRT-EIT:cond.Vis-Reg     0.57701    0.23927    2.41  0.01589 *  
+exp.VRT-EIT:foil.Config-Odd  0.22022    0.17905    1.23  0.21872    
 exp.VRT-EIT:foilRep-Odd      0.77168    0.19221    4.01  6.0e-05 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
              (Intr) ex.VRT-EIT cn.M-R cn.S-R cn.V-R fl.C-O flRp-O e.VRT-EIT:.M e.VRT-EIT:.S
-exp.VRT-EIT  -0.726
-cond.Mth-Rg  -0.583  0.423
-cond.Sem-Rg  -0.581  0.422      0.649
-cond.Vis-Rg  -0.537  0.391      0.600  0.599
-fl.Cnfg-Odd  -0.356  0.260      0.000  0.000  0.000
-foilRep-Odd  -0.344  0.251     -0.008 -0.008 -0.002  0.490
-e.VRT-EIT:.M  0.414 -0.546     -0.711 -0.461 -0.427  0.000  0.006
-e.VRT-EIT:.S  0.416 -0.550     -0.465 -0.717 -0.430  0.000  0.006  0.601
-e.VRT-EIT:.V  0.382 -0.507     -0.427 -0.426 -0.711  0.000  0.001  0.552        0.556
-e.VRT-EIT:.C  0.251 -0.358      0.000  0.000  0.000 -0.704 -0.345 -0.002       -0.003
-e.VRT-EIT:R   0.232 -0.326      0.005  0.004  0.001 -0.327 -0.669 -0.011       -0.015
+exp.VRT-EIT  -0.726                                                                        
+cond.Mth-Rg  -0.583  0.423                                                                 
+cond.Sem-Rg  -0.581  0.422      0.649                                                      
+cond.Vis-Rg  -0.537  0.391      0.600  0.599                                               
+fl.Cnfg-Odd  -0.356  0.260      0.000  0.000  0.000                                        
+foilRep-Odd  -0.344  0.251     -0.008 -0.008 -0.002  0.490                                 
+e.VRT-EIT:.M  0.414 -0.546     -0.711 -0.461 -0.427  0.000  0.006                          
+e.VRT-EIT:.S  0.416 -0.550     -0.465 -0.717 -0.430  0.000  0.006  0.601                   
+e.VRT-EIT:.V  0.382 -0.507     -0.427 -0.426 -0.711  0.000  0.001  0.552        0.556      
+e.VRT-EIT:.C  0.251 -0.358      0.000  0.000  0.000 -0.704 -0.345 -0.002       -0.003      
+e.VRT-EIT:R   0.232 -0.326      0.005  0.004  0.001 -0.327 -0.669 -0.011       -0.015      
              e.VRT-EIT:.V e.VRT-EIT:.C
-exp.VRT-EIT
-cond.Mth-Rg
-cond.Sem-Rg
-cond.Vis-Rg
-fl.Cnfg-Odd
-foilRep-Odd
-e.VRT-EIT:.M
-e.VRT-EIT:.S
-e.VRT-EIT:.V
-e.VRT-EIT:.C  0.001
+exp.VRT-EIT                           
+cond.Mth-Rg                           
+cond.Sem-Rg                           
+cond.Vis-Rg                           
+fl.Cnfg-Odd                           
+foilRep-Odd                           
+e.VRT-EIT:.M                          
+e.VRT-EIT:.S                          
+e.VRT-EIT:.V                          
+e.VRT-EIT:.C  0.001                   
 e.VRT-EIT:R   0.003        0.455      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -651,8 +645,8 @@ e.VRT-EIT:R   0.003        0.455      </code></pre>
 <h1>Model with Visual and repeat and VRT as reference</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBWaXN1YWwgYW5kIFZSVCBhcyByZWZlcmVuY2UgXG5jb250cmFzdHMocnQkY29uZCk8LWNvbnRyLnRyZWF0bWVudCg0LGJhc2UgPSA0KVxuY29sbmFtZXMoYXR0cihydCRjb25kLCBcImNvbnRyYXN0c1wiKSkgPSBjKFwiLk1hdGgtVmlzXCIsXCIuUmVnLVZpc1wiLCBcIi5TZW0tVmlzXCIpXG5wcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKVxuYGBgIn0= -->
-<pre class="r"><code># Visual and VRT as reference
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBWaXN1YWwgYW5kIEVJVCBhcyByZWZlcmVuY2UgXG5jb250cmFzdHMocnQkY29uZCk8LWNvbnRyLnRyZWF0bWVudCg0LGJhc2UgPSA0KVxuY29sbmFtZXMoYXR0cihydCRjb25kLCBcImNvbnRyYXN0c1wiKSkgPSBjKFwiLk1hdGgtVmlzXCIsXCIuUmVnLVZpc1wiLCBcIi5TZW0tVmlzXCIpXG5wcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKVxuYGBgIn0= -->
+<pre class="r"><code># Visual and EIT as reference 
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 4)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Math-Vis&quot;,&quot;.Reg-Vis&quot;, &quot;.Sem-Vis&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -705,9 +699,9 @@ print('Foil Contrast Matrix')</code></pre>
 eit        0
 vrt        1</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwX3Zpc19yZXBlYXRfdnJ0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwICogY29uZCArIGV4cCAqIGZvaWwgKygxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsIGZhbWlseT1iaW5vbWlhbChsaW5rID0gXCJsb2dpdFwiKSwgY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPVwiYm9ieXFhXCIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSlcbnN1bW1hcnkoZXhwX3Zpc19yZXBlYXRfdnJ0X0FDQylcbmBgYCJ9 -->
-<pre class="r"><code>exp_vis_repeat_vrt_ACC = glmer(response ~ exp * cond + exp * foil +(1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
-summary(exp_vis_repeat_vrt_ACC)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwX3Zpc19yZXBlYXRfZWl0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwICogY29uZCArIGV4cCAqIGZvaWwgKygxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsIGZhbWlseT1iaW5vbWlhbChsaW5rID0gXCJsb2dpdFwiKSwgY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPVwiYm9ieXFhXCIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSlcbnN1bW1hcnkoZXhwX3Zpc19yZXBlYXRfZWl0X0FDQylcbmBgYCJ9 -->
+<pre class="r"><code>exp_vis_repeat_eit_ACC = glmer(response ~ exp * cond + exp * foil +(1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
+summary(exp_vis_repeat_eit_ACC)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBiaW5vbWlhbCAgKCBsb2dpdCApXG5Gb3JtdWxhOiByZXNwb25zZSB+IGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsgKDEgfCBzdWJqX2lkeClcbiAgIERhdGE6IHJ0XG5Db250cm9sOiBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXCJib2J5cWFcIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMWUrMDUpKVxuXG4gICAgIEFJQyAgICAgIEJJQyAgIGxvZ0xpayBkZXZpYW5jZSBkZi5yZXNpZCBcbiAgICA0NDQ3ICAgICA0NTMxICAgIC0yMjExICAgICA0NDIxICAgICA0NTk1IFxuXG5TY2FsZWQgcmVzaWR1YWxzOiBcbiAgIE1pbiAgICAgMVEgTWVkaWFuICAgICAzUSAgICBNYXggXG4tNS41OTUgIDAuMjU1ICAwLjM4OCAgMC41MjQgIDEuNzE2IFxuXG5SYW5kb20gZWZmZWN0czpcbiBHcm91cHMgICBOYW1lICAgICAgICBWYXJpYW5jZSBTdGQuRGV2LlxuIHN1YmpfaWR4IChJbnRlcmNlcHQpIDAuNDU4ICAgIDAuNjc3ICAgXG5OdW1iZXIgb2Ygb2JzOiA0NjA4LCBncm91cHM6ICBzdWJqX2lkeCwgOTZcblxuRml4ZWQgZWZmZWN0czpcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHogdmFsdWUgUHIoPnx6fCkgICAgXG4oSW50ZXJjZXB0KSAgICAgICAgICAgICAgICAgICAxLjgxMjggICAgIDAuMTY5MyAgIDEwLjcxICA8IDJlLTE2ICoqKlxuZXhwLlZSVC1FSVQgICAgICAgICAgICAgICAgICAgMC43MzU0ICAgICAwLjI1MzIgICAgMi45MCAgIDAuMDAzNyAqKiBcbmNvbmQuTWF0aC1WaXMgICAgICAgICAgICAgICAgLTAuODE0NyAgICAgMC4xNDcxICAgLTUuNTQgIDMuMGUtMDggKioqXG5jb25kLlJlZy1WaXMgICAgICAgICAgICAgICAgICAwLjM0ODQgICAgIDAuMTcwMiAgICAyLjA1ICAgMC4wNDA3ICogIFxuY29uZC5TZW0tVmlzICAgICAgICAgICAgICAgICAtMC43NzkzICAgICAwLjE0NzQgICAtNS4yOSAgMS4yZS0wNyAqKipcbmZvaWwuQ29uZmlnLVJlcCAgICAgICAgICAgICAgLTAuMTU4NyAgICAgMC4xMjg3ICAgLTEuMjMgICAwLjIxNzUgICAgXG5mb2lsLk9kZC1SZXAgICAgICAgICAgICAgICAgIC0wLjE2NjcgICAgIDAuMTI4NSAgIC0xLjMwICAgMC4xOTQ3ICAgIFxuZXhwLlZSVC1FSVQ6Y29uZC5NYXRoLVZpcyAgICAgMC4yNDI1ICAgICAwLjIxODggICAgMS4xMSAgIDAuMjY3OCAgICBcbmV4cC5WUlQtRUlUOmNvbmQuUmVnLVZpcyAgICAgLTAuNTc3MCAgICAgMC4yMzkzICAgLTIuNDEgICAwLjAxNTkgKiAgXG5leHAuVlJULUVJVDpjb25kLlNlbS1WaXMgICAgICAwLjAzMjggICAgIDAuMjE3NCAgICAwLjE1ICAgMC44Nzk5ICAgIFxuZXhwLlZSVC1FSVQ6Zm9pbC5Db25maWctUmVwICAtMC41NTE0ICAgICAwLjE5NDEgICAtMi44NCAgIDAuMDA0NSAqKiBcbmV4cC5WUlQtRUlUOmZvaWwuT2RkLVJlcCAgICAgLTAuNzcxNyAgICAgMC4xOTIyICAgLTQuMDEgIDYuMGUtMDUgKioqXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuQ29ycmVsYXRpb24gb2YgRml4ZWQgRWZmZWN0czpcbiAgICAgICAgICAgICAoSW50cikgZXguVlJULUVJVCBjbi5NLVYgY24uUi1WIGNuLlMtViBmbC5DLVIgZmwuTy1SIGUuVlJULUVJVDouTSBlLlZSVC1FSVQ6LlJcbmV4cC5WUlQtRUlUICAtMC42NjUgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuTXRoLVZzICAtMC41MjUgIDAuMzQ5ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuUmVnLVZzICAtMC40NDQgIDAuMjk3ICAgICAgMC41MTMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuU2VtLVZzICAtMC41MjMgIDAuMzQ4ICAgICAgMC41OTYgIDAuNTExICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvbC5DbmZnLVJwICAtMC4zOTggIDAuMjY2ICAgICAgMC4wMDYgLTAuMDAyICAwLjAwNiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvaWwuT2RkLVJwICAtMC4zOTggIDAuMjY2ICAgICAgMC4wMDcgLTAuMDAyICAwLjAwNiAgMC41MTkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouTSAgMC4zNTIgLTAuNTE1ICAgICAtMC42NzIgLTAuMzQ1IC0wLjQwMCAtMC4wMDQgLTAuMDA1ICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUiAgMC4zMTUgLTAuNDYzICAgICAtMC4zNjUgLTAuNzExIC0wLjM2NCAgMC4wMDEgIDAuMDAxICAwLjUzMyAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUyAgMC4zNTMgLTAuNTIyICAgICAtMC40MDMgLTAuMzQ3IC0wLjY3OCAtMC4wMDQgLTAuMDA0ICAwLjU4OSAgICAgICAgMC41MzcgICAgICBcbmUuVlJULUVJVDouQyAgMC4yNjIgLTAuNDQyICAgICAtMC4wMDQgIDAuMDAxIC0wLjAwNCAtMC42NjMgLTAuMzQ0ICAwLjAxMSAgICAgICAgMC4wMDIgICAgICBcbmUuVlJULUVJVDouTyAgMC4yNjUgLTAuNDUwICAgICAtMC4wMDQgIDAuMDAxIC0wLjAwNCAtMC4zNDcgLTAuNjY5ICAwLjAxNSAgICAgICAgMC4wMDMgICAgICBcbiAgICAgICAgICAgICBlLlZSVC1FSVQ6LlMgZS5WUlQtRUlUOi5DXG5leHAuVlJULUVJVCAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuY29uZC5NdGgtVnMgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuUmVnLVZzICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5jb25kLlNlbS1WcyAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuZm9sLkNuZmctUnAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvaWwuT2RkLVJwICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5lLlZSVC1FSVQ6Lk0gICAgICAgICAgICAgICAgICAgICAgICAgIFxuZS5WUlQtRUlUOi5SICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUyAgICAgICAgICAgICAgICAgICAgICAgICAgXG5lLlZSVC1FSVQ6LkMgIDAuMDE0ICAgICAgICAgICAgICAgICAgIFxuZS5WUlQtRUlUOi5PICAwLjAxOSAgICAgICAgMC41NzAgICAgICBcbiJ9 -->
 <pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
@@ -716,70 +710,70 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid
-    4447     4531    -2211     4421     4595
+     AIC      BIC   logLik deviance df.resid 
+    4447     4531    -2211     4421     4595 
 
-Scaled residuals:
-   Min     1Q Median     3Q    Max
--5.595  0.255  0.388  0.524  1.716
+Scaled residuals: 
+   Min     1Q Median     3Q    Max 
+-5.595  0.255  0.388  0.524  1.716 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677
+ subj_idx (Intercept) 0.458    0.677   
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)
+                            Estimate Std. Error z value Pr(&gt;|z|)    
 (Intercept)                   1.8128     0.1693   10.71  &lt; 2e-16 ***
-exp.VRT-EIT                   0.7354     0.2532    2.90   0.0037 **
+exp.VRT-EIT                   0.7354     0.2532    2.90   0.0037 ** 
 cond.Math-Vis                -0.8147     0.1471   -5.54  3.0e-08 ***
-cond.Reg-Vis                  0.3484     0.1702    2.05   0.0407 *
+cond.Reg-Vis                  0.3484     0.1702    2.05   0.0407 *  
 cond.Sem-Vis                 -0.7793     0.1474   -5.29  1.2e-07 ***
-foil.Config-Rep              -0.1587     0.1287   -1.23   0.2175
-foil.Odd-Rep                 -0.1667     0.1285   -1.30   0.1947
-exp.VRT-EIT:cond.Math-Vis     0.2425     0.2188    1.11   0.2678
-exp.VRT-EIT:cond.Reg-Vis     -0.5770     0.2393   -2.41   0.0159 *
-exp.VRT-EIT:cond.Sem-Vis      0.0328     0.2174    0.15   0.8799
-exp.VRT-EIT:foil.Config-Rep  -0.5514     0.1941   -2.84   0.0045 **
+foil.Config-Rep              -0.1587     0.1287   -1.23   0.2175    
+foil.Odd-Rep                 -0.1667     0.1285   -1.30   0.1947    
+exp.VRT-EIT:cond.Math-Vis     0.2425     0.2188    1.11   0.2678    
+exp.VRT-EIT:cond.Reg-Vis     -0.5770     0.2393   -2.41   0.0159 *  
+exp.VRT-EIT:cond.Sem-Vis      0.0328     0.2174    0.15   0.8799    
+exp.VRT-EIT:foil.Config-Rep  -0.5514     0.1941   -2.84   0.0045 ** 
 exp.VRT-EIT:foil.Odd-Rep     -0.7717     0.1922   -4.01  6.0e-05 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
              (Intr) ex.VRT-EIT cn.M-V cn.R-V cn.S-V fl.C-R fl.O-R e.VRT-EIT:.M e.VRT-EIT:.R
-exp.VRT-EIT  -0.665
-cond.Mth-Vs  -0.525  0.349
-cond.Reg-Vs  -0.444  0.297      0.513
-cond.Sem-Vs  -0.523  0.348      0.596  0.511
-fol.Cnfg-Rp  -0.398  0.266      0.006 -0.002  0.006
-foil.Odd-Rp  -0.398  0.266      0.007 -0.002  0.006  0.519
-e.VRT-EIT:.M  0.352 -0.515     -0.672 -0.345 -0.400 -0.004 -0.005
-e.VRT-EIT:.R  0.315 -0.463     -0.365 -0.711 -0.364  0.001  0.001  0.533
-e.VRT-EIT:.S  0.353 -0.522     -0.403 -0.347 -0.678 -0.004 -0.004  0.589        0.537
-e.VRT-EIT:.C  0.262 -0.442     -0.004  0.001 -0.004 -0.663 -0.344  0.011        0.002
-e.VRT-EIT:.O  0.265 -0.450     -0.004  0.001 -0.004 -0.347 -0.669  0.015        0.003
+exp.VRT-EIT  -0.665                                                                        
+cond.Mth-Vs  -0.525  0.349                                                                 
+cond.Reg-Vs  -0.444  0.297      0.513                                                      
+cond.Sem-Vs  -0.523  0.348      0.596  0.511                                               
+fol.Cnfg-Rp  -0.398  0.266      0.006 -0.002  0.006                                        
+foil.Odd-Rp  -0.398  0.266      0.007 -0.002  0.006  0.519                                 
+e.VRT-EIT:.M  0.352 -0.515     -0.672 -0.345 -0.400 -0.004 -0.005                          
+e.VRT-EIT:.R  0.315 -0.463     -0.365 -0.711 -0.364  0.001  0.001  0.533                   
+e.VRT-EIT:.S  0.353 -0.522     -0.403 -0.347 -0.678 -0.004 -0.004  0.589        0.537      
+e.VRT-EIT:.C  0.262 -0.442     -0.004  0.001 -0.004 -0.663 -0.344  0.011        0.002      
+e.VRT-EIT:.O  0.265 -0.450     -0.004  0.001 -0.004 -0.347 -0.669  0.015        0.003      
              e.VRT-EIT:.S e.VRT-EIT:.C
-exp.VRT-EIT
-cond.Mth-Vs
-cond.Reg-Vs
-cond.Sem-Vs
-fol.Cnfg-Rp
-foil.Odd-Rp
-e.VRT-EIT:.M
-e.VRT-EIT:.R
-e.VRT-EIT:.S
-e.VRT-EIT:.C  0.014
+exp.VRT-EIT                           
+cond.Mth-Vs                           
+cond.Reg-Vs                           
+cond.Sem-Vs                           
+fol.Cnfg-Rp                           
+foil.Odd-Rp                           
+e.VRT-EIT:.M                          
+e.VRT-EIT:.R                          
+e.VRT-EIT:.S                          
+e.VRT-EIT:.C  0.014                   
 e.VRT-EIT:.O  0.019        0.570      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
-<div id="model-with-visual-and-config-and-vrt-as-reference" class="section level1">
-<h1>Model with Visual and Config and VRT as reference</h1>
+<div id="model-with-visual-and-config-and-eit-as-reference" class="section level1">
+<h1>Model with Visual and Config and EIT as reference</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBWaXN1YWwgYW5kIFZSVCBhcyByZWZlcmVuY2UgXG5jb250cmFzdHMocnQkY29uZCk8LWNvbnRyLnRyZWF0bWVudCg0LGJhc2UgPSA0KVxuY29sbmFtZXMoYXR0cihydCRjb25kLCBcImNvbnRyYXN0c1wiKSkgPSBjKFwiLk1hdGgtVmlzXCIsXCIuUmVnLVZpc1wiLCBcIi5TZW0tVmlzXCIpXG5wcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKVxuYGBgIn0= -->
-<pre class="r"><code># Visual and VRT as reference
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBWaXN1YWwgYW5kIEVJVCBhcyByZWZlcmVuY2UgXG5jb250cmFzdHMocnQkY29uZCk8LWNvbnRyLnRyZWF0bWVudCg0LGJhc2UgPSA0KVxuY29sbmFtZXMoYXR0cihydCRjb25kLCBcImNvbnRyYXN0c1wiKSkgPSBjKFwiLk1hdGgtVmlzXCIsXCIuUmVnLVZpc1wiLCBcIi5TZW0tVmlzXCIpXG5wcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKVxuYGBgIn0= -->
+<pre class="r"><code># Visual and EIT as reference 
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 4)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Math-Vis&quot;,&quot;.Reg-Vis&quot;, &quot;.Sem-Vis&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -832,9 +826,9 @@ print('Foil Contrast Matrix')</code></pre>
 eit        0
 vrt        1</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhQX3Zpc19jb25maWdfdnJ0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwICogY29uZCArIGV4cCAqIGZvaWwgKygxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsIGZhbWlseT1iaW5vbWlhbChsaW5rID0gXCJsb2dpdFwiKSwgY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPVwiYm9ieXFhXCIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSlcbnN1bW1hcnkoZXhQX3Zpc19jb25maWdfdnJ0X0FDQylcbmBgYCJ9 -->
-<pre class="r"><code>exP_vis_config_vrt_ACC = glmer(response ~ exp * cond + exp * foil +(1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
-summary(exP_vis_config_vrt_ACC)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhQX3Zpc19jb25maWdfZWl0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwICogY29uZCArIGV4cCAqIGZvaWwgKygxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsIGZhbWlseT1iaW5vbWlhbChsaW5rID0gXCJsb2dpdFwiKSwgY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPVwiYm9ieXFhXCIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSlcbnN1bW1hcnkoZXhQX3Zpc19jb25maWdfZWl0X0FDQylcbmBgYCJ9 -->
+<pre class="r"><code>exP_vis_config_eit_ACC = glmer(response ~ exp * cond + exp * foil +(1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
+summary(exP_vis_config_eit_ACC)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBiaW5vbWlhbCAgKCBsb2dpdCApXG5Gb3JtdWxhOiByZXNwb25zZSB+IGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsgKDEgfCBzdWJqX2lkeClcbiAgIERhdGE6IHJ0XG5Db250cm9sOiBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXCJib2J5cWFcIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMWUrMDUpKVxuXG4gICAgIEFJQyAgICAgIEJJQyAgIGxvZ0xpayBkZXZpYW5jZSBkZi5yZXNpZCBcbiAgICA0NDQ3ICAgICA0NTMxICAgIC0yMjExICAgICA0NDIxICAgICA0NTk1IFxuXG5TY2FsZWQgcmVzaWR1YWxzOiBcbiAgIE1pbiAgICAgMVEgTWVkaWFuICAgICAzUSAgICBNYXggXG4tNS41OTUgIDAuMjU1ICAwLjM4OCAgMC41MjQgIDEuNzE2IFxuXG5SYW5kb20gZWZmZWN0czpcbiBHcm91cHMgICBOYW1lICAgICAgICBWYXJpYW5jZSBTdGQuRGV2LlxuIHN1YmpfaWR4IChJbnRlcmNlcHQpIDAuNDU4ICAgIDAuNjc3ICAgXG5OdW1iZXIgb2Ygb2JzOiA0NjA4LCBncm91cHM6ICBzdWJqX2lkeCwgOTZcblxuRml4ZWQgZWZmZWN0czpcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHogdmFsdWUgUHIoPnx6fCkgICAgXG4oSW50ZXJjZXB0KSAgICAgICAgICAgICAgICAgIDEuNjU0MTQgICAgMC4xNjcwMSAgICA5LjkwICA8IDJlLTE2ICoqKlxuZXhwLlZSVC1FSVQgICAgICAgICAgICAgICAgICAwLjE4Mzk0ICAgIDAuMjQxNTUgICAgMC43NiAgIDAuNDQ2NCAgICBcbmNvbmQuTWF0aC1WaXMgICAgICAgICAgICAgICAtMC44MTQ3MiAgICAwLjE0NzA5ICAgLTUuNTQgIDMuMGUtMDggKioqXG5jb25kLlJlZy1WaXMgICAgICAgICAgICAgICAgIDAuMzQ4NDIgICAgMC4xNzAyMyAgICAyLjA1ICAgMC4wNDA3ICogIFxuY29uZC5TZW0tVmlzICAgICAgICAgICAgICAgIC0wLjc3OTM1ICAgIDAuMTQ3NDMgICAtNS4yOSAgMS4yZS0wNyAqKipcbmZvaWwuT2RkLUNvbmZpZyAgICAgICAgICAgICAtMC4wMDgwNCAgICAwLjEyNjEyICAgLTAuMDYgICAwLjk0OTIgICAgXG5mb2lsLlJlcC1Db25maWcgICAgICAgICAgICAgIDAuMTU4NjYgICAgMC4xMjg2NiAgICAxLjIzICAgMC4yMTc1ICAgIFxuZXhwLlZSVC1FSVQ6Y29uZC5NYXRoLVZpcyAgICAwLjI0MjQ4ICAgIDAuMjE4ODQgICAgMS4xMSAgIDAuMjY3OSAgICBcbmV4cC5WUlQtRUlUOmNvbmQuUmVnLVZpcyAgICAtMC41NzcwMCAgICAwLjIzOTI5ICAgLTIuNDEgICAwLjAxNTkgKiAgXG5leHAuVlJULUVJVDpjb25kLlNlbS1WaXMgICAgIDAuMDMyODMgICAgMC4yMTczNyAgICAwLjE1ICAgMC44Nzk5ICAgIFxuZXhwLlZSVC1FSVQ6Zm9pbC5PZGQtQ29uZmlnIC0wLjIyMDIyICAgIDAuMTc5MDYgICAtMS4yMyAgIDAuMjE4NyAgICBcbmV4cC5WUlQtRUlUOmZvaWwuUmVwLUNvbmZpZyAgMC41NTE0NiAgICAwLjE5NDE0ICAgIDIuODQgICAwLjAwNDUgKiogXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuQ29ycmVsYXRpb24gb2YgRml4ZWQgRWZmZWN0czpcbiAgICAgICAgICAgICAgIChJbnRyKSBleC5WUlQtRUlUIGNuLk0tViBjbi5SLVYgY24uUy1WIGZsLk8tQyBmbC5SLUMgZS5WUlQtRUlUOi5NIGUuVlJULUVJVDouUi1WXG5leHAuVlJULUVJVCAgICAtMC42ODggICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuY29uZC5NdGgtVnMgICAgLTAuNTI3ICAwLjM2MyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuUmVnLVZzICAgIC0wLjQ1MSAgMC4zMTMgICAgICAwLjUxMyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5jb25kLlNlbS1WcyAgICAtMC41MjYgIDAuMzYyICAgICAgMC41OTYgIDAuNTEyICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuZmwuT2RkLUNuZmcgICAgLTAuMzc5ICAwLjI2MiAgICAgIDAuMDAwICAwLjAwMCAgMC4wMDAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvbC5ScC1DbmZnICAgIC0wLjM2NyAgMC4yNTQgICAgIC0wLjAwNiAgMC4wMDIgLTAuMDA2ICAwLjQ5MSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5lLlZSVC1FSVQ6Lk0gICAgMC4zNTMgLTAuNTMxICAgICAtMC42NzIgLTAuMzQ1IC0wLjQwMCAgMC4wMDAgIDAuMDA0ICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuZS5WUlQtRUlUOi5SLVYgIDAuMzIxIC0wLjQ4NCAgICAgLTAuMzY1IC0wLjcxMSAtMC4zNjQgIDAuMDAwIC0wLjAwMSAgMC41MzMgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUyAgICAwLjM1NSAtMC41MzYgICAgIC0wLjQwNCAtMC4zNDcgLTAuNjc4ICAwLjAwMCAgMC4wMDQgIDAuNTg5ICAgICAgICAwLjUzNyAgICAgICAgXG5lLlZSVC1FSVQ6Lk8gICAgMC4yNjYgLTAuMzg0ICAgICAgMC4wMDAgIDAuMDAwICAwLjAwMCAtMC43MDQgLTAuMzQ2ICAwLjAwNCAgICAgICAgMC4wMDEgICAgICAgIFxuZS5WUlQtRUlUOi5SLUMgIDAuMjQ0IC0wLjM0MCAgICAgIDAuMDA0IC0wLjAwMSAgMC4wMDMgLTAuMzI1IC0wLjY2MyAtMC4wMTEgICAgICAgLTAuMDAyICAgICAgICBcbiAgICAgICAgICAgICAgIGUuVlJULUVJVDouUyBlLlZSVC1FSVQ6Lk9cbmV4cC5WUlQtRUlUICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuTXRoLVZzICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuUmVnLVZzICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuU2VtLVZzICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZsLk9kZC1DbmZnICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvbC5ScC1DbmZnICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouTSAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUi1WICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUyAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouTyAgICAwLjAwNSAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUi1DIC0wLjAxNCAgICAgICAgMC40NzIgICAgICBcbiJ9 -->
 <pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
@@ -843,70 +837,70 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid
-    4447     4531    -2211     4421     4595
+     AIC      BIC   logLik deviance df.resid 
+    4447     4531    -2211     4421     4595 
 
-Scaled residuals:
-   Min     1Q Median     3Q    Max
--5.595  0.255  0.388  0.524  1.716
+Scaled residuals: 
+   Min     1Q Median     3Q    Max 
+-5.595  0.255  0.388  0.524  1.716 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677
+ subj_idx (Intercept) 0.458    0.677   
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)
+                            Estimate Std. Error z value Pr(&gt;|z|)    
 (Intercept)                  1.65414    0.16701    9.90  &lt; 2e-16 ***
-exp.VRT-EIT                  0.18394    0.24155    0.76   0.4464
+exp.VRT-EIT                  0.18394    0.24155    0.76   0.4464    
 cond.Math-Vis               -0.81472    0.14709   -5.54  3.0e-08 ***
-cond.Reg-Vis                 0.34842    0.17023    2.05   0.0407 *
+cond.Reg-Vis                 0.34842    0.17023    2.05   0.0407 *  
 cond.Sem-Vis                -0.77935    0.14743   -5.29  1.2e-07 ***
-foil.Odd-Config             -0.00804    0.12612   -0.06   0.9492
-foil.Rep-Config              0.15866    0.12866    1.23   0.2175
-exp.VRT-EIT:cond.Math-Vis    0.24248    0.21884    1.11   0.2679
-exp.VRT-EIT:cond.Reg-Vis    -0.57700    0.23929   -2.41   0.0159 *
-exp.VRT-EIT:cond.Sem-Vis     0.03283    0.21737    0.15   0.8799
-exp.VRT-EIT:foil.Odd-Config -0.22022    0.17906   -1.23   0.2187
-exp.VRT-EIT:foil.Rep-Config  0.55146    0.19414    2.84   0.0045 **
+foil.Odd-Config             -0.00804    0.12612   -0.06   0.9492    
+foil.Rep-Config              0.15866    0.12866    1.23   0.2175    
+exp.VRT-EIT:cond.Math-Vis    0.24248    0.21884    1.11   0.2679    
+exp.VRT-EIT:cond.Reg-Vis    -0.57700    0.23929   -2.41   0.0159 *  
+exp.VRT-EIT:cond.Sem-Vis     0.03283    0.21737    0.15   0.8799    
+exp.VRT-EIT:foil.Odd-Config -0.22022    0.17906   -1.23   0.2187    
+exp.VRT-EIT:foil.Rep-Config  0.55146    0.19414    2.84   0.0045 ** 
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
                (Intr) ex.VRT-EIT cn.M-V cn.R-V cn.S-V fl.O-C fl.R-C e.VRT-EIT:.M e.VRT-EIT:.R-V
-exp.VRT-EIT    -0.688
-cond.Mth-Vs    -0.527  0.363
-cond.Reg-Vs    -0.451  0.313      0.513
-cond.Sem-Vs    -0.526  0.362      0.596  0.512
-fl.Odd-Cnfg    -0.379  0.262      0.000  0.000  0.000
-fol.Rp-Cnfg    -0.367  0.254     -0.006  0.002 -0.006  0.491
-e.VRT-EIT:.M    0.353 -0.531     -0.672 -0.345 -0.400  0.000  0.004
-e.VRT-EIT:.R-V  0.321 -0.484     -0.365 -0.711 -0.364  0.000 -0.001  0.533
-e.VRT-EIT:.S    0.355 -0.536     -0.404 -0.347 -0.678  0.000  0.004  0.589        0.537
-e.VRT-EIT:.O    0.266 -0.384      0.000  0.000  0.000 -0.704 -0.346  0.004        0.001
-e.VRT-EIT:.R-C  0.244 -0.340      0.004 -0.001  0.003 -0.325 -0.663 -0.011       -0.002
+exp.VRT-EIT    -0.688                                                                          
+cond.Mth-Vs    -0.527  0.363                                                                   
+cond.Reg-Vs    -0.451  0.313      0.513                                                        
+cond.Sem-Vs    -0.526  0.362      0.596  0.512                                                 
+fl.Odd-Cnfg    -0.379  0.262      0.000  0.000  0.000                                          
+fol.Rp-Cnfg    -0.367  0.254     -0.006  0.002 -0.006  0.491                                   
+e.VRT-EIT:.M    0.353 -0.531     -0.672 -0.345 -0.400  0.000  0.004                            
+e.VRT-EIT:.R-V  0.321 -0.484     -0.365 -0.711 -0.364  0.000 -0.001  0.533                     
+e.VRT-EIT:.S    0.355 -0.536     -0.404 -0.347 -0.678  0.000  0.004  0.589        0.537        
+e.VRT-EIT:.O    0.266 -0.384      0.000  0.000  0.000 -0.704 -0.346  0.004        0.001        
+e.VRT-EIT:.R-C  0.244 -0.340      0.004 -0.001  0.003 -0.325 -0.663 -0.011       -0.002        
                e.VRT-EIT:.S e.VRT-EIT:.O
-exp.VRT-EIT
-cond.Mth-Vs
-cond.Reg-Vs
-cond.Sem-Vs
-fl.Odd-Cnfg
-fol.Rp-Cnfg
-e.VRT-EIT:.M
-e.VRT-EIT:.R-V
-e.VRT-EIT:.S
-e.VRT-EIT:.O    0.005
+exp.VRT-EIT                             
+cond.Mth-Vs                             
+cond.Reg-Vs                             
+cond.Sem-Vs                             
+fl.Odd-Cnfg                             
+fol.Rp-Cnfg                             
+e.VRT-EIT:.M                            
+e.VRT-EIT:.R-V                          
+e.VRT-EIT:.S                            
+e.VRT-EIT:.O    0.005                   
 e.VRT-EIT:.R-C -0.014        0.472      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
-<div id="model-with-visual-and-odd-and-vrt-as-reference" class="section level1">
-<h1>Model with Visual and odd and VRT as reference</h1>
+<div id="model-with-visual-and-odd-and-eit-as-reference" class="section level1">
+<h1>Model with Visual and odd and EIT as reference</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBWaXN1YWwgYW5kIFZSVCBhcyByZWZlcmVuY2UgXG5jb250cmFzdHMocnQkY29uZCk8LWNvbnRyLnRyZWF0bWVudCg0LGJhc2UgPSA0KVxuY29sbmFtZXMoYXR0cihydCRjb25kLCBcImNvbnRyYXN0c1wiKSkgPSBjKFwiLk1hdGgtVmlzXCIsXCIuUmVnLVZpc1wiLCBcIi5TZW0tVmlzXCIpXG5wcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKVxuYGBgIn0= -->
-<pre class="r"><code># Visual and VRT as reference
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBWaXN1YWwgYW5kIEVJVCBhcyByZWZlcmVuY2UgXG5jb250cmFzdHMocnQkY29uZCk8LWNvbnRyLnRyZWF0bWVudCg0LGJhc2UgPSA0KVxuY29sbmFtZXMoYXR0cihydCRjb25kLCBcImNvbnRyYXN0c1wiKSkgPSBjKFwiLk1hdGgtVmlzXCIsXCIuUmVnLVZpc1wiLCBcIi5TZW0tVmlzXCIpXG5wcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKVxuYGBgIn0= -->
+<pre class="r"><code># Visual and EIT as reference 
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 4)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Math-Vis&quot;,&quot;.Reg-Vis&quot;, &quot;.Sem-Vis&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -959,9 +953,9 @@ print('Foil Contrast Matrix')</code></pre>
 eit        0
 vrt        1</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwX3Zpc19vZGRfdnJ0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gIGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsoMXxzdWJqX2lkeCksIGRhdGE9cnQsIG5hLmFjdGlvbj1uYS5vbWl0LCBmYW1pbHk9Ymlub21pYWwobGluayA9IFwibG9naXRcIiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj1cImJvYnlxYVwiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpXG5zdW1tYXJ5KGV4cF92aXNfb2RkX3ZydF9BQ0MpXG5gYGAifQ== -->
-<pre class="r"><code>exp_vis_odd_vrt_ACC = glmer(response ~  exp * cond + exp * foil +(1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
-summary(exp_vis_odd_vrt_ACC)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwX3Zpc19vZGRfZWl0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gIGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsoMXxzdWJqX2lkeCksIGRhdGE9cnQsIG5hLmFjdGlvbj1uYS5vbWl0LCBmYW1pbHk9Ymlub21pYWwobGluayA9IFwibG9naXRcIiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj1cImJvYnlxYVwiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpXG5zdW1tYXJ5KGV4cF92aXNfb2RkX2VpdF9BQ0MpXG5gYGAifQ== -->
+<pre class="r"><code>exp_vis_odd_eit_ACC = glmer(response ~  exp * cond + exp * foil +(1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
+summary(exp_vis_odd_eit_ACC)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBiaW5vbWlhbCAgKCBsb2dpdCApXG5Gb3JtdWxhOiByZXNwb25zZSB+IGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsgKDEgfCBzdWJqX2lkeClcbiAgIERhdGE6IHJ0XG5Db250cm9sOiBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXCJib2J5cWFcIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMWUrMDUpKVxuXG4gICAgIEFJQyAgICAgIEJJQyAgIGxvZ0xpayBkZXZpYW5jZSBkZi5yZXNpZCBcbiAgICA0NDQ3ICAgICA0NTMxICAgIC0yMjExICAgICA0NDIxICAgICA0NTk1IFxuXG5TY2FsZWQgcmVzaWR1YWxzOiBcbiAgIE1pbiAgICAgMVEgTWVkaWFuICAgICAzUSAgICBNYXggXG4tNS41OTUgIDAuMjU1ICAwLjM4OCAgMC41MjQgIDEuNzE2IFxuXG5SYW5kb20gZWZmZWN0czpcbiBHcm91cHMgICBOYW1lICAgICAgICBWYXJpYW5jZSBTdGQuRGV2LlxuIHN1YmpfaWR4IChJbnRlcmNlcHQpIDAuNDU4ICAgIDAuNjc3ICAgXG5OdW1iZXIgb2Ygb2JzOiA0NjA4LCBncm91cHM6ICBzdWJqX2lkeCwgOTZcblxuRml4ZWQgZWZmZWN0czpcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHogdmFsdWUgUHIoPnx6fCkgICAgXG4oSW50ZXJjZXB0KSAgICAgICAgICAgICAgICAgIDEuNjQ2MTAgICAgMC4xNjY4NiAgICA5Ljg2ICA8IDJlLTE2ICoqKlxuZXhwLlZSVC1FSVQgICAgICAgICAgICAgICAgIC0wLjAzNjI3ICAgIDAuMjM5MTQgICAtMC4xNSAgICAwLjg3OSAgICBcbmNvbmQuTWF0aC1WaXMgICAgICAgICAgICAgICAtMC44MTQ3MSAgICAwLjE0NzA3ICAgLTUuNTQgIDMuMGUtMDggKioqXG5jb25kLlJlZy1WaXMgICAgICAgICAgICAgICAgIDAuMzQ4NDMgICAgMC4xNzAyMCAgICAyLjA1ICAgIDAuMDQxICogIFxuY29uZC5TZW0tVmlzICAgICAgICAgICAgICAgIC0wLjc3OTM0ICAgIDAuMTQ3NDEgICAtNS4yOSAgMS4yZS0wNyAqKipcbmZvaWwuQ29uZmlnLU9kZCAgICAgICAgICAgICAgMC4wMDgwMyAgICAwLjEyNjExICAgIDAuMDYgICAgMC45NDkgICAgXG5mb2lsUmVwLU9kZCAgICAgICAgICAgICAgICAgIDAuMTY2NjkgICAgMC4xMjg1NCAgICAxLjMwICAgIDAuMTk1ICAgIFxuZXhwLlZSVC1FSVQ6Y29uZC5NYXRoLVZpcyAgICAwLjI0MjQ3ICAgIDAuMjE4ODEgICAgMS4xMSAgICAwLjI2OCAgICBcbmV4cC5WUlQtRUlUOmNvbmQuUmVnLVZpcyAgICAtMC41NzcwMSAgICAwLjIzOTIzICAgLTIuNDEgICAgMC4wMTYgKiAgXG5leHAuVlJULUVJVDpjb25kLlNlbS1WaXMgICAgIDAuMDMyODIgICAgMC4yMTczMyAgICAwLjE1ICAgIDAuODgwICAgIFxuZXhwLlZSVC1FSVQ6Zm9pbC5Db25maWctT2RkICAwLjIyMDIyICAgIDAuMTc5MDMgICAgMS4yMyAgICAwLjIxOSAgICBcbmV4cC5WUlQtRUlUOmZvaWxSZXAtT2RkICAgICAgMC43NzE2OCAgICAwLjE5MjE5ICAgIDQuMDIgIDUuOWUtMDUgKioqXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuQ29ycmVsYXRpb24gb2YgRml4ZWQgRWZmZWN0czpcbiAgICAgICAgICAgICAoSW50cikgZXguVlJULUVJVCBjbi5NLVYgY24uUi1WIGNuLlMtViBmbC5DLU8gZmxScC1PIGUuVlJULUVJVDouTSBlLlZSVC1FSVQ6LlJcbmV4cC5WUlQtRUlUICAtMC42OTUgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuTXRoLVZzICAtMC41MjcgIDAuMzY2ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuUmVnLVZzICAtMC40NTIgIDAuMzE1ICAgICAgMC41MTMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuU2VtLVZzICAtMC41MjYgIDAuMzY1ICAgICAgMC41OTYgIDAuNTExICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZsLkNuZmctT2RkICAtMC4zNzcgIDAuMjYzICAgICAgMC4wMDAgIDAuMDAwICAwLjAwMCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvaWxSZXAtT2RkICAtMC4zNjYgIDAuMjU2ICAgICAtMC4wMDcgIDAuMDAyIC0wLjAwNyAgMC40OTAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouTSAgMC4zNTMgLTAuNTM0ICAgICAtMC42NzIgLTAuMzQ1IC0wLjQwMCAgMC4wMDAgIDAuMDA1ICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUiAgMC4zMjEgLTAuNDg3ICAgICAtMC4zNjQgLTAuNzExIC0wLjM2NCAgMC4wMDAgLTAuMDAxICAwLjUzMyAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUyAgMC4zNTUgLTAuNTM3ICAgICAtMC40MDMgLTAuMzQ3IC0wLjY3OCAgMC4wMDAgIDAuMDA0ICAwLjU4OSAgICAgICAgMC41MzcgICAgICBcbmUuVlJULUVJVDouQyAgMC4yNjYgLTAuMzYxICAgICAgMC4wMDAgIDAuMDAwICAwLjAwMCAtMC43MDQgLTAuMzQ1IC0wLjAwNCAgICAgICAtMC4wMDEgICAgICBcbmUuVlJULUVJVDpSICAgMC4yNDYgLTAuMzI3ICAgICAgMC4wMDQgLTAuMDAxICAwLjAwNCAtMC4zMjcgLTAuNjY5IC0wLjAxNSAgICAgICAtMC4wMDMgICAgICBcbiAgICAgICAgICAgICBlLlZSVC1FSVQ6LlMgZS5WUlQtRUlUOi5DXG5leHAuVlJULUVJVCAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuY29uZC5NdGgtVnMgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuUmVnLVZzICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5jb25kLlNlbS1WcyAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuZmwuQ25mZy1PZGQgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvaWxSZXAtT2RkICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5lLlZSVC1FSVQ6Lk0gICAgICAgICAgICAgICAgICAgICAgICAgIFxuZS5WUlQtRUlUOi5SICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUyAgICAgICAgICAgICAgICAgICAgICAgICAgXG5lLlZSVC1FSVQ6LkMgLTAuMDA1ICAgICAgICAgICAgICAgICAgIFxuZS5WUlQtRUlUOlIgIC0wLjAxOSAgICAgICAgMC40NTUgICAgICBcbiJ9 -->
 <pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
@@ -970,59 +964,59 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid
-    4447     4531    -2211     4421     4595
+     AIC      BIC   logLik deviance df.resid 
+    4447     4531    -2211     4421     4595 
 
-Scaled residuals:
-   Min     1Q Median     3Q    Max
--5.595  0.255  0.388  0.524  1.716
+Scaled residuals: 
+   Min     1Q Median     3Q    Max 
+-5.595  0.255  0.388  0.524  1.716 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677
+ subj_idx (Intercept) 0.458    0.677   
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)
+                            Estimate Std. Error z value Pr(&gt;|z|)    
 (Intercept)                  1.64610    0.16686    9.86  &lt; 2e-16 ***
-exp.VRT-EIT                 -0.03627    0.23914   -0.15    0.879
+exp.VRT-EIT                 -0.03627    0.23914   -0.15    0.879    
 cond.Math-Vis               -0.81471    0.14707   -5.54  3.0e-08 ***
-cond.Reg-Vis                 0.34843    0.17020    2.05    0.041 *
+cond.Reg-Vis                 0.34843    0.17020    2.05    0.041 *  
 cond.Sem-Vis                -0.77934    0.14741   -5.29  1.2e-07 ***
-foil.Config-Odd              0.00803    0.12611    0.06    0.949
-foilRep-Odd                  0.16669    0.12854    1.30    0.195
-exp.VRT-EIT:cond.Math-Vis    0.24247    0.21881    1.11    0.268
-exp.VRT-EIT:cond.Reg-Vis    -0.57701    0.23923   -2.41    0.016 *
-exp.VRT-EIT:cond.Sem-Vis     0.03282    0.21733    0.15    0.880
-exp.VRT-EIT:foil.Config-Odd  0.22022    0.17903    1.23    0.219
+foil.Config-Odd              0.00803    0.12611    0.06    0.949    
+foilRep-Odd                  0.16669    0.12854    1.30    0.195    
+exp.VRT-EIT:cond.Math-Vis    0.24247    0.21881    1.11    0.268    
+exp.VRT-EIT:cond.Reg-Vis    -0.57701    0.23923   -2.41    0.016 *  
+exp.VRT-EIT:cond.Sem-Vis     0.03282    0.21733    0.15    0.880    
+exp.VRT-EIT:foil.Config-Odd  0.22022    0.17903    1.23    0.219    
 exp.VRT-EIT:foilRep-Odd      0.77168    0.19219    4.02  5.9e-05 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
              (Intr) ex.VRT-EIT cn.M-V cn.R-V cn.S-V fl.C-O flRp-O e.VRT-EIT:.M e.VRT-EIT:.R
-exp.VRT-EIT  -0.695
-cond.Mth-Vs  -0.527  0.366
-cond.Reg-Vs  -0.452  0.315      0.513
-cond.Sem-Vs  -0.526  0.365      0.596  0.511
-fl.Cnfg-Odd  -0.377  0.263      0.000  0.000  0.000
-foilRep-Odd  -0.366  0.256     -0.007  0.002 -0.007  0.490
-e.VRT-EIT:.M  0.353 -0.534     -0.672 -0.345 -0.400  0.000  0.005
-e.VRT-EIT:.R  0.321 -0.487     -0.364 -0.711 -0.364  0.000 -0.001  0.533
-e.VRT-EIT:.S  0.355 -0.537     -0.403 -0.347 -0.678  0.000  0.004  0.589        0.537
-e.VRT-EIT:.C  0.266 -0.361      0.000  0.000  0.000 -0.704 -0.345 -0.004       -0.001
-e.VRT-EIT:R   0.246 -0.327      0.004 -0.001  0.004 -0.327 -0.669 -0.015       -0.003
+exp.VRT-EIT  -0.695                                                                        
+cond.Mth-Vs  -0.527  0.366                                                                 
+cond.Reg-Vs  -0.452  0.315      0.513                                                      
+cond.Sem-Vs  -0.526  0.365      0.596  0.511                                               
+fl.Cnfg-Odd  -0.377  0.263      0.000  0.000  0.000                                        
+foilRep-Odd  -0.366  0.256     -0.007  0.002 -0.007  0.490                                 
+e.VRT-EIT:.M  0.353 -0.534     -0.672 -0.345 -0.400  0.000  0.005                          
+e.VRT-EIT:.R  0.321 -0.487     -0.364 -0.711 -0.364  0.000 -0.001  0.533                   
+e.VRT-EIT:.S  0.355 -0.537     -0.403 -0.347 -0.678  0.000  0.004  0.589        0.537      
+e.VRT-EIT:.C  0.266 -0.361      0.000  0.000  0.000 -0.704 -0.345 -0.004       -0.001      
+e.VRT-EIT:R   0.246 -0.327      0.004 -0.001  0.004 -0.327 -0.669 -0.015       -0.003      
              e.VRT-EIT:.S e.VRT-EIT:.C
-exp.VRT-EIT
-cond.Mth-Vs
-cond.Reg-Vs
-cond.Sem-Vs
-fl.Cnfg-Odd
-foilRep-Odd
-e.VRT-EIT:.M
-e.VRT-EIT:.R
-e.VRT-EIT:.S
-e.VRT-EIT:.C -0.005
+exp.VRT-EIT                           
+cond.Mth-Vs                           
+cond.Reg-Vs                           
+cond.Sem-Vs                           
+fl.Cnfg-Odd                           
+foilRep-Odd                           
+e.VRT-EIT:.M                          
+e.VRT-EIT:.R                          
+e.VRT-EIT:.S                          
+e.VRT-EIT:.C -0.005                   
 e.VRT-EIT:R  -0.019        0.455      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -1032,9 +1026,9 @@ e.VRT-EIT:R  -0.019        0.455      </code></pre>
 <h1>Model with Math and repeat and VRT as reference</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDb25kaXRpb24gQ29udHJhc3RzIFxuIyBNYXRoIGFuZCBWUlQgYXMgcmVmZXJlbmNlIFxuY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMSlcbmNvbG5hbWVzKGF0dHIocnQkY29uZCwgXCJjb250cmFzdHNcIikpID0gYyhcIi5SZWctTWF0aFwiLFwiLlNlbS1NYXRoXCIsIFwiLlZpcy1NYXRoXCIpXG5wcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKVxuYGBgIn0= -->
-<pre class="r"><code># Condition Contrasts
-# Math and VRT as reference
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDb25kaXRpb24gQ29udHJhc3RzIFxuIyBNYXRoIGFuZCBFSVQgYXMgcmVmZXJlbmNlIFxuY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMSlcbmNvbG5hbWVzKGF0dHIocnQkY29uZCwgXCJjb250cmFzdHNcIikpID0gYyhcIi5SZWctTWF0aFwiLFwiLlNlbS1NYXRoXCIsIFwiLlZpcy1NYXRoXCIpXG5wcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKVxuYGBgIn0= -->
+<pre class="r"><code># Condition Contrasts 
+# Math and EIT as reference 
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 1)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Reg-Math&quot;,&quot;.Sem-Math&quot;, &quot;.Vis-Math&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -1087,9 +1081,9 @@ print('Foil Contrast Matrix')</code></pre>
 eit        0
 vrt        1</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwX21hdGhfcmVwZWF0X3ZydF9BQ0MgPSBnbG1lcihyZXNwb25zZSB+ICBleHAgKiBjb25kICsgZXhwICogZm9pbCArKDF8c3Vial9pZHgpLCBkYXRhPXJ0LCBuYS5hY3Rpb249bmEub21pdCwgZmFtaWx5PWJpbm9taWFsKGxpbmsgPSBcImxvZ2l0XCIpLCBjb250cm9sPWdsbWVyQ29udHJvbChvcHRpbWl6ZXI9XCJib2J5cWFcIixvcHRDdHJsPWxpc3QobWF4ZnVuPTEwMDAwMCkpKVxuc3VtbWFyeShleHBfbWF0aF9yZXBlYXRfdnJ0X0FDQylcbmBgYCJ9 -->
-<pre class="r"><code>exp_math_repeat_vrt_ACC = glmer(response ~  exp * cond + exp * foil +(1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
-summary(exp_math_repeat_vrt_ACC)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwX21hdGhfcmVwZWF0X2VpdF9BQ0MgPSBnbG1lcihyZXNwb25zZSB+ICBleHAgKiBjb25kICsgZXhwICogZm9pbCArKDF8c3Vial9pZHgpLCBkYXRhPXJ0LCBuYS5hY3Rpb249bmEub21pdCwgZmFtaWx5PWJpbm9taWFsKGxpbmsgPSBcImxvZ2l0XCIpLCBjb250cm9sPWdsbWVyQ29udHJvbChvcHRpbWl6ZXI9XCJib2J5cWFcIixvcHRDdHJsPWxpc3QobWF4ZnVuPTEwMDAwMCkpKVxuc3VtbWFyeShleHBfbWF0aF9yZXBlYXRfZWl0X0FDQylcbmBgYCJ9 -->
+<pre class="r"><code>exp_math_repeat_eit_ACC = glmer(response ~  exp * cond + exp * foil +(1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
+summary(exp_math_repeat_eit_ACC)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBiaW5vbWlhbCAgKCBsb2dpdCApXG5Gb3JtdWxhOiByZXNwb25zZSB+IGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsgKDEgfCBzdWJqX2lkeClcbiAgIERhdGE6IHJ0XG5Db250cm9sOiBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXCJib2J5cWFcIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMWUrMDUpKVxuXG4gICAgIEFJQyAgICAgIEJJQyAgIGxvZ0xpayBkZXZpYW5jZSBkZi5yZXNpZCBcbiAgICA0NDQ3ICAgICA0NTMxICAgIC0yMjExICAgICA0NDIxICAgICA0NTk1IFxuXG5TY2FsZWQgcmVzaWR1YWxzOiBcbiAgIE1pbiAgICAgMVEgTWVkaWFuICAgICAzUSAgICBNYXggXG4tNS41OTUgIDAuMjU1ICAwLjM4OCAgMC41MjQgIDEuNzE2IFxuXG5SYW5kb20gZWZmZWN0czpcbiBHcm91cHMgICBOYW1lICAgICAgICBWYXJpYW5jZSBTdGQuRGV2LlxuIHN1YmpfaWR4IChJbnRlcmNlcHQpIDAuNDU4ICAgIDAuNjc3ICAgXG5OdW1iZXIgb2Ygb2JzOiA0NjA4LCBncm91cHM6ICBzdWJqX2lkeCwgOTZcblxuRml4ZWQgZWZmZWN0czpcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHogdmFsdWUgUHIoPnx6fCkgICAgXG4oSW50ZXJjZXB0KSAgICAgICAgICAgICAgICAgICAwLjk5ODEgICAgIDAuMTU1NSAgICA2LjQyICAxLjRlLTEwICoqKlxuZXhwLlZSVC1FSVQgICAgICAgICAgICAgICAgICAgMC45Nzc5ICAgICAwLjIzNDMgICAgNC4xNyAgMy4wZS0wNSAqKipcbmNvbmQuUmVnLU1hdGggICAgICAgICAgICAgICAgIDEuMTYzMSAgICAgMC4xNTc5ICAgIDcuMzcgIDEuOGUtMTMgKioqXG5jb25kLlNlbS1NYXRoICAgICAgICAgICAgICAgICAwLjAzNTQgICAgIDAuMTMyNCAgICAwLjI3ICAwLjc4OTM1ICAgIFxuY29uZC5WaXMtTWF0aCAgICAgICAgICAgICAgICAgMC44MTQ3ICAgICAwLjE0NzEgICAgNS41NCAgMy4wZS0wOCAqKipcbmZvaWwuQ29uZmlnLVJlcCAgICAgICAgICAgICAgLTAuMTU4NyAgICAgMC4xMjg3ICAgLTEuMjMgIDAuMjE3NDkgICAgXG5mb2lsLk9kZC1SZXAgICAgICAgICAgICAgICAgIC0wLjE2NjcgICAgIDAuMTI4NSAgIC0xLjMwICAwLjE5NDcxICAgIFxuZXhwLlZSVC1FSVQ6Y29uZC5SZWctTWF0aCAgICAtMC44MTk1ICAgICAwLjIyMjEgICAtMy42OSAgMC4wMDAyMiAqKipcbmV4cC5WUlQtRUlUOmNvbmQuU2VtLU1hdGggICAgLTAuMjA5NiAgICAgMC4xOTc3ICAgLTEuMDYgIDAuMjg4OTQgICAgXG5leHAuVlJULUVJVDpjb25kLlZpcy1NYXRoICAgIC0wLjI0MjUgICAgIDAuMjE4OCAgIC0xLjExICAwLjI2NzgzICAgIFxuZXhwLlZSVC1FSVQ6Zm9pbC5Db25maWctUmVwICAtMC41NTE1ICAgICAwLjE5NDEgICAtMi44NCAgMC4wMDQ1MCAqKiBcbmV4cC5WUlQtRUlUOmZvaWwuT2RkLVJlcCAgICAgLTAuNzcxNyAgICAgMC4xOTIyICAgLTQuMDEgIDUuOWUtMDUgKioqXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuQ29ycmVsYXRpb24gb2YgRml4ZWQgRWZmZWN0czpcbiAgICAgICAgICAgICAoSW50cikgZXguVlJULUVJVCBjbi5SLU0gY24uUy1NIGNuLlYtTSBmbC5DLVIgZmwuTy1SIGUuVlJULUVJVDouUiBlLlZSVC1FSVQ6LlNcbmV4cC5WUlQtRUlUICAtMC42NjEgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuUmctTXRoICAtMC4zNDcgIDAuMjMyICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuU20tTXRoICAtMC40MjMgIDAuMjgxICAgICAgMC40MTcgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuVnMtTXRoICAtMC4zNzUgIDAuMjUwICAgICAgMC4zNzkgIDAuNDQ3ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvbC5DbmZnLVJwICAtMC40MjcgIDAuMjgzICAgICAtMC4wMDggIDAuMDAwIC0wLjAwNiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvaWwuT2RkLVJwICAtMC40MjggIDAuMjgzICAgICAtMC4wMDggIDAuMDAwIC0wLjAwNyAgMC41MTkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUiAgMC4yNDcgLTAuMzc0ICAgICAtMC43MTEgLTAuMjk2IC0wLjI2OSAgMC4wMDYgIDAuMDA2ICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUyAgMC4yODMgLTAuNDMyICAgICAtMC4yNzkgLTAuNjcwIC0wLjMwMCAgMC4wMDAgIDAuMDAwICAwLjQ1MyAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouViAgMC4yNTIgLTAuMzc3ICAgICAtMC4yNTQgLTAuMzAxIC0wLjY3MiAgMC4wMDQgIDAuMDA0ICAwLjQxMSAgICAgICAgMC40NTkgICAgICBcbmUuVlJULUVJVDouQyAgMC4yODIgLTAuNDY3ICAgICAgMC4wMDUgIDAuMDAwICAwLjAwNCAtMC42NjMgLTAuMzQ0IC0wLjAwOSAgICAgICAgMC4wMDMgICAgICBcbmUuVlJULUVJVDouTyAgMC4yODUgLTAuNDczICAgICAgMC4wMDUgIDAuMDAwICAwLjAwNCAtMC4zNDcgLTAuNjY5IC0wLjAxMSAgICAgICAgMC4wMDQgICAgICBcbiAgICAgICAgICAgICBlLlZSVC1FSVQ6LlYgZS5WUlQtRUlUOi5DXG5leHAuVlJULUVJVCAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuY29uZC5SZy1NdGggICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuU20tTXRoICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5jb25kLlZzLU10aCAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuZm9sLkNuZmctUnAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvaWwuT2RkLVJwICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5lLlZSVC1FSVQ6LlIgICAgICAgICAgICAgICAgICAgICAgICAgIFxuZS5WUlQtRUlUOi5TICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouViAgICAgICAgICAgICAgICAgICAgICAgICAgXG5lLlZSVC1FSVQ6LkMgLTAuMDExICAgICAgICAgICAgICAgICAgIFxuZS5WUlQtRUlUOi5PIC0wLjAxNSAgICAgICAgMC41NzAgICAgICBcbiJ9 -->
 <pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
@@ -1098,59 +1092,59 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid
-    4447     4531    -2211     4421     4595
+     AIC      BIC   logLik deviance df.resid 
+    4447     4531    -2211     4421     4595 
 
-Scaled residuals:
-   Min     1Q Median     3Q    Max
--5.595  0.255  0.388  0.524  1.716
+Scaled residuals: 
+   Min     1Q Median     3Q    Max 
+-5.595  0.255  0.388  0.524  1.716 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677
+ subj_idx (Intercept) 0.458    0.677   
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)
+                            Estimate Std. Error z value Pr(&gt;|z|)    
 (Intercept)                   0.9981     0.1555    6.42  1.4e-10 ***
 exp.VRT-EIT                   0.9779     0.2343    4.17  3.0e-05 ***
 cond.Reg-Math                 1.1631     0.1579    7.37  1.8e-13 ***
-cond.Sem-Math                 0.0354     0.1324    0.27  0.78935
+cond.Sem-Math                 0.0354     0.1324    0.27  0.78935    
 cond.Vis-Math                 0.8147     0.1471    5.54  3.0e-08 ***
-foil.Config-Rep              -0.1587     0.1287   -1.23  0.21749
-foil.Odd-Rep                 -0.1667     0.1285   -1.30  0.19471
+foil.Config-Rep              -0.1587     0.1287   -1.23  0.21749    
+foil.Odd-Rep                 -0.1667     0.1285   -1.30  0.19471    
 exp.VRT-EIT:cond.Reg-Math    -0.8195     0.2221   -3.69  0.00022 ***
-exp.VRT-EIT:cond.Sem-Math    -0.2096     0.1977   -1.06  0.28894
-exp.VRT-EIT:cond.Vis-Math    -0.2425     0.2188   -1.11  0.26783
-exp.VRT-EIT:foil.Config-Rep  -0.5515     0.1941   -2.84  0.00450 **
+exp.VRT-EIT:cond.Sem-Math    -0.2096     0.1977   -1.06  0.28894    
+exp.VRT-EIT:cond.Vis-Math    -0.2425     0.2188   -1.11  0.26783    
+exp.VRT-EIT:foil.Config-Rep  -0.5515     0.1941   -2.84  0.00450 ** 
 exp.VRT-EIT:foil.Odd-Rep     -0.7717     0.1922   -4.01  5.9e-05 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
              (Intr) ex.VRT-EIT cn.R-M cn.S-M cn.V-M fl.C-R fl.O-R e.VRT-EIT:.R e.VRT-EIT:.S
-exp.VRT-EIT  -0.661
-cond.Rg-Mth  -0.347  0.232
-cond.Sm-Mth  -0.423  0.281      0.417
-cond.Vs-Mth  -0.375  0.250      0.379  0.447
-fol.Cnfg-Rp  -0.427  0.283     -0.008  0.000 -0.006
-foil.Odd-Rp  -0.428  0.283     -0.008  0.000 -0.007  0.519
-e.VRT-EIT:.R  0.247 -0.374     -0.711 -0.296 -0.269  0.006  0.006
-e.VRT-EIT:.S  0.283 -0.432     -0.279 -0.670 -0.300  0.000  0.000  0.453
-e.VRT-EIT:.V  0.252 -0.377     -0.254 -0.301 -0.672  0.004  0.004  0.411        0.459
-e.VRT-EIT:.C  0.282 -0.467      0.005  0.000  0.004 -0.663 -0.344 -0.009        0.003
-e.VRT-EIT:.O  0.285 -0.473      0.005  0.000  0.004 -0.347 -0.669 -0.011        0.004
+exp.VRT-EIT  -0.661                                                                        
+cond.Rg-Mth  -0.347  0.232                                                                 
+cond.Sm-Mth  -0.423  0.281      0.417                                                      
+cond.Vs-Mth  -0.375  0.250      0.379  0.447                                               
+fol.Cnfg-Rp  -0.427  0.283     -0.008  0.000 -0.006                                        
+foil.Odd-Rp  -0.428  0.283     -0.008  0.000 -0.007  0.519                                 
+e.VRT-EIT:.R  0.247 -0.374     -0.711 -0.296 -0.269  0.006  0.006                          
+e.VRT-EIT:.S  0.283 -0.432     -0.279 -0.670 -0.300  0.000  0.000  0.453                   
+e.VRT-EIT:.V  0.252 -0.377     -0.254 -0.301 -0.672  0.004  0.004  0.411        0.459      
+e.VRT-EIT:.C  0.282 -0.467      0.005  0.000  0.004 -0.663 -0.344 -0.009        0.003      
+e.VRT-EIT:.O  0.285 -0.473      0.005  0.000  0.004 -0.347 -0.669 -0.011        0.004      
              e.VRT-EIT:.V e.VRT-EIT:.C
-exp.VRT-EIT
-cond.Rg-Mth
-cond.Sm-Mth
-cond.Vs-Mth
-fol.Cnfg-Rp
-foil.Odd-Rp
-e.VRT-EIT:.R
-e.VRT-EIT:.S
-e.VRT-EIT:.V
-e.VRT-EIT:.C -0.011
+exp.VRT-EIT                           
+cond.Rg-Mth                           
+cond.Sm-Mth                           
+cond.Vs-Mth                           
+fol.Cnfg-Rp                           
+foil.Odd-Rp                           
+e.VRT-EIT:.R                          
+e.VRT-EIT:.S                          
+e.VRT-EIT:.V                          
+e.VRT-EIT:.C -0.011                   
 e.VRT-EIT:.O -0.015        0.570      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -1160,9 +1154,9 @@ e.VRT-EIT:.O -0.015        0.570      </code></pre>
 <h1>Model with Math and config and VRT as reference</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDb25kaXRpb24gQ29udHJhc3RzIFxuIyBNYXRoIGFuZCBWUlQgYXMgcmVmZXJlbmNlIFxuY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMSlcbmNvbG5hbWVzKGF0dHIocnQkY29uZCwgXCJjb250cmFzdHNcIikpID0gYyhcIi5SZWctTWF0aFwiLFwiLlNlbS1NYXRoXCIsIFwiLlZpcy1NYXRoXCIpXG5wcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKVxuYGBgIn0= -->
-<pre class="r"><code># Condition Contrasts
-# Math and VRT as reference
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDb25kaXRpb24gQ29udHJhc3RzIFxuIyBNYXRoIGFuZCBFSVQgYXMgcmVmZXJlbmNlIFxuY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMSlcbmNvbG5hbWVzKGF0dHIocnQkY29uZCwgXCJjb250cmFzdHNcIikpID0gYyhcIi5SZWctTWF0aFwiLFwiLlNlbS1NYXRoXCIsIFwiLlZpcy1NYXRoXCIpXG5wcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKVxuYGBgIn0= -->
+<pre class="r"><code># Condition Contrasts 
+# Math and EIT as reference 
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 1)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Reg-Math&quot;,&quot;.Sem-Math&quot;, &quot;.Vis-Math&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -1215,9 +1209,9 @@ print('Foil Contrast Matrix')</code></pre>
 eit        0
 vrt        1</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwX21hdGhfY29uZmlnX3ZydF9BQ0MgPSBnbG1lcihyZXNwb25zZSB+ICBleHAgKiBjb25kICsgZXhwICogZm9pbCArKDF8c3Vial9pZHgpLCBkYXRhPXJ0LCBuYS5hY3Rpb249bmEub21pdCwgZmFtaWx5PWJpbm9taWFsKGxpbmsgPSBcImxvZ2l0XCIpLCBjb250cm9sPWdsbWVyQ29udHJvbChvcHRpbWl6ZXI9XCJib2J5cWFcIixvcHRDdHJsPWxpc3QobWF4ZnVuPTEwMDAwMCkpKVxuc3VtbWFyeShleHBfbWF0aF9jb25maWdfdnJ0X0FDQylcbmBgYCJ9 -->
-<pre class="r"><code>exp_math_config_vrt_ACC = glmer(response ~  exp * cond + exp * foil +(1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
-summary(exp_math_config_vrt_ACC)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwX21hdGhfY29uZmlnX2VpdF9BQ0MgPSBnbG1lcihyZXNwb25zZSB+ICBleHAgKiBjb25kICsgZXhwICogZm9pbCArKDF8c3Vial9pZHgpLCBkYXRhPXJ0LCBuYS5hY3Rpb249bmEub21pdCwgZmFtaWx5PWJpbm9taWFsKGxpbmsgPSBcImxvZ2l0XCIpLCBjb250cm9sPWdsbWVyQ29udHJvbChvcHRpbWl6ZXI9XCJib2J5cWFcIixvcHRDdHJsPWxpc3QobWF4ZnVuPTEwMDAwMCkpKVxuc3VtbWFyeShleHBfbWF0aF9jb25maWdfZWl0X0FDQylcbmBgYCJ9 -->
+<pre class="r"><code>exp_math_config_eit_ACC = glmer(response ~  exp * cond + exp * foil +(1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
+summary(exp_math_config_eit_ACC)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBiaW5vbWlhbCAgKCBsb2dpdCApXG5Gb3JtdWxhOiByZXNwb25zZSB+IGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsgKDEgfCBzdWJqX2lkeClcbiAgIERhdGE6IHJ0XG5Db250cm9sOiBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXCJib2J5cWFcIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMWUrMDUpKVxuXG4gICAgIEFJQyAgICAgIEJJQyAgIGxvZ0xpayBkZXZpYW5jZSBkZi5yZXNpZCBcbiAgICA0NDQ3ICAgICA0NTMxICAgIC0yMjExICAgICA0NDIxICAgICA0NTk1IFxuXG5TY2FsZWQgcmVzaWR1YWxzOiBcbiAgIE1pbiAgICAgMVEgTWVkaWFuICAgICAzUSAgICBNYXggXG4tNS41OTUgIDAuMjU1ICAwLjM4OCAgMC41MjQgIDEuNzE2IFxuXG5SYW5kb20gZWZmZWN0czpcbiBHcm91cHMgICBOYW1lICAgICAgICBWYXJpYW5jZSBTdGQuRGV2LlxuIHN1YmpfaWR4IChJbnRlcmNlcHQpIDAuNDU4ICAgIDAuNjc3ICAgXG5OdW1iZXIgb2Ygb2JzOiA0NjA4LCBncm91cHM6ICBzdWJqX2lkeCwgOTZcblxuRml4ZWQgZWZmZWN0czpcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHogdmFsdWUgUHIoPnx6fCkgICAgXG4oSW50ZXJjZXB0KSAgICAgICAgICAgICAgICAgIDAuODM5NDIgICAgMC4xNTM3MSAgICA1LjQ2ICA0LjdlLTA4ICoqKlxuZXhwLlZSVC1FSVQgICAgICAgICAgICAgICAgICAwLjQyNjQyICAgIDAuMjIzNzYgICAgMS45MSAgMC4wNTY2OSAuICBcbmNvbmQuUmVnLU1hdGggICAgICAgICAgICAgICAgMS4xNjMxNCAgICAwLjE1NzkwICAgIDcuMzcgIDEuOGUtMTMgKioqXG5jb25kLlNlbS1NYXRoICAgICAgICAgICAgICAgIDAuMDM1MzcgICAgMC4xMzI0MCAgICAwLjI3ICAwLjc4OTM1ICAgIFxuY29uZC5WaXMtTWF0aCAgICAgICAgICAgICAgICAwLjgxNDcxICAgIDAuMTQ3MDggICAgNS41NCAgMy4wZS0wOCAqKipcbmZvaWwuT2RkLUNvbmZpZyAgICAgICAgICAgICAtMC4wMDgwMyAgICAwLjEyNjExICAgLTAuMDYgIDAuOTQ5MjEgICAgXG5mb2lsLlJlcC1Db25maWcgICAgICAgICAgICAgIDAuMTU4NjYgICAgMC4xMjg2NSAgICAxLjIzICAwLjIxNzQ5ICAgIFxuZXhwLlZSVC1FSVQ6Y29uZC5SZWctTWF0aCAgIC0wLjgxOTQ4ICAgIDAuMjIyMDkgICAtMy42OSAgMC4wMDAyMiAqKipcbmV4cC5WUlQtRUlUOmNvbmQuU2VtLU1hdGggICAtMC4yMDk2NCAgICAwLjE5NzY4ICAgLTEuMDYgIDAuMjg4OTIgICAgXG5leHAuVlJULUVJVDpjb25kLlZpcy1NYXRoICAgLTAuMjQyNDcgICAgMC4yMTg4MyAgIC0xLjExICAwLjI2Nzg0ICAgIFxuZXhwLlZSVC1FSVQ6Zm9pbC5PZGQtQ29uZmlnIC0wLjIyMDIyICAgIDAuMTc5MDQgICAtMS4yMyAgMC4yMTg3MCAgICBcbmV4cC5WUlQtRUlUOmZvaWwuUmVwLUNvbmZpZyAgMC41NTE0NSAgICAwLjE5NDEyICAgIDIuODQgIDAuMDA0NTAgKiogXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuQ29ycmVsYXRpb24gb2YgRml4ZWQgRWZmZWN0czpcbiAgICAgICAgICAgICAgIChJbnRyKSBleC5WUlQtRUlUIGNuLlItTSBjbi5TLU0gY24uVi1NIGZsLk8tQyBmbC5SLUMgZS5WUlQtRUlUOi5SLU0gZS5WUlQtRUlUOi5TXG5leHAuVlJULUVJVCAgICAtMC42ODUgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuY29uZC5SZy1NdGggICAgLTAuMzU4ICAwLjI0NyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuU20tTXRoICAgIC0wLjQyOCAgMC4yOTQgICAgICAwLjQxNyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5jb25kLlZzLU10aCAgICAtMC4zODQgIDAuMjY1ICAgICAgMC4zNzkgIDAuNDQ3ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuZmwuT2RkLUNuZmcgICAgLTAuNDExICAwLjI4MiAgICAgIDAuMDAwICAwLjAwMCAgMC4wMDAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvbC5ScC1DbmZnICAgIC0wLjQwNSAgMC4yNzggICAgICAwLjAwOCAgMC4wMDAgIDAuMDA2ICAwLjQ5MSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5lLlZSVC1FSVQ6LlItTSAgMC4yNTUgLTAuMzk5ICAgICAtMC43MTEgLTAuMjk2IC0wLjI2OSAgMC4wMDAgLTAuMDA2ICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuZS5WUlQtRUlUOi5TICAgIDAuMjg2IC0wLjQ1MCAgICAgLTAuMjc5IC0wLjY3MCAtMC4zMDAgIDAuMDAwICAwLjAwMCAgMC40NTMgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouViAgICAwLjI1OSAtMC40MDUgICAgIC0wLjI1NCAtMC4zMDEgLTAuNjcyICAwLjAwMCAtMC4wMDQgIDAuNDExICAgICAgICAgIDAuNDU5ICAgICAgXG5lLlZSVC1FSVQ6Lk8gICAgMC4yODkgLTAuNDExICAgICAgMC4wMDAgIDAuMDAwICAwLjAwMCAtMC43MDQgLTAuMzQ2IC0wLjAwMiAgICAgICAgICAwLjAwMSAgICAgIFxuZS5WUlQtRUlUOi5SLUMgIDAuMjY5IC0wLjM3OCAgICAgLTAuMDA1ICAwLjAwMCAtMC4wMDQgLTAuMzI1IC0wLjY2MyAgMC4wMDkgICAgICAgICAtMC4wMDMgICAgICBcbiAgICAgICAgICAgICAgIGUuVlJULUVJVDouViBlLlZSVC1FSVQ6Lk9cbmV4cC5WUlQtRUlUICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuUmctTXRoICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuU20tTXRoICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuVnMtTXRoICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZsLk9kZC1DbmZnICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvbC5ScC1DbmZnICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUi1NICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUyAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouViAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouTyAgIC0wLjAwNCAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUi1DICAwLjAxMSAgICAgICAgMC40NzIgICAgICBcbiJ9 -->
 <pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
@@ -1226,59 +1220,59 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid
-    4447     4531    -2211     4421     4595
+     AIC      BIC   logLik deviance df.resid 
+    4447     4531    -2211     4421     4595 
 
-Scaled residuals:
-   Min     1Q Median     3Q    Max
--5.595  0.255  0.388  0.524  1.716
+Scaled residuals: 
+   Min     1Q Median     3Q    Max 
+-5.595  0.255  0.388  0.524  1.716 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677
+ subj_idx (Intercept) 0.458    0.677   
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)
+                            Estimate Std. Error z value Pr(&gt;|z|)    
 (Intercept)                  0.83942    0.15371    5.46  4.7e-08 ***
-exp.VRT-EIT                  0.42642    0.22376    1.91  0.05669 .
+exp.VRT-EIT                  0.42642    0.22376    1.91  0.05669 .  
 cond.Reg-Math                1.16314    0.15790    7.37  1.8e-13 ***
-cond.Sem-Math                0.03537    0.13240    0.27  0.78935
+cond.Sem-Math                0.03537    0.13240    0.27  0.78935    
 cond.Vis-Math                0.81471    0.14708    5.54  3.0e-08 ***
-foil.Odd-Config             -0.00803    0.12611   -0.06  0.94921
-foil.Rep-Config              0.15866    0.12865    1.23  0.21749
+foil.Odd-Config             -0.00803    0.12611   -0.06  0.94921    
+foil.Rep-Config              0.15866    0.12865    1.23  0.21749    
 exp.VRT-EIT:cond.Reg-Math   -0.81948    0.22209   -3.69  0.00022 ***
-exp.VRT-EIT:cond.Sem-Math   -0.20964    0.19768   -1.06  0.28892
-exp.VRT-EIT:cond.Vis-Math   -0.24247    0.21883   -1.11  0.26784
-exp.VRT-EIT:foil.Odd-Config -0.22022    0.17904   -1.23  0.21870
-exp.VRT-EIT:foil.Rep-Config  0.55145    0.19412    2.84  0.00450 **
+exp.VRT-EIT:cond.Sem-Math   -0.20964    0.19768   -1.06  0.28892    
+exp.VRT-EIT:cond.Vis-Math   -0.24247    0.21883   -1.11  0.26784    
+exp.VRT-EIT:foil.Odd-Config -0.22022    0.17904   -1.23  0.21870    
+exp.VRT-EIT:foil.Rep-Config  0.55145    0.19412    2.84  0.00450 ** 
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
                (Intr) ex.VRT-EIT cn.R-M cn.S-M cn.V-M fl.O-C fl.R-C e.VRT-EIT:.R-M e.VRT-EIT:.S
-exp.VRT-EIT    -0.685
-cond.Rg-Mth    -0.358  0.247
-cond.Sm-Mth    -0.428  0.294      0.417
-cond.Vs-Mth    -0.384  0.265      0.379  0.447
-fl.Odd-Cnfg    -0.411  0.282      0.000  0.000  0.000
-fol.Rp-Cnfg    -0.405  0.278      0.008  0.000  0.006  0.491
-e.VRT-EIT:.R-M  0.255 -0.399     -0.711 -0.296 -0.269  0.000 -0.006
-e.VRT-EIT:.S    0.286 -0.450     -0.279 -0.670 -0.300  0.000  0.000  0.453
-e.VRT-EIT:.V    0.259 -0.405     -0.254 -0.301 -0.672  0.000 -0.004  0.411          0.459
-e.VRT-EIT:.O    0.289 -0.411      0.000  0.000  0.000 -0.704 -0.346 -0.002          0.001
-e.VRT-EIT:.R-C  0.269 -0.378     -0.005  0.000 -0.004 -0.325 -0.663  0.009         -0.003
+exp.VRT-EIT    -0.685                                                                          
+cond.Rg-Mth    -0.358  0.247                                                                   
+cond.Sm-Mth    -0.428  0.294      0.417                                                        
+cond.Vs-Mth    -0.384  0.265      0.379  0.447                                                 
+fl.Odd-Cnfg    -0.411  0.282      0.000  0.000  0.000                                          
+fol.Rp-Cnfg    -0.405  0.278      0.008  0.000  0.006  0.491                                   
+e.VRT-EIT:.R-M  0.255 -0.399     -0.711 -0.296 -0.269  0.000 -0.006                            
+e.VRT-EIT:.S    0.286 -0.450     -0.279 -0.670 -0.300  0.000  0.000  0.453                     
+e.VRT-EIT:.V    0.259 -0.405     -0.254 -0.301 -0.672  0.000 -0.004  0.411          0.459      
+e.VRT-EIT:.O    0.289 -0.411      0.000  0.000  0.000 -0.704 -0.346 -0.002          0.001      
+e.VRT-EIT:.R-C  0.269 -0.378     -0.005  0.000 -0.004 -0.325 -0.663  0.009         -0.003      
                e.VRT-EIT:.V e.VRT-EIT:.O
-exp.VRT-EIT
-cond.Rg-Mth
-cond.Sm-Mth
-cond.Vs-Mth
-fl.Odd-Cnfg
-fol.Rp-Cnfg
-e.VRT-EIT:.R-M
-e.VRT-EIT:.S
-e.VRT-EIT:.V
-e.VRT-EIT:.O   -0.004
+exp.VRT-EIT                             
+cond.Rg-Mth                             
+cond.Sm-Mth                             
+cond.Vs-Mth                             
+fl.Odd-Cnfg                             
+fol.Rp-Cnfg                             
+e.VRT-EIT:.R-M                          
+e.VRT-EIT:.S                            
+e.VRT-EIT:.V                            
+e.VRT-EIT:.O   -0.004                   
 e.VRT-EIT:.R-C  0.011        0.472      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -1288,9 +1282,9 @@ e.VRT-EIT:.R-C  0.011        0.472      </code></pre>
 <h1>Model with Math and odd and VRT as reference</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDb25kaXRpb24gQ29udHJhc3RzIFxuIyBNYXRoIGFuZCBWUlQgYXMgcmVmZXJlbmNlIFxuY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMSlcbmNvbG5hbWVzKGF0dHIocnQkY29uZCwgXCJjb250cmFzdHNcIikpID0gYyhcIi5SZWctTWF0aFwiLFwiLlNlbS1NYXRoXCIsIFwiLlZpcy1NYXRoXCIpXG5wcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKVxuYGBgIn0= -->
-<pre class="r"><code># Condition Contrasts
-# Math and VRT as reference
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDb25kaXRpb24gQ29udHJhc3RzIFxuIyBNYXRoIGFuZCBFSVQgYXMgcmVmZXJlbmNlIFxuY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMSlcbmNvbG5hbWVzKGF0dHIocnQkY29uZCwgXCJjb250cmFzdHNcIikpID0gYyhcIi5SZWctTWF0aFwiLFwiLlNlbS1NYXRoXCIsIFwiLlZpcy1NYXRoXCIpXG5wcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKVxuYGBgIn0= -->
+<pre class="r"><code># Condition Contrasts 
+# Math and EIT as reference 
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 1)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Reg-Math&quot;,&quot;.Sem-Math&quot;, &quot;.Vis-Math&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -1343,9 +1337,9 @@ print('Foil Contrast Matrix')</code></pre>
 eit        0
 vrt        1</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwX21hdGhfb2RkX3ZydF9BQ0MgPSBnbG1lcihyZXNwb25zZSB+IGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsoMXxzdWJqX2lkeCksIGRhdGE9cnQsIG5hLmFjdGlvbj1uYS5vbWl0LCBmYW1pbHk9Ymlub21pYWwobGluayA9IFwibG9naXRcIiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj1cImJvYnlxYVwiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpXG5zdW1tYXJ5KGV4cF9tYXRoX29kZF92cnRfQUNDKVxuYGBgIn0= -->
-<pre class="r"><code>exp_math_odd_vrt_ACC = glmer(response ~ exp * cond + exp * foil +(1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
-summary(exp_math_odd_vrt_ACC)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwX21hdGhfb2RkX2VpdF9BQ0MgPSBnbG1lcihyZXNwb25zZSB+IGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsoMXxzdWJqX2lkeCksIGRhdGE9cnQsIG5hLmFjdGlvbj1uYS5vbWl0LCBmYW1pbHk9Ymlub21pYWwobGluayA9IFwibG9naXRcIiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj1cImJvYnlxYVwiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpXG5zdW1tYXJ5KGV4cF9tYXRoX29kZF9laXRfQUNDKVxuYGBgIn0= -->
+<pre class="r"><code>exp_math_odd_eit_ACC = glmer(response ~ exp * cond + exp * foil +(1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
+summary(exp_math_odd_eit_ACC)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBiaW5vbWlhbCAgKCBsb2dpdCApXG5Gb3JtdWxhOiByZXNwb25zZSB+IGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsgKDEgfCBzdWJqX2lkeClcbiAgIERhdGE6IHJ0XG5Db250cm9sOiBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXCJib2J5cWFcIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMWUrMDUpKVxuXG4gICAgIEFJQyAgICAgIEJJQyAgIGxvZ0xpayBkZXZpYW5jZSBkZi5yZXNpZCBcbiAgICA0NDQ3ICAgICA0NTMxICAgIC0yMjExICAgICA0NDIxICAgICA0NTk1IFxuXG5TY2FsZWQgcmVzaWR1YWxzOiBcbiAgIE1pbiAgICAgMVEgTWVkaWFuICAgICAzUSAgICBNYXggXG4tNS41OTUgIDAuMjU1ICAwLjM4OCAgMC41MjQgIDEuNzE2IFxuXG5SYW5kb20gZWZmZWN0czpcbiBHcm91cHMgICBOYW1lICAgICAgICBWYXJpYW5jZSBTdGQuRGV2LlxuIHN1YmpfaWR4IChJbnRlcmNlcHQpIDAuNDU4ICAgIDAuNjc3ICAgXG5OdW1iZXIgb2Ygb2JzOiA0NjA4LCBncm91cHM6ICBzdWJqX2lkeCwgOTZcblxuRml4ZWQgZWZmZWN0czpcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHogdmFsdWUgUHIoPnx6fCkgICAgXG4oSW50ZXJjZXB0KSAgICAgICAgICAgICAgICAgIDAuODMxMzggICAgMC4xNTM2MyAgICA1LjQxICA2LjNlLTA4ICoqKlxuZXhwLlZSVC1FSVQgICAgICAgICAgICAgICAgICAwLjIwNjIxICAgIDAuMjIxODYgICAgMC45MyAgMC4zNTI2NiAgICBcbmNvbmQuUmVnLU1hdGggICAgICAgICAgICAgICAgMS4xNjMxNSAgICAwLjE1NzkwICAgIDcuMzcgIDEuOGUtMTMgKioqXG5jb25kLlNlbS1NYXRoICAgICAgICAgICAgICAgIDAuMDM1MzggICAgMC4xMzI0MCAgICAwLjI3ICAwLjc4OTMyICAgIFxuY29uZC5WaXMtTWF0aCAgICAgICAgICAgICAgICAwLjgxNDcyICAgIDAuMTQ3MDcgICAgNS41NCAgMy4wZS0wOCAqKipcbmZvaWwuQ29uZmlnLU9kZCAgICAgICAgICAgICAgMC4wMDgwNCAgICAwLjEyNjExICAgIDAuMDYgIDAuOTQ5MjAgICAgXG5mb2lsUmVwLU9kZCAgICAgICAgICAgICAgICAgIDAuMTY2NjkgICAgMC4xMjg1NCAgICAxLjMwICAwLjE5NDcwICAgIFxuZXhwLlZSVC1FSVQ6Y29uZC5SZWctTWF0aCAgIC0wLjgxOTQ5ICAgIDAuMjIyMDkgICAtMy42OSAgMC4wMDAyMiAqKipcbmV4cC5WUlQtRUlUOmNvbmQuU2VtLU1hdGggICAtMC4yMDk2NiAgICAwLjE5NzY5ICAgLTEuMDYgIDAuMjg4OTEgICAgXG5leHAuVlJULUVJVDpjb25kLlZpcy1NYXRoICAgLTAuMjQyNDggICAgMC4yMTg4MiAgIC0xLjExICAwLjI2NzgwICAgIFxuZXhwLlZSVC1FSVQ6Zm9pbC5Db25maWctT2RkICAwLjIyMDIyICAgIDAuMTc5MDQgICAgMS4yMyAgMC4yMTg3MCAgICBcbmV4cC5WUlQtRUlUOmZvaWxSZXAtT2RkICAgICAgMC43NzE2OCAgICAwLjE5MjIwICAgIDQuMDEgIDUuOWUtMDUgKioqXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuQ29ycmVsYXRpb24gb2YgRml4ZWQgRWZmZWN0czpcbiAgICAgICAgICAgICAoSW50cikgZXguVlJULUVJVCBjbi5SLU0gY24uUy1NIGNuLlYtTSBmbC5DLU8gZmxScC1PIGUuVlJULUVJVDouUiBlLlZSVC1FSVQ6LlNcbmV4cC5WUlQtRUlUICAtMC42OTEgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuUmctTXRoICAtMC4zNTggIDAuMjQ5ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuU20tTXRoICAtMC40MjggIDAuMjk3ICAgICAgMC40MTcgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuVnMtTXRoICAtMC4zODUgIDAuMjY3ICAgICAgMC4zNzkgIDAuNDQ3ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZsLkNuZmctT2RkICAtMC40MTAgIDAuMjg0ICAgICAgMC4wMDAgIDAuMDAwICAwLjAwMCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvaWxSZXAtT2RkICAtMC40MDQgIDAuMjgwICAgICAgMC4wMDggIDAuMDAwICAwLjAwNyAgMC40OTAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUiAgMC4yNTUgLTAuNDA1ICAgICAtMC43MTEgLTAuMjk2IC0wLjI2OSAgMC4wMDAgLTAuMDA2ICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUyAgMC4yODcgLTAuNDUzICAgICAtMC4yNzkgLTAuNjcwIC0wLjMwMCAgMC4wMDAgIDAuMDAwICAwLjQ1MyAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouViAgMC4yNTkgLTAuNDExICAgICAtMC4yNTQgLTAuMzAxIC0wLjY3MiAgMC4wMDAgLTAuMDA0ICAwLjQxMSAgICAgICAgMC40NTkgICAgICBcbmUuVlJULUVJVDouQyAgMC4yODkgLTAuMzkzICAgICAgMC4wMDAgIDAuMDAwICAwLjAwMCAtMC43MDQgLTAuMzQ1ICAwLjAwMiAgICAgICAtMC4wMDEgICAgICBcbmUuVlJULUVJVDpSICAgMC4yNzEgLTAuMzY3ICAgICAtMC4wMDUgIDAuMDAwIC0wLjAwNCAtMC4zMjcgLTAuNjY5ICAwLjAxMSAgICAgICAtMC4wMDQgICAgICBcbiAgICAgICAgICAgICBlLlZSVC1FSVQ6LlYgZS5WUlQtRUlUOi5DXG5leHAuVlJULUVJVCAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuY29uZC5SZy1NdGggICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuU20tTXRoICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5jb25kLlZzLU10aCAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuZmwuQ25mZy1PZGQgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvaWxSZXAtT2RkICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5lLlZSVC1FSVQ6LlIgICAgICAgICAgICAgICAgICAgICAgICAgIFxuZS5WUlQtRUlUOi5TICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouViAgICAgICAgICAgICAgICAgICAgICAgICAgXG5lLlZSVC1FSVQ6LkMgIDAuMDA0ICAgICAgICAgICAgICAgICAgIFxuZS5WUlQtRUlUOlIgICAwLjAxNSAgICAgICAgMC40NTUgICAgICBcbiJ9 -->
 <pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
@@ -1354,59 +1348,59 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid
-    4447     4531    -2211     4421     4595
+     AIC      BIC   logLik deviance df.resid 
+    4447     4531    -2211     4421     4595 
 
-Scaled residuals:
-   Min     1Q Median     3Q    Max
--5.595  0.255  0.388  0.524  1.716
+Scaled residuals: 
+   Min     1Q Median     3Q    Max 
+-5.595  0.255  0.388  0.524  1.716 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677
+ subj_idx (Intercept) 0.458    0.677   
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)
+                            Estimate Std. Error z value Pr(&gt;|z|)    
 (Intercept)                  0.83138    0.15363    5.41  6.3e-08 ***
-exp.VRT-EIT                  0.20621    0.22186    0.93  0.35266
+exp.VRT-EIT                  0.20621    0.22186    0.93  0.35266    
 cond.Reg-Math                1.16315    0.15790    7.37  1.8e-13 ***
-cond.Sem-Math                0.03538    0.13240    0.27  0.78932
+cond.Sem-Math                0.03538    0.13240    0.27  0.78932    
 cond.Vis-Math                0.81472    0.14707    5.54  3.0e-08 ***
-foil.Config-Odd              0.00804    0.12611    0.06  0.94920
-foilRep-Odd                  0.16669    0.12854    1.30  0.19470
+foil.Config-Odd              0.00804    0.12611    0.06  0.94920    
+foilRep-Odd                  0.16669    0.12854    1.30  0.19470    
 exp.VRT-EIT:cond.Reg-Math   -0.81949    0.22209   -3.69  0.00022 ***
-exp.VRT-EIT:cond.Sem-Math   -0.20966    0.19769   -1.06  0.28891
-exp.VRT-EIT:cond.Vis-Math   -0.24248    0.21882   -1.11  0.26780
-exp.VRT-EIT:foil.Config-Odd  0.22022    0.17904    1.23  0.21870
+exp.VRT-EIT:cond.Sem-Math   -0.20966    0.19769   -1.06  0.28891    
+exp.VRT-EIT:cond.Vis-Math   -0.24248    0.21882   -1.11  0.26780    
+exp.VRT-EIT:foil.Config-Odd  0.22022    0.17904    1.23  0.21870    
 exp.VRT-EIT:foilRep-Odd      0.77168    0.19220    4.01  5.9e-05 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
              (Intr) ex.VRT-EIT cn.R-M cn.S-M cn.V-M fl.C-O flRp-O e.VRT-EIT:.R e.VRT-EIT:.S
-exp.VRT-EIT  -0.691
-cond.Rg-Mth  -0.358  0.249
-cond.Sm-Mth  -0.428  0.297      0.417
-cond.Vs-Mth  -0.385  0.267      0.379  0.447
-fl.Cnfg-Odd  -0.410  0.284      0.000  0.000  0.000
-foilRep-Odd  -0.404  0.280      0.008  0.000  0.007  0.490
-e.VRT-EIT:.R  0.255 -0.405     -0.711 -0.296 -0.269  0.000 -0.006
-e.VRT-EIT:.S  0.287 -0.453     -0.279 -0.670 -0.300  0.000  0.000  0.453
-e.VRT-EIT:.V  0.259 -0.411     -0.254 -0.301 -0.672  0.000 -0.004  0.411        0.459
-e.VRT-EIT:.C  0.289 -0.393      0.000  0.000  0.000 -0.704 -0.345  0.002       -0.001
-e.VRT-EIT:R   0.271 -0.367     -0.005  0.000 -0.004 -0.327 -0.669  0.011       -0.004
+exp.VRT-EIT  -0.691                                                                        
+cond.Rg-Mth  -0.358  0.249                                                                 
+cond.Sm-Mth  -0.428  0.297      0.417                                                      
+cond.Vs-Mth  -0.385  0.267      0.379  0.447                                               
+fl.Cnfg-Odd  -0.410  0.284      0.000  0.000  0.000                                        
+foilRep-Odd  -0.404  0.280      0.008  0.000  0.007  0.490                                 
+e.VRT-EIT:.R  0.255 -0.405     -0.711 -0.296 -0.269  0.000 -0.006                          
+e.VRT-EIT:.S  0.287 -0.453     -0.279 -0.670 -0.300  0.000  0.000  0.453                   
+e.VRT-EIT:.V  0.259 -0.411     -0.254 -0.301 -0.672  0.000 -0.004  0.411        0.459      
+e.VRT-EIT:.C  0.289 -0.393      0.000  0.000  0.000 -0.704 -0.345  0.002       -0.001      
+e.VRT-EIT:R   0.271 -0.367     -0.005  0.000 -0.004 -0.327 -0.669  0.011       -0.004      
              e.VRT-EIT:.V e.VRT-EIT:.C
-exp.VRT-EIT
-cond.Rg-Mth
-cond.Sm-Mth
-cond.Vs-Mth
-fl.Cnfg-Odd
-foilRep-Odd
-e.VRT-EIT:.R
-e.VRT-EIT:.S
-e.VRT-EIT:.V
-e.VRT-EIT:.C  0.004
+exp.VRT-EIT                           
+cond.Rg-Mth                           
+cond.Sm-Mth                           
+cond.Vs-Mth                           
+fl.Cnfg-Odd                           
+foilRep-Odd                           
+e.VRT-EIT:.R                          
+e.VRT-EIT:.S                          
+e.VRT-EIT:.V                          
+e.VRT-EIT:.C  0.004                   
 e.VRT-EIT:R   0.015        0.455      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -1416,8 +1410,8 @@ e.VRT-EIT:R   0.015        0.455      </code></pre>
 <h1>Model with Semantic and repeat and VRT as reference</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTZW1hbnRpYyBhbmQgVlJUIGFzIHJlZmVyZW5jZSBcbmNvbnRyYXN0cyhydCRjb25kKTwtY29udHIudHJlYXRtZW50KDQsYmFzZSA9IDMpXG5jb2xuYW1lcyhhdHRyKHJ0JGNvbmQsIFwiY29udHJhc3RzXCIpKSA9IGMoXCIuTWF0aC1TZW1cIixcIi5SZWctU2VtXCIsIFwiLlZpcy1TZW1cIilcbnByaW50KCdNdWx0aXRhc2sgQ29uZGl0aW9uIENvbnRyYXN0IE1hdHJpeCcpXG5gYGAifQ== -->
-<pre class="r"><code># Semantic and VRT as reference
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTZW1hbnRpYyBhbmQgRUlUIGFzIHJlZmVyZW5jZSBcbmNvbnRyYXN0cyhydCRjb25kKTwtY29udHIudHJlYXRtZW50KDQsYmFzZSA9IDMpXG5jb2xuYW1lcyhhdHRyKHJ0JGNvbmQsIFwiY29udHJhc3RzXCIpKSA9IGMoXCIuTWF0aC1TZW1cIixcIi5SZWctU2VtXCIsIFwiLlZpcy1TZW1cIilcbnByaW50KCdNdWx0aXRhc2sgQ29uZGl0aW9uIENvbnRyYXN0IE1hdHJpeCcpXG5gYGAifQ== -->
+<pre class="r"><code># Semantic and EIT as reference 
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 3)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Math-Sem&quot;,&quot;.Reg-Sem&quot;, &quot;.Vis-Sem&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -1470,9 +1464,9 @@ print('Foil Contrast Matrix')</code></pre>
 eit        0
 vrt        1</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwX3NlbV9yZXBlYXRfdnJ0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwICogY29uZCArIGV4cCAqIGZvaWwgKygxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsIGZhbWlseT1iaW5vbWlhbChsaW5rID0gXCJsb2dpdFwiKSwgY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPVwiYm9ieXFhXCIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSlcbnN1bW1hcnkoZXhwX3NlbV9yZXBlYXRfdnJ0X0FDQylcbmBgYCJ9 -->
-<pre class="r"><code>exp_sem_repeat_vrt_ACC = glmer(response ~ exp * cond + exp * foil +(1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
-summary(exp_sem_repeat_vrt_ACC)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwX3NlbV9yZXBlYXRfZWl0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwICogY29uZCArIGV4cCAqIGZvaWwgKygxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsIGZhbWlseT1iaW5vbWlhbChsaW5rID0gXCJsb2dpdFwiKSwgY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPVwiYm9ieXFhXCIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSlcbnN1bW1hcnkoZXhwX3NlbV9yZXBlYXRfZWl0X0FDQylcbmBgYCJ9 -->
+<pre class="r"><code>exp_sem_repeat_eit_ACC = glmer(response ~ exp * cond + exp * foil +(1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
+summary(exp_sem_repeat_eit_ACC)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBiaW5vbWlhbCAgKCBsb2dpdCApXG5Gb3JtdWxhOiByZXNwb25zZSB+IGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsgKDEgfCBzdWJqX2lkeClcbiAgIERhdGE6IHJ0XG5Db250cm9sOiBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXCJib2J5cWFcIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMWUrMDUpKVxuXG4gICAgIEFJQyAgICAgIEJJQyAgIGxvZ0xpayBkZXZpYW5jZSBkZi5yZXNpZCBcbiAgICA0NDQ3ICAgICA0NTMxICAgIC0yMjExICAgICA0NDIxICAgICA0NTk1IFxuXG5TY2FsZWQgcmVzaWR1YWxzOiBcbiAgIE1pbiAgICAgMVEgTWVkaWFuICAgICAzUSAgICBNYXggXG4tNS41OTUgIDAuMjU1ICAwLjM4OCAgMC41MjQgIDEuNzE2IFxuXG5SYW5kb20gZWZmZWN0czpcbiBHcm91cHMgICBOYW1lICAgICAgICBWYXJpYW5jZSBTdGQuRGV2LlxuIHN1YmpfaWR4IChJbnRlcmNlcHQpIDAuNDU4ICAgIDAuNjc3ICAgXG5OdW1iZXIgb2Ygb2JzOiA0NjA4LCBncm91cHM6ICBzdWJqX2lkeCwgOTZcblxuRml4ZWQgZWZmZWN0czpcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHogdmFsdWUgUHIoPnx6fCkgICAgXG4oSW50ZXJjZXB0KSAgICAgICAgICAgICAgICAgICAxLjAzMzUgICAgIDAuMTU1OSAgICA2LjYzICAzLjRlLTExICoqKlxuZXhwLlZSVC1FSVQgICAgICAgICAgICAgICAgICAgMC43NjgyICAgICAwLjIzMjIgICAgMy4zMSAgMC4wMDA5NCAqKipcbmNvbmQuTWF0aC1TZW0gICAgICAgICAgICAgICAgLTAuMDM1NCAgICAgMC4xMzI0ICAgLTAuMjcgIDAuNzg5MzQgICAgXG5jb25kLlJlZy1TZW0gICAgICAgICAgICAgICAgICAxLjEyNzggICAgIDAuMTU4MiAgICA3LjEzICAxLjBlLTEyICoqKlxuY29uZC5WaXMtU2VtICAgICAgICAgICAgICAgICAgMC43NzkzICAgICAwLjE0NzQgICAgNS4yOSAgMS4yZS0wNyAqKipcbmZvaWwuQ29uZmlnLVJlcCAgICAgICAgICAgICAgLTAuMTU4NyAgICAgMC4xMjg3ICAgLTEuMjMgIDAuMjE3NTIgICAgXG5mb2lsLk9kZC1SZXAgICAgICAgICAgICAgICAgIC0wLjE2NjcgICAgIDAuMTI4NiAgIC0xLjMwICAwLjE5NDc1ICAgIFxuZXhwLlZSVC1FSVQ6Y29uZC5NYXRoLVNlbSAgICAgMC4yMDk3ICAgICAwLjE5NzcgICAgMS4wNiAgMC4yODg5NiAgICBcbmV4cC5WUlQtRUlUOmNvbmQuUmVnLVNlbSAgICAgLTAuNjA5OCAgICAgMC4yMjA2ICAgLTIuNzYgIDAuMDA1NzEgKiogXG5leHAuVlJULUVJVDpjb25kLlZpcy1TZW0gICAgIC0wLjAzMjggICAgIDAuMjE3NCAgIC0wLjE1ICAwLjg3OTk2ICAgIFxuZXhwLlZSVC1FSVQ6Zm9pbC5Db25maWctUmVwICAtMC41NTE1ICAgICAwLjE5NDEgICAtMi44NCAgMC4wMDQ1MCAqKiBcbmV4cC5WUlQtRUlUOmZvaWwuT2RkLVJlcCAgICAgLTAuNzcxNyAgICAgMC4xOTIyICAgLTQuMDEgIDYuMGUtMDUgKioqXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuQ29ycmVsYXRpb24gb2YgRml4ZWQgRWZmZWN0czpcbiAgICAgICAgICAgICAoSW50cikgZXguVlJULUVJVCBjbi5NLVMgY24uUi1TIGNuLlYtUyBmbC5DLVIgZmwuTy1SIGUuVlJULUVJVDouTSBlLlZSVC1FSVQ6LlJcbmV4cC5WUlQtRUlUICAtMC42NjkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuTXRoLVNtICAtMC40MjggIDAuMjg3ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuUmVnLVNtICAtMC4zNTAgIDAuMjM3ICAgICAgMC40MjEgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuVmlzLVNtICAtMC4zNzggIDAuMjU1ICAgICAgMC40NTIgIDAuMzgxICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvbC5DbmZnLVJwICAtMC40MjcgIDAuMjg2ICAgICAgMC4wMDAgLTAuMDA4IC0wLjAwNiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvaWwuT2RkLVJwICAtMC40MjcgIDAuMjg2ICAgICAgMC4wMDAgLTAuMDA4IC0wLjAwNiAgMC41MTkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouTSAgMC4yODcgLTAuNDE1ICAgICAtMC42NzAgLTAuMjgyIC0wLjMwMiAgMC4wMDAgIDAuMDAwICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUiAgMC4yNTIgLTAuMzY0ICAgICAtMC4zMDIgLTAuNzE3IC0wLjI3MyAgMC4wMDUgIDAuMDA2ICAwLjQ0MCAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouViAgMC4yNTcgLTAuMzY3ICAgICAtMC4zMDYgLTAuMjU4IC0wLjY3OCAgMC4wMDQgIDAuMDA0ICAwLjQ0NyAgICAgICAgMC40MDMgICAgICBcbmUuVlJULUVJVDouQyAgMC4yODIgLTAuNDY5ICAgICAgMC4wMDAgIDAuMDA0ICAwLjAwMyAtMC42NjMgLTAuMzQ0IC0wLjAwMyAgICAgICAtMC4wMTIgICAgICBcbmUuVlJULUVJVDouTyAgMC4yODQgLTAuNDc0ICAgICAgMC4wMDAgIDAuMDA0ICAwLjAwNCAtMC4zNDcgLTAuNjY5IC0wLjAwNCAgICAgICAtMC4wMTUgICAgICBcbiAgICAgICAgICAgICBlLlZSVC1FSVQ6LlYgZS5WUlQtRUlUOi5DXG5leHAuVlJULUVJVCAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuY29uZC5NdGgtU20gICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuUmVnLVNtICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5jb25kLlZpcy1TbSAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuZm9sLkNuZmctUnAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvaWwuT2RkLVJwICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5lLlZSVC1FSVQ6Lk0gICAgICAgICAgICAgICAgICAgICAgICAgIFxuZS5WUlQtRUlUOi5SICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouViAgICAgICAgICAgICAgICAgICAgICAgICAgXG5lLlZSVC1FSVQ6LkMgLTAuMDE0ICAgICAgICAgICAgICAgICAgIFxuZS5WUlQtRUlUOi5PIC0wLjAxOSAgICAgICAgMC41NzAgICAgICBcbiJ9 -->
 <pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
@@ -1481,59 +1475,59 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid
-    4447     4531    -2211     4421     4595
+     AIC      BIC   logLik deviance df.resid 
+    4447     4531    -2211     4421     4595 
 
-Scaled residuals:
-   Min     1Q Median     3Q    Max
--5.595  0.255  0.388  0.524  1.716
+Scaled residuals: 
+   Min     1Q Median     3Q    Max 
+-5.595  0.255  0.388  0.524  1.716 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677
+ subj_idx (Intercept) 0.458    0.677   
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)
+                            Estimate Std. Error z value Pr(&gt;|z|)    
 (Intercept)                   1.0335     0.1559    6.63  3.4e-11 ***
 exp.VRT-EIT                   0.7682     0.2322    3.31  0.00094 ***
-cond.Math-Sem                -0.0354     0.1324   -0.27  0.78934
+cond.Math-Sem                -0.0354     0.1324   -0.27  0.78934    
 cond.Reg-Sem                  1.1278     0.1582    7.13  1.0e-12 ***
 cond.Vis-Sem                  0.7793     0.1474    5.29  1.2e-07 ***
-foil.Config-Rep              -0.1587     0.1287   -1.23  0.21752
-foil.Odd-Rep                 -0.1667     0.1286   -1.30  0.19475
-exp.VRT-EIT:cond.Math-Sem     0.2097     0.1977    1.06  0.28896
-exp.VRT-EIT:cond.Reg-Sem     -0.6098     0.2206   -2.76  0.00571 **
-exp.VRT-EIT:cond.Vis-Sem     -0.0328     0.2174   -0.15  0.87996
-exp.VRT-EIT:foil.Config-Rep  -0.5515     0.1941   -2.84  0.00450 **
+foil.Config-Rep              -0.1587     0.1287   -1.23  0.21752    
+foil.Odd-Rep                 -0.1667     0.1286   -1.30  0.19475    
+exp.VRT-EIT:cond.Math-Sem     0.2097     0.1977    1.06  0.28896    
+exp.VRT-EIT:cond.Reg-Sem     -0.6098     0.2206   -2.76  0.00571 ** 
+exp.VRT-EIT:cond.Vis-Sem     -0.0328     0.2174   -0.15  0.87996    
+exp.VRT-EIT:foil.Config-Rep  -0.5515     0.1941   -2.84  0.00450 ** 
 exp.VRT-EIT:foil.Odd-Rep     -0.7717     0.1922   -4.01  6.0e-05 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
              (Intr) ex.VRT-EIT cn.M-S cn.R-S cn.V-S fl.C-R fl.O-R e.VRT-EIT:.M e.VRT-EIT:.R
-exp.VRT-EIT  -0.669
-cond.Mth-Sm  -0.428  0.287
-cond.Reg-Sm  -0.350  0.237      0.421
-cond.Vis-Sm  -0.378  0.255      0.452  0.381
-fol.Cnfg-Rp  -0.427  0.286      0.000 -0.008 -0.006
-foil.Odd-Rp  -0.427  0.286      0.000 -0.008 -0.006  0.519
-e.VRT-EIT:.M  0.287 -0.415     -0.670 -0.282 -0.302  0.000  0.000
-e.VRT-EIT:.R  0.252 -0.364     -0.302 -0.717 -0.273  0.005  0.006  0.440
-e.VRT-EIT:.V  0.257 -0.367     -0.306 -0.258 -0.678  0.004  0.004  0.447        0.403
-e.VRT-EIT:.C  0.282 -0.469      0.000  0.004  0.003 -0.663 -0.344 -0.003       -0.012
-e.VRT-EIT:.O  0.284 -0.474      0.000  0.004  0.004 -0.347 -0.669 -0.004       -0.015
+exp.VRT-EIT  -0.669                                                                        
+cond.Mth-Sm  -0.428  0.287                                                                 
+cond.Reg-Sm  -0.350  0.237      0.421                                                      
+cond.Vis-Sm  -0.378  0.255      0.452  0.381                                               
+fol.Cnfg-Rp  -0.427  0.286      0.000 -0.008 -0.006                                        
+foil.Odd-Rp  -0.427  0.286      0.000 -0.008 -0.006  0.519                                 
+e.VRT-EIT:.M  0.287 -0.415     -0.670 -0.282 -0.302  0.000  0.000                          
+e.VRT-EIT:.R  0.252 -0.364     -0.302 -0.717 -0.273  0.005  0.006  0.440                   
+e.VRT-EIT:.V  0.257 -0.367     -0.306 -0.258 -0.678  0.004  0.004  0.447        0.403      
+e.VRT-EIT:.C  0.282 -0.469      0.000  0.004  0.003 -0.663 -0.344 -0.003       -0.012      
+e.VRT-EIT:.O  0.284 -0.474      0.000  0.004  0.004 -0.347 -0.669 -0.004       -0.015      
              e.VRT-EIT:.V e.VRT-EIT:.C
-exp.VRT-EIT
-cond.Mth-Sm
-cond.Reg-Sm
-cond.Vis-Sm
-fol.Cnfg-Rp
-foil.Odd-Rp
-e.VRT-EIT:.M
-e.VRT-EIT:.R
-e.VRT-EIT:.V
-e.VRT-EIT:.C -0.014
+exp.VRT-EIT                           
+cond.Mth-Sm                           
+cond.Reg-Sm                           
+cond.Vis-Sm                           
+fol.Cnfg-Rp                           
+foil.Odd-Rp                           
+e.VRT-EIT:.M                          
+e.VRT-EIT:.R                          
+e.VRT-EIT:.V                          
+e.VRT-EIT:.C -0.014                   
 e.VRT-EIT:.O -0.019        0.570      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -1543,8 +1537,8 @@ e.VRT-EIT:.O -0.019        0.570      </code></pre>
 <h1>Model with Semantic and config and VRT as reference</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTZW1hbnRpYyBhbmQgVlJUIGFzIHJlZmVyZW5jZSBcbmNvbnRyYXN0cyhydCRjb25kKTwtY29udHIudHJlYXRtZW50KDQsYmFzZSA9IDMpXG5jb2xuYW1lcyhhdHRyKHJ0JGNvbmQsIFwiY29udHJhc3RzXCIpKSA9IGMoXCIuTWF0aC1TZW1cIixcIi5SZWctU2VtXCIsIFwiLlZpcy1TZW1cIilcbnByaW50KCdNdWx0aXRhc2sgQ29uZGl0aW9uIENvbnRyYXN0IE1hdHJpeCcpXG5gYGAifQ== -->
-<pre class="r"><code># Semantic and VRT as reference
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTZW1hbnRpYyBhbmQgRUlUIGFzIHJlZmVyZW5jZSBcbmNvbnRyYXN0cyhydCRjb25kKTwtY29udHIudHJlYXRtZW50KDQsYmFzZSA9IDMpXG5jb2xuYW1lcyhhdHRyKHJ0JGNvbmQsIFwiY29udHJhc3RzXCIpKSA9IGMoXCIuTWF0aC1TZW1cIixcIi5SZWctU2VtXCIsIFwiLlZpcy1TZW1cIilcbnByaW50KCdNdWx0aXRhc2sgQ29uZGl0aW9uIENvbnRyYXN0IE1hdHJpeCcpXG5gYGAifQ== -->
+<pre class="r"><code># Semantic and EIT as reference 
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 3)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Math-Sem&quot;,&quot;.Reg-Sem&quot;, &quot;.Vis-Sem&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -1597,9 +1591,9 @@ print('Foil Contrast Matrix')</code></pre>
 eit        0
 vrt        1</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwX3NlbV9jb25maWdfdnJ0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwICogY29uZCArIGV4cCAqIGZvaWwgKyAoMXxzdWJqX2lkeCksIGRhdGE9cnQsIG5hLmFjdGlvbj1uYS5vbWl0LCBmYW1pbHk9Ymlub21pYWwobGluayA9IFwibG9naXRcIiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj1cImJvYnlxYVwiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpXG5zdW1tYXJ5KGV4cF9zZW1fY29uZmlnX3ZydF9BQ0MpXG5gYGAifQ== -->
-<pre class="r"><code>exp_sem_config_vrt_ACC = glmer(response ~ exp * cond + exp * foil + (1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
-summary(exp_sem_config_vrt_ACC)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwX3NlbV9jb25maWdfZWl0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwICogY29uZCArIGV4cCAqIGZvaWwgKyAoMXxzdWJqX2lkeCksIGRhdGE9cnQsIG5hLmFjdGlvbj1uYS5vbWl0LCBmYW1pbHk9Ymlub21pYWwobGluayA9IFwibG9naXRcIiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj1cImJvYnlxYVwiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpXG5zdW1tYXJ5KGV4cF9zZW1fY29uZmlnX2VpdF9BQ0MpXG5gYGAifQ== -->
+<pre class="r"><code>exp_sem_config_eit_ACC = glmer(response ~ exp * cond + exp * foil + (1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
+summary(exp_sem_config_eit_ACC)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBiaW5vbWlhbCAgKCBsb2dpdCApXG5Gb3JtdWxhOiByZXNwb25zZSB+IGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsgKDEgfCBzdWJqX2lkeClcbiAgIERhdGE6IHJ0XG5Db250cm9sOiBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXCJib2J5cWFcIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMWUrMDUpKVxuXG4gICAgIEFJQyAgICAgIEJJQyAgIGxvZ0xpayBkZXZpYW5jZSBkZi5yZXNpZCBcbiAgICA0NDQ3ICAgICA0NTMxICAgIC0yMjExICAgICA0NDIxICAgICA0NTk1IFxuXG5TY2FsZWQgcmVzaWR1YWxzOiBcbiAgIE1pbiAgICAgMVEgTWVkaWFuICAgICAzUSAgICBNYXggXG4tNS41OTUgIDAuMjU1ICAwLjM4OCAgMC41MjQgIDEuNzE2IFxuXG5SYW5kb20gZWZmZWN0czpcbiBHcm91cHMgICBOYW1lICAgICAgICBWYXJpYW5jZSBTdGQuRGV2LlxuIHN1YmpfaWR4IChJbnRlcmNlcHQpIDAuNDU4ICAgIDAuNjc3ICAgXG5OdW1iZXIgb2Ygb2JzOiA0NjA4LCBncm91cHM6ICBzdWJqX2lkeCwgOTZcblxuRml4ZWQgZWZmZWN0czpcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHogdmFsdWUgUHIoPnx6fCkgICAgXG4oSW50ZXJjZXB0KSAgICAgICAgICAgICAgICAgIDAuODc0ODAgICAgMC4xNTQwNiAgICA1LjY4ICAxLjRlLTA4ICoqKlxuZXhwLlZSVC1FSVQgICAgICAgICAgICAgICAgICAwLjIxNjc3ICAgIDAuMjIyMTIgICAgMC45OCAgIDAuMzI5MSAgICBcbmNvbmQuTWF0aC1TZW0gICAgICAgICAgICAgICAtMC4wMzUzOCAgICAwLjEzMjQxICAgLTAuMjcgICAwLjc4OTMgICAgXG5jb25kLlJlZy1TZW0gICAgICAgICAgICAgICAgIDEuMTI3NzYgICAgMC4xNTgyMiAgICA3LjEzICAxLjBlLTEyICoqKlxuY29uZC5WaXMtU2VtICAgICAgICAgICAgICAgICAwLjc3OTM0ICAgIDAuMTQ3NDIgICAgNS4yOSAgMS4yZS0wNyAqKipcbmZvaWwuT2RkLUNvbmZpZyAgICAgICAgICAgICAtMC4wMDgwNCAgICAwLjEyNjExICAgLTAuMDYgICAwLjk0OTIgICAgXG5mb2lsLlJlcC1Db25maWcgICAgICAgICAgICAgIDAuMTU4NjUgICAgMC4xMjg2NSAgICAxLjIzICAgMC4yMTc1ICAgIFxuZXhwLlZSVC1FSVQ6Y29uZC5NYXRoLVNlbSAgICAwLjIwOTY1ICAgIDAuMTk3NzAgICAgMS4wNiAgIDAuMjg4OSAgICBcbmV4cC5WUlQtRUlUOmNvbmQuUmVnLVNlbSAgICAtMC42MDk4MyAgICAwLjIyMDU5ICAgLTIuNzYgICAwLjAwNTcgKiogXG5leHAuVlJULUVJVDpjb25kLlZpcy1TZW0gICAgLTAuMDMyODIgICAgMC4yMTczNiAgIC0wLjE1ICAgMC44ODAwICAgIFxuZXhwLlZSVC1FSVQ6Zm9pbC5PZGQtQ29uZmlnIC0wLjIyMDIyICAgIDAuMTc5MDUgICAtMS4yMyAgIDAuMjE4NyAgICBcbmV4cC5WUlQtRUlUOmZvaWwuUmVwLUNvbmZpZyAgMC41NTE0NiAgICAwLjE5NDEyICAgIDIuODQgICAwLjAwNDUgKiogXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuQ29ycmVsYXRpb24gb2YgRml4ZWQgRWZmZWN0czpcbiAgICAgICAgICAgICAgIChJbnRyKSBleC5WUlQtRUlUIGNuLk0tUyBjbi5SLVMgY24uVi1TIGZsLk8tQyBmbC5SLUMgZS5WUlQtRUlUOi5NIGUuVlJULUVJVDouUi1TXG5leHAuVlJULUVJVCAgICAtMC42OTIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuY29uZC5NdGgtU20gICAgLTAuNDMyICAwLjMwMCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuUmVnLVNtICAgIC0wLjM2MCAgMC4yNTEgICAgICAwLjQyMSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5jb25kLlZpcy1TbSAgICAtMC4zODcgIDAuMjY5ICAgICAgMC40NTIgIDAuMzgxICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuZmwuT2RkLUNuZmcgICAgLTAuNDEwICAwLjI4NCAgICAgIDAuMDAwICAwLjAwMCAgMC4wMDAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvbC5ScC1DbmZnICAgIC0wLjQwNCAgMC4yODAgICAgICAwLjAwMCAgMC4wMDggIDAuMDA2ICAwLjQ5MSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5lLlZSVC1FSVQ6Lk0gICAgMC4yOTAgLTAuNDM3ICAgICAtMC42NzAgLTAuMjgyIC0wLjMwMiAgMC4wMDAgIDAuMDAwICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuZS5WUlQtRUlUOi5SLVMgIDAuMjU5IC0wLjM5MSAgICAgLTAuMzAyIC0wLjcxNyAtMC4yNzMgIDAuMDAwIC0wLjAwNSAgMC40NDAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouViAgICAwLjI2MyAtMC4zOTYgICAgIC0wLjMwNiAtMC4yNTggLTAuNjc4ICAwLjAwMCAtMC4wMDQgIDAuNDQ3ICAgICAgICAwLjQwMyAgICAgICAgXG5lLlZSVC1FSVQ6Lk8gICAgMC4yODggLTAuNDEyICAgICAgMC4wMDAgIDAuMDAwICAwLjAwMCAtMC43MDQgLTAuMzQ2IC0wLjAwMSAgICAgICAtMC4wMDMgICAgICAgIFxuZS5WUlQtRUlUOi5SLUMgIDAuMjY4IC0wLjM4NCAgICAgIDAuMDAwIC0wLjAwNCAtMC4wMDMgLTAuMzI1IC0wLjY2MyAgMC4wMDMgICAgICAgIDAuMDEyICAgICAgICBcbiAgICAgICAgICAgICAgIGUuVlJULUVJVDouViBlLlZSVC1FSVQ6Lk9cbmV4cC5WUlQtRUlUICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuTXRoLVNtICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuUmVnLVNtICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuVmlzLVNtICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZsLk9kZC1DbmZnICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZvbC5ScC1DbmZnICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouTSAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUi1TICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouViAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouTyAgIC0wLjAwNSAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUi1DICAwLjAxNCAgICAgICAgMC40NzIgICAgICBcbiJ9 -->
 <pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
@@ -1608,59 +1602,59 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid
-    4447     4531    -2211     4421     4595
+     AIC      BIC   logLik deviance df.resid 
+    4447     4531    -2211     4421     4595 
 
-Scaled residuals:
-   Min     1Q Median     3Q    Max
--5.595  0.255  0.388  0.524  1.716
+Scaled residuals: 
+   Min     1Q Median     3Q    Max 
+-5.595  0.255  0.388  0.524  1.716 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677
+ subj_idx (Intercept) 0.458    0.677   
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)
+                            Estimate Std. Error z value Pr(&gt;|z|)    
 (Intercept)                  0.87480    0.15406    5.68  1.4e-08 ***
-exp.VRT-EIT                  0.21677    0.22212    0.98   0.3291
-cond.Math-Sem               -0.03538    0.13241   -0.27   0.7893
+exp.VRT-EIT                  0.21677    0.22212    0.98   0.3291    
+cond.Math-Sem               -0.03538    0.13241   -0.27   0.7893    
 cond.Reg-Sem                 1.12776    0.15822    7.13  1.0e-12 ***
 cond.Vis-Sem                 0.77934    0.14742    5.29  1.2e-07 ***
-foil.Odd-Config             -0.00804    0.12611   -0.06   0.9492
-foil.Rep-Config              0.15865    0.12865    1.23   0.2175
-exp.VRT-EIT:cond.Math-Sem    0.20965    0.19770    1.06   0.2889
-exp.VRT-EIT:cond.Reg-Sem    -0.60983    0.22059   -2.76   0.0057 **
-exp.VRT-EIT:cond.Vis-Sem    -0.03282    0.21736   -0.15   0.8800
-exp.VRT-EIT:foil.Odd-Config -0.22022    0.17905   -1.23   0.2187
-exp.VRT-EIT:foil.Rep-Config  0.55146    0.19412    2.84   0.0045 **
+foil.Odd-Config             -0.00804    0.12611   -0.06   0.9492    
+foil.Rep-Config              0.15865    0.12865    1.23   0.2175    
+exp.VRT-EIT:cond.Math-Sem    0.20965    0.19770    1.06   0.2889    
+exp.VRT-EIT:cond.Reg-Sem    -0.60983    0.22059   -2.76   0.0057 ** 
+exp.VRT-EIT:cond.Vis-Sem    -0.03282    0.21736   -0.15   0.8800    
+exp.VRT-EIT:foil.Odd-Config -0.22022    0.17905   -1.23   0.2187    
+exp.VRT-EIT:foil.Rep-Config  0.55146    0.19412    2.84   0.0045 ** 
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
                (Intr) ex.VRT-EIT cn.M-S cn.R-S cn.V-S fl.O-C fl.R-C e.VRT-EIT:.M e.VRT-EIT:.R-S
-exp.VRT-EIT    -0.692
-cond.Mth-Sm    -0.432  0.300
-cond.Reg-Sm    -0.360  0.251      0.421
-cond.Vis-Sm    -0.387  0.269      0.452  0.381
-fl.Odd-Cnfg    -0.410  0.284      0.000  0.000  0.000
-fol.Rp-Cnfg    -0.404  0.280      0.000  0.008  0.006  0.491
-e.VRT-EIT:.M    0.290 -0.437     -0.670 -0.282 -0.302  0.000  0.000
-e.VRT-EIT:.R-S  0.259 -0.391     -0.302 -0.717 -0.273  0.000 -0.005  0.440
-e.VRT-EIT:.V    0.263 -0.396     -0.306 -0.258 -0.678  0.000 -0.004  0.447        0.403
-e.VRT-EIT:.O    0.288 -0.412      0.000  0.000  0.000 -0.704 -0.346 -0.001       -0.003
-e.VRT-EIT:.R-C  0.268 -0.384      0.000 -0.004 -0.003 -0.325 -0.663  0.003        0.012
+exp.VRT-EIT    -0.692                                                                          
+cond.Mth-Sm    -0.432  0.300                                                                   
+cond.Reg-Sm    -0.360  0.251      0.421                                                        
+cond.Vis-Sm    -0.387  0.269      0.452  0.381                                                 
+fl.Odd-Cnfg    -0.410  0.284      0.000  0.000  0.000                                          
+fol.Rp-Cnfg    -0.404  0.280      0.000  0.008  0.006  0.491                                   
+e.VRT-EIT:.M    0.290 -0.437     -0.670 -0.282 -0.302  0.000  0.000                            
+e.VRT-EIT:.R-S  0.259 -0.391     -0.302 -0.717 -0.273  0.000 -0.005  0.440                     
+e.VRT-EIT:.V    0.263 -0.396     -0.306 -0.258 -0.678  0.000 -0.004  0.447        0.403        
+e.VRT-EIT:.O    0.288 -0.412      0.000  0.000  0.000 -0.704 -0.346 -0.001       -0.003        
+e.VRT-EIT:.R-C  0.268 -0.384      0.000 -0.004 -0.003 -0.325 -0.663  0.003        0.012        
                e.VRT-EIT:.V e.VRT-EIT:.O
-exp.VRT-EIT
-cond.Mth-Sm
-cond.Reg-Sm
-cond.Vis-Sm
-fl.Odd-Cnfg
-fol.Rp-Cnfg
-e.VRT-EIT:.M
-e.VRT-EIT:.R-S
-e.VRT-EIT:.V
-e.VRT-EIT:.O   -0.005
+exp.VRT-EIT                             
+cond.Mth-Sm                             
+cond.Reg-Sm                             
+cond.Vis-Sm                             
+fl.Odd-Cnfg                             
+fol.Rp-Cnfg                             
+e.VRT-EIT:.M                            
+e.VRT-EIT:.R-S                          
+e.VRT-EIT:.V                            
+e.VRT-EIT:.O   -0.005                   
 e.VRT-EIT:.R-C  0.014        0.472      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -1670,8 +1664,8 @@ e.VRT-EIT:.R-C  0.014        0.472      </code></pre>
 <h1>Model with Semantic and odd and VRT as reference</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTZW1hbnRpYyBhbmQgVlJUIGFzIHJlZmVyZW5jZSBcbmNvbnRyYXN0cyhydCRjb25kKTwtY29udHIudHJlYXRtZW50KDQsYmFzZSA9IDMpXG5jb2xuYW1lcyhhdHRyKHJ0JGNvbmQsIFwiY29udHJhc3RzXCIpKSA9IGMoXCIuTWF0aC1TZW1cIixcIi5SZWctU2VtXCIsIFwiLlZpcy1TZW1cIilcbnByaW50KCdNdWx0aXRhc2sgQ29uZGl0aW9uIENvbnRyYXN0IE1hdHJpeCcpXG5gYGAifQ== -->
-<pre class="r"><code># Semantic and VRT as reference
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTZW1hbnRpYyBhbmQgRUlUIGFzIHJlZmVyZW5jZSBcbmNvbnRyYXN0cyhydCRjb25kKTwtY29udHIudHJlYXRtZW50KDQsYmFzZSA9IDMpXG5jb2xuYW1lcyhhdHRyKHJ0JGNvbmQsIFwiY29udHJhc3RzXCIpKSA9IGMoXCIuTWF0aC1TZW1cIixcIi5SZWctU2VtXCIsIFwiLlZpcy1TZW1cIilcbnByaW50KCdNdWx0aXRhc2sgQ29uZGl0aW9uIENvbnRyYXN0IE1hdHJpeCcpXG5gYGAifQ== -->
+<pre class="r"><code># Semantic and EIT as reference 
 contrasts(rt$cond)&lt;-contr.treatment(4,base = 3)
 colnames(attr(rt$cond, &quot;contrasts&quot;)) = c(&quot;.Math-Sem&quot;,&quot;.Reg-Sem&quot;, &quot;.Vis-Sem&quot;)
 print('Multitask Condition Contrast Matrix')</code></pre>
@@ -1724,9 +1718,9 @@ print('Foil Contrast Matrix')</code></pre>
 eit        0
 vrt        1</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwX3NlbV9vZGRfdnJ0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gIGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsoMXxzdWJqX2lkeCksIGRhdGE9cnQsIG5hLmFjdGlvbj1uYS5vbWl0LCBmYW1pbHk9Ymlub21pYWwobGluayA9IFwibG9naXRcIiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj1cImJvYnlxYVwiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpXG5zdW1tYXJ5KGV4cF9zZW1fb2RkX3ZydF9BQ0MpXG5gYGAifQ== -->
-<pre class="r"><code>exp_sem_odd_vrt_ACC = glmer(response ~  exp * cond + exp * foil +(1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
-summary(exp_sem_odd_vrt_ACC)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwX3NlbV9vZGRfZWl0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gIGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsoMXxzdWJqX2lkeCksIGRhdGE9cnQsIG5hLmFjdGlvbj1uYS5vbWl0LCBmYW1pbHk9Ymlub21pYWwobGluayA9IFwibG9naXRcIiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj1cImJvYnlxYVwiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpXG5zdW1tYXJ5KGV4cF9zZW1fb2RkX2VpdF9BQ0MpXG5gYGAifQ== -->
+<pre class="r"><code>exp_sem_odd_eit_ACC = glmer(response ~  exp * cond + exp * foil +(1|subj_idx), data=rt, na.action=na.omit, family=binomial(link = &quot;logit&quot;), control=glmerControl(optimizer=&quot;bobyqa&quot;,optCtrl=list(maxfun=100000)))
+summary(exp_sem_odd_eit_ACC)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgbGluZWFyIG1peGVkIG1vZGVsIGZpdCBieSBtYXhpbXVtIGxpa2VsaWhvb2QgKExhcGxhY2UgQXBwcm94aW1hdGlvbikgWydnbG1lck1vZCddXG4gRmFtaWx5OiBiaW5vbWlhbCAgKCBsb2dpdCApXG5Gb3JtdWxhOiByZXNwb25zZSB+IGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsgKDEgfCBzdWJqX2lkeClcbiAgIERhdGE6IHJ0XG5Db250cm9sOiBnbG1lckNvbnRyb2wob3B0aW1pemVyID0gXCJib2J5cWFcIiwgb3B0Q3RybCA9IGxpc3QobWF4ZnVuID0gMWUrMDUpKVxuXG4gICAgIEFJQyAgICAgIEJJQyAgIGxvZ0xpayBkZXZpYW5jZSBkZi5yZXNpZCBcbiAgICA0NDQ3ICAgICA0NTMxICAgIC0yMjExICAgICA0NDIxICAgICA0NTk1IFxuXG5TY2FsZWQgcmVzaWR1YWxzOiBcbiAgIE1pbiAgICAgMVEgTWVkaWFuICAgICAzUSAgICBNYXggXG4tNS41OTUgIDAuMjU1ICAwLjM4OCAgMC41MjQgIDEuNzE2IFxuXG5SYW5kb20gZWZmZWN0czpcbiBHcm91cHMgICBOYW1lICAgICAgICBWYXJpYW5jZSBTdGQuRGV2LlxuIHN1YmpfaWR4IChJbnRlcmNlcHQpIDAuNDU4ICAgIDAuNjc3ICAgXG5OdW1iZXIgb2Ygb2JzOiA0NjA4LCBncm91cHM6ICBzdWJqX2lkeCwgOTZcblxuRml4ZWQgZWZmZWN0czpcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBFc3RpbWF0ZSBTdGQuIEVycm9yIHogdmFsdWUgUHIoPnx6fCkgICAgXG4oSW50ZXJjZXB0KSAgICAgICAgICAgICAgICAgIDAuODY2NzYgICAgMC4xNTM5NyAgICA1LjYzICAxLjhlLTA4ICoqKlxuZXhwLlZSVC1FSVQgICAgICAgICAgICAgICAgIC0wLjAwMzQ1ICAgIDAuMjIwMzggICAtMC4wMiAgIDAuOTg3NSAgICBcbmNvbmQuTWF0aC1TZW0gICAgICAgICAgICAgICAtMC4wMzUzOCAgICAwLjEzMjM5ICAgLTAuMjcgICAwLjc4OTMgICAgXG5jb25kLlJlZy1TZW0gICAgICAgICAgICAgICAgIDEuMTI3NzYgICAgMC4xNTgyMCAgICA3LjEzICAxLjBlLTEyICoqKlxuY29uZC5WaXMtU2VtICAgICAgICAgICAgICAgICAwLjc3OTM0ICAgIDAuMTQ3NDAgICAgNS4yOSAgMS4yZS0wNyAqKipcbmZvaWwuQ29uZmlnLU9kZCAgICAgICAgICAgICAgMC4wMDgwMyAgICAwLjEyNjEwICAgIDAuMDYgICAwLjk0OTIgICAgXG5mb2lsLkNvbmZpZy1PZGQgICAgICAgICAgICAgIDAuMTY2NjkgICAgMC4xMjg1MyAgICAxLjMwICAgMC4xOTQ3ICAgIFxuZXhwLlZSVC1FSVQ6Y29uZC5NYXRoLVNlbSAgICAwLjIwOTY1ICAgIDAuMTk3NjcgICAgMS4wNiAgIDAuMjg4OSAgICBcbmV4cC5WUlQtRUlUOmNvbmQuUmVnLVNlbSAgICAtMC42MDk4MyAgICAwLjIyMDU2ICAgLTIuNzYgICAwLjAwNTcgKiogXG5leHAuVlJULUVJVDpjb25kLlZpcy1TZW0gICAgLTAuMDMyODMgICAgMC4yMTczMiAgIC0wLjE1ICAgMC44Nzk5ICAgIFxuZXhwLlZSVC1FSVQ6Zm9pbC5Db25maWctT2RkICAwLjIyMDIyICAgIDAuMTc5MDMgICAgMS4yMyAgIDAuMjE4NyAgICBcbmV4cC5WUlQtRUlUOmZvaWwuQ29uZmlnLU9kZCAgMC43NzE2OCAgICAwLjE5MjE4ICAgIDQuMDIgIDUuOWUtMDUgKioqXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuQ29ycmVsYXRpb24gb2YgRml4ZWQgRWZmZWN0czpcbiAgICAgICAgICAgICAoSW50cikgZXguVlJULUVJVCBjbi5NLVMgY24uUi1TIGNuLlYtUyBmbC5DLU8gZmwuQy1PIGUuVlJULUVJVDouTSBlLlZSVC1FSVQ6LlJcbmV4cC5WUlQtRUlUICAtMC42OTcgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuTXRoLVNtICAtMC40MzMgIDAuMzAyICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuUmVnLVNtICAtMC4zNjEgIDAuMjUzICAgICAgMC40MjEgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuVmlzLVNtICAtMC4zODcgIDAuMjcxICAgICAgMC40NTIgIDAuMzgxICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZsLkNuZmctT2RkICAtMC40MDkgIDAuMjg2ICAgICAgMC4wMDAgIDAuMDAwICAwLjAwMCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZsLkNuZmctT2RkICAtMC40MDMgIDAuMjgyICAgICAgMC4wMDAgIDAuMDA4ICAwLjAwNiAgMC40OTAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouTSAgMC4yOTAgLTAuNDQxICAgICAtMC42NzAgLTAuMjgxIC0wLjMwMiAgMC4wMDAgIDAuMDAwICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouUiAgMC4yNTkgLTAuMzk2ICAgICAtMC4zMDIgLTAuNzE3IC0wLjI3MyAgMC4wMDAgLTAuMDA2ICAwLjQ0MCAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouViAgMC4yNjMgLTAuNDAzICAgICAtMC4zMDYgLTAuMjU4IC0wLjY3OCAgMC4wMDAgLTAuMDA0ICAwLjQ0NyAgICAgICAgMC40MDMgICAgICBcbmUuVlJULUVJVDouQyAgMC4yODggLTAuMzk2ICAgICAgMC4wMDAgIDAuMDAwICAwLjAwMCAtMC43MDQgLTAuMzQ1ICAwLjAwMSAgICAgICAgMC4wMDMgICAgICBcbmUuVlJULUVJVDouQyAgMC4yNzAgLTAuMzczICAgICAgMC4wMDAgLTAuMDA0IC0wLjAwNCAtMC4zMjcgLTAuNjY5ICAwLjAwNCAgICAgICAgMC4wMTUgICAgICBcbiAgICAgICAgICAgICBlLlZSVC1FSVQ6LlYgZS5WUlQtRUlUOi5DXG5leHAuVlJULUVJVCAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuY29uZC5NdGgtU20gICAgICAgICAgICAgICAgICAgICAgICAgICBcbmNvbmQuUmVnLVNtICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5jb25kLlZpcy1TbSAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuZmwuQ25mZy1PZGQgICAgICAgICAgICAgICAgICAgICAgICAgICBcbmZsLkNuZmctT2RkICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5lLlZSVC1FSVQ6Lk0gICAgICAgICAgICAgICAgICAgICAgICAgIFxuZS5WUlQtRUlUOi5SICAgICAgICAgICAgICAgICAgICAgICAgICBcbmUuVlJULUVJVDouViAgICAgICAgICAgICAgICAgICAgICAgICAgXG5lLlZSVC1FSVQ6LkMgIDAuMDA1ICAgICAgICAgICAgICAgICAgIFxuZS5WUlQtRUlUOi5DICAwLjAxOSAgICAgICAgMC40NTUgICAgICBcbiJ9 -->
 <pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
@@ -1735,65 +1729,65 @@ Formula: response ~ exp * cond + exp * foil + (1 | subj_idx)
    Data: rt
 Control: glmerControl(optimizer = &quot;bobyqa&quot;, optCtrl = list(maxfun = 1e+05))
 
-     AIC      BIC   logLik deviance df.resid
-    4447     4531    -2211     4421     4595
+     AIC      BIC   logLik deviance df.resid 
+    4447     4531    -2211     4421     4595 
 
-Scaled residuals:
-   Min     1Q Median     3Q    Max
--5.595  0.255  0.388  0.524  1.716
+Scaled residuals: 
+   Min     1Q Median     3Q    Max 
+-5.595  0.255  0.388  0.524  1.716 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- subj_idx (Intercept) 0.458    0.677
+ subj_idx (Intercept) 0.458    0.677   
 Number of obs: 4608, groups:  subj_idx, 96
 
 Fixed effects:
-                            Estimate Std. Error z value Pr(&gt;|z|)
+                            Estimate Std. Error z value Pr(&gt;|z|)    
 (Intercept)                  0.86676    0.15397    5.63  1.8e-08 ***
-exp.VRT-EIT                 -0.00345    0.22038   -0.02   0.9875
-cond.Math-Sem               -0.03538    0.13239   -0.27   0.7893
+exp.VRT-EIT                 -0.00345    0.22038   -0.02   0.9875    
+cond.Math-Sem               -0.03538    0.13239   -0.27   0.7893    
 cond.Reg-Sem                 1.12776    0.15820    7.13  1.0e-12 ***
 cond.Vis-Sem                 0.77934    0.14740    5.29  1.2e-07 ***
-foil.Config-Odd              0.00803    0.12610    0.06   0.9492
-foil.Config-Odd              0.16669    0.12853    1.30   0.1947
-exp.VRT-EIT:cond.Math-Sem    0.20965    0.19767    1.06   0.2889
-exp.VRT-EIT:cond.Reg-Sem    -0.60983    0.22056   -2.76   0.0057 **
-exp.VRT-EIT:cond.Vis-Sem    -0.03283    0.21732   -0.15   0.8799
-exp.VRT-EIT:foil.Config-Odd  0.22022    0.17903    1.23   0.2187
+foil.Config-Odd              0.00803    0.12610    0.06   0.9492    
+foil.Config-Odd              0.16669    0.12853    1.30   0.1947    
+exp.VRT-EIT:cond.Math-Sem    0.20965    0.19767    1.06   0.2889    
+exp.VRT-EIT:cond.Reg-Sem    -0.60983    0.22056   -2.76   0.0057 ** 
+exp.VRT-EIT:cond.Vis-Sem    -0.03283    0.21732   -0.15   0.8799    
+exp.VRT-EIT:foil.Config-Odd  0.22022    0.17903    1.23   0.2187    
 exp.VRT-EIT:foil.Config-Odd  0.77168    0.19218    4.02  5.9e-05 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
              (Intr) ex.VRT-EIT cn.M-S cn.R-S cn.V-S fl.C-O fl.C-O e.VRT-EIT:.M e.VRT-EIT:.R
-exp.VRT-EIT  -0.697
-cond.Mth-Sm  -0.433  0.302
-cond.Reg-Sm  -0.361  0.253      0.421
-cond.Vis-Sm  -0.387  0.271      0.452  0.381
-fl.Cnfg-Odd  -0.409  0.286      0.000  0.000  0.000
-fl.Cnfg-Odd  -0.403  0.282      0.000  0.008  0.006  0.490
-e.VRT-EIT:.M  0.290 -0.441     -0.670 -0.281 -0.302  0.000  0.000
-e.VRT-EIT:.R  0.259 -0.396     -0.302 -0.717 -0.273  0.000 -0.006  0.440
-e.VRT-EIT:.V  0.263 -0.403     -0.306 -0.258 -0.678  0.000 -0.004  0.447        0.403
-e.VRT-EIT:.C  0.288 -0.396      0.000  0.000  0.000 -0.704 -0.345  0.001        0.003
-e.VRT-EIT:.C  0.270 -0.373      0.000 -0.004 -0.004 -0.327 -0.669  0.004        0.015
+exp.VRT-EIT  -0.697                                                                        
+cond.Mth-Sm  -0.433  0.302                                                                 
+cond.Reg-Sm  -0.361  0.253      0.421                                                      
+cond.Vis-Sm  -0.387  0.271      0.452  0.381                                               
+fl.Cnfg-Odd  -0.409  0.286      0.000  0.000  0.000                                        
+fl.Cnfg-Odd  -0.403  0.282      0.000  0.008  0.006  0.490                                 
+e.VRT-EIT:.M  0.290 -0.441     -0.670 -0.281 -0.302  0.000  0.000                          
+e.VRT-EIT:.R  0.259 -0.396     -0.302 -0.717 -0.273  0.000 -0.006  0.440                   
+e.VRT-EIT:.V  0.263 -0.403     -0.306 -0.258 -0.678  0.000 -0.004  0.447        0.403      
+e.VRT-EIT:.C  0.288 -0.396      0.000  0.000  0.000 -0.704 -0.345  0.001        0.003      
+e.VRT-EIT:.C  0.270 -0.373      0.000 -0.004 -0.004 -0.327 -0.669  0.004        0.015      
              e.VRT-EIT:.V e.VRT-EIT:.C
-exp.VRT-EIT
-cond.Mth-Sm
-cond.Reg-Sm
-cond.Vis-Sm
-fl.Cnfg-Odd
-fl.Cnfg-Odd
-e.VRT-EIT:.M
-e.VRT-EIT:.R
-e.VRT-EIT:.V
-e.VRT-EIT:.C  0.005
+exp.VRT-EIT                           
+cond.Mth-Sm                           
+cond.Reg-Sm                           
+cond.Vis-Sm                           
+fl.Cnfg-Odd                           
+fl.Cnfg-Odd                           
+e.VRT-EIT:.M                          
+e.VRT-EIT:.R                          
+e.VRT-EIT:.V                          
+e.VRT-EIT:.C  0.005                   
 e.VRT-EIT:.C  0.019        0.455      </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiRVhQIEFjY3VyYWN5IgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgojIExvYWQgRVhQIERhdGEgCgpXZSdyZSBpbmNsdWRpbmcgdGhlIG5vbi1yZXNwb25kZXJzIGludG8gdGhlIGFuYWx5c2lzLiAKCmBgYHtyfQpzZXR3ZCgiL1VzZXJzL2Nvb2tkajAxMjgvY29va19Nc2NQcm9qZWN0L2FuYWx5c2lzL2JlaGF2aW9yLyIpCiNydCA9IHJlYWQuY3N2KCJydEZyYW1lX25vTkEuY3N2IikKcnQ9IHJlYWQuY3N2KCcvVXNlcnMvY29va2RqMDEyOC9jb29rX01zY1Byb2plY3Qvc3RpbXVsaS9ydEZyYW1lX3dpdGhFbnRyb3B5LmNzdicpI3dpdGggbm9uLXJlc3BvbmRlcnMKcnQkZXhwID0gZmFjdG9yKHJ0JGV4cCkKcnQkb3JkZXIgPSBhcy5mYWN0b3IocnQkb3JkZXIpCnJ0JGNvbmQgPSBhcy5mYWN0b3IocnQkY29uZCkKcnQkZXhwID0gYXMuZmFjdG9yKHJ0JGV4cCkKcnQkZm9pbCA9IGFzLmZhY3RvcihydCRmb2lsKQpgYGAKCiMgU2V0IHVwIENvbnRyYXN0cyBmb3IgT3JkZXIKCmBgYHtyfQoKIyBPcmRlciBjb25zdHJhc3RzIApjb250cmFzdHMocnQkb3JkZXIpPC1jb250ci5wb2x5KDQpCmNvbG5hbWVzKGF0dHIocnQkb3JkZXIsICJjb250cmFzdHMiKSkgPSBjKCJMaW5lYXIiLCJRdWFkcmF0IiwiQ3ViaWMiKQpwcmludCgnT3JkZXIgQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRvcmRlciwgImNvbnRyYXN0cyIpCgpgYGAKCiMgTW9kZWwgU2VsZWN0aW9uIAojIyBNb2RlbCB3aXRoIFJlZ3VsYXIsIFJlcGVhdCwgVlJUIGFzIHJlZmVyZW5jZQoKYGBge3J9CiMgUmVndWxhciBhbmQgVlJUIGFzIHJlZmVyZW5jZSAKY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMikKY29sbmFtZXMoYXR0cihydCRjb25kLCAiY29udHJhc3RzIikpID0gYygiLk1hdGgtUmVnIiwiLlNlbS1SZWciLCAiLlZpcy1SZWciKQpwcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGNvbmQsICJjb250cmFzdHMiKQoKIyBSZXBlYXQgZm9pbCBhbmQgVlJUIGFzIHJlZmVyZW5jZQpjb250cmFzdHMocnQkZm9pbCk8LWNvbnRyLnRyZWF0bWVudCgzLGJhc2UgPSAzKQpjb2xuYW1lcyhhdHRyKHJ0JGZvaWwsICJjb250cmFzdHMiKSkgPSBjKCIuQ29uZmlnLVJlcCIsIi5PZGQtUmVwIikKcHJpbnQoJ0ZvaWwgQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRmb2lsLCAiY29udHJhc3RzIikKCiMgIFZSVCBhcyByZWZlcmVuY2UKY29udHJhc3RzKHJ0JGV4cCk8LWNvbnRyLnRyZWF0bWVudCgyLGJhc2UgPSAxKQpjb2xuYW1lcyhhdHRyKHJ0JGV4cCwgImNvbnRyYXN0cyIpKSA9IGMoIi5WUlQtRUlUIikKcHJpbnQoJ0ZvaWwgQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRleHAsICJjb250cmFzdHMiKQoKI2V4cF9yZWdfcmVwZWF0X3ZydF9BQ0MwID0gZ2xtZXIocmVzcG9uc2UgfiAxICsgKDF8c3Vial9pZHgpLCBkYXRhPXJ0LCBuYS5hY3Rpb249bmEub21pdCwgI2ZhbWlseT1iaW5vbWlhbChsaW5rID0gImxvZ2l0IiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj0iYm9ieXFhIixvcHRDdHJsPWxpc3QobWF4ZnVuPTEwMDAwMCkpKQoKI2V4cF9yZWdfcmVwZWF0X3ZydF9BQ0MxID0gZ2xtZXIocmVzcG9uc2UgfiBleHAgICsgKDF8c3Vial9pZHgpLCBkYXRhPXJ0LCBuYS5hY3Rpb249bmEub21pdCwgI2ZhbWlseT1iaW5vbWlhbChsaW5rID0gImxvZ2l0IiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj0iYm9ieXFhIixvcHRDdHJsPWxpc3QobWF4ZnVuPTEwMDAwMCkpKQoKI2V4cF9yZWdfcmVwZWF0X3ZydF9BQ0MyID0gZ2xtZXIocmVzcG9uc2UgfiBleHAgKyBjb25kICsgKDF8c3Vial9pZHgpLCBkYXRhPXJ0LCBuYS5hY3Rpb249bmEub21pdCwgI2ZhbWlseT1iaW5vbWlhbChsaW5rID0gImxvZ2l0IiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj0iYm9ieXFhIixvcHRDdHJsPWxpc3QobWF4ZnVuPTEwMDAwMCkpKQoKI2V4cF9yZWdfcmVwZWF0X3ZydF9BQ0MzID0gZ2xtZXIocmVzcG9uc2UgfiBleHAqY29uZCArICgxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsICNmYW1pbHk9Ymlub21pYWwobGluayA9ICJsb2dpdCIpLCBjb250cm9sPWdsbWVyQ29udHJvbChvcHRpbWl6ZXI9ImJvYnlxYSIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSkKCiNleHBfcmVnX3JlcGVhdF92cnRfQUNDNCA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwKmNvbmQgKyBmb2lsICsgKDF8c3Vial9pZHgpLCBkYXRhPXJ0LCBuYS5hY3Rpb249bmEub21pdCwgI2ZhbWlseT1iaW5vbWlhbChsaW5rID0gImxvZ2l0IiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj0iYm9ieXFhIixvcHRDdHJsPWxpc3QobWF4ZnVuPTEwMDAwMCkpKQoKZXhwX3JlZ19yZXBlYXRfdnJ0X0FDQzUgPSBnbG1lcihyZXNwb25zZSB+IGV4cCpjb25kICsgZXhwKmZvaWwgKyAoMXxzdWJqX2lkeCksIGRhdGE9cnQsIG5hLmFjdGlvbj1uYS5vbWl0LCBmYW1pbHk9Ymlub21pYWwobGluayA9ICJsb2dpdCIpLCBjb250cm9sPWdsbWVyQ29udHJvbChvcHRpbWl6ZXI9ImJvYnlxYSIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSkKCiNleHBfcmVnX3JlcGVhdF92cnRfQUNDNiA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwKmNvbmQqZm9pbCArICgxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsICNmYW1pbHk9Ymlub21pYWwobGluayA9ICJsb2dpdCIpLCBjb250cm9sPWdsbWVyQ29udHJvbChvcHRpbWl6ZXI9ImJvYnlxYSIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSkKCiNleHBfcmVnX3JlcGVhdF92cnRfQUNDNyA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwKmNvbmQqZm9pbCArIGV4cCpvcmRlciArICgxfHN1YmpfaWR4KSwgZGF0YT1ydCwgI25hLmFjdGlvbj1uYS5vbWl0LCBmYW1pbHk9Ymlub21pYWwobGluayA9ICJsb2dpdCIpLCAjY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPSJib2J5cWEiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpCgojZXhwX3JlZ19yZXBlYXRfdnJ0X0FDQzggPSBnbG1lcihyZXNwb25zZSB+IGV4cCpjb25kKmZvaWwgKyBleHAqY29uZCpvcmRlciArICgxfHN1YmpfaWR4KSwgZGF0YT1ydCwgI25hLmFjdGlvbj1uYS5vbWl0LCBmYW1pbHk9Ymlub21pYWwobGluayA9ICJsb2dpdCIpLCAjY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPSJib2J5cWEiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpCgojYW5vdmEoZXhwX3JlZ19yZXBlYXRfdnJ0X0FDQzAsCiMgICAgICBleHBfcmVnX3JlcGVhdF92cnRfQUNDMSwKIyAgICAgIGV4cF9yZWdfcmVwZWF0X3ZydF9BQ0MyLAojICAgICAgZXhwX3JlZ19yZXBlYXRfdnJ0X0FDQzMsCiMgICAgICBleHBfcmVnX3JlcGVhdF92cnRfQUNDNCwKIyAgICAgIGV4cF9yZWdfcmVwZWF0X3ZydF9BQ0M1LAojICAgICAgZXhwX3JlZ19yZXBlYXRfdnJ0X0FDQzYsCiMgICAgICBleHBfcmVnX3JlcGVhdF92cnRfQUNDNywKIyAgICAgIGV4cF9yZWdfcmVwZWF0X3ZydF9BQ0M4KQoKYGBgCgoKYGBge3J9CiN2aWYubG1lKGV4cF9yZWdfcmVwZWF0X3ZydF9BQ0M2KQpgYGAKCgoKYGBge3J9CnZpZi5sbWUoZXhwX3JlZ19yZXBlYXRfdnJ0X0FDQzUpCm92ZXJkaXNwKGV4cF9yZWdfcmVwZWF0X3ZydF9BQ0M1KQpgYGAKCgoKIyBNb2RlbCB3aXRoIFJlZ3VsYXIsIFJlcGVhdCwgVlJUIGFzIHJlZmVyZW5jZQpJIHBsYW4gdG8gdXNlIG9ubHkgZXhwX3JlZ19yZXBlYXRfNSBzaW5jZSB0aGUgVmFyaWFuY2UgSW5mbGF0aW9uIGZhY3RvcnMgZm9yIGhpZ2hlciBvcmRlciBtb2RlbHMgd2VyZSA+IDQuIEFsdGhvdWdoLCBub3RlLCBWSUYgPiA0IGhhcyBiZWVuIGNhbGxlZCBhIGJhZCBoZXVyaXN0aWMuIE5vbmV0aGVsZXNzLCBJJ2xsIHVzZSBpdCBmb3Igbm93IGFueXdheXMuIAoKCmBgYHtyfQpzdW1tYXJ5KGV4cF9yZWdfcmVwZWF0X3ZydF9BQ0M1KQpgYGAKCgojIE1vZGVsIHdpdGggUmVndWxhciBhbmQgY29uZmlnIGFuZCBWUlQgYXMgcmVmZXJlbmNlCgpgYGB7cn0KIyBSZWd1bGFyIGFuZCBWUlQgYXMgcmVmZXJlbmNlIApjb250cmFzdHMocnQkY29uZCk8LWNvbnRyLnRyZWF0bWVudCg0LGJhc2UgPSAyKQpjb2xuYW1lcyhhdHRyKHJ0JGNvbmQsICJjb250cmFzdHMiKSkgPSBjKCIuTWF0aC1SZWciLCIuU2VtLVJlZyIsICIuVmlzLVJlZyIpCnByaW50KCdNdWx0aXRhc2sgQ29uZGl0aW9uIENvbnRyYXN0IE1hdHJpeCcpCmF0dHIocnQkY29uZCwgImNvbnRyYXN0cyIpCgojIENvbmZpZyBmb2lsIGFuZCBWUlQgYXMgcmVmZXJlbmNlCmNvbnRyYXN0cyhydCRmb2lsKTwtY29udHIudHJlYXRtZW50KDMsYmFzZSA9IDEpCmNvbG5hbWVzKGF0dHIocnQkZm9pbCwgImNvbnRyYXN0cyIpKSA9IGMoIi5PZGQtQ29uZmlnIiwiLlJlcC1Db25maWciKQpwcmludCgnRm9pbCBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGZvaWwsICJjb250cmFzdHMiKQoKZXhwX3JlZ19jb25maWdfdnJ0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwICogY29uZCArIGV4cCAqIGZvaWwgKygxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsIGZhbWlseT1iaW5vbWlhbChsaW5rID0gImxvZ2l0IiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj0iYm9ieXFhIixvcHRDdHJsPWxpc3QobWF4ZnVuPTEwMDAwMCkpKQpzdW1tYXJ5KGV4cF9yZWdfY29uZmlnX3ZydF9BQ0MpCmBgYAoKIyBNb2RlbCB3aXRoIFJlZ3VsYXIgYW5kIG9kZCBhbmQgVlJUIGFzIHJlZmVyZW5jZQoKYGBge3J9CiMgUmVndWxhciBhbmQgVlJUIGFzIHJlZmVyZW5jZSAKY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMikKY29sbmFtZXMoYXR0cihydCRjb25kLCAiY29udHJhc3RzIikpID0gYygiLk1hdGgtUmVnIiwiLlNlbS1SZWciLCAiLlZpcy1SZWciKQpwcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGNvbmQsICJjb250cmFzdHMiKQoKCiMgT2RkIGZvaWwgYW5kIFZSVCBhcyByZWZlcmVuY2UKY29udHJhc3RzKHJ0JGZvaWwpPC1jb250ci50cmVhdG1lbnQoMyxiYXNlID0gMikKY29sbmFtZXMoYXR0cihydCRmb2lsLCAiY29udHJhc3RzIikpID0gYygiLkNvbmZpZy1PZGQiLCJSZXAtT2RkIikKcHJpbnQoJ0ZvaWwgQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRmb2lsLCAiY29udHJhc3RzIikKCiMgVlJUIGFzIHJlZmVyZW5jZQpjb250cmFzdHMocnQkZXhwKTwtY29udHIudHJlYXRtZW50KDIsYmFzZSA9IDEpCmNvbG5hbWVzKGF0dHIocnQkZXhwLCAiY29udHJhc3RzIikpID0gYygiLlZSVC1FSVQiKQpwcmludCgnRm9pbCBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGV4cCwgImNvbnRyYXN0cyIpCgpleHBfcmVnX29kZF92cnRfQUNDID0gZ2xtZXIocmVzcG9uc2UgfiBleHAgKiBjb25kICsgZXhwICogZm9pbCArICgxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsIGZhbWlseT1iaW5vbWlhbChsaW5rID0gImxvZ2l0IiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj0iYm9ieXFhIixvcHRDdHJsPWxpc3QobWF4ZnVuPTEwMDAwMCkpKQpzdW1tYXJ5KGV4cF9yZWdfb2RkX3ZydF9BQ0MpCmBgYAoKCiMgTW9kZWwgd2l0aCBWaXN1YWwgYW5kIHJlcGVhdCBhbmQgVlJUIGFzIHJlZmVyZW5jZQoKYGBge3J9CiMgVmlzdWFsIGFuZCBWUlQgYXMgcmVmZXJlbmNlIApjb250cmFzdHMocnQkY29uZCk8LWNvbnRyLnRyZWF0bWVudCg0LGJhc2UgPSA0KQpjb2xuYW1lcyhhdHRyKHJ0JGNvbmQsICJjb250cmFzdHMiKSkgPSBjKCIuTWF0aC1WaXMiLCIuUmVnLVZpcyIsICIuU2VtLVZpcyIpCnByaW50KCdNdWx0aXRhc2sgQ29uZGl0aW9uIENvbnRyYXN0IE1hdHJpeCcpCmF0dHIocnQkY29uZCwgImNvbnRyYXN0cyIpCgojIFJlcGVhdCBmb2lsIGFuZCBWUlQgYXMgcmVmZXJlbmNlCmNvbnRyYXN0cyhydCRmb2lsKTwtY29udHIudHJlYXRtZW50KDMsYmFzZSA9IDMpCmNvbG5hbWVzKGF0dHIocnQkZm9pbCwgImNvbnRyYXN0cyIpKSA9IGMoIi5Db25maWctUmVwIiwiLk9kZC1SZXAiKQpwcmludCgnRm9pbCBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGZvaWwsICJjb250cmFzdHMiKQoKIyAgVlJUIGFzIHJlZmVyZW5jZQpjb250cmFzdHMocnQkZXhwKTwtY29udHIudHJlYXRtZW50KDIsYmFzZSA9IDEpCmNvbG5hbWVzKGF0dHIocnQkZXhwLCAiY29udHJhc3RzIikpID0gYygiLlZSVC1FSVQiKQpwcmludCgnRm9pbCBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGV4cCwgImNvbnRyYXN0cyIpCgpleHBfdmlzX3JlcGVhdF92cnRfQUNDID0gZ2xtZXIocmVzcG9uc2UgfiBleHAgKiBjb25kICsgZXhwICogZm9pbCArKDF8c3Vial9pZHgpLCBkYXRhPXJ0LCBuYS5hY3Rpb249bmEub21pdCwgZmFtaWx5PWJpbm9taWFsKGxpbmsgPSAibG9naXQiKSwgY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPSJib2J5cWEiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpCnN1bW1hcnkoZXhwX3Zpc19yZXBlYXRfdnJ0X0FDQykKYGBgCgoKIyBNb2RlbCB3aXRoIFZpc3VhbCBhbmQgQ29uZmlnIGFuZCBWUlQgYXMgcmVmZXJlbmNlIAoKYGBge3J9CiMgVmlzdWFsIGFuZCBWUlQgYXMgcmVmZXJlbmNlIApjb250cmFzdHMocnQkY29uZCk8LWNvbnRyLnRyZWF0bWVudCg0LGJhc2UgPSA0KQpjb2xuYW1lcyhhdHRyKHJ0JGNvbmQsICJjb250cmFzdHMiKSkgPSBjKCIuTWF0aC1WaXMiLCIuUmVnLVZpcyIsICIuU2VtLVZpcyIpCnByaW50KCdNdWx0aXRhc2sgQ29uZGl0aW9uIENvbnRyYXN0IE1hdHJpeCcpCmF0dHIocnQkY29uZCwgImNvbnRyYXN0cyIpCgojIENvbmZpZyBmb2lsIGFuZCBWUlQgYXMgcmVmZXJlbmNlCmNvbnRyYXN0cyhydCRmb2lsKTwtY29udHIudHJlYXRtZW50KDMsYmFzZSA9IDEpCmNvbG5hbWVzKGF0dHIocnQkZm9pbCwgImNvbnRyYXN0cyIpKSA9IGMoIi5PZGQtQ29uZmlnIiwiLlJlcC1Db25maWciKQpwcmludCgnRm9pbCBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGZvaWwsICJjb250cmFzdHMiKQoKIyAgVlJUIGFzIHJlZmVyZW5jZQpjb250cmFzdHMocnQkZXhwKTwtY29udHIudHJlYXRtZW50KDIsYmFzZSA9IDEpCmNvbG5hbWVzKGF0dHIocnQkZXhwLCAiY29udHJhc3RzIikpID0gYygiLlZSVC1FSVQiKQpwcmludCgnRm9pbCBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGV4cCwgImNvbnRyYXN0cyIpCgpleFBfdmlzX2NvbmZpZ192cnRfQUNDID0gZ2xtZXIocmVzcG9uc2UgfiBleHAgKiBjb25kICsgZXhwICogZm9pbCArKDF8c3Vial9pZHgpLCBkYXRhPXJ0LCBuYS5hY3Rpb249bmEub21pdCwgZmFtaWx5PWJpbm9taWFsKGxpbmsgPSAibG9naXQiKSwgY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPSJib2J5cWEiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpCnN1bW1hcnkoZXhQX3Zpc19jb25maWdfdnJ0X0FDQykKYGBgCgoKIyBNb2RlbCB3aXRoIFZpc3VhbCBhbmQgb2RkIGFuZCBWUlQgYXMgcmVmZXJlbmNlIAoKYGBge3J9CiMgVmlzdWFsIGFuZCBWUlQgYXMgcmVmZXJlbmNlIApjb250cmFzdHMocnQkY29uZCk8LWNvbnRyLnRyZWF0bWVudCg0LGJhc2UgPSA0KQpjb2xuYW1lcyhhdHRyKHJ0JGNvbmQsICJjb250cmFzdHMiKSkgPSBjKCIuTWF0aC1WaXMiLCIuUmVnLVZpcyIsICIuU2VtLVZpcyIpCnByaW50KCdNdWx0aXRhc2sgQ29uZGl0aW9uIENvbnRyYXN0IE1hdHJpeCcpCmF0dHIocnQkY29uZCwgImNvbnRyYXN0cyIpCgojIE9kZCBmb2lsIGFuZCBWUlQgYXMgcmVmZXJlbmNlCmNvbnRyYXN0cyhydCRmb2lsKTwtY29udHIudHJlYXRtZW50KDMsYmFzZSA9IDIpCmNvbG5hbWVzKGF0dHIocnQkZm9pbCwgImNvbnRyYXN0cyIpKSA9IGMoIi5Db25maWctT2RkIiwiUmVwLU9kZCIpCnByaW50KCdGb2lsIENvbnRyYXN0IE1hdHJpeCcpCmF0dHIocnQkZm9pbCwgImNvbnRyYXN0cyIpCgojICBWUlQgYXMgcmVmZXJlbmNlCmNvbnRyYXN0cyhydCRleHApPC1jb250ci50cmVhdG1lbnQoMixiYXNlID0gMSkKY29sbmFtZXMoYXR0cihydCRleHAsICJjb250cmFzdHMiKSkgPSBjKCIuVlJULUVJVCIpCnByaW50KCdGb2lsIENvbnRyYXN0IE1hdHJpeCcpCmF0dHIocnQkZXhwLCAiY29udHJhc3RzIikKCmV4cF92aXNfb2RkX3ZydF9BQ0MgPSBnbG1lcihyZXNwb25zZSB+ICBleHAgKiBjb25kICsgZXhwICogZm9pbCArKDF8c3Vial9pZHgpLCBkYXRhPXJ0LCBuYS5hY3Rpb249bmEub21pdCwgZmFtaWx5PWJpbm9taWFsKGxpbmsgPSAibG9naXQiKSwgY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPSJib2J5cWEiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpCnN1bW1hcnkoZXhwX3Zpc19vZGRfdnJ0X0FDQykKYGBgCgoKIyBNb2RlbCB3aXRoIE1hdGggYW5kIHJlcGVhdCBhbmQgVlJUIGFzIHJlZmVyZW5jZQoKYGBge3J9CiMgQ29uZGl0aW9uIENvbnRyYXN0cyAKIyBNYXRoIGFuZCBWUlQgYXMgcmVmZXJlbmNlIApjb250cmFzdHMocnQkY29uZCk8LWNvbnRyLnRyZWF0bWVudCg0LGJhc2UgPSAxKQpjb2xuYW1lcyhhdHRyKHJ0JGNvbmQsICJjb250cmFzdHMiKSkgPSBjKCIuUmVnLU1hdGgiLCIuU2VtLU1hdGgiLCAiLlZpcy1NYXRoIikKcHJpbnQoJ011bHRpdGFzayBDb25kaXRpb24gQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRjb25kLCAiY29udHJhc3RzIikKCiMgUmVwZWF0IGZvaWwgYW5kIFZSVCBhcyByZWZlcmVuY2UKY29udHJhc3RzKHJ0JGZvaWwpPC1jb250ci50cmVhdG1lbnQoMyxiYXNlID0gMykKY29sbmFtZXMoYXR0cihydCRmb2lsLCAiY29udHJhc3RzIikpID0gYygiLkNvbmZpZy1SZXAiLCIuT2RkLVJlcCIpCnByaW50KCdGb2lsIENvbnRyYXN0IE1hdHJpeCcpCmF0dHIocnQkZm9pbCwgImNvbnRyYXN0cyIpCgojICBWUlQgYXMgcmVmZXJlbmNlCmNvbnRyYXN0cyhydCRleHApPC1jb250ci50cmVhdG1lbnQoMixiYXNlID0gMSkKY29sbmFtZXMoYXR0cihydCRleHAsICJjb250cmFzdHMiKSkgPSBjKCIuVlJULUVJVCIpCnByaW50KCdGb2lsIENvbnRyYXN0IE1hdHJpeCcpCmF0dHIocnQkZXhwLCAiY29udHJhc3RzIikKCmV4cF9tYXRoX3JlcGVhdF92cnRfQUNDID0gZ2xtZXIocmVzcG9uc2UgfiAgZXhwICogY29uZCArIGV4cCAqIGZvaWwgKygxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsIGZhbWlseT1iaW5vbWlhbChsaW5rID0gImxvZ2l0IiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj0iYm9ieXFhIixvcHRDdHJsPWxpc3QobWF4ZnVuPTEwMDAwMCkpKQpzdW1tYXJ5KGV4cF9tYXRoX3JlcGVhdF92cnRfQUNDKQpgYGAKCgojIE1vZGVsIHdpdGggTWF0aCBhbmQgY29uZmlnIGFuZCBWUlQgYXMgcmVmZXJlbmNlCgpgYGB7cn0KIyBDb25kaXRpb24gQ29udHJhc3RzIAojIE1hdGggYW5kIFZSVCBhcyByZWZlcmVuY2UgCmNvbnRyYXN0cyhydCRjb25kKTwtY29udHIudHJlYXRtZW50KDQsYmFzZSA9IDEpCmNvbG5hbWVzKGF0dHIocnQkY29uZCwgImNvbnRyYXN0cyIpKSA9IGMoIi5SZWctTWF0aCIsIi5TZW0tTWF0aCIsICIuVmlzLU1hdGgiKQpwcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGNvbmQsICJjb250cmFzdHMiKQoKIyBDb25maWcgZm9pbCBhbmQgVlJUIGFzIHJlZmVyZW5jZQpjb250cmFzdHMocnQkZm9pbCk8LWNvbnRyLnRyZWF0bWVudCgzLGJhc2UgPSAxKQpjb2xuYW1lcyhhdHRyKHJ0JGZvaWwsICJjb250cmFzdHMiKSkgPSBjKCIuT2RkLUNvbmZpZyIsIi5SZXAtQ29uZmlnIikKcHJpbnQoJ0ZvaWwgQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRmb2lsLCAiY29udHJhc3RzIikKCiMgIFZSVCBhcyByZWZlcmVuY2UKY29udHJhc3RzKHJ0JGV4cCk8LWNvbnRyLnRyZWF0bWVudCgyLGJhc2UgPSAxKQpjb2xuYW1lcyhhdHRyKHJ0JGV4cCwgImNvbnRyYXN0cyIpKSA9IGMoIi5WUlQtRUlUIikKcHJpbnQoJ0ZvaWwgQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRleHAsICJjb250cmFzdHMiKQoKZXhwX21hdGhfY29uZmlnX3ZydF9BQ0MgPSBnbG1lcihyZXNwb25zZSB+ICBleHAgKiBjb25kICsgZXhwICogZm9pbCArKDF8c3Vial9pZHgpLCBkYXRhPXJ0LCBuYS5hY3Rpb249bmEub21pdCwgZmFtaWx5PWJpbm9taWFsKGxpbmsgPSAibG9naXQiKSwgY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPSJib2J5cWEiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpCnN1bW1hcnkoZXhwX21hdGhfY29uZmlnX3ZydF9BQ0MpCmBgYAoKCiMgTW9kZWwgd2l0aCBNYXRoIGFuZCBvZGQgYW5kIFZSVCBhcyByZWZlcmVuY2UKCmBgYHtyfQojIENvbmRpdGlvbiBDb250cmFzdHMgCiMgTWF0aCBhbmQgVlJUIGFzIHJlZmVyZW5jZSAKY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMSkKY29sbmFtZXMoYXR0cihydCRjb25kLCAiY29udHJhc3RzIikpID0gYygiLlJlZy1NYXRoIiwiLlNlbS1NYXRoIiwgIi5WaXMtTWF0aCIpCnByaW50KCdNdWx0aXRhc2sgQ29uZGl0aW9uIENvbnRyYXN0IE1hdHJpeCcpCmF0dHIocnQkY29uZCwgImNvbnRyYXN0cyIpCgoKIyBPZGQgZm9pbCBhbmQgVlJUIGFzIHJlZmVyZW5jZQpjb250cmFzdHMocnQkZm9pbCk8LWNvbnRyLnRyZWF0bWVudCgzLGJhc2UgPSAyKQpjb2xuYW1lcyhhdHRyKHJ0JGZvaWwsICJjb250cmFzdHMiKSkgPSBjKCIuQ29uZmlnLU9kZCIsIlJlcC1PZGQiKQpwcmludCgnRm9pbCBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGZvaWwsICJjb250cmFzdHMiKQoKCiMgIFZSVCBhcyByZWZlcmVuY2UKY29udHJhc3RzKHJ0JGV4cCk8LWNvbnRyLnRyZWF0bWVudCgyLGJhc2UgPSAxKQpjb2xuYW1lcyhhdHRyKHJ0JGV4cCwgImNvbnRyYXN0cyIpKSA9IGMoIi5WUlQtRUlUIikKcHJpbnQoJ0ZvaWwgQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRleHAsICJjb250cmFzdHMiKQoKZXhwX21hdGhfb2RkX3ZydF9BQ0MgPSBnbG1lcihyZXNwb25zZSB+IGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsoMXxzdWJqX2lkeCksIGRhdGE9cnQsIG5hLmFjdGlvbj1uYS5vbWl0LCBmYW1pbHk9Ymlub21pYWwobGluayA9ICJsb2dpdCIpLCBjb250cm9sPWdsbWVyQ29udHJvbChvcHRpbWl6ZXI9ImJvYnlxYSIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSkKc3VtbWFyeShleHBfbWF0aF9vZGRfdnJ0X0FDQykKYGBgCgoKIyBNb2RlbCB3aXRoIFNlbWFudGljIGFuZCByZXBlYXQgYW5kIFZSVCBhcyByZWZlcmVuY2UKCmBgYHtyfQojIFNlbWFudGljIGFuZCBWUlQgYXMgcmVmZXJlbmNlIApjb250cmFzdHMocnQkY29uZCk8LWNvbnRyLnRyZWF0bWVudCg0LGJhc2UgPSAzKQpjb2xuYW1lcyhhdHRyKHJ0JGNvbmQsICJjb250cmFzdHMiKSkgPSBjKCIuTWF0aC1TZW0iLCIuUmVnLVNlbSIsICIuVmlzLVNlbSIpCnByaW50KCdNdWx0aXRhc2sgQ29uZGl0aW9uIENvbnRyYXN0IE1hdHJpeCcpCmF0dHIocnQkY29uZCwgImNvbnRyYXN0cyIpCgojIFJlcGVhdCBmb2lsIGFuZCBWUlQgYXMgcmVmZXJlbmNlCmNvbnRyYXN0cyhydCRmb2lsKTwtY29udHIudHJlYXRtZW50KDMsYmFzZSA9IDMpCmNvbG5hbWVzKGF0dHIocnQkZm9pbCwgImNvbnRyYXN0cyIpKSA9IGMoIi5Db25maWctUmVwIiwiLk9kZC1SZXAiKQpwcmludCgnRm9pbCBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGZvaWwsICJjb250cmFzdHMiKQoKCiMgIFZSVCBhcyByZWZlcmVuY2UKY29udHJhc3RzKHJ0JGV4cCk8LWNvbnRyLnRyZWF0bWVudCgyLGJhc2UgPSAxKQpjb2xuYW1lcyhhdHRyKHJ0JGV4cCwgImNvbnRyYXN0cyIpKSA9IGMoIi5WUlQtRUlUIikKcHJpbnQoJ0ZvaWwgQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRleHAsICJjb250cmFzdHMiKQoKZXhwX3NlbV9yZXBlYXRfdnJ0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwICogY29uZCArIGV4cCAqIGZvaWwgKygxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsIGZhbWlseT1iaW5vbWlhbChsaW5rID0gImxvZ2l0IiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj0iYm9ieXFhIixvcHRDdHJsPWxpc3QobWF4ZnVuPTEwMDAwMCkpKQpzdW1tYXJ5KGV4cF9zZW1fcmVwZWF0X3ZydF9BQ0MpCmBgYAoKIyBNb2RlbCB3aXRoIFNlbWFudGljIGFuZCBjb25maWcgYW5kIFZSVCBhcyByZWZlcmVuY2UKCmBgYHtyfQojIFNlbWFudGljIGFuZCBWUlQgYXMgcmVmZXJlbmNlIApjb250cmFzdHMocnQkY29uZCk8LWNvbnRyLnRyZWF0bWVudCg0LGJhc2UgPSAzKQpjb2xuYW1lcyhhdHRyKHJ0JGNvbmQsICJjb250cmFzdHMiKSkgPSBjKCIuTWF0aC1TZW0iLCIuUmVnLVNlbSIsICIuVmlzLVNlbSIpCnByaW50KCdNdWx0aXRhc2sgQ29uZGl0aW9uIENvbnRyYXN0IE1hdHJpeCcpCmF0dHIocnQkY29uZCwgImNvbnRyYXN0cyIpCgojIENvbmZpZyBmb2lsIGFuZCBWUlQgYXMgcmVmZXJlbmNlCmNvbnRyYXN0cyhydCRmb2lsKTwtY29udHIudHJlYXRtZW50KDMsYmFzZSA9IDEpCmNvbG5hbWVzKGF0dHIocnQkZm9pbCwgImNvbnRyYXN0cyIpKSA9IGMoIi5PZGQtQ29uZmlnIiwiLlJlcC1Db25maWciKQpwcmludCgnRm9pbCBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGZvaWwsICJjb250cmFzdHMiKQoKCiMgIFZSVCBhcyByZWZlcmVuY2UKY29udHJhc3RzKHJ0JGV4cCk8LWNvbnRyLnRyZWF0bWVudCgyLGJhc2UgPSAxKQpjb2xuYW1lcyhhdHRyKHJ0JGV4cCwgImNvbnRyYXN0cyIpKSA9IGMoIi5WUlQtRUlUIikKcHJpbnQoJ0ZvaWwgQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRleHAsICJjb250cmFzdHMiKQoKZXhwX3NlbV9jb25maWdfdnJ0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwICogY29uZCArIGV4cCAqIGZvaWwgKyAoMXxzdWJqX2lkeCksIGRhdGE9cnQsIG5hLmFjdGlvbj1uYS5vbWl0LCBmYW1pbHk9Ymlub21pYWwobGluayA9ICJsb2dpdCIpLCBjb250cm9sPWdsbWVyQ29udHJvbChvcHRpbWl6ZXI9ImJvYnlxYSIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSkKc3VtbWFyeShleHBfc2VtX2NvbmZpZ192cnRfQUNDKQpgYGAKCgojIE1vZGVsIHdpdGggU2VtYW50aWMgYW5kIG9kZCBhbmQgVlJUIGFzIHJlZmVyZW5jZQoKYGBge3J9CiMgU2VtYW50aWMgYW5kIFZSVCBhcyByZWZlcmVuY2UgCmNvbnRyYXN0cyhydCRjb25kKTwtY29udHIudHJlYXRtZW50KDQsYmFzZSA9IDMpCmNvbG5hbWVzKGF0dHIocnQkY29uZCwgImNvbnRyYXN0cyIpKSA9IGMoIi5NYXRoLVNlbSIsIi5SZWctU2VtIiwgIi5WaXMtU2VtIikKcHJpbnQoJ011bHRpdGFzayBDb25kaXRpb24gQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRjb25kLCAiY29udHJhc3RzIikKCgojIE9kZCBmb2lsIGFuZCBWUlQgYXMgcmVmZXJlbmNlCmNvbnRyYXN0cyhydCRmb2lsKTwtY29udHIudHJlYXRtZW50KDMsYmFzZSA9IDIpCmNvbG5hbWVzKGF0dHIocnQkZm9pbCwgImNvbnRyYXN0cyIpKSA9IGMoIi5Db25maWctT2RkIiwiLkNvbmZpZy1PZGQiKQpwcmludCgnRm9pbCBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGZvaWwsICJjb250cmFzdHMiKQoKIyAgVlJUIGFzIHJlZmVyZW5jZQpjb250cmFzdHMocnQkZXhwKTwtY29udHIudHJlYXRtZW50KDIsYmFzZSA9IDEpCmNvbG5hbWVzKGF0dHIocnQkZXhwLCAiY29udHJhc3RzIikpID0gYygiLlZSVC1FSVQiKQpwcmludCgnRm9pbCBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGV4cCwgImNvbnRyYXN0cyIpCgpleHBfc2VtX29kZF92cnRfQUNDID0gZ2xtZXIocmVzcG9uc2UgfiAgZXhwICogY29uZCArIGV4cCAqIGZvaWwgKygxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsIGZhbWlseT1iaW5vbWlhbChsaW5rID0gImxvZ2l0IiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj0iYm9ieXFhIixvcHRDdHJsPWxpc3QobWF4ZnVuPTEwMDAwMCkpKQpzdW1tYXJ5KGV4cF9zZW1fb2RkX3ZydF9BQ0MpCmBgYAo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiRVhQIEFjY3VyYWN5IgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgojIExvYWQgRVhQIERhdGEgCgpXZSdyZSBpbmNsdWRpbmcgdGhlIG5vbi1yZXNwb25kZXJzIGludG8gdGhlIGFuYWx5c2lzLiBBbmQgd2UncmUgcnVubmluZyB0aGUgbW9kZWxzIHdpdGggRUlUIGFzIHRoZSByZWZlcmVuY2UgbGV2ZWwuCgpgYGB7cn0Kc2V0d2QoIi9Vc2Vycy9jb29rZGowMTI4L2Nvb2tfTXNjUHJvamVjdC9hbmFseXNpcy9iZWhhdmlvci8iKQojcnQgPSByZWFkLmNzdigicnRGcmFtZV9ub05BLmNzdiIpCnJ0PSByZWFkLmNzdignL1VzZXJzL2Nvb2tkajAxMjgvY29va19Nc2NQcm9qZWN0L3N0aW11bGkvcnRGcmFtZV93aXRoRW50cm9weS5jc3YnKSN3aXRoIG5vbi1yZXNwb25kZXJzCnJ0JGV4cCA9IGZhY3RvcihydCRleHApCnJ0JG9yZGVyID0gYXMuZmFjdG9yKHJ0JG9yZGVyKQpydCRjb25kID0gYXMuZmFjdG9yKHJ0JGNvbmQpCnJ0JGV4cCA9IGFzLmZhY3RvcihydCRleHApCnJ0JGZvaWwgPSBhcy5mYWN0b3IocnQkZm9pbCkKYGBgCgojIFNldCB1cCBDb250cmFzdHMgZm9yIE9yZGVyCgpgYGB7cn0KCiMgT3JkZXIgY29uc3RyYXN0cyAKY29udHJhc3RzKHJ0JG9yZGVyKTwtY29udHIucG9seSg0KQpjb2xuYW1lcyhhdHRyKHJ0JG9yZGVyLCAiY29udHJhc3RzIikpID0gYygiTGluZWFyIiwiUXVhZHJhdCIsIkN1YmljIikKcHJpbnQoJ09yZGVyIENvbnRyYXN0IE1hdHJpeCcpCmF0dHIocnQkb3JkZXIsICJjb250cmFzdHMiKQoKYGBgCgojIE1vZGVsIFNlbGVjdGlvbiAKIyMgTW9kZWwgd2l0aCBSZWd1bGFyLCBSZXBlYXQsIFZSVCBhcyByZWZlcmVuY2UKCmBgYHtyfQojIFJlZ3VsYXIgYW5kIEVJVCBhcyByZWZlcmVuY2UgCmNvbnRyYXN0cyhydCRjb25kKTwtY29udHIudHJlYXRtZW50KDQsYmFzZSA9IDIpCmNvbG5hbWVzKGF0dHIocnQkY29uZCwgImNvbnRyYXN0cyIpKSA9IGMoIi5NYXRoLVJlZyIsIi5TZW0tUmVnIiwgIi5WaXMtUmVnIikKcHJpbnQoJ011bHRpdGFzayBDb25kaXRpb24gQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRjb25kLCAiY29udHJhc3RzIikKCiMgUmVwZWF0IGZvaWwgYW5kIFZSVCBhcyByZWZlcmVuY2UKY29udHJhc3RzKHJ0JGZvaWwpPC1jb250ci50cmVhdG1lbnQoMyxiYXNlID0gMykKY29sbmFtZXMoYXR0cihydCRmb2lsLCAiY29udHJhc3RzIikpID0gYygiLkNvbmZpZy1SZXAiLCIuT2RkLVJlcCIpCnByaW50KCdGb2lsIENvbnRyYXN0IE1hdHJpeCcpCmF0dHIocnQkZm9pbCwgImNvbnRyYXN0cyIpCgojICBWUlQgYXMgcmVmZXJlbmNlCmNvbnRyYXN0cyhydCRleHApPC1jb250ci50cmVhdG1lbnQoMixiYXNlID0gMSkKY29sbmFtZXMoYXR0cihydCRleHAsICJjb250cmFzdHMiKSkgPSBjKCIuVlJULUVJVCIpCnByaW50KCdGb2lsIENvbnRyYXN0IE1hdHJpeCcpCmF0dHIocnQkZXhwLCAiY29udHJhc3RzIikKCiNleHBfcmVnX3JlcGVhdF9laXRfQUNDMCA9IGdsbWVyKHJlc3BvbnNlIH4gMSArICgxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsICNmYW1pbHk9Ymlub21pYWwobGluayA9ICJsb2dpdCIpLCBjb250cm9sPWdsbWVyQ29udHJvbChvcHRpbWl6ZXI9ImJvYnlxYSIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSkKCiNleHBfcmVnX3JlcGVhdF9laXRfQUNDMSA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwICArICgxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsICNmYW1pbHk9Ymlub21pYWwobGluayA9ICJsb2dpdCIpLCBjb250cm9sPWdsbWVyQ29udHJvbChvcHRpbWl6ZXI9ImJvYnlxYSIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSkKCiNleHBfcmVnX3JlcGVhdF9laXRfQUNDMiA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwICsgY29uZCArICgxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsICNmYW1pbHk9Ymlub21pYWwobGluayA9ICJsb2dpdCIpLCBjb250cm9sPWdsbWVyQ29udHJvbChvcHRpbWl6ZXI9ImJvYnlxYSIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSkKCiNleHBfcmVnX3JlcGVhdF9laXRfQUNDMyA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwKmNvbmQgKyAoMXxzdWJqX2lkeCksIGRhdGE9cnQsIG5hLmFjdGlvbj1uYS5vbWl0LCAjZmFtaWx5PWJpbm9taWFsKGxpbmsgPSAibG9naXQiKSwgY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPSJib2J5cWEiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpCgojZXhwX3JlZ19yZXBlYXRfZWl0X0FDQzQgPSBnbG1lcihyZXNwb25zZSB+IGV4cCpjb25kICsgZm9pbCArICgxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsICNmYW1pbHk9Ymlub21pYWwobGluayA9ICJsb2dpdCIpLCBjb250cm9sPWdsbWVyQ29udHJvbChvcHRpbWl6ZXI9ImJvYnlxYSIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSkKCmV4cF9yZWdfcmVwZWF0X2VpdF9BQ0M1ID0gZ2xtZXIocmVzcG9uc2UgfiBleHAqY29uZCArIGV4cCpmb2lsICsgKDF8c3Vial9pZHgpLCBkYXRhPXJ0LCBuYS5hY3Rpb249bmEub21pdCwgZmFtaWx5PWJpbm9taWFsKGxpbmsgPSAibG9naXQiKSwgY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPSJib2J5cWEiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpCgojZXhwX3JlZ19yZXBlYXRfZWl0X0FDQzYgPSBnbG1lcihyZXNwb25zZSB+IGV4cCpjb25kKmZvaWwgKyAoMXxzdWJqX2lkeCksIGRhdGE9cnQsIG5hLmFjdGlvbj1uYS5vbWl0LCAjZmFtaWx5PWJpbm9taWFsKGxpbmsgPSAibG9naXQiKSwgY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPSJib2J5cWEiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpCgojZXhwX3JlZ19yZXBlYXRfZWl0X0FDQzcgPSBnbG1lcihyZXNwb25zZSB+IGV4cCpjb25kKmZvaWwgKyBleHAqb3JkZXIgKyAoMXxzdWJqX2lkeCksIGRhdGE9cnQsICNuYS5hY3Rpb249bmEub21pdCwgZmFtaWx5PWJpbm9taWFsKGxpbmsgPSAibG9naXQiKSwgI2NvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj0iYm9ieXFhIixvcHRDdHJsPWxpc3QobWF4ZnVuPTEwMDAwMCkpKQoKI2V4cF9yZWdfcmVwZWF0X2VpdF9BQ0M4ID0gZ2xtZXIocmVzcG9uc2UgfiBleHAqY29uZCpmb2lsICsgZXhwKmNvbmQqb3JkZXIgKyAoMXxzdWJqX2lkeCksIGRhdGE9cnQsICNuYS5hY3Rpb249bmEub21pdCwgZmFtaWx5PWJpbm9taWFsKGxpbmsgPSAibG9naXQiKSwgI2NvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj0iYm9ieXFhIixvcHRDdHJsPWxpc3QobWF4ZnVuPTEwMDAwMCkpKQoKI2Fub3ZhKGV4cF9yZWdfcmVwZWF0X2VpdF9BQ0MwLAojICAgICAgZXhwX3JlZ19yZXBlYXRfZWl0X0FDQzEsCiMgICAgICBleHBfcmVnX3JlcGVhdF9laXRfQUNDMiwKIyAgICAgIGV4cF9yZWdfcmVwZWF0X2VpdF9BQ0MzLAojICAgICAgZXhwX3JlZ19yZXBlYXRfZWl0X0FDQzQsCiMgICAgICBleHBfcmVnX3JlcGVhdF9laXRfQUNDNSwKIyAgICAgIGV4cF9yZWdfcmVwZWF0X2VpdF9BQ0M2LAojICAgICAgZXhwX3JlZ19yZXBlYXRfZWl0X0FDQzcsCiMgICAgICBleHBfcmVnX3JlcGVhdF9laXRfQUNDOCkKCmBgYAoKCmBgYHtyfQojdmlmLmxtZShleHBfcmVnX3JlcGVhdF9laXRfQUNDNikKYGBgCgoKCmBgYHtyfQp2aWYubG1lKGV4cF9yZWdfcmVwZWF0X2VpdF9BQ0M1KQpvdmVyZGlzcChleHBfcmVnX3JlcGVhdF9laXRfQUNDNSkKYGBgCgoKCiMgTW9kZWwgd2l0aCBSZWd1bGFyLCBSZXBlYXQsIFZSVCBhcyByZWZlcmVuY2UKSSBwbGFuIHRvIHVzZSBvbmx5IGV4cF9yZWdfcmVwZWF0XzUgc2luY2UgdGhlIFZhcmlhbmNlIEluZmxhdGlvbiBmYWN0b3JzIGZvciBoaWdoZXIgb3JkZXIgbW9kZWxzIHdlcmUgPiA0LiBBbHRob3VnaCwgbm90ZSwgVklGID4gNCBoYXMgYmVlbiBjYWxsZWQgYSBiYWQgaGV1cmlzdGljLiBOb25ldGhlbGVzcywgSSdsbCB1c2UgaXQgZm9yIG5vdyBhbnl3YXlzLiAKCgpgYGB7cn0Kc3VtbWFyeShleHBfcmVnX3JlcGVhdF9laXRfQUNDNSkKYGBgCgoKIyBNb2RlbCB3aXRoIFJlZ3VsYXIgYW5kIGNvbmZpZyBhbmQgVlJUIGFzIHJlZmVyZW5jZQoKYGBge3J9CiMgUmVndWxhciBhbmQgRUlUIGFzIHJlZmVyZW5jZSAKY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMikKY29sbmFtZXMoYXR0cihydCRjb25kLCAiY29udHJhc3RzIikpID0gYygiLk1hdGgtUmVnIiwiLlNlbS1SZWciLCAiLlZpcy1SZWciKQpwcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGNvbmQsICJjb250cmFzdHMiKQoKIyBDb25maWcgZm9pbCBhbmQgVlJUIGFzIHJlZmVyZW5jZQpjb250cmFzdHMocnQkZm9pbCk8LWNvbnRyLnRyZWF0bWVudCgzLGJhc2UgPSAxKQpjb2xuYW1lcyhhdHRyKHJ0JGZvaWwsICJjb250cmFzdHMiKSkgPSBjKCIuT2RkLUNvbmZpZyIsIi5SZXAtQ29uZmlnIikKcHJpbnQoJ0ZvaWwgQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRmb2lsLCAiY29udHJhc3RzIikKCmV4cF9yZWdfY29uZmlnX2VpdF9BQ0MgPSBnbG1lcihyZXNwb25zZSB+IGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsoMXxzdWJqX2lkeCksIGRhdGE9cnQsIG5hLmFjdGlvbj1uYS5vbWl0LCBmYW1pbHk9Ymlub21pYWwobGluayA9ICJsb2dpdCIpLCBjb250cm9sPWdsbWVyQ29udHJvbChvcHRpbWl6ZXI9ImJvYnlxYSIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSkKc3VtbWFyeShleHBfcmVnX2NvbmZpZ19laXRfQUNDKQpgYGAKCiMgTW9kZWwgd2l0aCBSZWd1bGFyIGFuZCBvZGQgYW5kIFZSVCBhcyByZWZlcmVuY2UKCmBgYHtyfQojIFJlZ3VsYXIgYW5kIEVJVCBhcyByZWZlcmVuY2UgCmNvbnRyYXN0cyhydCRjb25kKTwtY29udHIudHJlYXRtZW50KDQsYmFzZSA9IDIpCmNvbG5hbWVzKGF0dHIocnQkY29uZCwgImNvbnRyYXN0cyIpKSA9IGMoIi5NYXRoLVJlZyIsIi5TZW0tUmVnIiwgIi5WaXMtUmVnIikKcHJpbnQoJ011bHRpdGFzayBDb25kaXRpb24gQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRjb25kLCAiY29udHJhc3RzIikKCgojIE9kZCBmb2lsIGFuZCBWUlQgYXMgcmVmZXJlbmNlCmNvbnRyYXN0cyhydCRmb2lsKTwtY29udHIudHJlYXRtZW50KDMsYmFzZSA9IDIpCmNvbG5hbWVzKGF0dHIocnQkZm9pbCwgImNvbnRyYXN0cyIpKSA9IGMoIi5Db25maWctT2RkIiwiUmVwLU9kZCIpCnByaW50KCdGb2lsIENvbnRyYXN0IE1hdHJpeCcpCmF0dHIocnQkZm9pbCwgImNvbnRyYXN0cyIpCgojIFZSVCBhcyByZWZlcmVuY2UKY29udHJhc3RzKHJ0JGV4cCk8LWNvbnRyLnRyZWF0bWVudCgyLGJhc2UgPSAxKQpjb2xuYW1lcyhhdHRyKHJ0JGV4cCwgImNvbnRyYXN0cyIpKSA9IGMoIi5WUlQtRUlUIikKcHJpbnQoJ0ZvaWwgQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRleHAsICJjb250cmFzdHMiKQoKZXhwX3JlZ19vZGRfZWl0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwICogY29uZCArIGV4cCAqIGZvaWwgKyAoMXxzdWJqX2lkeCksIGRhdGE9cnQsIG5hLmFjdGlvbj1uYS5vbWl0LCBmYW1pbHk9Ymlub21pYWwobGluayA9ICJsb2dpdCIpLCBjb250cm9sPWdsbWVyQ29udHJvbChvcHRpbWl6ZXI9ImJvYnlxYSIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSkKc3VtbWFyeShleHBfcmVnX29kZF9laXRfQUNDKQpgYGAKCgojIE1vZGVsIHdpdGggVmlzdWFsIGFuZCByZXBlYXQgYW5kIFZSVCBhcyByZWZlcmVuY2UKCmBgYHtyfQojIFZpc3VhbCBhbmQgRUlUIGFzIHJlZmVyZW5jZSAKY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gNCkKY29sbmFtZXMoYXR0cihydCRjb25kLCAiY29udHJhc3RzIikpID0gYygiLk1hdGgtVmlzIiwiLlJlZy1WaXMiLCAiLlNlbS1WaXMiKQpwcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGNvbmQsICJjb250cmFzdHMiKQoKIyBSZXBlYXQgZm9pbCBhbmQgVlJUIGFzIHJlZmVyZW5jZQpjb250cmFzdHMocnQkZm9pbCk8LWNvbnRyLnRyZWF0bWVudCgzLGJhc2UgPSAzKQpjb2xuYW1lcyhhdHRyKHJ0JGZvaWwsICJjb250cmFzdHMiKSkgPSBjKCIuQ29uZmlnLVJlcCIsIi5PZGQtUmVwIikKcHJpbnQoJ0ZvaWwgQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRmb2lsLCAiY29udHJhc3RzIikKCiMgIFZSVCBhcyByZWZlcmVuY2UKY29udHJhc3RzKHJ0JGV4cCk8LWNvbnRyLnRyZWF0bWVudCgyLGJhc2UgPSAxKQpjb2xuYW1lcyhhdHRyKHJ0JGV4cCwgImNvbnRyYXN0cyIpKSA9IGMoIi5WUlQtRUlUIikKcHJpbnQoJ0ZvaWwgQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRleHAsICJjb250cmFzdHMiKQoKZXhwX3Zpc19yZXBlYXRfZWl0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwICogY29uZCArIGV4cCAqIGZvaWwgKygxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsIGZhbWlseT1iaW5vbWlhbChsaW5rID0gImxvZ2l0IiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj0iYm9ieXFhIixvcHRDdHJsPWxpc3QobWF4ZnVuPTEwMDAwMCkpKQpzdW1tYXJ5KGV4cF92aXNfcmVwZWF0X2VpdF9BQ0MpCmBgYAoKCiMgTW9kZWwgd2l0aCBWaXN1YWwgYW5kIENvbmZpZyBhbmQgRUlUIGFzIHJlZmVyZW5jZSAKCmBgYHtyfQojIFZpc3VhbCBhbmQgRUlUIGFzIHJlZmVyZW5jZSAKY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gNCkKY29sbmFtZXMoYXR0cihydCRjb25kLCAiY29udHJhc3RzIikpID0gYygiLk1hdGgtVmlzIiwiLlJlZy1WaXMiLCAiLlNlbS1WaXMiKQpwcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGNvbmQsICJjb250cmFzdHMiKQoKIyBDb25maWcgZm9pbCBhbmQgVlJUIGFzIHJlZmVyZW5jZQpjb250cmFzdHMocnQkZm9pbCk8LWNvbnRyLnRyZWF0bWVudCgzLGJhc2UgPSAxKQpjb2xuYW1lcyhhdHRyKHJ0JGZvaWwsICJjb250cmFzdHMiKSkgPSBjKCIuT2RkLUNvbmZpZyIsIi5SZXAtQ29uZmlnIikKcHJpbnQoJ0ZvaWwgQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRmb2lsLCAiY29udHJhc3RzIikKCiMgIFZSVCBhcyByZWZlcmVuY2UKY29udHJhc3RzKHJ0JGV4cCk8LWNvbnRyLnRyZWF0bWVudCgyLGJhc2UgPSAxKQpjb2xuYW1lcyhhdHRyKHJ0JGV4cCwgImNvbnRyYXN0cyIpKSA9IGMoIi5WUlQtRUlUIikKcHJpbnQoJ0ZvaWwgQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRleHAsICJjb250cmFzdHMiKQoKZXhQX3Zpc19jb25maWdfZWl0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gZXhwICogY29uZCArIGV4cCAqIGZvaWwgKygxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsIGZhbWlseT1iaW5vbWlhbChsaW5rID0gImxvZ2l0IiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj0iYm9ieXFhIixvcHRDdHJsPWxpc3QobWF4ZnVuPTEwMDAwMCkpKQpzdW1tYXJ5KGV4UF92aXNfY29uZmlnX2VpdF9BQ0MpCmBgYAoKCiMgTW9kZWwgd2l0aCBWaXN1YWwgYW5kIG9kZCBhbmQgRUlUIGFzIHJlZmVyZW5jZSAKCmBgYHtyfQojIFZpc3VhbCBhbmQgRUlUIGFzIHJlZmVyZW5jZSAKY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gNCkKY29sbmFtZXMoYXR0cihydCRjb25kLCAiY29udHJhc3RzIikpID0gYygiLk1hdGgtVmlzIiwiLlJlZy1WaXMiLCAiLlNlbS1WaXMiKQpwcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGNvbmQsICJjb250cmFzdHMiKQoKIyBPZGQgZm9pbCBhbmQgVlJUIGFzIHJlZmVyZW5jZQpjb250cmFzdHMocnQkZm9pbCk8LWNvbnRyLnRyZWF0bWVudCgzLGJhc2UgPSAyKQpjb2xuYW1lcyhhdHRyKHJ0JGZvaWwsICJjb250cmFzdHMiKSkgPSBjKCIuQ29uZmlnLU9kZCIsIlJlcC1PZGQiKQpwcmludCgnRm9pbCBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGZvaWwsICJjb250cmFzdHMiKQoKIyAgVlJUIGFzIHJlZmVyZW5jZQpjb250cmFzdHMocnQkZXhwKTwtY29udHIudHJlYXRtZW50KDIsYmFzZSA9IDEpCmNvbG5hbWVzKGF0dHIocnQkZXhwLCAiY29udHJhc3RzIikpID0gYygiLlZSVC1FSVQiKQpwcmludCgnRm9pbCBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGV4cCwgImNvbnRyYXN0cyIpCgpleHBfdmlzX29kZF9laXRfQUNDID0gZ2xtZXIocmVzcG9uc2UgfiAgZXhwICogY29uZCArIGV4cCAqIGZvaWwgKygxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsIGZhbWlseT1iaW5vbWlhbChsaW5rID0gImxvZ2l0IiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj0iYm9ieXFhIixvcHRDdHJsPWxpc3QobWF4ZnVuPTEwMDAwMCkpKQpzdW1tYXJ5KGV4cF92aXNfb2RkX2VpdF9BQ0MpCmBgYAoKCiMgTW9kZWwgd2l0aCBNYXRoIGFuZCByZXBlYXQgYW5kIFZSVCBhcyByZWZlcmVuY2UKCmBgYHtyfQojIENvbmRpdGlvbiBDb250cmFzdHMgCiMgTWF0aCBhbmQgRUlUIGFzIHJlZmVyZW5jZSAKY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMSkKY29sbmFtZXMoYXR0cihydCRjb25kLCAiY29udHJhc3RzIikpID0gYygiLlJlZy1NYXRoIiwiLlNlbS1NYXRoIiwgIi5WaXMtTWF0aCIpCnByaW50KCdNdWx0aXRhc2sgQ29uZGl0aW9uIENvbnRyYXN0IE1hdHJpeCcpCmF0dHIocnQkY29uZCwgImNvbnRyYXN0cyIpCgojIFJlcGVhdCBmb2lsIGFuZCBWUlQgYXMgcmVmZXJlbmNlCmNvbnRyYXN0cyhydCRmb2lsKTwtY29udHIudHJlYXRtZW50KDMsYmFzZSA9IDMpCmNvbG5hbWVzKGF0dHIocnQkZm9pbCwgImNvbnRyYXN0cyIpKSA9IGMoIi5Db25maWctUmVwIiwiLk9kZC1SZXAiKQpwcmludCgnRm9pbCBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGZvaWwsICJjb250cmFzdHMiKQoKIyAgVlJUIGFzIHJlZmVyZW5jZQpjb250cmFzdHMocnQkZXhwKTwtY29udHIudHJlYXRtZW50KDIsYmFzZSA9IDEpCmNvbG5hbWVzKGF0dHIocnQkZXhwLCAiY29udHJhc3RzIikpID0gYygiLlZSVC1FSVQiKQpwcmludCgnRm9pbCBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGV4cCwgImNvbnRyYXN0cyIpCgpleHBfbWF0aF9yZXBlYXRfZWl0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gIGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsoMXxzdWJqX2lkeCksIGRhdGE9cnQsIG5hLmFjdGlvbj1uYS5vbWl0LCBmYW1pbHk9Ymlub21pYWwobGluayA9ICJsb2dpdCIpLCBjb250cm9sPWdsbWVyQ29udHJvbChvcHRpbWl6ZXI9ImJvYnlxYSIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSkKc3VtbWFyeShleHBfbWF0aF9yZXBlYXRfZWl0X0FDQykKYGBgCgoKIyBNb2RlbCB3aXRoIE1hdGggYW5kIGNvbmZpZyBhbmQgVlJUIGFzIHJlZmVyZW5jZQoKYGBge3J9CiMgQ29uZGl0aW9uIENvbnRyYXN0cyAKIyBNYXRoIGFuZCBFSVQgYXMgcmVmZXJlbmNlIApjb250cmFzdHMocnQkY29uZCk8LWNvbnRyLnRyZWF0bWVudCg0LGJhc2UgPSAxKQpjb2xuYW1lcyhhdHRyKHJ0JGNvbmQsICJjb250cmFzdHMiKSkgPSBjKCIuUmVnLU1hdGgiLCIuU2VtLU1hdGgiLCAiLlZpcy1NYXRoIikKcHJpbnQoJ011bHRpdGFzayBDb25kaXRpb24gQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRjb25kLCAiY29udHJhc3RzIikKCiMgQ29uZmlnIGZvaWwgYW5kIFZSVCBhcyByZWZlcmVuY2UKY29udHJhc3RzKHJ0JGZvaWwpPC1jb250ci50cmVhdG1lbnQoMyxiYXNlID0gMSkKY29sbmFtZXMoYXR0cihydCRmb2lsLCAiY29udHJhc3RzIikpID0gYygiLk9kZC1Db25maWciLCIuUmVwLUNvbmZpZyIpCnByaW50KCdGb2lsIENvbnRyYXN0IE1hdHJpeCcpCmF0dHIocnQkZm9pbCwgImNvbnRyYXN0cyIpCgojICBWUlQgYXMgcmVmZXJlbmNlCmNvbnRyYXN0cyhydCRleHApPC1jb250ci50cmVhdG1lbnQoMixiYXNlID0gMSkKY29sbmFtZXMoYXR0cihydCRleHAsICJjb250cmFzdHMiKSkgPSBjKCIuVlJULUVJVCIpCnByaW50KCdGb2lsIENvbnRyYXN0IE1hdHJpeCcpCmF0dHIocnQkZXhwLCAiY29udHJhc3RzIikKCmV4cF9tYXRoX2NvbmZpZ19laXRfQUNDID0gZ2xtZXIocmVzcG9uc2UgfiAgZXhwICogY29uZCArIGV4cCAqIGZvaWwgKygxfHN1YmpfaWR4KSwgZGF0YT1ydCwgbmEuYWN0aW9uPW5hLm9taXQsIGZhbWlseT1iaW5vbWlhbChsaW5rID0gImxvZ2l0IiksIGNvbnRyb2w9Z2xtZXJDb250cm9sKG9wdGltaXplcj0iYm9ieXFhIixvcHRDdHJsPWxpc3QobWF4ZnVuPTEwMDAwMCkpKQpzdW1tYXJ5KGV4cF9tYXRoX2NvbmZpZ19laXRfQUNDKQpgYGAKCgojIE1vZGVsIHdpdGggTWF0aCBhbmQgb2RkIGFuZCBWUlQgYXMgcmVmZXJlbmNlCgpgYGB7cn0KIyBDb25kaXRpb24gQ29udHJhc3RzIAojIE1hdGggYW5kIEVJVCBhcyByZWZlcmVuY2UgCmNvbnRyYXN0cyhydCRjb25kKTwtY29udHIudHJlYXRtZW50KDQsYmFzZSA9IDEpCmNvbG5hbWVzKGF0dHIocnQkY29uZCwgImNvbnRyYXN0cyIpKSA9IGMoIi5SZWctTWF0aCIsIi5TZW0tTWF0aCIsICIuVmlzLU1hdGgiKQpwcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGNvbmQsICJjb250cmFzdHMiKQoKCiMgT2RkIGZvaWwgYW5kIFZSVCBhcyByZWZlcmVuY2UKY29udHJhc3RzKHJ0JGZvaWwpPC1jb250ci50cmVhdG1lbnQoMyxiYXNlID0gMikKY29sbmFtZXMoYXR0cihydCRmb2lsLCAiY29udHJhc3RzIikpID0gYygiLkNvbmZpZy1PZGQiLCJSZXAtT2RkIikKcHJpbnQoJ0ZvaWwgQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRmb2lsLCAiY29udHJhc3RzIikKCgojICBWUlQgYXMgcmVmZXJlbmNlCmNvbnRyYXN0cyhydCRleHApPC1jb250ci50cmVhdG1lbnQoMixiYXNlID0gMSkKY29sbmFtZXMoYXR0cihydCRleHAsICJjb250cmFzdHMiKSkgPSBjKCIuVlJULUVJVCIpCnByaW50KCdGb2lsIENvbnRyYXN0IE1hdHJpeCcpCmF0dHIocnQkZXhwLCAiY29udHJhc3RzIikKCmV4cF9tYXRoX29kZF9laXRfQUNDID0gZ2xtZXIocmVzcG9uc2UgfiBleHAgKiBjb25kICsgZXhwICogZm9pbCArKDF8c3Vial9pZHgpLCBkYXRhPXJ0LCBuYS5hY3Rpb249bmEub21pdCwgZmFtaWx5PWJpbm9taWFsKGxpbmsgPSAibG9naXQiKSwgY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPSJib2J5cWEiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpCnN1bW1hcnkoZXhwX21hdGhfb2RkX2VpdF9BQ0MpCmBgYAoKCiMgTW9kZWwgd2l0aCBTZW1hbnRpYyBhbmQgcmVwZWF0IGFuZCBWUlQgYXMgcmVmZXJlbmNlCgpgYGB7cn0KIyBTZW1hbnRpYyBhbmQgRUlUIGFzIHJlZmVyZW5jZSAKY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMykKY29sbmFtZXMoYXR0cihydCRjb25kLCAiY29udHJhc3RzIikpID0gYygiLk1hdGgtU2VtIiwiLlJlZy1TZW0iLCAiLlZpcy1TZW0iKQpwcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGNvbmQsICJjb250cmFzdHMiKQoKIyBSZXBlYXQgZm9pbCBhbmQgVlJUIGFzIHJlZmVyZW5jZQpjb250cmFzdHMocnQkZm9pbCk8LWNvbnRyLnRyZWF0bWVudCgzLGJhc2UgPSAzKQpjb2xuYW1lcyhhdHRyKHJ0JGZvaWwsICJjb250cmFzdHMiKSkgPSBjKCIuQ29uZmlnLVJlcCIsIi5PZGQtUmVwIikKcHJpbnQoJ0ZvaWwgQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRmb2lsLCAiY29udHJhc3RzIikKCgojICBWUlQgYXMgcmVmZXJlbmNlCmNvbnRyYXN0cyhydCRleHApPC1jb250ci50cmVhdG1lbnQoMixiYXNlID0gMSkKY29sbmFtZXMoYXR0cihydCRleHAsICJjb250cmFzdHMiKSkgPSBjKCIuVlJULUVJVCIpCnByaW50KCdGb2lsIENvbnRyYXN0IE1hdHJpeCcpCmF0dHIocnQkZXhwLCAiY29udHJhc3RzIikKCmV4cF9zZW1fcmVwZWF0X2VpdF9BQ0MgPSBnbG1lcihyZXNwb25zZSB+IGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsoMXxzdWJqX2lkeCksIGRhdGE9cnQsIG5hLmFjdGlvbj1uYS5vbWl0LCBmYW1pbHk9Ymlub21pYWwobGluayA9ICJsb2dpdCIpLCBjb250cm9sPWdsbWVyQ29udHJvbChvcHRpbWl6ZXI9ImJvYnlxYSIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSkKc3VtbWFyeShleHBfc2VtX3JlcGVhdF9laXRfQUNDKQpgYGAKCiMgTW9kZWwgd2l0aCBTZW1hbnRpYyBhbmQgY29uZmlnIGFuZCBWUlQgYXMgcmVmZXJlbmNlCgpgYGB7cn0KIyBTZW1hbnRpYyBhbmQgRUlUIGFzIHJlZmVyZW5jZSAKY29udHJhc3RzKHJ0JGNvbmQpPC1jb250ci50cmVhdG1lbnQoNCxiYXNlID0gMykKY29sbmFtZXMoYXR0cihydCRjb25kLCAiY29udHJhc3RzIikpID0gYygiLk1hdGgtU2VtIiwiLlJlZy1TZW0iLCAiLlZpcy1TZW0iKQpwcmludCgnTXVsdGl0YXNrIENvbmRpdGlvbiBDb250cmFzdCBNYXRyaXgnKQphdHRyKHJ0JGNvbmQsICJjb250cmFzdHMiKQoKIyBDb25maWcgZm9pbCBhbmQgVlJUIGFzIHJlZmVyZW5jZQpjb250cmFzdHMocnQkZm9pbCk8LWNvbnRyLnRyZWF0bWVudCgzLGJhc2UgPSAxKQpjb2xuYW1lcyhhdHRyKHJ0JGZvaWwsICJjb250cmFzdHMiKSkgPSBjKCIuT2RkLUNvbmZpZyIsIi5SZXAtQ29uZmlnIikKcHJpbnQoJ0ZvaWwgQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRmb2lsLCAiY29udHJhc3RzIikKCgojICBWUlQgYXMgcmVmZXJlbmNlCmNvbnRyYXN0cyhydCRleHApPC1jb250ci50cmVhdG1lbnQoMixiYXNlID0gMSkKY29sbmFtZXMoYXR0cihydCRleHAsICJjb250cmFzdHMiKSkgPSBjKCIuVlJULUVJVCIpCnByaW50KCdGb2lsIENvbnRyYXN0IE1hdHJpeCcpCmF0dHIocnQkZXhwLCAiY29udHJhc3RzIikKCmV4cF9zZW1fY29uZmlnX2VpdF9BQ0MgPSBnbG1lcihyZXNwb25zZSB+IGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsgKDF8c3Vial9pZHgpLCBkYXRhPXJ0LCBuYS5hY3Rpb249bmEub21pdCwgZmFtaWx5PWJpbm9taWFsKGxpbmsgPSAibG9naXQiKSwgY29udHJvbD1nbG1lckNvbnRyb2wob3B0aW1pemVyPSJib2J5cWEiLG9wdEN0cmw9bGlzdChtYXhmdW49MTAwMDAwKSkpCnN1bW1hcnkoZXhwX3NlbV9jb25maWdfZWl0X0FDQykKYGBgCgoKIyBNb2RlbCB3aXRoIFNlbWFudGljIGFuZCBvZGQgYW5kIFZSVCBhcyByZWZlcmVuY2UKCmBgYHtyfQojIFNlbWFudGljIGFuZCBFSVQgYXMgcmVmZXJlbmNlIApjb250cmFzdHMocnQkY29uZCk8LWNvbnRyLnRyZWF0bWVudCg0LGJhc2UgPSAzKQpjb2xuYW1lcyhhdHRyKHJ0JGNvbmQsICJjb250cmFzdHMiKSkgPSBjKCIuTWF0aC1TZW0iLCIuUmVnLVNlbSIsICIuVmlzLVNlbSIpCnByaW50KCdNdWx0aXRhc2sgQ29uZGl0aW9uIENvbnRyYXN0IE1hdHJpeCcpCmF0dHIocnQkY29uZCwgImNvbnRyYXN0cyIpCgoKIyBPZGQgZm9pbCBhbmQgVlJUIGFzIHJlZmVyZW5jZQpjb250cmFzdHMocnQkZm9pbCk8LWNvbnRyLnRyZWF0bWVudCgzLGJhc2UgPSAyKQpjb2xuYW1lcyhhdHRyKHJ0JGZvaWwsICJjb250cmFzdHMiKSkgPSBjKCIuQ29uZmlnLU9kZCIsIi5Db25maWctT2RkIikKcHJpbnQoJ0ZvaWwgQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRmb2lsLCAiY29udHJhc3RzIikKCiMgIFZSVCBhcyByZWZlcmVuY2UKY29udHJhc3RzKHJ0JGV4cCk8LWNvbnRyLnRyZWF0bWVudCgyLGJhc2UgPSAxKQpjb2xuYW1lcyhhdHRyKHJ0JGV4cCwgImNvbnRyYXN0cyIpKSA9IGMoIi5WUlQtRUlUIikKcHJpbnQoJ0ZvaWwgQ29udHJhc3QgTWF0cml4JykKYXR0cihydCRleHAsICJjb250cmFzdHMiKQoKZXhwX3NlbV9vZGRfZWl0X0FDQyA9IGdsbWVyKHJlc3BvbnNlIH4gIGV4cCAqIGNvbmQgKyBleHAgKiBmb2lsICsoMXxzdWJqX2lkeCksIGRhdGE9cnQsIG5hLmFjdGlvbj1uYS5vbWl0LCBmYW1pbHk9Ymlub21pYWwobGluayA9ICJsb2dpdCIpLCBjb250cm9sPWdsbWVyQ29udHJvbChvcHRpbWl6ZXI9ImJvYnlxYSIsb3B0Q3RybD1saXN0KG1heGZ1bj0xMDAwMDApKSkKc3VtbWFyeShleHBfc2VtX29kZF9laXRfQUNDKQpgYGAK</div>
 
 
 
