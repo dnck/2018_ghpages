@@ -2,6 +2,7 @@
 layout: post
 title: text-mining
 date: 2017-08-06
+comments: true
 ---
 
 <div class="container-fluid">

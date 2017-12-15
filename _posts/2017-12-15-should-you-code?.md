@@ -5,8 +5,6 @@ date: 2017-12-15
 comments: true
 ---
 
-<a href="#disqus_thread">Link</a>.
-
 I discovered Jeff Atwood's blog by asking Google,
 
 <blockquote class="blockquote">

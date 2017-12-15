@@ -2,6 +2,7 @@
 layout: post
 title: spinning fractals!
 date: 2017-06-04
+comments: true
 ---
 
 <div class="container-fluid">
