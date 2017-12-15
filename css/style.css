@@ -68,3 +68,57 @@ hr.faded {
 #dropdownMenu1{
       background-color: #ffffff;
 }
+
+blockquote {
+  background: #fff;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
+blockquote:after {
+    color: #ccc;
+    content: close-quote;
+    font-size: 4em;
+    line-height: .1em;
+    margin-right: .25em;
+    vertical-align: -0.4em;}
+
+/* --- disqus css -- */
+
+#disqus_thread {
+color: #fff;
+border-style: 0px solid;
+border-color: #cccccc;
+padding: 100px;
+}
+
+#dsq-content #dsq-comments .dsq-comment-body {
+color: #fff;
+background-color: #000000;
+}
+
+.dsq-reaction-body {
+color: #fff;
+}
+
+.dsq-reaction-header cite, .dsq-reaction-header span {
+color: #ccc;
+}
+
+.dsq-reaction-retweets {
+color: #ccc;
+}
+
+/*--- end disqus css --*/
