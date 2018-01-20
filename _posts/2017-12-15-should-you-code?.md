@@ -2,6 +2,7 @@
 layout: post
 title: Should you learn code?
 date: 2017-12-15
+
 comments: true
 ---
 
@@ -13,9 +14,9 @@ What percentage of websites have shitty code?
 
 Jeff's blog post, "Please don't learn to code" was the third hit on google.     You can read his answer <a href="https://blog.codinghorror.com/please-dont-learn-to-code/">here</a>.
 
-Jeff is a co-founder of the Q&A forum for programmers, Stack Overflow and Stack Exchange. He's a developer of the open source discussion platform, Discourse (maybe you've used it?) and he's the author of the blog, Coding Horror.
+Jeff is one of the founders of the Q&A forum for programmers, Stack Overflow and Stack Exchange. He's a developer of the open source discussion platform, Discourse and he's the author of the blog, Coding Horror (link above).
 
-Disclaimer: I didn't actually interview Jeff Atwood for this post. Instead I took some of his quotes from the linked blog post, and I answered my own questions. I think he'd probably endorse the context, but if not, he can always let me know, and I'd be happy to edit it.
+I didn't actually interview Jeff Atwood for this post. Instead I took some of his quotes from the linked blog post, and I answered my own questions. I think he'd probably endorse the context, but if not, he can always let me know, and I'd be happy to edit it.
 
 <!--<hr class="faded">-->
 <blockquote class="blockquote" >
