@@ -19,7 +19,10 @@ body {
 h1, h2, h3, h4, h4, h5, h6 {
   text-shadow: 0 2px 2px rgba(0,0,0,.5);
 }
-*/
+
+
+
+
 .highlight
 {
   background-color:  #000000 ;
@@ -27,7 +30,14 @@ h1, h2, h3, h4, h4, h5, h6 {
 .language-python{
   color: #5a656e;
 }
-/*color: #aad3ff;*/
+
+
+color: #aad3ff;
+
+
+*/
+
+
 a,
 a:focus
 a:hover {
