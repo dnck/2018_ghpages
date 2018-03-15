@@ -2,21 +2,18 @@
 layout: post
 title: Should you learn code?
 date: 2017-12-15
-
 comments: true
 ---
-
-I discovered Jeff Atwood's blog by asking Google,
 
 <blockquote class="blockquote">
 What percentage of websites have shitty code?
 </blockquote>
 
-Jeff's blog post, "Please don't learn to code" was the third hit on google.     You can read his answer <a href="https://blog.codinghorror.com/please-dont-learn-to-code/">here</a>.
+Jeff Atwood's blog post,     <a href="https://blog.codinghorror.com/please-dont-learn-to-code/">Please don't learn to code</a>, was the third hit on google when I asked that question.
 
-Jeff is one of the founders of the Q&A forum for programmers, Stack Overflow and Stack Exchange. He's a developer of the open source discussion platform, Discourse and he's the author of the blog, Coding Horror (link above).
+Jeff is one of the founders of the Q&A forum for programmers, Stack Overflow and Stack Exchange.
 
-I didn't actually interview Jeff Atwood for this post. Instead I took some of his quotes from the linked blog post, and I answered my own questions. I think he'd probably endorse the context, but if not, he can always let me know, and I'd be happy to edit it.
+I wanted to interview Jeff for this post, but I think I code (see what I did there?) answer my own questions with quotes from his blog post (see below).
 
 <!--<hr class="faded">-->
 
@@ -54,3 +51,5 @@ Well, first figure out what your problem is.
 </blockquote>
 
 <hr>
+
+ I think Jeff would probably endorse how I used his quotes, but if not, he can always let me know. I'd be happy to edit it.
