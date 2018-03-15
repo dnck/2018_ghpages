@@ -20,38 +20,33 @@ I didn't actually interview Jeff Atwood for this post. Instead I took some of hi
 
 <!--<hr class="faded">-->
 
-## I’m thinking about a career in programming. Should I learn to code?
+**I’m thinking about a career in programming. Should I learn to code?**
 
 <blockquote class="blockquote blockquote-reverse">
 No, I can’t get behind that.
 </blockquote>
 
-##
-  What should I do instead?  
-
+**What should I do instead?  **
 
 <blockquote class="blockquote blockquote-reverse">
 You should learn to understand how the things around [you] work at a basic level and also learn how to communicate effectively with other human beings.
 </blockquote>
 
-##
-But there so many programming jobs out there. The world needs programmers, right?   
+**But there so many programming jobs out there. The world needs programmers, right? **
 
 
 <blockquote class="blockquote blockquote-reverse">
 There are so many jobs in the field because one bad programmer can easily create two new jobs a year.
 </blockquote>
 
-##
-  Oh, damn, does that mean that the job market is inflated because of shitty code?   
+**Do you think the job market is inflated because of shitty code?**
 
 
 <blockquote class="blockquote blockquote-reverse">
 Yes, we have way too many coders addicted to doing just one more line.
 </blockquote>
 
-##
-Ok, but what if I really like the methods, and I wanna code for a living?
+**What if I really like computer science methods, and I want to code for a living? Should I learn how to code?**
 
 
 <blockquote class="blockquote blockquote-reverse">
