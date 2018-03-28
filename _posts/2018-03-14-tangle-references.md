@@ -1,9 +1,14 @@
 ---
 layout: post
-title: tangle references
+title: Distributed Systems References - with a focus on Blockchains & DAGs
 date: 2018-03-14
 comments: true
 ---
+
+## Blockchains
+[What's the difference between a Distributed Hash Table and a Distributed Ledger?](https://stackoverflow.com/questions/26415908/whats-the-difference-between-distributed-hashtable-technology-and-the-bitcoin-b)
+
+[A Survey of DHT Security Techniques](http://disi.unitn.it/~montreso/ds/papers/DhtSecuritySurvey.pdf)
 
 **Here's my growing list of references on IOTA's Tangle.**
 
@@ -29,3 +34,17 @@ comments: true
 [What's a signature anyway?](http://learnmeabitcoin.com/guide/private_keys)
 
 [One time signatures](https://www.javaworld.com/article/2078022/open-source-tools/lamport-s-one-time-password-algorithm--or--don-t-talk-to-complete-strangers--.html)
+
+[Lamport signature: How many signatures are needed to forge a signature?](https://crypto.stackexchange.com/questions/2640/lamport-signature-how-many-signatures-are-needed-to-forge-a-signature)
+
+[Hash based signatures by Adam Langley from Google](https://www.imperialviolet.org/2013/07/18/hashsig.html)
+
+## Asynchronous Processes & Rules
+[Ordered asynchronous processes in multi-agent systems](https://www.sciencedirect.com/science/article/pii/S0167278905001338)
+
+## Sensor Networks
+[Designing Secure Wireless Sensor Networks](https://disco.ethz.ch/courses/ws0506/seminar/papers/secure_networks.pdf)
+
+[The Platforms enabling Wireless Sensor Networks](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.479.17&rep=rep1&type=pdf)
+
+[A Survey of MAC Protocols for Sensor Networks](http://users.eecs.northwestern.edu/~peters/references/MACSurveryNaik04.pdf)
