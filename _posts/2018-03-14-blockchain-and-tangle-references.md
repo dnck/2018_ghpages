@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Distributed Systems References - with a focus on Blockchains & DAGs
+title: Blockchain & Tangle References
 date: 2018-03-14
 comments: true
 ---
