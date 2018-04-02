@@ -7,7 +7,9 @@ comments: true
 
 I recently read <a href = "http://juanrloaiza.blogspot.de/2017/08/whos-most-mentioned-philosopher-in-sep.html"> a friend's post</a> on mining the Stanford Encyclopedia of Philosophy. I wanted to refresh my knowledge of KNN-Models and I spent some free time writing a Python script for scraping and analyzing random entries from the SEP. The image below shows the connections between the subset of the SEP that I mined. You can find the code for producing the image below, along with a table of the metrics.
 
-I will summarize what I've learned some time else. But, in general, this looks like a promising method to uncover similarity within linguistic corpuses. 
+I will summarize what I've learned some time else. But, in general, this looks like a promising method to uncover similarity within linguistic corpuses.
+
+Note: if you decide to run this code, the function preprocess() is still incredibly time consuming because I suck at sanitizing text.
 
 <div class="container-fluid">
 	<div class="row">
@@ -18,7 +20,9 @@ I will summarize what I've learned some time else. But, in general, this looks l
 </div>
 <br>
 
-```
+Figure 1. Directed Graph of the nearest neighbors for 35 articles. Scroll down to see another DA with 100 articles.
+
+{% highlight python %}
 # -*- coding: utf-8 -*-
 # dnck
 # April 1 2018
@@ -34,14 +38,14 @@ import networkx as nx
 import pygraphviz as pgv
 from matplotlib import pyplot as plt
 from nxpd import draw, nxpdParams
-%matplotlib inline
+
 
 #-----------@student.hu-berlin.de
 #graphlab.product_key.get_product_key()
 
 ##########################################################
 # Set your path. You write text files here and you save the SFrame.
-workDir=os.path.normpath('/Users/--------/ml/stanfordMine/')   
+workDir=os.path.normpath('/Users/cookdj0128/ml/stanfordMine/')
 # Do not be a square. Failure to follow the rules may result in data loss.
 ##########################################################
 
@@ -51,7 +55,6 @@ def scrapStanford(nruns=int):
         #start scrapping the encyclopedia
         http = requests.get("https://plato.stanford.edu/cgi-bin/encyclopedia/random")
         soup = bs.BeautifulSoup(http.content)
-
 
         #Get the p tags and string them.
         thisEntry=[]
@@ -69,7 +72,7 @@ def scrapStanford(nruns=int):
                 strText.append(i)
             except:
                 i = str(i.encode("utf-8")).replace("<em>"," ").replace("</em>", " ")
-                strText.append(i)     
+                strText.append(i)
 
         #get the title and string it
         try:
@@ -91,7 +94,7 @@ def scrapStanford(nruns=int):
             thisauthor2 = soup.findAll('meta', attrs={'name': "citation_author"})
             authors.append(thisauthor2[0]['content'])
 
-        #save the txt files from the scrap   
+        #save the txt files from the scrap
         #these are inherently dirty text files that need to be cleaned.
         with open(workDir+os.sep+title.replace(" ", "")+".txt",'w') as f:
             f.write(title)
@@ -107,8 +110,10 @@ def getDocument(thetextfile=str):
             text.append(line)
     return text
 
-def preprocess(textfile=list):  
-
+def preprocess(textfile=list):
+    """
+    THIS IS STILL HORRIBLE BECAUSE IT CHECKS EVERY SINGLE WORD FOR ERRORS.
+    """
     #put the text in a pandas.df and gl.SFrame for analysis
     df = pandas.DataFrame([['','','']], columns=['entry', 'authors', 'text'])
     df["entry"] = textfile[0].rstrip()
@@ -160,6 +165,7 @@ def createCorpus(workDir=str, scrap=False):
     return df
 
 
+
 def buildModels(df=graphlab.SFrame, show_sorted_word_count=False):
 
     df['tfidf'] = graphlab.text_analytics.tf_idf(df['word_count'])
@@ -173,7 +179,7 @@ def buildModels(df=graphlab.SFrame, show_sorted_word_count=False):
 
     return df, knn_model
 
-def showNetwork(sim_graph=knn_model.similarity_graph):
+def showNetwork(sim_graph):
     # convert to NetworkX graph
     src = [sim_graph.edges['__src_id'][i][0:24].rstrip() for i in range(sim_graph.edges['__src_id'].shape[0])]
     dst = [sim_graph.edges['__dst_id'][i][0:24].rstrip() for i in range(sim_graph.edges['__dst_id'].shape[0])]
@@ -187,18 +193,18 @@ def showNetwork(sim_graph=knn_model.similarity_graph):
     g.add_edges_from(connections)
     # Draw it and show on screen
     draw(g)
-    #plt.show()
+        #plt.show()
 
-if name == "__main__":
-	df = createCorpus(workDir=workDir, scrap=False)
-	df, knn_model = buildModels(df=df, show_sorted_word_count=False)
-	sim_graph = knn_model.similarity_graph(k=3)
-	#sim_graph.show(vlabel='id', arrows=True);
-	showNetwork(sim_graph=sim_graph)
-	nearestNeighbors = knn_model.query(df, 'entry');
-	nearestNeighbors.print_rows(num_rows=180, num_columns=2)
+#if __name__ == "__main__":
+#	df = createCorpus(workDir=workDir, scrap=False)
+#	df, knn_model = buildModels(df=df, show_sorted_word_count=False)
+#	sim_graph = knn_model.similarity_graph(k=3)
+#	#sim_graph.show(vlabel='id', arrows=True);
+#	showNetwork(sim_graph=sim_graph)
+#	nearestNeighbors = knn_model.query(df, 'entry');
+#	nearestNeighbors.print_rows(num_rows=180, num_columns=2)
 
-```
+{% endhighlight %}
 
 ## A Subset of articles in the SEP along with their nearest neighbors.
 
@@ -384,3 +390,14 @@ if name == "__main__":
 |          Dialetheism          |      Episteme and Techne      |		0.930745099
 |          Dialetheism          |         Ernst Cassirer        |		0.936979938
 |          Dialetheism          |            Dualism            |		0.938811062
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class = "col-md-6">
+			<img src="http://www.danjcook.com/images/stanfordmine2.png" class="img-fluid">
+		</div>
+	</div>
+</div>
+<br>
+Figure 2. Directed Graph of the nearest neighbors for 100 articles.
