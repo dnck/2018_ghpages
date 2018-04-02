@@ -19,6 +19,9 @@ comments: true
 
 [Explain the tangle to me like I'm 5 years old](http://elm.nyc/research-1/2018/2/15/iota-tangle-eli5)
 
+https://iotasupport.com/how-addresses-are-used-in-IOTA.shtml
+https://domschiener.gitbooks.io/iota-guide/content/chapter1/seeds-private-keys-and-addresses.html
+
 ## Tangle low level
 [Tangle (Popov, 2017)](https://iota.org/IOTA_Whitepaper.pdf)
 
@@ -48,3 +51,6 @@ comments: true
 [The Platforms enabling Wireless Sensor Networks](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.479.17&rep=rep1&type=pdf)
 
 [A Survey of MAC Protocols for Sensor Networks](http://users.eecs.northwestern.edu/~peters/references/MACSurveryNaik04.pdf)
+
+## crypto
+[Crypto Textbook](http://www.crypto-textbook.com)
