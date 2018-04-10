@@ -6,7 +6,7 @@ comments: true
 ---
 
 ## Distributed Systems
-A survey and comparison of P2P Overlay Network Schemes (https://www.cl.cam.ac.uk/research/dtg/www/files/publications/public/mp431/ieee-survey.pdf)
+[A survey and comparison of P2P Overlay Network Schemes](https://www.cl.cam.ac.uk/research/dtg/www/files/publications/public/mp431/ieee-survey.pdf)
 
 ## Consensus
 [Byzantine Quorum Systems](http://www.cs.utexas.edu/users/lorenzo/corsi/cs380d/papers/bquorum-dc.pdf)
@@ -79,7 +79,7 @@ A survey and comparison of P2P Overlay Network Schemes (https://www.cl.cam.ac.uk
 ## Distributed Computing
 [Hadoop: Setting up a Single Node Cluster](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html)
 
-[boinc: Open-source software for volunteer computing](https://boinc.berkeley.edu)
+[boinc: Open-source software for volunteer computing](https://boinc.berkeley.edu)<br>
 Use the idle time on your computer (Windows, Mac, Linux, or Android) to cure diseases, study global warming, discover pulsars, and do many other types of scientific research. It's safe, secure, and easy.
 
 [Gridcoin](http://www.gridcoin.us/index.htm)
