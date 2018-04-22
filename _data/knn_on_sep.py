@@ -20,7 +20,7 @@ from nxpd import draw, nxpdParams
 
 ##########################################################
 # Set your path. You write text files here and you save the SFrame.
-workDir=os.path.normpath('/Users/cookdj0128/ml/stanfordMine/')
+workDir=os.path.normpath('/Users/yourname/ml/stanfordMine/')
 # Do not be a square. Failure to follow the rules may result in data loss.
 ##########################################################
 
