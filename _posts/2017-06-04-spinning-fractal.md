@@ -8,7 +8,7 @@ comments: true
 <div class="container-fluid">
 	<div class="row">
 		<div class = "col-md-6">
-<img src="http://www.danjcook.com/images/fractal.gif" class="img-fluid">
+<img src="https://www.danjcook.com/images/fractal.gif" class="img-fluid">
 	</div>
 	<div class = "col-md-6">
 <h5>Computer Generated Art</h5>

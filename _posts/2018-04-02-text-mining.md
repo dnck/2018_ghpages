@@ -14,7 +14,7 @@ Note: if you decide to run this code, the function preprocess() is still incredi
 <div class="container-fluid">
 	<div class="row">
 		<div class = "col-md-6">
-			<img src="http://www.danjcook.com/images/stanfordmine.png" class="img-fluid">
+			<img src="https://www.danjcook.com/images/stanfordmine.png" class="img-fluid">
 		</div>
 	</div>
 </div>
@@ -395,7 +395,7 @@ def showNetwork(sim_graph):
 <div class="container-fluid">
 	<div class="row">
 		<div class = "col-md-6">
-			<img src="http://www.danjcook.com/images/stanfordmine2.png" class="img-fluid">
+			<img src="https://www.danjcook.com/images/stanfordmine2.png" class="img-fluid">
 		</div>
 	</div>
 </div>
