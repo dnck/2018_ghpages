@@ -1,10 +1,14 @@
 ---
 layout: post
-title: SSH and Git commands
+title: SSH commands
 date: 2018-04-12
 comments: true
+analytics: false
+keywords: ssh, commands
+description: simple ssh commands, no bullshit
+tag: ssh, commands, KISS
+category: ssh, RPCs 
 ---
-
 
 ## SSH
 You can use SSH to log into a different machines from your local machine. After you log in, you can access files, run code interpreters, etc. All of the commands below assume you're using a mac/unix like terminal with ssh in executable from some /bin folder.
