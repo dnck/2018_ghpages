@@ -58,7 +58,6 @@ That ends up showing you some configuration variables for HDF5.
 
 If all goes well, you should see you got the parallel version.
 
-
 ## Step 3. install mpi4py
 
 I installed mpi4py via,
@@ -69,7 +68,7 @@ env MPICC=$HOME/mpicc pip install mpi4py
 
 That didn't give me much, but I did have some trouble passing the right path to the MPICC. Just make sure you feed it the compiler's path.
 
-## Step 4. h5py
+## Step 4. Install h5py
 
 Last, I uninstalled my older version of h5py:
 
@@ -87,7 +86,7 @@ Again, this one gave me some trouble. I found numerous variations of the CC=, HD
 
 How did it work?
 
-## Step 5. Testing
+## Step 5. Test it
 
 {% highlight python %}
 from mpi4py import MPI
@@ -100,49 +99,24 @@ The last line prints,
 Hello World (from process 0)
 ```
 
-
 {% highlight python %}
 import h5py
 print h5py.version.info
 {% endhighlight %}
 
-The last line prints,
+The last line prints a summary of the h5py configuration. Everything looked dandy.
 
-```
-Summary of the h5py configuration
-
----------------------------------
-
-h5py    2.7.1
-
-HDF5    1.10.2
-
-Python  2.7.12 |Anaconda custom (x86_64)| (default, Jul  2 2016, 17:43:17)
-
-[GCC 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)]
-
-sys.platform    darwin
-
-sys.maxsize     9223372036854775807
-
-numpy   1.13.3
-```
+**Thus, next comes the real test:**
 
 {% highlight python %}
 rank = MPI.COMM_WORLD.rank  # The process ID (integer 0-3 for 4-process run)
-
 f = h5py.File('parallel_test.hdf5', 'w', driver='mpio', comm=MPI.COMM_WORLD)
-
 dset = f.create_dataset('test', (4,), dtype='i')
 dset[rank] = rank
-
 f.close()
-
 import os
 print os.listdir(os.getcwd())
-
 {% endhighlight %}
-
 
 The last line prints,
 
@@ -151,7 +125,6 @@ parallel_test.hdf5
 ```
 
 which implies I got a hdf5 file!
-
 
 ## Conclusion
 
