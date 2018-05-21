@@ -79,31 +79,25 @@ hr.faded {
       background-color: #ffffff;
 }
 
+
 blockquote {
-  background: #fff;
-  border-left: 10px solid #ccc;
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
-  quotes: "\201C""\201D";
+  background: #dfe3ee;
+  border-left: 10px solid #3b5998;
+  padding: 0.5em;
 }
-blockquote:before {
-  color: #ccc;
-  content: open-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
+
+blockquote cite {
+  color: #0057e7;
+  font-size: 10px;
+  display: block;
+  margin-top: 5px;
 }
-blockquote p {
-  display: inline;
+blockquote cite:before {
+  content: "\2014";
 }
-blockquote:after {
-    color: #ccc;
-    content: close-quote;
-    font-size: 4em;
-    line-height: .1em;
-    margin-right: .25em;
-    vertical-align: -0.4em;}
+
+
+
 
 /* --- disqus css -- */
 
