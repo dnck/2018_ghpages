@@ -55,7 +55,7 @@ Here's one naive solution:
 
 Obviously not.
 
-**The police can't just go around giving away records. First, people would revolt (I hope?). Second, it costs too much money to just send records. Police ain't stupid; they're rational actors.**
+**The police can't just go around giving away records. First, people would revolt (I hope?).**
 
 The police just need Bob's consent.
 
