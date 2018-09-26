@@ -1,4 +1,5 @@
-{'nodes': [
+{
+ 'nodes': [
     {'id': 3, 'group': 0},
     {'id': 4, 'group': 0},
     {'id': 5, 'group': 0},
