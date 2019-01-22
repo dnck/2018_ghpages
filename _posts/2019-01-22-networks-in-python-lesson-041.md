@@ -2,7 +2,13 @@
 layout: post
 title: networks in python lesson: 041
 date: 2019-01-22
+comments: true
+analytics: true
+keywords: urllib, python, networks
+description: a short HTTPclient in python
+category: client-server programs, networks, python, lesson
 ---
+
 The urllib is really powerful. It can wrap your input data in headers and send them off to a server as properly formatted html request objects at a remote host. Saying this entails that we distinguish between the concept of a host and a server. Whereas a host is the suite of protocols that define the goals of a target operating system, a server is a program that runs on a host. Many people do not make this distinction. They do not realize that their pcs and smartphones can be configured to run as server apps. This should not be surprising, given the news about hacking and all, but it may seem surprising to some. For those of you who are concerned that your computer is participating in computations not under your control, I have to say, I sympathize with you, but *I DO plan to inspect all of the code that runs on my pc all of the time!* It's just that sometimes ... deadlines.
 
 Ok, now check out some cool program code:
