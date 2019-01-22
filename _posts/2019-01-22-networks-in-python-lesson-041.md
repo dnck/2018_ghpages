@@ -1,6 +1,6 @@
 ---
 layout: post
-title: networks in python lesson: 041
+title: lessons on networks in python 041 
 date: 2019-01-22
 comments: true
 analytics: true
