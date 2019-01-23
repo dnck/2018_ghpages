@@ -1,54 +1,109 @@
 /*
-Just my new theme.
+Author: Dan Cook
 License - free for all.
 */
 
 html,
-
 body {
   background-color: #ffffff; /*#ffffff;*/
   color: #000000; /*#FFE063; */
   font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;
 }
-
-.the-content{
-      padding: 10px;
-      background-color: #ffffff; /*#ffffff;*/
-}
-/*
-h1, h2, h3, h4, h4, h5, h6 {
-  text-shadow: 0 2px 2px rgba(0,0,0,.5);
-}
-
-
-
-
-.highlight
-{
-  background-color:  #000000 ;
-}
-.language-python{
-  color: #5a656e;
-}
-
-
-color: #aad3ff;
-
-
-*/
-
-
 a,
 a:focus
 a:hover {
-  color: #0057e7;
+  color: #4286f4;
 }
-.cv {
-  font-weight: bold;
+
+/* MOBILE NAV */
+.mobile{
+  width: 100%;
+  height: 50px;
+  background-color: #919cad;
+  position: fixed;
+  z-index: 1;
 }
-.hover_image:hover {text-decoration: none} /* Optional (avoid undesired underscore if a is used as wrapper) */
+.hamburger{
+  position: relative;
+  height: 100%;
+}
+.line{
+  width: 40px;
+  height: 5px;
+  background-color: white;
+  position: absolute;
+  margin-left: 10px;
+  transition: all cubic-bezier(0.25, 0.1, 0.28, 1.54) 0.32s;
+}
+.line1{
+  top: 20%;
+}
+.line2{
+  top: 45%;
+}
+.line3{
+  top: 70%;
+}
+.hamburger:hover{
+  cursor: pointer;
+}
+.mobile-menu{
+  background-color: #919cad;
+  padding-left: 10px;
+  line-height: 1.0em;
+}
+nav a{
+  text-decoration: none;
+  color: #fff;
+}
+nav a:hover{
+  color: 4286f4;
+}
+
+/* DESKTOP NAV */
+.desktop{
+  background-color: #919cad;
+}
+.desktop .wrapper{
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  align-items: center;
+}
+.brand{
+  margin-right: auto ;
+}
+.brand h1{
+  color: #fff;
+}
+.brand span{
+  color: 4286f4;
+}
+.desktop-menu ul{
+  display: flex;
+}
+.desktop-menu li{
+  list-style: none;
+  margin: 20px;
+}
+.desktop{
+  display: none;
+}
+
+/* MEDIA QUERY */
+@media (min-width: 600px){
+  .desktop{
+    display: block;
+  }
+  .mobile{
+    display: none;
+  }
+}
+
+/* --------------------*/
+/* page specific css */
+.hover_image:hover {text-decoration: none}
 .hide {display:none}
-/* Do the shift: */
 .hover_image:hover img:first-child{display:none}
 .hover_image:hover img:last-child{display:inline-block}
 .center-justified {
@@ -56,73 +111,26 @@ a:hover {
   margin: 0 auto;
   width: 30em;
 }
-.blog-item{
-  font-size: 24px;
-}
-.home-text{
-  font-size: 20px;
-}
 
-#wellitem{
-     background-color: #ffffff;
-}
-hr.faded {
-  height: 2px;
-  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.8), rgba(0,0,0,0));
-  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.8), rgba(0,0,0,0));
-  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.8), rgba(0,0,0,0));
-  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.8), rgba(0,0,0,0));
-  border: 0;
-}
-
-#dropdownMenu1{
-      background-color: #ffffff;
-}
-
-
-blockquote {
-  background: #dfe3ee;
-  border-left: 10px solid #3b5998;
-  padding: 0.5em;
-}
-
-blockquote cite {
-  color: #0057e7;
-  font-size: 10px;
-  display: block;
-  margin-top: 5px;
-}
-blockquote cite:before {
-  content: "\2014";
-}
-
-
-
-
+/* --------------------*/
 /* --- disqus css -- */
-
 #disqus_thread {
 color: #fff;
 border-style: 0px solid;
 border-color: #cccccc;
 padding: 100px;
 }
-
 #dsq-content #dsq-comments .dsq-comment-body {
 color: #fff;
 background-color: #000000;
 }
-
 .dsq-reaction-body {
 color: #fff;
 }
-
 .dsq-reaction-header cite, .dsq-reaction-header span {
 color: #ccc;
 }
-
 .dsq-reaction-retweets {
 color: #ccc;
 }
-
 /*--- end disqus css --*/

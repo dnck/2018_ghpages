@@ -1,6 +1,7 @@
 ---
 layout: post
 title: What's the difference between a scientist, an engineer, and a developer?
+author: dc
 date: 2018-09-13
 comments: true
 analytics: true

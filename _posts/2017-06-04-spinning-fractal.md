@@ -3,12 +3,13 @@ layout: post
 title: spinning fractals!
 date: 2017-06-04
 comments: true
+author: dc
 ---
 
 <div class="container-fluid">
 	<div class="row">
 		<div class = "col-md-6">
-<img src="https://www.danjcook.com/images/fractal.gif" class="img-fluid">
+<img src="{{site.url}}/assets/images/fractal.gif" class="img-fluid">
 	</div>
 	<div class = "col-md-6">
 <h5>Computer Generated Art</h5>

@@ -2,6 +2,7 @@
 layout: post
 title: Distributed Systems references
 date: 2018-03-14
+author: dc
 comments: true
 ---
 ## Algorithms

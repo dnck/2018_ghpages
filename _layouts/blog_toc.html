@@ -1,0 +1,27 @@
+{% include head.html %}
+{% include header.html %}
+<div class='container' id='na'>
+	<div class='col-sm-12 col-xs-12' id='na'>
+    <div class='row' id='na'>
+      <p></p>
+    </div>
+  </div>
+  <div class='col-sm-12 col-xs-12' id='na'>
+    <div class='row' id='na'>
+      <dl>
+      {% for post in site.posts %}
+      <dt><a href='{{ post.url }}' title='{{ post.title }}' class='blog-item'>{{ post.title }}</a></dt>
+      <dd>{{ post.date | date_to_string }}</dd>
+      {% endfor %}
+      </dl>
+		</div>
+		<div class='row' id='na'>
+			<p></p>
+    </div>
+    <div class='row' id='na'>
+			<p></p>
+		</div>
+  </div>
+</div>
+{% include footer.html %}
+{% include closing_tags.html %}

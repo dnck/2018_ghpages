@@ -2,10 +2,11 @@
 layout: post
 title: Memory consumption in python programs
 date: 2018-05-07
+author: dc
 comments: true
 analytics: false
 keywords: numpy, scipy, arrays, memory, garbage collection
-description: 
+description:
 tag: Modelling, multisensory integration, taste, psychophysics
 category: PhD study
 ---

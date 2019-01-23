@@ -1,9 +1,30 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <ul class="nav">
-            <li class="nav-item home-text"><a class="nav-link" href="/">home</a></li>
-            <li class="nav-item home-text"><a class="nav-link" href="/blog">blog</a></li>
-            <li class="nav-item"><a class="nav-link" href="https://www.danjcook.com/blog/atom.xml" target='_blank'><i class="fa fa-rss fa-1x" aria-hidden="true"></i></a></li>
+<header>
+  <nav class='mobile' id='mobile'>
+      <div class='hamburger' onclick='toggleHamburger();'>
+        <div class='line line1' id ='line1'></div>
+        <div class='line line2' id ='line2'></div>
+        <div class='line line3' id ='line3'></div>
+      </div>
+      <div class='mobile-menu' id='mobile-menu' style='display:none'>
+        <ul>
+	        <li ><a  href='{{site.url}}/index.html'>home</a></li>
+          <li ><a  href='{{site.url}}/blog'>blog</a></li>
+	        <li ><a  href='{{site.url}}/downloads'>downloads</a></li>
         </ul>
+      </div>
+  </nav>
+  <nav class='desktop'>
+    <div class='wrapper'>
+      <div class='brand'>
+        <h1>{{page.title}}<span></span</h1>
+      </div>
+      <div class='desktop-menu'>
+        <ul>
+          <li ><a  href='{{site.url}}/index.html'>home</a></li>
+          <li ><a  href='{{site.url}}/blog'>blog</a></li>
+	        <li ><a  href='{{site.url}}/downloads'>downloads</a></li>
+        </ul>
+      </div>
     </div>
-</nav>
+  </nav>
+</header>

@@ -3,6 +3,7 @@ layout: post
 title: heart racing
 date: 2018-01-11
 comments: true
+author: dc
 analytics: false
 keywords: predictive analytics, data science
 description:

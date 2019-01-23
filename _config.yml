@@ -1,6 +1,30 @@
 name: dnck
-markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
 permalink: /blog/:year/:month/:day/:title
 comments: true
-url: "https://www.danjcook.com"
-highlighter: rouge
+url: 'https://www.danjcook.com'
+rawgitfiles: 'https://raw.githubusercontent.com/dnck/dnck.github.io/master/assets'
+defaults:
+  - scope:
+      path: 'assets/images'
+    values:
+      isaimage: true
+defaults:
+  - scope:
+      path: 'assets/code'
+    values:
+      prg: true
+defaults:
+  - scope:
+      path: 'assets/data'
+    values:
+      dat: true
+defaults:
+  - scope:
+      path: 'assets/personelle'
+    values:
+      personelle: true

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Are you getting hacked?
+author: dc
 date: 2019-01-14
 comments: true
 analytics: true
@@ -9,13 +10,13 @@ description: A deconstructivist approach to privacy.
 category: privacy, security
 ---
 
-<img src="/images/deconstructionism-definition.png" class="img-fluid">
+<img src="{{site.url}}/assets/images/deconstructionism-definition.png" class="img-fluid">
 
 <br>
 <br>
 Figure 1.  <br> Recursion <br> **noun** <em>Mathematics, Computers.</em><br>
 The process of defining a function or calculating a number by the repeated application of an algorithm.
-<img src="/images/am-i-being-hacked.png" class="img-fluid">
+<img src="{{site.url}}/assets/images/am-i-being-hacked.png" class="img-fluid">
 <br>
 <br>
 
@@ -36,7 +37,7 @@ Figure 2. How often do you check the address field of your web-browser after cli
 <br>
 
 Figure 3. You do not know. Microsoft office has reserved the "NORMAL" style for itself. Why hasn't open-source become the *NORM*?
-<img src="/images/NORMAL-style-in-use-choose-another-style.png" class="img-fluid">
+<img src="{{site.url}}/assets/images/NORMAL-style-in-use-choose-another-style.png" class="img-fluid">
 <br>
 <br>
 
@@ -46,7 +47,7 @@ What kind of poetic world are we living in when we can’t be certain that we’
 
 
 Figure 4. Complex patterns of syntactic ambiguity in natural human language can be found on the world wide web and other digital spaces accessible over the internet protocol. The definition of the word ‘surveillance’ is shown to be derived from the early 19th century French prefix sur meaning “over” and the Latin vigilare “keep watch”.<br>
-<img src="/images/you-are-not-normal-surveillance.png" class="img-fluid"><br>
+<img src="{{site.url}}/assets/images/you-are-not-normal-surveillance.png" class="img-fluid"><br>
 What exactly is a government that spies on its own residents? In Figure 4, if the function word, “to”, were to appear in the head position of the phrase, “keep watch”, then the phrase would constitute a reference to an action, “to keep watch”. One "keeps watch" when one attentively watches someone or something. Without the function word, the phrase can act as a command: "keep watch!"
 
 We should all take better care of protecting the public mediums of communication and exchange, such as money, credit, and telecommunications, from unwarranted surveillance.
@@ -57,7 +58,7 @@ Not all hacking is surveillance. Nonetheless, when we are concerned with hacking
 
 > In short, to be hacked is to have one’s own security policy – whether directed at obtaining access to oneself or one's own property – violated by the surveillence activities, or worse, of an other agent.
 
-<img src="/images/save-yourself-paterna-paternis.png">
+<img src="{{site.url}}/assets/images/save-yourself-paterna-paternis.png">
 <br>
 <br>
 Figure 5. Private corporations, and concerned governments, operating under the guise of paterna paternis, are not the answer.
@@ -74,7 +75,7 @@ You might think that this is the work of a Local Government prohibiting profits 
 However, the same prohibition comes with the implicit statement that it was Elsevier, the company, and not the Local Government that has prohibited the sale elsewhere, and it was the Government, and not Elsevier that would enforce the private legislation against anyone that violates the decree.
 
 Figure 6. What is it to be a criminal in the age of hacking? Was Barack Obama a criminal when he claimed that it would have been better had the subjects of possible surveillance been kept ignorant? What would have happened had Barack Obama, instead of encouraging ignorance, pushed for more well-informed citizens when it came down to information security and privacy?
-<img src="/images/it-is-NOT-better-to-NOT-know-WHO-CONTROLS-THE-KNOWLEDGE.png" class="img-fluid">
+<img src="{{site.url}}/assets/images/it-is-NOT-better-to-NOT-know-WHO-CONTROLS-THE-KNOWLEDGE.png" class="img-fluid">
 
 Now, more than ever, we need education for the people about information security and privacy. Can we trust publishers to distribute knowledge?
 

@@ -1,0 +1,44 @@
+{% include head.html %}
+{% include header.html %}
+
+<div class='container' id='na'>
+	<div class='col-sm-12 col-xs-12' id='na'>
+    <div class='row' id='na'>
+      <p></p>
+    </div>
+  </div>
+  <div class='col-sm-12 col-xs-12' id='na'>
+    <div class='row' id='na'>
+
+      {% assign staticfiles = site.static_files %}
+      <dl>
+      {% for f in staticfiles %}
+        {% if f.path contains 'assets/' %}
+        <dt>
+          <a href='{{site.url}}{{f.path}}'>{{site.url}}{{f.path}}</a>
+        </dt>
+        <dd>
+          {{f.modified_time}}<br>
+          CC BY 2.0, Daniel John Cook<br>
+
+        </dd>
+        {% endif %}
+      {% endfor %}
+      </dl>
+
+		</div>
+		<div class='row' id='na'>
+			<p></p>
+    </div>
+    <div class='row' id='na'>
+			<p></p>
+		</div>
+  </div>
+</div>
+
+
+
+
+
+{% include footer.html %}
+{% include closing_tags.html %}

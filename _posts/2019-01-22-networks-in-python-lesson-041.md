@@ -1,6 +1,7 @@
 ---
 layout: post
-title: lessons on networks in python 041 
+title: lessons on networks in python 041
+author: dc
 date: 2019-01-22
 comments: true
 analytics: true
@@ -70,5 +71,5 @@ The program constructs an HTTPClient class. An instance of the class assigns to 
 
 Thus, we will have to follow up in the future by showing how to request from the remote host their credentials. We can then use this information to make decisions about the soundness of the response.
 
-**Dan's Honorable Python Libaries, Classes, and Functions**
-1. urllib.request.urlopen(host)
+Dan's Honorable Python Libaries, Classes, and Functions  
+urllib.request.urlopen(host)

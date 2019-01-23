@@ -1,7 +1,22 @@
----
-layout: default
-comments: false
----
-<h1>{{ page.title }}</h1>
-<p>{{ page.date | date_to_string }}</p>
-{{ content }}
+{% include head.html %}
+{% include header.html %}
+<div class='container' id='na'>
+	<div class='col-sm-12 col-xs-12' id='na'>
+    <div class='row' id='na'>
+      <p></p>
+    </div>
+  </div>
+  <div class='col-sm-12 col-xs-12' id='na'>
+    <div class='row' id='na'>
+			<p>{{ page.date | date_to_string }}</p>
+		</div>
+		<div class='row' id='na'>
+      <p>{{ content }}<p>
+    </div>
+    <div class='row' id='na'>
+      <p></p>
+		</div>
+  </div>
+</div>
+{% include footer.html %}
+{% include closing_tags.html %}

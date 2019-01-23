@@ -2,6 +2,7 @@
 layout: post
 title: semantic derivations
 date: 2017-05-29
+author: dc
 comments: true
 ---
 

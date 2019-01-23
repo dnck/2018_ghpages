@@ -2,6 +2,7 @@
 layout: post
 title: launch blog
 date: 2017-05-28
+author: dc
 comments: true
 ---
 

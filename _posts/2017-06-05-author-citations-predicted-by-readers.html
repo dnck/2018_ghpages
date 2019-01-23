@@ -1,14 +1,52 @@
 ---
 layout: post
 title: visualizing citations predicted by reads
-scripts: _includes/ploty_scienceopen.html
+scripts: assets/data/ploty_scienceopen.html
 date: 2017-06-05
+author: dc
 comments: true
 ---
 <h0 class="plotlyPlot"></h0>
-<br>
-<h2>About the plot</h2>
-<p>The position and size for each data point is controlled by a single paper's read count and its position along the y-axis is controlled by how many times the paper was cited by other papers in the ScienceOpen.com database. If you hover your mouse above a point, it will show you the exact stats and the title for the data point, e.g. it gives the coded citation for the paper. You can download the imaginary data that I used for the plot <a href ="https://raw.githubusercontent.com/dnck/dnck.github.io/master/_data/test.csv" download>here</a>.</p>
+
+You can download the simulated data for the plot below <a href ="{{site.rawgitfiles}}/data/test.csv" download> here</a>. You can play with the code for the plot <a href="https://codepen.io/Cookdj0128/pen/vZNQVx"> at codepen.io.</a>
+
+Each data point represents a research article from a particular author and shows 1) how many times it was read and 2) how many authors have cited the selected article in their own work.
+
+I didn't have access to the real data at the time, so I simulated it from my knowledge of the scienceopen.com corpus.
+
+Single articles on scienceopen have a read-count and a cited-by count. You can see an example of summary statistics<a href ="https://www.scienceopen.com/search#author/ea42759d-c9a9-4bb0-8437-fa41d099df45"> here</a>.
+
+On scienceopen at least, read-counts seem to stand in a one-to-one relationship with the number of times a link to an article was clicked. Also, cited-by counts are gathered by counting how many articles have cited the selected article. Thus, the read-counts and cited-by-counts are useful metrics we can use to evaluate the popularity of a paper.
+
+Here's the code for the simulated data:<br>
+
+
+```
+import numpy as np
+read_count = [int(np.random.lognormal(mean=4)) for i in range(140)]
+citation_count = [int(np.random.lognormal(mean=4)) for i in range(140)]
+```
+
+After running those three lines in an interactive python session, I copied and pasted the values for the variables into two columns of an spreadsheet and I used this as my simulated data. The csv is available for download <a href ='{{site.rawgitfiles}}/data/test.csv' download>here</a>.
+
+Note that I used a lognormal distribution because I noticed that similar summary statistics maintained by Google Scholar looked a lot like they came from a exponential distribtion. I know that's not too scientific, but, this was more of an excercise in visualization, not data science, which I accomplished: I learned how to use plotly and I challenged myself to write code in javascript. As a side-benefit, I learned something about the lognormal distribution, which is worth sharing now.
+
+A distribution is defined as lognormal if it can be mathematically transformed into a gaussian distribution by iteratively applying a log function to each data point in the sample.
+
+The numpy function np.random.lognormal() takes three parameters:
+1) the underlying mean of a normal distribution
+2) the standard deviation of the underlying normal distribution
+3) and the array shape.
+
+Anyway, that's all for now. In future posts, I'll be writing more about my research of research articles, culture, textual analytics, semantics, and the cognition of language.
+
+
+Dan's Honorable Python Libaries, Classes, and Functions
+np.random.lognormal()
+urllib.request.urlopen(host)
+
+
+
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script>
 (function() {
@@ -16,13 +54,12 @@ var d3 = Plotly.d3;
 var WIDTH_IN_PERCENT_OF_PARENT = 80,
     HEIGHT_IN_PERCENT_OF_PARENT = 60;
 var gd3 = d3.select('h0').append('div').style({
-
         width: WIDTH_IN_PERCENT_OF_PARENT + '%',
         'margin-left': (75 - WIDTH_IN_PERCENT_OF_PARENT) / 2 + '%',
         height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh',
         'margin-top': (100 - HEIGHT_IN_PERCENT_OF_PARENT) / 8 + 'vh'});
 var gd = gd3.node();
-		Plotly.d3.csv("https://raw.githubusercontent.com/dnck/dnck.github.io/master/_data/test.csv",
+		Plotly.d3.csv("{{site.rawgitfiles}}/data/test.csv",
 			function(err, rows){
 				var YEAR = 2016;
 				var discipline = ['Discipline A', 'Discipline B', 'Discipline C', 'Discipline D', 'Discipline E'];
@@ -62,33 +99,8 @@ var gd = gd3.node();
 			};
 			Plotly.plot(gd, data, layout, {showLink: false});
 		});
-
 window.onresize = function() {
     Plotly.Plots.resize(gd);
 };
 })();
 </script>
-<p class="muted"><b>Made with plotly.js<a href="https://plot.ly/javascript/open-source-announcement/"> MIT License</a> </b> </p>
-<h2>Show me the code</h2>
-<p>You can mess around witg the code I wrote at <a href="https://codepen.io/Cookdj0128/pen/vZNQVx">codepen.io</a>. In this post, I'll show you how I created the data and I'll refelect on how I plotted it.</p>
-<h2>What do the numbers mean?</h2>
-<b>Here's the short of it: each data point represents a research article from an particular author and 1) how many times it was read and 2) how many other authors have cited the paper in their own work.</b>
-<p>Here's a longer story: I plotted imaginary data that approximately resembles the summary statistics maintained by ScienceOpen for authors listed on their website. In the ScienceOpen database, the string corresponding to an author's published name is a key to different pages on the ScienceOpen website. In addition to hosting author pages (for free), almost all of the pages on ScienceOpen are articles published by different publishers of natural sciences or academic arts and humanities journals. Some articles on ScienceOpen are attended to more frequently both readers and other authors. You can see an example of an author's summary statistics on ScienceOpen <a href ="https://www.scienceopen.com/search#author/ea42759d-c9a9-4bb0-8437-fa41d099df45">here</a>. This is getting a bit redunant, but note that a single article has both a read-count and a cited-by count. A high read-count means that a lot of people have read (or least clicked the link for the paper). A single cited-by count implies that many authors have considered the article in their own work. There's a lot to say about ScienceOpen, but I wanted to provide a background for the numbers.</p>
-<h2>How do I get the numbers?</h2>
-<p>ScienceOpen doesn't host any statistics for download (at least not en masse). Typically, if a site doesn't do that, I'd just scrap it. If you're interested, I scrap using the python modules <a href="https://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a> and <a href="https://pypi.python.org/pypi/requests">Requests</a>. Unfornunately for me, ScienceOpen is dyanmically generating their html documents. So scrapperings a bit more challenging, Therefore, instead of scraping their site, I randomly generated two distributions of data that mimic the "read count" and the "cited by count" for an the author's papers. I did that in my mac terminal with python and its <a href="http://www.numpy.org/">numpy package</a></p>
-{% highlight python %}
-cookdj0128$  python
-Python 2.7.12 |Anaconda custom (x86_64)| (default, Jul  2 2016, 17:43:17)
-[GCC 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)] on darwin
-Type "help", "copyright", "credits" or "license" for more information.
-Anaconda is brought to you by Continuum Analytics.
-Please check out: http://continuum.io/thanks and https://anaconda.org
-cookdj0128$  import numpy as np
-cookdj0128$  read_count = [int(np.random.lognormal(mean=4)) for i in range(140)]
-cookdj0128$  citation_count = [int(np.random.lognormal(mean=4)) for i in range(140)]
-{% endhighlight %}
-<p>From there, you can pretty much copy and paste the variable read_count and citation_count into an excel sheet, which I did <a href ='https://raw.githubusercontent.com/dnck/dnck.github.io/master/_data/test.csv' download>here</a>.
-<h2>Why use a lognormal distribution?</h2>
-<p> <b>The short version is that when I analyzed similar summary stats maintained by Google Scholar for researchers, the distributions for these stats appeared to come from a log-normal distribtion.</b><br>
-<p>So log normal distributions are called "log normal" because they can be mathematically transformed into a gaussian distribution e.g. normally bell curved distribution, by iteratively applying a log function to each data point in the distribution. One property of a lognormal distribution (when it's not transformed into a gaussian) is that a lot of the numbers bunch up toward one tail of the distribution, which is what I needed to simulate a situation in which many of an author's papers were read just a few times, but a few were read and cited very often.<br></p>
-<p>To thet this data, I used numpy. The numpy function np.random.lognormal() takes three parameters: 1) the underlying mean of a normal distribution, 2) the standard deviation of the underlying normal distribution, and 3) the array shape. Unless you want to do some some multivariate stuff, you can ignore the shape parameter. For now, you just need to know that I used a mean of 4. I selected the mean empirically, looking at the resulting mean of the log distribution until I got something that roughly resemebled a known author on ScienceOpen. So that's the long explanation for my use of a log-normal distribution. It's not totally accurate, but it allowed me to simulate the data that I wanted to model. Personally, I think more companies should open up there data and allow othes to ask inerestng quuestions. This is just a small effort to make that point. In the future, I will be addressing the entire school about best practices for sharing data. </p>

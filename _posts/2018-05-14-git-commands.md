@@ -1,14 +1,17 @@
 ---
 layout: post
 title: git commands
+author: dc
 date: 2018-05-14
-comments: true
+comments: false
 analytics: false
 keywords: git, commands
 description: simple git commands, no bullshit
 tag: git, commands, KISS
 category: git
 ---
+
+
 
 Here are some of the common git commands, or questions that I find myself googling a lot. Maybe they help you.
 

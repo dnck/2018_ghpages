@@ -1,14 +1,15 @@
 ---
 layout: post
 title: Decentralized identity management
+author: dc
 date: 2018-06-01
 comments: true
 analytics: true
 ---
 
-## Key terms
+Key terms  
 
-**User** - a node in the network that wishes to reveal personally identifying data (pid)
+User - a node in the network that wishes to reveal personally identifying data (pid)
 
 **Provider** - a node in the network that wishes to obtain a user's pid.
 
@@ -28,7 +29,7 @@ analytics: true
 
 **Closing transaction** - a transaction made by a provider representing the provider's acknowledge of receipt of the pid.
 
-<img src="https://www.danjcook.com/images/Untitled Diagram.png" class="img-fluid">
+<img src="https://www.danjcook.com/assets/images/Untitled Diagram.png" class="img-fluid">
 
 **Figure 1.**
 
@@ -51,5 +52,5 @@ If the user approves of the provider's and certifier's acknowledgement transacti
 If the certifier makes a certification transaction, then the protocol should prompt the provider to make a closing transaction, which approves the user's consent transaction and the certifier's certification transaction.
 Terms
 
-## Criticism
+Criticism  
 Ok, I admit, this is not fully worked out. I will update when I come up with my own criticisms. But, any thoughts appreciated.

@@ -3,6 +3,7 @@ layout: post
 title: PGP PUBLIC KEY BLOCKS
 date: 2018-02-06
 comments: true
+author: dc
 ---
 
 ## Send personal messages to:
