@@ -20,17 +20,14 @@ Table 1.
 
 |   |   |   |   |   |   |   |   |
 |---|---|---|---|---|---|---|---|
-| Player A | 1  | 1  | 0  | 0  | 0  | 1  | 1  |
-| Player B | 0  | 1  | 1  | 0  | 1  | 0  | 1  |
-|   |   |   |   |   |   |   |   |
-| Player A | 1  | 1  | 0  | 0  | 0  | 0  | 0  |
-| Player B | 0  | 1  | 1  | 0  | 0  | 0  | 0  |
-|   |   |   |   |   |   |   |   |
-| Player A | 1  | 0  | 0  | 1  |   |   | 0  |
-| Player B | 0  | 0  | 1  | 1  |   |   | 0  |
-|   |   |   |   |   |   |   |   |
-| Player A | 0  | -1  | -1  | 0   | 0  | -2  | -2  |
-| Player B | -1  | -1  | 0  | 0  | -2  | 0  | -2  |
+| Player A Cheats |   1  | 1  | 0  | 0  | 0  | 1  | 1  |
+| Player B Cheats |   0  | 1  | 1  | 0  | 1  | 0  | 1  |
+| Player A is successful |   1  | 1  | 0  | 0  | 0  | 0  | 0  |
+| Player B is successful |  0  | 1  | 1  | 0  | 0  | 0  | 0  |
+| Player A Outcome/Gain | 1  | 0  | 0  | 1  |   |   | 0  |
+| Player B Outcome/Gain  | 0  | 0  | 1  | 1  |   |   | 0  |
+| Player A Outcome/Loss | 0  | -1  | -1  | 0   | 0  | -2  | -2  |
+| Player B Outcome/Loss | -1  | -1  | 0  | 0  | -2  | 0  | -2  |
 
 The way to read Table 1. is to start in the left most column. Reading down row-wise, we get the sequence, [1,0,1,0,1,0,0,-1]. We interpret this as follows: if Player A cheats, is successful, and Player B does not cheat and is (obviously) not successful at cheating, then, as per the rules of the game, Player A gains a value of +1, but Player B loses the value of 1. A similar logic can be applied to the other columns in the table.
 
