@@ -18,17 +18,17 @@ Table 1. shows the combination of player inputs and the outcomes of the game whe
 
 Table 1.
 
-|   | CHEATS   |
+|   |   |   |   |   |   |   |   |
 |---|---|---|---|---|---|---|---|
 | Player A | 1  | 1  | 0  | 0  | 0  | 1  | 1  |
 | Player B | 0  | 1  | 1  | 0  | 1  | 0  | 1  |
-|   | SUCCESS   |
+|   |   |   |   |   |   |   |   |
 | Player A | 1  | 1  | 0  | 0  | 0  | 0  | 0  |
 | Player B | 0  | 1  | 1  | 0  | 0  | 0  | 0  |
-|   |  OUTCOME/GAIN   |
+|   |   |   |   |   |   |   |   |
 | Player A | 1  | 0  | 0  | 1  |   |   | 0  |
 | Player B | 0  | 0  | 1  | 1  |   |   | 0  |
-|   | OUTCOME/LOSS   |
+|   |   |   |   |   |   |   |   |
 | Player A | 0  | -1  | -1  | 0   | 0  | -2  | -2  |
 | Player B | -1  | -1  | 0  | 0  | -2  | 0  | -2  |
 
