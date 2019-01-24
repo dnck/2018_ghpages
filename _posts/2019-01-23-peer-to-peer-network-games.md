@@ -17,6 +17,7 @@ Let us think about a special two player game in which if one player successfully
 Table 1. shows the combination of player inputs and the outcomes of the game when the staked values are standardized to 1.0.
 
 Table 1.
+
 |   | CHEATS   |
 |---|---|---|---|---|---|---|---|
 | Player A | 1  | 1  | 0  | 0  | 0  | 1  | 1  |
