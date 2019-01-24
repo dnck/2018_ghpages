@@ -14,9 +14,7 @@ Games
 
 Let us think about a special two player game in which if one player successfully cheats, then the other player losses the value gained by the former. On the other hand, if the cheater is detected, then the cheater losses a staked value to the non-cheater. Finally, in this game, both players will gain some value from cooperating and not cheating.
 
-Table 1. shows the combination of player inputs and the outcomes of the game when the staked values are standardized to 1.0.
-
-Table 1.
+Table 1. shows the combination of player inputs and the outcomes of the game when the staked values are standardized to 1.
 
 |   |   |   |   |   |   |   |   |
 |---|---|---|---|---|---|---|---|
