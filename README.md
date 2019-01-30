@@ -1,3 +1,2 @@
-# dnck.github.io
-www.danjcook.com
-Just using this platform to learn a bit more about html, css, js, ruby, etc. 
+# Old Github pages personal website 
+This was my old code from my first attempt at using github pages to serve my personal website. It is no longer maintained. Please see the new repository atdnck.github.io
